@@ -66,6 +66,7 @@ NSString *GGKReminderWhenPrefixString = @"which is";
 
 - (IBAction)setReminder
 {
+    // WILO
     NSLog(@"SRVC sR");
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     UILocalNotification *aLocalNotification = [[UILocalNotification alloc] init];
