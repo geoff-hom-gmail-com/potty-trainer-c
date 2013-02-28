@@ -1,0 +1,473 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9315502F16DF1D2400482944 /* UIView+GGKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315502E16DF1D2400482944 /* UIView+GGKAdditions.m */; };
+		9315503216DF225000482944 /* GGKSetReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315503116DF225000482944 /* GGKSetReminderViewController.m */; };
+		9362E42416D49EC600A1B771 /* GGKPickChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42316D49EC600A1B771 /* GGKPickChildViewController.m */; };
+		9362E42716D4AC2A00A1B771 /* UIColor+GGKColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42616D4AC2A00A1B771 /* UIColor+GGKColors.m */; };
+		9362E42D16D5F17600A1B771 /* GGKSoundModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42C16D5F17600A1B771 /* GGKSoundModel.m */; };
+		9362E43016D5FBF400A1B771 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9362E42F16D5FBF400A1B771 /* AVFoundation.framework */; };
+		9362E43216D5FDAB00A1B771 /* tap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 9362E42E16D5FA8600A1B771 /* tap.aif */; };
+		937652AA16C079CB007EA04C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937652A916C079CB007EA04C /* UIKit.framework */; };
+		937652AC16C079CB007EA04C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937652AB16C079CB007EA04C /* Foundation.framework */; };
+		937652AE16C079CB007EA04C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937652AD16C079CB007EA04C /* CoreGraphics.framework */; };
+		937652B416C079CB007EA04C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 937652B216C079CB007EA04C /* InfoPlist.strings */; };
+		937652B616C079CB007EA04C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 937652B516C079CB007EA04C /* main.m */; };
+		937652BA16C079CB007EA04C /* GGKPottyTrainerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 937652B916C079CB007EA04C /* GGKPottyTrainerAppDelegate.m */; };
+		937652BC16C079CB007EA04C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 937652BB16C079CB007EA04C /* Default.png */; };
+		937652BE16C079CB007EA04C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 937652BD16C079CB007EA04C /* Default@2x.png */; };
+		937652C016C079CB007EA04C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 937652BF16C079CB007EA04C /* Default-568h@2x.png */; };
+		937652C316C079CB007EA04C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937652C116C079CB007EA04C /* MainStoryboard_iPhone.storyboard */; };
+		937652C616C079CB007EA04C /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937652C416C079CB007EA04C /* MainStoryboard_iPad.storyboard */; };
+		937652C916C079CB007EA04C /* GGKPottyTrainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937652C816C079CB007EA04C /* GGKPottyTrainerViewController.m */; };
+		937F863416D6A54A007DE572 /* GGKRewardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F863316D6A54A007DE572 /* GGKRewardsViewController.m */; };
+		937F863716D6A61A007DE572 /* GGKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F863616D6A61A007DE572 /* GGKSettingsViewController.m */; };
+		937F863D16D6AF5D007DE572 /* GGKSavedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F863C16D6AF5D007DE572 /* GGKSavedInfo.m */; };
+		937F864016D9DC0C007DE572 /* GGKAddPottyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F863F16D9DC0C007DE572 /* GGKAddPottyViewController.m */; };
+		937F864316D9DC36007DE572 /* GGKHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F864216D9DC36007DE572 /* GGKHistoryTableViewController.m */; };
+		937F864616DABF5A007DE572 /* GGKPottyAttemptDayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F864516DABF59007DE572 /* GGKPottyAttemptDayTableViewCell.m */; };
+		937F864916DC50B1007DE572 /* GGKHistoryHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F864816DC50B1007DE572 /* GGKHistoryHeaderCell.m */; };
+		937F864C16DC7BF2007DE572 /* NSDate+GGKDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F864B16DC7BF2007DE572 /* NSDate+GGKDate.m */; };
+		9390858116DD534800C2290F /* GGKHistoryForDayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390858016DD534800C2290F /* GGKHistoryForDayTableViewController.m */; };
+		9390858416DD583A00C2290F /* GGKPottyAttemptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390858316DD583A00C2290F /* GGKPottyAttemptCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9315502D16DF1D2400482944 /* UIView+GGKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GGKAdditions.h"; sourceTree = "<group>"; };
+		9315502E16DF1D2400482944 /* UIView+GGKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GGKAdditions.m"; sourceTree = "<group>"; };
+		9315503016DF225000482944 /* GGKSetReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSetReminderViewController.h; sourceTree = "<group>"; };
+		9315503116DF225000482944 /* GGKSetReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSetReminderViewController.m; sourceTree = "<group>"; };
+		9362E42216D49EC600A1B771 /* GGKPickChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPickChildViewController.h; sourceTree = "<group>"; };
+		9362E42316D49EC600A1B771 /* GGKPickChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPickChildViewController.m; sourceTree = "<group>"; };
+		9362E42516D4AC2A00A1B771 /* UIColor+GGKColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GGKColors.h"; sourceTree = "<group>"; };
+		9362E42616D4AC2A00A1B771 /* UIColor+GGKColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GGKColors.m"; sourceTree = "<group>"; };
+		9362E42B16D5F17600A1B771 /* GGKSoundModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSoundModel.h; sourceTree = "<group>"; };
+		9362E42C16D5F17600A1B771 /* GGKSoundModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSoundModel.m; sourceTree = "<group>"; };
+		9362E42E16D5FA8600A1B771 /* tap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = tap.aif; sourceTree = "<group>"; };
+		9362E42F16D5FBF400A1B771 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		937652A616C079CB007EA04C /* Potty Trainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Potty Trainer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		937652A916C079CB007EA04C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		937652AB16C079CB007EA04C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		937652AD16C079CB007EA04C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		937652B116C079CB007EA04C /* Potty Trainer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Potty Trainer-Info.plist"; sourceTree = "<group>"; };
+		937652B316C079CB007EA04C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		937652B516C079CB007EA04C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		937652B716C079CB007EA04C /* Potty Trainer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Potty Trainer-Prefix.pch"; sourceTree = "<group>"; };
+		937652B816C079CB007EA04C /* GGKPottyTrainerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGKPottyTrainerAppDelegate.h; sourceTree = "<group>"; };
+		937652B916C079CB007EA04C /* GGKPottyTrainerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGKPottyTrainerAppDelegate.m; sourceTree = "<group>"; };
+		937652BB16C079CB007EA04C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		937652BD16C079CB007EA04C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		937652BF16C079CB007EA04C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		937652C216C079CB007EA04C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		937652C516C079CB007EA04C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		937652C716C079CB007EA04C /* GGKPottyTrainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGKPottyTrainerViewController.h; sourceTree = "<group>"; };
+		937652C816C079CB007EA04C /* GGKPottyTrainerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGKPottyTrainerViewController.m; sourceTree = "<group>"; };
+		937F863216D6A54A007DE572 /* GGKRewardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKRewardsViewController.h; sourceTree = "<group>"; };
+		937F863316D6A54A007DE572 /* GGKRewardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKRewardsViewController.m; sourceTree = "<group>"; };
+		937F863516D6A61A007DE572 /* GGKSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSettingsViewController.h; sourceTree = "<group>"; };
+		937F863616D6A61A007DE572 /* GGKSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSettingsViewController.m; sourceTree = "<group>"; };
+		937F863B16D6AF5D007DE572 /* GGKSavedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSavedInfo.h; sourceTree = "<group>"; };
+		937F863C16D6AF5D007DE572 /* GGKSavedInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSavedInfo.m; sourceTree = "<group>"; };
+		937F863E16D9DC0B007DE572 /* GGKAddPottyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKAddPottyViewController.h; sourceTree = "<group>"; };
+		937F863F16D9DC0C007DE572 /* GGKAddPottyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKAddPottyViewController.m; sourceTree = "<group>"; };
+		937F864116D9DC36007DE572 /* GGKHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKHistoryTableViewController.h; sourceTree = "<group>"; };
+		937F864216D9DC36007DE572 /* GGKHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKHistoryTableViewController.m; sourceTree = "<group>"; };
+		937F864416DABF59007DE572 /* GGKPottyAttemptDayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPottyAttemptDayTableViewCell.h; sourceTree = "<group>"; };
+		937F864516DABF59007DE572 /* GGKPottyAttemptDayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPottyAttemptDayTableViewCell.m; sourceTree = "<group>"; };
+		937F864716DC50B1007DE572 /* GGKHistoryHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKHistoryHeaderCell.h; sourceTree = "<group>"; };
+		937F864816DC50B1007DE572 /* GGKHistoryHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKHistoryHeaderCell.m; sourceTree = "<group>"; };
+		937F864A16DC7BF2007DE572 /* NSDate+GGKDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+GGKDate.h"; sourceTree = "<group>"; };
+		937F864B16DC7BF2007DE572 /* NSDate+GGKDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+GGKDate.m"; sourceTree = "<group>"; };
+		9390857F16DD534800C2290F /* GGKHistoryForDayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKHistoryForDayTableViewController.h; sourceTree = "<group>"; };
+		9390858016DD534800C2290F /* GGKHistoryForDayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKHistoryForDayTableViewController.m; sourceTree = "<group>"; };
+		9390858216DD583A00C2290F /* GGKPottyAttemptCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPottyAttemptCell.h; sourceTree = "<group>"; };
+		9390858316DD583A00C2290F /* GGKPottyAttemptCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPottyAttemptCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		937652A316C079CB007EA04C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9362E43016D5FBF400A1B771 /* AVFoundation.framework in Frameworks */,
+				937652AA16C079CB007EA04C /* UIKit.framework in Frameworks */,
+				937652AC16C079CB007EA04C /* Foundation.framework in Frameworks */,
+				937652AE16C079CB007EA04C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9362E43116D5FC9100A1B771 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				9362E42E16D5FA8600A1B771 /* tap.aif */,
+			);
+			name = sounds;
+			sourceTree = "<group>";
+		};
+		9376529D16C079CA007EA04C = {
+			isa = PBXGroup;
+			children = (
+				937652AF16C079CB007EA04C /* Potty Trainer */,
+				937652A816C079CB007EA04C /* Frameworks */,
+				937652A716C079CB007EA04C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		937652A716C079CB007EA04C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				937652A616C079CB007EA04C /* Potty Trainer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		937652A816C079CB007EA04C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9362E42F16D5FBF400A1B771 /* AVFoundation.framework */,
+				937652A916C079CB007EA04C /* UIKit.framework */,
+				937652AB16C079CB007EA04C /* Foundation.framework */,
+				937652AD16C079CB007EA04C /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		937652AF16C079CB007EA04C /* Potty Trainer */ = {
+			isa = PBXGroup;
+			children = (
+				937652C116C079CB007EA04C /* MainStoryboard_iPhone.storyboard */,
+				937652C416C079CB007EA04C /* MainStoryboard_iPad.storyboard */,
+				937F863E16D9DC0B007DE572 /* GGKAddPottyViewController.h */,
+				937F863F16D9DC0C007DE572 /* GGKAddPottyViewController.m */,
+				9390857F16DD534800C2290F /* GGKHistoryForDayTableViewController.h */,
+				9390858016DD534800C2290F /* GGKHistoryForDayTableViewController.m */,
+				937F864716DC50B1007DE572 /* GGKHistoryHeaderCell.h */,
+				937F864816DC50B1007DE572 /* GGKHistoryHeaderCell.m */,
+				937F864116D9DC36007DE572 /* GGKHistoryTableViewController.h */,
+				937F864216D9DC36007DE572 /* GGKHistoryTableViewController.m */,
+				9362E42216D49EC600A1B771 /* GGKPickChildViewController.h */,
+				9362E42316D49EC600A1B771 /* GGKPickChildViewController.m */,
+				9390858216DD583A00C2290F /* GGKPottyAttemptCell.h */,
+				9390858316DD583A00C2290F /* GGKPottyAttemptCell.m */,
+				937F864416DABF59007DE572 /* GGKPottyAttemptDayTableViewCell.h */,
+				937F864516DABF59007DE572 /* GGKPottyAttemptDayTableViewCell.m */,
+				937652B816C079CB007EA04C /* GGKPottyTrainerAppDelegate.h */,
+				937652B916C079CB007EA04C /* GGKPottyTrainerAppDelegate.m */,
+				937652C716C079CB007EA04C /* GGKPottyTrainerViewController.h */,
+				937652C816C079CB007EA04C /* GGKPottyTrainerViewController.m */,
+				937F863216D6A54A007DE572 /* GGKRewardsViewController.h */,
+				937F863316D6A54A007DE572 /* GGKRewardsViewController.m */,
+				937F863B16D6AF5D007DE572 /* GGKSavedInfo.h */,
+				937F863C16D6AF5D007DE572 /* GGKSavedInfo.m */,
+				9315503016DF225000482944 /* GGKSetReminderViewController.h */,
+				9315503116DF225000482944 /* GGKSetReminderViewController.m */,
+				937F863516D6A61A007DE572 /* GGKSettingsViewController.h */,
+				937F863616D6A61A007DE572 /* GGKSettingsViewController.m */,
+				9362E42B16D5F17600A1B771 /* GGKSoundModel.h */,
+				9362E42C16D5F17600A1B771 /* GGKSoundModel.m */,
+				937F864A16DC7BF2007DE572 /* NSDate+GGKDate.h */,
+				937F864B16DC7BF2007DE572 /* NSDate+GGKDate.m */,
+				9362E42516D4AC2A00A1B771 /* UIColor+GGKColors.h */,
+				9362E42616D4AC2A00A1B771 /* UIColor+GGKColors.m */,
+				9315502D16DF1D2400482944 /* UIView+GGKAdditions.h */,
+				9315502E16DF1D2400482944 /* UIView+GGKAdditions.m */,
+				937652B016C079CB007EA04C /* Supporting Files */,
+			);
+			path = "Potty Trainer";
+			sourceTree = "<group>";
+		};
+		937652B016C079CB007EA04C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				937652BB16C079CB007EA04C /* Default.png */,
+				937652BD16C079CB007EA04C /* Default@2x.png */,
+				937652BF16C079CB007EA04C /* Default-568h@2x.png */,
+				937652B216C079CB007EA04C /* InfoPlist.strings */,
+				937652B516C079CB007EA04C /* main.m */,
+				937652B116C079CB007EA04C /* Potty Trainer-Info.plist */,
+				937652B716C079CB007EA04C /* Potty Trainer-Prefix.pch */,
+				9362E43116D5FC9100A1B771 /* sounds */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		937652A516C079CB007EA04C /* Potty Trainer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 937652CC16C079CB007EA04C /* Build configuration list for PBXNativeTarget "Potty Trainer" */;
+			buildPhases = (
+				937652A216C079CB007EA04C /* Sources */,
+				937652A316C079CB007EA04C /* Frameworks */,
+				937652A416C079CB007EA04C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Potty Trainer";
+			productName = "Potty Trainer";
+			productReference = 937652A616C079CB007EA04C /* Potty Trainer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9376529E16C079CA007EA04C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = GGKPottyTrainer;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Geoff Hom";
+			};
+			buildConfigurationList = 937652A116C079CA007EA04C /* Build configuration list for PBXProject "Potty Trainer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9376529D16C079CA007EA04C;
+			productRefGroup = 937652A716C079CB007EA04C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				937652A516C079CB007EA04C /* Potty Trainer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		937652A416C079CB007EA04C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				937652B416C079CB007EA04C /* InfoPlist.strings in Resources */,
+				937652BC16C079CB007EA04C /* Default.png in Resources */,
+				937652BE16C079CB007EA04C /* Default@2x.png in Resources */,
+				937652C016C079CB007EA04C /* Default-568h@2x.png in Resources */,
+				937652C316C079CB007EA04C /* MainStoryboard_iPhone.storyboard in Resources */,
+				937652C616C079CB007EA04C /* MainStoryboard_iPad.storyboard in Resources */,
+				9362E43216D5FDAB00A1B771 /* tap.aif in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		937652A216C079CB007EA04C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				937652B616C079CB007EA04C /* main.m in Sources */,
+				937652BA16C079CB007EA04C /* GGKPottyTrainerAppDelegate.m in Sources */,
+				937652C916C079CB007EA04C /* GGKPottyTrainerViewController.m in Sources */,
+				9362E42416D49EC600A1B771 /* GGKPickChildViewController.m in Sources */,
+				9362E42716D4AC2A00A1B771 /* UIColor+GGKColors.m in Sources */,
+				9362E42D16D5F17600A1B771 /* GGKSoundModel.m in Sources */,
+				937F863416D6A54A007DE572 /* GGKRewardsViewController.m in Sources */,
+				937F863716D6A61A007DE572 /* GGKSettingsViewController.m in Sources */,
+				937F863D16D6AF5D007DE572 /* GGKSavedInfo.m in Sources */,
+				937F864016D9DC0C007DE572 /* GGKAddPottyViewController.m in Sources */,
+				937F864316D9DC36007DE572 /* GGKHistoryTableViewController.m in Sources */,
+				937F864616DABF5A007DE572 /* GGKPottyAttemptDayTableViewCell.m in Sources */,
+				937F864916DC50B1007DE572 /* GGKHistoryHeaderCell.m in Sources */,
+				937F864C16DC7BF2007DE572 /* NSDate+GGKDate.m in Sources */,
+				9390858116DD534800C2290F /* GGKHistoryForDayTableViewController.m in Sources */,
+				9390858416DD583A00C2290F /* GGKPottyAttemptCell.m in Sources */,
+				9315502F16DF1D2400482944 /* UIView+GGKAdditions.m in Sources */,
+				9315503216DF225000482944 /* GGKSetReminderViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		937652B216C079CB007EA04C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				937652B316C079CB007EA04C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		937652C116C079CB007EA04C /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				937652C216C079CB007EA04C /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		937652C416C079CB007EA04C /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				937652C516C079CB007EA04C /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		937652CA16C079CB007EA04C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		937652CB16C079CB007EA04C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		937652CD16C079CB007EA04C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Potty Trainer/Potty Trainer-Prefix.pch";
+				INFOPLIST_FILE = "Potty Trainer/Potty Trainer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		937652CE16C079CB007EA04C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Potty Trainer/Potty Trainer-Prefix.pch";
+				INFOPLIST_FILE = "Potty Trainer/Potty Trainer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		937652CF16C07CC9007EA04C /* User testing */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Geoffrey Hom";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EE860DE9-E581-433F-AB2F-709E87171BA5";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "User testing";
+		};
+		937652D016C07CC9007EA04C /* User testing */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Potty Trainer/Potty Trainer-Prefix.pch";
+				INFOPLIST_FILE = "Potty Trainer/Potty Trainer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = "User testing";
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		937652A116C079CA007EA04C /* Build configuration list for PBXProject "Potty Trainer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				937652CA16C079CB007EA04C /* Debug */,
+				937652CB16C079CB007EA04C /* Release */,
+				937652CF16C07CC9007EA04C /* User testing */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		937652CC16C079CB007EA04C /* Build configuration list for PBXNativeTarget "Potty Trainer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				937652CD16C079CB007EA04C /* Debug */,
+				937652CE16C079CB007EA04C /* Release */,
+				937652D016C07CC9007EA04C /* User testing */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9376529E16C079CA007EA04C /* Project object */;
+}
