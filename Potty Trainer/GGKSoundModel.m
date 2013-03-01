@@ -11,7 +11,10 @@
 @interface GGKSoundModel ()
 
 // For playing a UI sound when the player presses a button.
-@property (nonatomic) AVAudioPlayer *buttonTapAudioPlayer;
+@property (nonatomic, strong) AVAudioPlayer *buttonTapAudioPlayer;
+
+// For playing a UI sound to get the user's attention, in a positive way.
+@property (nonatomic, strong) AVAudioPlayer *dingAudioPlayer;
 
 @end
 
@@ -24,10 +27,20 @@
         
         self.soundIsOn = YES;
         
+        NSString *soundFilePath;
+        NSURL *soundFileURL;
+        AVAudioPlayer *anAudioPlayer;
+        
+        // Ding sound.
+        soundFilePath = [ [NSBundle mainBundle] pathForResource:@"scoreIncrease" ofType:@"aiff" ];
+        soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+        anAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+        self.dingAudioPlayer = anAudioPlayer;
+        
         // Button-tap sound.
-        NSString *soundFilePath = [ [NSBundle mainBundle] pathForResource:@"tap" ofType:@"aif" ];
-        NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-        AVAudioPlayer *anAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+        soundFilePath = [ [NSBundle mainBundle] pathForResource:@"tap" ofType:@"aif" ];
+        soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+        anAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
         self.buttonTapAudioPlayer = anAudioPlayer;
         
         // The button-tap sound will be needed first.
@@ -41,6 +54,14 @@
     if (self.soundIsOn) {
         
         [self.buttonTapAudioPlayer play];
+    }
+}
+
+- (void)playDingSound
+{
+    if (self.soundIsOn) {
+        
+        [self.dingAudioPlayer play];
     }
 }
 

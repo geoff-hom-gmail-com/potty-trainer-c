@@ -71,7 +71,7 @@ NSString *GGKNumberOfSuccessesForReward3KeyString = @"Number of successes for re
 - (void)dealloc
 {
     // Don't need super.
-    
+//    NSLog(@"RVC dealloc called");
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }

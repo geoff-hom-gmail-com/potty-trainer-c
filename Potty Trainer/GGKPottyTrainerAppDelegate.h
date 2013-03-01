@@ -12,4 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification;
+// So, check if the app was active. If so, show an alert similar to the notification.
+
 @end

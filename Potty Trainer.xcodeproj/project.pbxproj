@@ -26,6 +26,7 @@
 		937652C316C079CB007EA04C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937652C116C079CB007EA04C /* MainStoryboard_iPhone.storyboard */; };
 		937652C616C079CB007EA04C /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937652C416C079CB007EA04C /* MainStoryboard_iPad.storyboard */; };
 		937652C916C079CB007EA04C /* GGKPottyTrainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937652C816C079CB007EA04C /* GGKPottyTrainerViewController.m */; };
+		9376CCAE16E0111E00887ADE /* scoreIncrease.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 9376CCAD16E0111E00887ADE /* scoreIncrease.aiff */; };
 		937F863416D6A54A007DE572 /* GGKRewardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F863316D6A54A007DE572 /* GGKRewardsViewController.m */; };
 		937F863716D6A61A007DE572 /* GGKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F863616D6A61A007DE572 /* GGKSettingsViewController.m */; };
 		937F863D16D6AF5D007DE572 /* GGKSavedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F863C16D6AF5D007DE572 /* GGKSavedInfo.m */; };
@@ -68,6 +69,7 @@
 		937652C516C079CB007EA04C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		937652C716C079CB007EA04C /* GGKPottyTrainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGKPottyTrainerViewController.h; sourceTree = "<group>"; };
 		937652C816C079CB007EA04C /* GGKPottyTrainerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGKPottyTrainerViewController.m; sourceTree = "<group>"; };
+		9376CCAD16E0111E00887ADE /* scoreIncrease.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = scoreIncrease.aiff; sourceTree = "<group>"; };
 		937F863216D6A54A007DE572 /* GGKRewardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKRewardsViewController.h; sourceTree = "<group>"; };
 		937F863316D6A54A007DE572 /* GGKRewardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKRewardsViewController.m; sourceTree = "<group>"; };
 		937F863516D6A61A007DE572 /* GGKSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSettingsViewController.h; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		9362E43116D5FC9100A1B771 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				9376CCAD16E0111E00887ADE /* scoreIncrease.aiff */,
 				9362E42E16D5FA8600A1B771 /* tap.aif */,
 			);
 			name = sounds;
@@ -259,6 +262,7 @@
 				937652C316C079CB007EA04C /* MainStoryboard_iPhone.storyboard in Resources */,
 				937652C616C079CB007EA04C /* MainStoryboard_iPad.storyboard in Resources */,
 				9362E43216D5FDAB00A1B771 /* tap.aif in Resources */,
+				9376CCAE16E0111E00887ADE /* scoreIncrease.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

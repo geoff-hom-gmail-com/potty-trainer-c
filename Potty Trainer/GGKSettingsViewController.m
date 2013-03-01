@@ -57,12 +57,25 @@
     [self.soundModel playButtonTapSound];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showSetReminderView"]) {
+        
+        [segue.destinationViewController setDelegate:self];
+    }
+}
+
 - (IBAction)resetHistory
 {
     // Put the cancel button on the right, since this is a potentially risky action.
     UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:@"Delete potty history?" message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", @"Cancel", nil];
     anAlertView.cancelButtonIndex = 1;
     [anAlertView show];
+}
+
+- (void)setReminderViewControllerDidSetReminder:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)updateForAReminder:(UILocalNotification *)theLocalNotification
@@ -76,6 +89,8 @@
     NSDateComponents *theReminderIncrementDateComponents = [aGregorianCalendar components:aHourMinuteCalendarUnit fromDate:theReminderDate toDate:[NSDate date] options:0];
 
     NSLog(@"reminder h:%d m:%d time:%@", theReminderIncrementDateComponents.hour, theReminderIncrementDateComponents.minute, [theReminderDate description]);
+//    NSLog(@"reminder2 date:%@", [theReminderDate descriptionWithLocale:nil]);
+    NSLog(@"reminder3 date:%@", [NSDateFormatter localizedStringFromDate:theReminderDate dateStyle:NSDateFormatterFullStyle timeStyle:NSDateFormatterFullStyle]);
     self.reminderLabel.text = @"A reminder is set for\nx hours, y mins from now (10:35 AM).";
     
     self.cancelButton.enabled = YES;

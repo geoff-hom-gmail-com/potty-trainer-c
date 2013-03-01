@@ -19,6 +19,9 @@
 // Play sound appropriate for a button press.
 - (void)playButtonTapSound;
 
+// Play sound appropriate for positive attention.
+- (void)playDingSound;
+
 // Prepare the appropriate audio player to play.
 - (void)prepareButtonTapSound;
 

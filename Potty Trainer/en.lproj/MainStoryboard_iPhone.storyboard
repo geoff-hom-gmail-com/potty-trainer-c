@@ -155,8 +155,6 @@ x hours, y mins from now (10:35 AM).</string>
                                 <connections>
                                     <action selector="cancelReminder" destination="625-LV-WLU" eventType="touchUpInside" id="Xg2-1r-lVb"/>
                                     <action selector="playButtonSound" destination="625-LV-WLU" eventType="touchDown" id="kdo-Xp-wn0"/>
-                                    <action selector="playButtonSound" destination="O2o-ma-3Y9" eventType="touchDown" id="yFf-cz-Uuk"/>
-                                    <action selector="savePottyAttempt" destination="O2o-ma-3Y9" eventType="touchUpInside" id="FRC-pD-FJA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IAV-lA-6jr">
@@ -171,10 +169,8 @@ x hours, y mins from now (10:35 AM).</string>
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playButtonSound" destination="O2o-ma-3Y9" eventType="touchDown" id="KVh-DW-YcD"/>
                                     <action selector="playButtonSound" destination="625-LV-WLU" eventType="touchDown" id="RZg-Jz-ZGR"/>
-                                    <action selector="savePottyAttempt" destination="O2o-ma-3Y9" eventType="touchUpInside" id="Xcq-dW-0gi"/>
-                                    <segue destination="5QS-Pd-OGG" kind="push" id="li6-V6-g9z"/>
+                                    <segue destination="5QS-Pd-OGG" kind="push" identifier="showSetReminderView" id="li6-V6-g9z"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lbo-Vw-oXu">
@@ -196,9 +192,7 @@ x hours, y mins from now (10:35 AM).</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="b7v-md-p05">
-                        <barButtonItem key="backBarButtonItem" title="Settings" id="TUN-e2-GzH"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Settings" id="b7v-md-p05"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="cancelButton" destination="pLb-tB-hUZ" id="B6a-eD-PfB"/>
@@ -276,8 +270,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </state>
                                 <connections>
                                     <action selector="playButtonSound" destination="5QS-Pd-OGG" eventType="touchDown" id="Sky-Rg-6nv"/>
-                                    <action selector="playButtonSound" destination="O2o-ma-3Y9" eventType="touchDown" id="aqt-KX-gq9"/>
-                                    <action selector="savePottyAttempt" destination="O2o-ma-3Y9" eventType="touchUpInside" id="Jn8-Yk-rEY"/>
                                     <action selector="setReminder" destination="5QS-Pd-OGG" eventType="touchUpInside" id="KjV-mr-7AL"/>
                                 </connections>
                             </button>
@@ -358,7 +350,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C14-ZN-wEb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1439" y="874"/>
+            <point key="canvasLocation" x="1566" y="806"/>
         </scene>
         <!--History Table View Controller - History-->
         <scene sceneID="6ud-bb-5cS">
@@ -782,96 +774,6 @@ Reward</string>
             <point key="canvasLocation" x="471" y="-193"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="GGKAddPottyViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKAddPottyViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="playButtonSound"/>
-                <relationship kind="action" name="savePottyAttempt"/>
-                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="successfulSegmentedControl" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="GGKHistoryForDayTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKHistoryForDayTableViewController.h"/>
-        </class>
-        <class className="GGKHistoryHeaderCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKHistoryHeaderCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="endMarkLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="startMarkLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GGKHistoryTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKHistoryTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="playButtonSound"/>
-            </relationships>
-        </class>
-        <class className="GGKPickChildViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKPickChildViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="playButtonSound"/>
-                <relationship kind="action" name="useBoyTheme"/>
-                <relationship kind="action" name="useGirlTheme"/>
-            </relationships>
-        </class>
-        <class className="GGKPottyAttemptCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKPottyAttemptCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="attemptLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GGKPottyAttemptDayTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKPottyAttemptDayTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="attempt1Label" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="endMarkLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="startMarkLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GGKPottyTrainerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKPottyTrainerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="playButtonSound"/>
-            </relationships>
-        </class>
-        <class className="GGKRewardsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKRewardsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addReward:" candidateClass="UIButton"/>
-                <relationship kind="action" name="playButtonSound"/>
-                <relationship kind="outlet" name="numberOfSuccessesForReward1TextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="numberOfSuccessesForReward2TextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="numberOfSuccessesForReward3TextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="successfulPottiesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="successfulPottiesTextView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="GGKSetReminderViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKSetReminderViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="datePickerTimeChanged:"/>
-                <relationship kind="action" name="playButtonSound"/>
-                <relationship kind="action" name="setReminder"/>
-                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="whenLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GGKSettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKSettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelReminder"/>
-                <relationship kind="action" name="playButtonSound"/>
-                <relationship kind="action" name="resetHistory"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="reminderLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="setOrChangeReminderButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
