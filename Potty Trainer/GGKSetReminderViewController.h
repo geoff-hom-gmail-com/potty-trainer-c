@@ -32,12 +32,12 @@ extern NSString *GGKReminderWhenPrefixString;
 // So, update the label showing the reminder time.
 
 // UIViewController override.
-- (void)dealloc;
+//- (void)dealloc;
 
 // Play sound as aural feedback for pressing button.
 - (IBAction)playButtonSound;
 
-// (For testing.) Cancel any previous reminders. Set a reminder that goes off in 8 seconds.
+// (For testing.) Cancel any previous reminders. Set a reminder that goes off in 5 seconds.
 - (IBAction)setQuickReminder;
 
 // Cancel any previous reminders. Set this reminder.
@@ -49,7 +49,7 @@ extern NSString *GGKReminderWhenPrefixString;
 // UIViewController override.
 - (void)viewWillAppear:(BOOL)animated;
 
-// UIViewController override. Using this since -dealloc wasn't being called for some reason. Stop anything from -viewWillAppear.
+// UIViewController override. Stop anything from -viewWillAppear.
 - (void)viewWillDisappear:(BOOL)animated;
 
 @end

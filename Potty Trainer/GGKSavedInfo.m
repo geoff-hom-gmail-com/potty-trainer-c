@@ -14,6 +14,7 @@ NSString *GGKGirlThemeString = @"Girl theme";
 NSString *GGKPottyAttemptDateKeyString = @"Potty-attempt date";
 NSString *GGKPottyAttemptWasSuccessfulNumberKeyString = @"Potty-attempt-was-successful number";
 NSString *GGKPottyAttemptsKeyString = @"Potty attempts";
+NSString *GGKReminderMinutesNumberKeyString = @"Reminder-minutes number";
 NSString *GGKThemeKeyString = @"Theme";
 
 @implementation GGKSavedInfo

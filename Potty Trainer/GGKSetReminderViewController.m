@@ -55,13 +55,13 @@ NSString *GGKReminderWhenPrefixString = @"which is";
     [self updateReminderTime];
 }
 
-- (void)dealloc
-{
-    // Don't need super.
-    
-    // -dealloc isn't called sometimes here. Not sure why.
-    NSLog(@"SRVC dealloc called");
-}
+//- (void)dealloc
+//{
+//    // Don't need super.
+//    
+//    // -dealloc isn't called sometimes here. Not sure why.
+//    NSLog(@"SRVC dealloc called");
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -105,7 +105,7 @@ NSString *GGKReminderWhenPrefixString = @"which is";
     NSDate *theReminderDate = [self reminderDate];
     
     // Use this to test an immediate local notification.
-    theReminderDate = [NSDate dateWithTimeIntervalSinceNow:3];
+    theReminderDate = [NSDate dateWithTimeIntervalSinceNow:5];
 
     aLocalNotification.fireDate = theReminderDate;
     aLocalNotification.timeZone = [NSTimeZone defaultTimeZone];
@@ -129,6 +129,16 @@ NSString *GGKReminderWhenPrefixString = @"which is";
     aLocalNotification.soundName = @"scoreIncrease.aiff";
     
     [[UIApplication sharedApplication] scheduleLocalNotification:aLocalNotification];
+    
+    // Save reminder interval.
+    NSDate *theReminderIncrementDate = self.datePicker.date;
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendarUnit aCalendarUnit = NSMinuteCalendarUnit | NSHourCalendarUnit;
+    NSDateComponents *theReminderIncrementDateComponents = [gregorianCalendar components:aCalendarUnit fromDate:theReminderIncrementDate];
+    NSInteger theNumberOfReminderMinutesInteger = (theReminderIncrementDateComponents.hour * 60) + theReminderIncrementDateComponents.minute;
+    NSNumber *theNumberOfReminderMinutesNumber = [NSNumber numberWithInteger:theNumberOfReminderMinutesInteger];
+    [[NSUserDefaults standardUserDefaults] setObject:theNumberOfReminderMinutesNumber forKey:GGKReminderMinutesNumberKeyString];
+    
     [self.delegate setReminderViewControllerDidSetReminder:self];
 }
 
@@ -185,28 +195,26 @@ NSString *GGKReminderWhenPrefixString = @"which is";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
     self.soundModel = [[GGKSoundModel alloc] init];
     
-    // Set the date picker to an appropriate reminder increment. If there is no current reminder, use the default increment. Else, use the remaining time on the current reminder, rounded up.
-
     NSCalendar *aGregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *theReminderIncrementDateComponents;
+    NSDateComponents *theReminderIncrementDateComponents = [[NSDateComponents alloc] init];
     
-    NSArray *theLocalNotifications = [UIApplication sharedApplication].scheduledLocalNotifications;
-    if (theLocalNotifications.count == 0) {
+    // Set the date picker to an appropriate reminder increment.
+    // Use the last increment used. If none (i.e., first time setting a reminder), use a default.
+    NSNumber *theNumberOfReminderMinutesNumber = [[NSUserDefaults standardUserDefaults] objectForKey:GGKReminderMinutesNumberKeyString];
+    if (theNumberOfReminderMinutesNumber != nil) {
         
-        theReminderIncrementDateComponents = [[NSDateComponents alloc] init];
-        [theReminderIncrementDateComponents setHour:1];
-        [theReminderIncrementDateComponents setMinute:30];
+        NSInteger theNumberOfReminderMinutesInteger = [theNumberOfReminderMinutesNumber integerValue];
+        [theReminderIncrementDateComponents setHour:theNumberOfReminderMinutesInteger / 60];
+        [theReminderIncrementDateComponents setMinute:theNumberOfReminderMinutesInteger % 60];
     } else {
         
-        UILocalNotification *aLocalNotification = theLocalNotifications[0];
-        NSDate *theReminderDate = aLocalNotification.fireDate;
-        NSCalendarUnit aHourMinuteCalendarUnit = NSMinuteCalendarUnit | NSHourCalendarUnit;
-        theReminderIncrementDateComponents = [aGregorianCalendar components:aHourMinuteCalendarUnit fromDate:theReminderDate toDate:[NSDate date] options:0];
+        [theReminderIncrementDateComponents setHour:1];
+        [theReminderIncrementDateComponents setMinute:30];
     }
+    
     NSDate *theReminderIncrementDate = [aGregorianCalendar dateFromComponents:theReminderIncrementDateComponents];
     self.datePicker.date = theReminderIncrementDate;
 }

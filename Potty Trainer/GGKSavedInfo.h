@@ -26,6 +26,9 @@ extern NSString *GGKPottyAttemptWasSuccessfulNumberKeyString;
 // Key for storing all potty attempts. Object is an array of all potty attempts. Each element is an array of potty attempts for a given date. Each potty attempt is a dictionary containing the date (GGKPottyAttemptDateKeyString) and whether the attempt was successful (GGKPottyAttemptWasSuccessfulNumberKeyString).
 extern NSString *GGKPottyAttemptsKeyString;
 
+// Key for storing the number of minutes used for the previous reminder.
+extern NSString *GGKReminderMinutesNumberKeyString;
+
 // Key for storing the name of the color theme to show.
 extern NSString *GGKThemeKeyString;
 
