@@ -26,6 +26,9 @@
 // Make sure the existing reminder doesn't go off.
 - (IBAction)cancelReminder;
 
+// UIViewController override.
+//- (void)dealloc;
+
 // Play sound as aural feedback for pressing button.
 - (IBAction)playButtonSound;
 
@@ -41,7 +44,10 @@
 // UIViewController override.
 - (void)viewDidLoad;
 
-// UIViewController override.
+// UIViewController override. Start visible updates. Check for app coming from background/lock.
 - (void)viewWillAppear:(BOOL)animated;
+
+// UIViewController override. Stop anything from -viewWillAppear.
+- (void)viewWillDisappear:(BOOL)animated;
 
 @end

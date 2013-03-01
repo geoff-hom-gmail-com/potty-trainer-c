@@ -33,7 +33,8 @@
     NSString *theAttemptString;
     if (theAttemptWasSuccessfulBOOL) {
 
-        theAttemptString = @"\u2714";
+        //\u2606, 2714
+        theAttemptString = @"\u2606";
     } else {
         
         theAttemptString = @"\u2718";

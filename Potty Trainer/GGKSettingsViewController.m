@@ -13,6 +13,27 @@
 // For playing sound.
 @property (strong, nonatomic) GGKSoundModel *soundModel;
 
+// For updating the view at regular intervals.
+@property (strong, nonatomic) NSTimer *timer;
+
+// Do what we do in -viewWillAppear (except adding the observer that calls this method).
+- (void)appWillEnterForeground;
+
+// Check if there's a reminder. If so, report on it. Else, stop the timer that checks.
+- (void)checkReminderAndUpdate;
+
+// Start a timer to update this view at regular intervals.
+- (void)startUpdateTimer;
+
+// Start updates that occur only while this view is visible to the user. E.g., a timer that updates the view. Listen for when the app enters the background.
+- (void)startVisibleUpdates;
+
+// Make sure the timer doesn't fire anymore.
+- (void)stopTimer;
+
+// Stop anything from -startVisibleUpdates.
+- (void)stopVisibleUpdates;
+
 // Update UI for a reminder existing already.
 - (void)updateForAReminder:(UILocalNotification *)theLocalNotification;
 
@@ -31,11 +52,40 @@
     }
 }
 
+- (void)appWillEnterForeground
+{
+    [self startVisibleUpdates];
+}
+
 - (IBAction)cancelReminder
 {
-    // delete all local notifications for this app
-    ;
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    [self updateForNoReminder];
 }
+
+- (void)checkReminderAndUpdate
+{
+//    NSLog(@"SVC checkReminderAndUpdate called");
+    
+    // If no reminder, adjust UI and stop timer. Else, adjust UI and report time remaining.
+    NSArray *theLocalNotifications = [UIApplication sharedApplication].scheduledLocalNotifications;
+    if (theLocalNotifications.count >= 1) {
+        
+        [self updateForAReminder:theLocalNotifications[0]];
+    } else {
+        
+        [self updateForNoReminder];
+        [self stopTimer];
+    }
+}
+
+//- (void)dealloc
+//{
+//    // Don't need super.
+//    
+//    // This is called when going back a view, but not going forward or app going to background.
+//    NSLog(@"SVC dealloc called");
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -78,20 +128,59 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)startUpdateTimer
+{
+    // Every second, including now, update the view according to whether there's a reminder, and how much time is left.
+    
+//    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkReminderAndUpdate) userInfo:nil repeats:YES];
+    
+    NSDate *aNowDate = [NSDate date];
+    NSTimer *aTimer = [[NSTimer alloc] initWithFireDate:aNowDate interval:1.0 target:self selector:@selector(checkReminderAndUpdate) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:aTimer forMode:NSDefaultRunLoopMode];
+    self.timer = aTimer;
+}
+
+- (void)startVisibleUpdates
+{
+    [self startUpdateTimer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopVisibleUpdates) name:UIApplicationDidEnterBackgroundNotification object:nil];
+}
+
+- (void)stopTimer
+{
+    [self.timer invalidate];
+    self.timer = nil;
+    NSLog(@"timer stopped");
+}
+
+- (void)stopVisibleUpdates
+{
+    [self stopTimer];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
+}
+
 - (void)updateForAReminder:(UILocalNotification *)theLocalNotification
 {
-    // may need to start a timer (at least somewhere) to update this text.
-    // need to get the fire date = time to show
-    // and need to calculate hours/min from now
+    // Report hours/mins/secs until reminder, and the actual time of the reminder.
+    
     NSCalendar *aGregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSCalendarUnit aHourMinuteCalendarUnit = NSMinuteCalendarUnit | NSHourCalendarUnit;
+    NSCalendarUnit anHourMinSecCalendarUnit = NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
     NSDate *theReminderDate = theLocalNotification.fireDate;
-    NSDateComponents *theReminderIncrementDateComponents = [aGregorianCalendar components:aHourMinuteCalendarUnit fromDate:theReminderDate toDate:[NSDate date] options:0];
-
-    NSLog(@"reminder h:%d m:%d time:%@", theReminderIncrementDateComponents.hour, theReminderIncrementDateComponents.minute, [theReminderDate description]);
-//    NSLog(@"reminder2 date:%@", [theReminderDate descriptionWithLocale:nil]);
-    NSLog(@"reminder3 date:%@", [NSDateFormatter localizedStringFromDate:theReminderDate dateStyle:NSDateFormatterFullStyle timeStyle:NSDateFormatterFullStyle]);
-    self.reminderLabel.text = @"A reminder is set for\nx hours, y mins from now (10:35 AM).";
+    NSDateComponents *theReminderIncrementDateComponents = [aGregorianCalendar components:anHourMinSecCalendarUnit fromDate:[NSDate date] toDate:theReminderDate options:0];
+    
+    // Adjust words for singular/plural.
+    NSString *thePluralHourString;
+    if (theReminderIncrementDateComponents.hour == 1) {
+        
+        thePluralHourString = @"";
+    } else {
+        
+        thePluralHourString = @"s";
+    }
+    
+    self.reminderLabel.text = [NSString stringWithFormat:@"A reminder is set for\n%d hour%@, %d min, %d sec\n from now (%@).", theReminderIncrementDateComponents.hour, thePluralHourString, theReminderIncrementDateComponents.minute, theReminderIncrementDateComponents.second, [theReminderDate hourMinuteAMPMString]];
     
     self.cancelButton.enabled = YES;
     [self.setOrChangeReminderButton setTitle:@"Change Reminder" forState:UIControlStateNormal];
@@ -116,15 +205,23 @@
 {
     [super viewWillAppear:animated];
     
-    // Check for an existing reminder.
-    NSArray *theLocalNotifications = [UIApplication sharedApplication].scheduledLocalNotifications;
-    if (theLocalNotifications.count == 0) {
-        
-        [self updateForNoReminder];
-    } else {
-        
-        [self updateForAReminder:theLocalNotifications[0]];
-    }
+//    NSLog(@"SVC vWA");
+    
+    [self startVisibleUpdates];
+    
+    // If the app returns from background/lock to this view, then -viewWillAppear isn't called. But we may still want to do similar things, so we'll check for that.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+//    NSLog(@"SVC vWD");
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
+    
+    [self stopVisibleUpdates];
 }
 
 @end

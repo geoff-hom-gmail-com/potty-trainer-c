@@ -36,7 +36,8 @@
 
 - (void)showAttempts
 {
-    static NSString *CheckMarkString = @"\u2714";
+    // Unicode check mark: \u2714. (Other check marks: \u2705, \u2713, \u2611.)
+    static NSString *CheckMarkString = @"\u2605";//@"\u2714";@"\u2714";@"\u2714";2606
     static NSString *XMarkString = @"\u2718";
      
 //    NSLog(@"PADTVC updateAttemptLabels");
@@ -58,12 +59,15 @@
         NSNumber *theAttemptWasSuccessfulBOOLNumber = aPottyAttemptDictionary[GGKPottyAttemptWasSuccessfulNumberKeyString];
         BOOL theAttemptWasSuccessfulBOOL = [theAttemptWasSuccessfulBOOLNumber boolValue];
         NSString *theAttemptString;
+        UIColor *theTextColor;
         if (theAttemptWasSuccessfulBOOL) {
             
             theAttemptString = CheckMarkString;
+            theTextColor = [UIColor greenColor];
         } else {
             
             theAttemptString = XMarkString;
+            theTextColor = [UIColor redColor];
         }
         
         // Align label along timeline. If at or before the start time, put at start mark. If at or after the end time, put at end mark. Else, put between, at a proportionate amount.
@@ -90,7 +94,8 @@
         if (idx == 0) {
             
             self.attempt1Label.text = theAttemptString;
-            self.attempt1Label.center = CGPointMake(theNewCenterXInteger, self.attempt1Label.center.y);            
+            self.attempt1Label.center = CGPointMake(theNewCenterXInteger, self.attempt1Label.center.y);
+            self.attempt1Label.textColor = theTextColor;
         } else {
             
             UILabel *aNewLabel = [[UILabel alloc] initWithFrame:self.attempt1Label.frame];
@@ -98,6 +103,7 @@
             aNewLabel.backgroundColor = [UIColor clearColor];
             aNewLabel.textAlignment = UITextAlignmentCenter;
             aNewLabel.text = theAttemptString;
+            aNewLabel.textColor = theTextColor;
             aNewLabel.center = CGPointMake(theNewCenterXInteger, aNewLabel.center.y);
             [self.contentView addSubview:aNewLabel];
         }

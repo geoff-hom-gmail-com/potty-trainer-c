@@ -10,8 +10,14 @@
 
 @interface GGKPottyTrainerAppDelegate ()
 
+// Whether a local notification was already received a short time ago (currently a second).
+@property (assign, nonatomic) BOOL localNotificationWasRecentlyReceived;
+
 // For playing sound.
 @property (strong, nonatomic) GGKSoundModel *soundModel;
+
+// So, reset that flag.
+- (void)noteThatLocalNotificationsNotReceivedRecently;
 
 @end
 
@@ -20,23 +26,32 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-
+    NSLog(@"PTAD a dFLWO");
     self.soundModel = [[GGKSoundModel alloc] init];
+    
+    [self noteThatLocalNotificationsNotReceivedRecently];
     
     return YES;
 }
 
 - (void)application:(UIApplication *)theApplication didReceiveLocalNotification:(UILocalNotification *)theNotification
 {
-    if (theApplication.applicationState == UIApplicationStateActive) {
+    // There's a bug that can cause one notification to call this method twice. So we'll add a timer so this can get called only so often.
+    NSLog(@"PTAD a dRLN");
+    if (!self.localNotificationWasRecentlyReceived) {
         
-//        NSLog(@"PTAD a dRLN. app was running");
-        NSString *theAppName = @"Potty Trainer";
-        UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:theAppName message:theNotification.alertBody delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-        [anAlertView show];
-        
-        // Play an alert sound, too.
-        [self.soundModel playDingSound];
+        if (theApplication.applicationState == UIApplicationStateActive) {
+            
+            NSLog(@"PTAD a dRLN. app was running");
+            NSString *theAppName = @"Potty Trainer";
+            UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:theAppName message:theNotification.alertBody delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            [anAlertView show];
+            
+            // Play an alert sound, too.
+            [self.soundModel playDingSound];
+        }
+        self.localNotificationWasRecentlyReceived = YES;
+        [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(noteThatLocalNotificationsNotReceivedRecently) userInfo:nil repeats:NO];
     }
 }
 
@@ -67,6 +82,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)noteThatLocalNotificationsNotReceivedRecently
+{
+    self.localNotificationWasRecentlyReceived = NO;
 }
 
 @end

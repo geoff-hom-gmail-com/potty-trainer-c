@@ -37,6 +37,9 @@ extern NSString *GGKReminderWhenPrefixString;
 // Play sound as aural feedback for pressing button.
 - (IBAction)playButtonSound;
 
+// (For testing.) Cancel any previous reminders. Set a reminder that goes off in 8 seconds.
+- (IBAction)setQuickReminder;
+
 // Cancel any previous reminders. Set this reminder.
 - (IBAction)setReminder;
 

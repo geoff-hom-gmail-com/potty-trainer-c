@@ -97,7 +97,7 @@ NSString *GGKReminderWhenPrefixString = @"which is";
     return theReminderDate;
 }
 
-- (IBAction)setReminder
+- (IBAction)setQuickReminder
 {
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     UILocalNotification *aLocalNotification = [[UILocalNotification alloc] init];
@@ -105,8 +105,24 @@ NSString *GGKReminderWhenPrefixString = @"which is";
     NSDate *theReminderDate = [self reminderDate];
     
     // Use this to test an immediate local notification.
-//    theReminderDate = [NSDate dateWithTimeIntervalSinceNow:3];
+    theReminderDate = [NSDate dateWithTimeIntervalSinceNow:3];
+
+    aLocalNotification.fireDate = theReminderDate;
+    aLocalNotification.timeZone = [NSTimeZone defaultTimeZone];
+    aLocalNotification.alertBody = @"Potty time? (Wash hands.)";
+    aLocalNotification.soundName = @"scoreIncrease.aiff";
     
+    [[UIApplication sharedApplication] scheduleLocalNotification:aLocalNotification];
+    [self.delegate setReminderViewControllerDidSetReminder:self];
+}
+
+- (IBAction)setReminder
+{
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    UILocalNotification *aLocalNotification = [[UILocalNotification alloc] init];
+    
+    NSDate *theReminderDate = [self reminderDate];
+
     aLocalNotification.fireDate = theReminderDate;
     aLocalNotification.timeZone = [NSTimeZone defaultTimeZone];
     aLocalNotification.alertBody = @"Potty time? (Wash hands.)";
