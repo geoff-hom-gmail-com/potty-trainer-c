@@ -31,15 +31,18 @@
     NSNumber *theAttemptWasSuccessfulBOOLNumber = self.pottyAttemptDictionary[GGKPottyAttemptWasSuccessfulNumberKeyString];
     BOOL theAttemptWasSuccessfulBOOL = [theAttemptWasSuccessfulBOOLNumber boolValue];
     NSString *theAttemptString;
+    UIColor *theTextColor;
     if (theAttemptWasSuccessfulBOOL) {
 
-        //\u2606, 2714
-        theAttemptString = @"\u2606";
+        theAttemptString = @"\u2605";
+        theTextColor = [UIColor greenColor];
     } else {
         
         theAttemptString = @"\u2718";
+        theTextColor = [UIColor redColor];
     }
     self.attemptLabel.text = theAttemptString;
+    self.attemptLabel.textColor = theTextColor;
 }
 
 - (void)showTime

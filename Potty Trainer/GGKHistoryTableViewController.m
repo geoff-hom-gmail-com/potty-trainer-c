@@ -223,48 +223,6 @@
     return theHeaderView;
 }
 
-//- (void)updatePottyAttemptDayArray
-//{
-//    self.pottyAttemptDayArray = [[NSUserDefaults standardUserDefaults] objectForKey:GGKPottyAttemptsKeyString];
-//    
-////    if (self.pottyAttemptDayArray == nil) {
-////        
-//        NSLog(@"HTVC uPADA2");
-////        NSDate *todayDate = [NSDate date];
-////        NSDictionary *aPottyAttemptDictionary = @{GGKPottyAttemptDateKeyString:todayDate};
-////        NSArray *pottyAttemptsForADay = @[aPottyAttemptDictionary];
-////        self.pottyAttemptDayArray = @[pottyAttemptsForADay];
-////    } else {
-////        
-////        NSLog(@"HTVC uPADA3");
-////
-////        // Add just the date for every day after the most-recent attempt to today.
-////        
-////        NSDictionary *theMostRecentDatePottyAttemptDictionary = [self.pottyAttemptDayArray lastObject][0];
-////        NSDate *theMostRecentDate = theMostRecentDatePottyAttemptDictionary[GGKPottyAttemptDateKeyString];
-////        
-////        NSDate *todayDate = [NSDate date];
-////        NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-////        NSInteger todayDay = [gregorianCalendar ordinalityOfUnit:NSDayCalendarUnit inUnit:NSEraCalendarUnit forDate:todayDate];
-////        NSInteger theMostRecentDateDay = [gregorianCalendar ordinalityOfUnit:NSDayCalendarUnit inUnit:NSEraCalendarUnit forDate:theMostRecentDate];
-////        NSInteger theNumberOfDaysToAdd = todayDay - theMostRecentDateDay;
-////
-////        NSMutableArray *pottyAttemptDayMutableArray = [self.pottyAttemptDayArray mutableCopy];
-////        for (int i = 1; i <= theNumberOfDaysToAdd; i++) {
-////            
-////            NSDateComponents *theNextDayDateComponents = [[NSDateComponents alloc] init];
-////            [theNextDayDateComponents setDay:i];
-////            NSDate *theNextDate = [gregorianCalendar dateByAddingComponents:theNextDayDateComponents toDate:theMostRecentDate options:0];
-////            NSDictionary *aPottyAttemptDictionary = @{GGKPottyAttemptDateKeyString:theNextDate};
-////            NSArray *pottyAttemptsForADay = @[aPottyAttemptDictionary];
-////            [pottyAttemptDayMutableArray addObject:pottyAttemptsForADay];
-////        }
-////        self.pottyAttemptDayArray = [pottyAttemptDayMutableArray copy];
-////    }
-//    
-////    [[NSUserDefaults standardUserDefaults] setObject:self.pottyAttemptDayArray forKey:GGKPottyAttemptsKeyString];
-//}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

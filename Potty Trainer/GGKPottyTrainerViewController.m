@@ -9,7 +9,6 @@
 #import "GGKPickChildViewController.h"
 #import "GGKPottyTrainerViewController.h"
 
-
 @interface GGKPottyTrainerViewController ()
 
 @property (strong, nonatomic) GGKPickChildViewController *pickChildViewController;

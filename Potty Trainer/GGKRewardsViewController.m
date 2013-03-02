@@ -213,13 +213,13 @@ NSString *GGKNumberOfSuccessesForReward3KeyString = @"Number of successes for re
     }
     self.successfulPottiesLabel.text = [NSString stringWithFormat:@"Successful potties: %@", theNumberOfSuccessfulPottiesString];
     
-    // Unicode check mark: \u2714. (Other check marks: \u2705, \u2713, \u2611.)
-    NSString *aCheckMarkString = @"\u2714";
+    // Unicode star.
+    NSString *aStarString = @"\u2605";
     
     NSMutableString *aCheckMarkForEachSuccessfulPottyMutableString = [NSMutableString stringWithCapacity:10];
     for (int i = 0; i < theNumberOfSuccessesInteger; i++) {
         
-        [aCheckMarkForEachSuccessfulPottyMutableString appendString:aCheckMarkString];
+        [aCheckMarkForEachSuccessfulPottyMutableString appendString:aStarString];
     }
     self.successfulPottiesTextView.text = aCheckMarkForEachSuccessfulPottyMutableString;
     
@@ -255,6 +255,9 @@ NSString *GGKNumberOfSuccessesForReward3KeyString = @"Number of successes for re
     // Observe keyboard notifications to shift the screen up/down appropriately.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    self.successfulPottiesTextView.backgroundColor = [UIColor clearColor];
+    self.successfulPottiesTextView.textColor = [UIColor greenColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated

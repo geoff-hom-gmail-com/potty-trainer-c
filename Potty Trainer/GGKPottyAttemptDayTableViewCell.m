@@ -21,8 +21,6 @@
         
         // Initialization code. Doesn't seem to be called in this case.
         NSLog(@"PADTV iWS2");
-//        self.backgroundColor = [UIColor whiteColor];
-//        self.opaque = YES;
     }
     return self;
 }
@@ -36,8 +34,7 @@
 
 - (void)showAttempts
 {
-    // Unicode check mark: \u2714. (Other check marks: \u2705, \u2713, \u2611.)
-    static NSString *CheckMarkString = @"\u2605";//@"\u2714";@"\u2714";@"\u2714";2606
+    static NSString *StarString = @"\u2605";
     static NSString *XMarkString = @"\u2718";
      
 //    NSLog(@"PADTVC updateAttemptLabels");
@@ -48,7 +45,7 @@
         
         if ([aView isKindOfClass:[UILabel class]] && ![defaultLabels containsObject:aView]) {
             
-            // This should work without crashing, because -subviews returns a copy of the array?
+            // This works without crashing, because -subviews returns a copy of the array.
             [aView removeFromSuperview];
         }
     }];
@@ -62,7 +59,7 @@
         UIColor *theTextColor;
         if (theAttemptWasSuccessfulBOOL) {
             
-            theAttemptString = CheckMarkString;
+            theAttemptString = StarString;
             theTextColor = [UIColor greenColor];
         } else {
             
