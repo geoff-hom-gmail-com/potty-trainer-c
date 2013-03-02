@@ -14,6 +14,15 @@ extern NSString *GGKBoyThemeString;
 // String to identify the girl theme.
 extern NSString *GGKGirlThemeString;
 
+// Key for storing the number of successes needed for reward 1.
+extern NSString *GGKNumberOfSuccessesForReward1KeyString;
+
+// Key for storing the number of successes needed for reward 2.
+extern NSString *GGKNumberOfSuccessesForReward2KeyString;
+
+// Key for storing the number of successes needed for reward 3.
+extern NSString *GGKNumberOfSuccessesForReward3KeyString;
+
 // Key for storing the number of successful potties done.
 //extern NSString *GGKNumberOfSuccessfulPottiesKeyString;
 
@@ -28,6 +37,24 @@ extern NSString *GGKPottyAttemptsKeyString;
 
 // Key for storing the number of minutes used for the previous reminder.
 extern NSString *GGKReminderMinutesNumberKeyString;
+
+// Key for storing whether reward 1 is text or an image.
+extern NSString *GGKReward1IsTextBOOLNumberKeyString;
+
+// Key for storing the text for reward 1.
+extern NSString *GGKReward1TextKeyString;
+
+// Key for storing whether reward 2 is text or an image.
+extern NSString *GGKReward2IsTextBOOLNumberKeyString;
+
+// Key for storing the text for reward 2.
+extern NSString *GGKReward2TextKeyString;
+
+// Key for storing whether reward 3 is text or an image.
+extern NSString *GGKReward3IsTextBOOLNumberKeyString;
+
+// Key for storing the text for reward 3.
+extern NSString *GGKReward3TextKeyString;
 
 // Key for storing the name of the color theme to show.
 extern NSString *GGKThemeKeyString;

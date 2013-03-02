@@ -32,7 +32,7 @@
 
 @implementation GGKHistoryTableViewController
 
-- (void)addPottyViewControllerDidAddPottyAttempt:(UIViewController *)theViewController
+- (void)addPottyViewControllerDidAddPottyAttempt:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }

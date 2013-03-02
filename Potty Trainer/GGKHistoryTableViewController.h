@@ -11,7 +11,7 @@
 
 @interface GGKHistoryTableViewController : UITableViewController <GGKAddPottyViewControllerDelegate, GGKHistoryForDayTableViewControllerDelegate>
 
-- (void)addPottyViewControllerDidAddPottyAttempt:(UIViewController *)theViewController;
+- (void)addPottyViewControllerDidAddPottyAttempt:(id)sender;
 // So, dismiss the view controller.
 
 - (void)historyForDayTableViewControllerDidDeleteAttempt:(id)sender;

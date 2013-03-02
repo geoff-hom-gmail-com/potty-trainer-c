@@ -11,7 +11,7 @@
 @protocol GGKAddPottyViewControllerDelegate
 
 // Sent after a potty attempt has been added.
-- (void)addPottyViewControllerDidAddPottyAttempt:(UIViewController *)theViewController;
+- (void)addPottyViewControllerDidAddPottyAttempt:(id)sender;
 
 @end
 

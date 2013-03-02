@@ -27,6 +27,8 @@
 		937652C616C079CB007EA04C /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937652C416C079CB007EA04C /* MainStoryboard_iPad.storyboard */; };
 		937652C916C079CB007EA04C /* GGKPottyTrainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937652C816C079CB007EA04C /* GGKPottyTrainerViewController.m */; };
 		9376CCAE16E0111E00887ADE /* scoreIncrease.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 9376CCAD16E0111E00887ADE /* scoreIncrease.aiff */; };
+		9376CCB016E1A48400887ADE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9376CCAF16E1A48300887ADE /* MobileCoreServices.framework */; };
+		9376CCB316E1DC0600887ADE /* GGKAddRewardTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9376CCB216E1DC0500887ADE /* GGKAddRewardTextViewController.m */; };
 		937F863416D6A54A007DE572 /* GGKRewardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F863316D6A54A007DE572 /* GGKRewardsViewController.m */; };
 		937F863716D6A61A007DE572 /* GGKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F863616D6A61A007DE572 /* GGKSettingsViewController.m */; };
 		937F863D16D6AF5D007DE572 /* GGKSavedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F863C16D6AF5D007DE572 /* GGKSavedInfo.m */; };
@@ -70,6 +72,9 @@
 		937652C716C079CB007EA04C /* GGKPottyTrainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGKPottyTrainerViewController.h; sourceTree = "<group>"; };
 		937652C816C079CB007EA04C /* GGKPottyTrainerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGKPottyTrainerViewController.m; sourceTree = "<group>"; };
 		9376CCAD16E0111E00887ADE /* scoreIncrease.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = scoreIncrease.aiff; sourceTree = "<group>"; };
+		9376CCAF16E1A48300887ADE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		9376CCB116E1DC0500887ADE /* GGKAddRewardTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKAddRewardTextViewController.h; sourceTree = "<group>"; };
+		9376CCB216E1DC0500887ADE /* GGKAddRewardTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKAddRewardTextViewController.m; sourceTree = "<group>"; };
 		937F863216D6A54A007DE572 /* GGKRewardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKRewardsViewController.h; sourceTree = "<group>"; };
 		937F863316D6A54A007DE572 /* GGKRewardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKRewardsViewController.m; sourceTree = "<group>"; };
 		937F863516D6A61A007DE572 /* GGKSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSettingsViewController.h; sourceTree = "<group>"; };
@@ -97,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9376CCB016E1A48400887ADE /* MobileCoreServices.framework in Frameworks */,
 				9362E43016D5FBF400A1B771 /* AVFoundation.framework in Frameworks */,
 				937652AA16C079CB007EA04C /* UIKit.framework in Frameworks */,
 				937652AC16C079CB007EA04C /* Foundation.framework in Frameworks */,
@@ -137,9 +143,10 @@
 			isa = PBXGroup;
 			children = (
 				9362E42F16D5FBF400A1B771 /* AVFoundation.framework */,
-				937652A916C079CB007EA04C /* UIKit.framework */,
-				937652AB16C079CB007EA04C /* Foundation.framework */,
 				937652AD16C079CB007EA04C /* CoreGraphics.framework */,
+				937652AB16C079CB007EA04C /* Foundation.framework */,
+				9376CCAF16E1A48300887ADE /* MobileCoreServices.framework */,
+				937652A916C079CB007EA04C /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -151,6 +158,8 @@
 				937652C416C079CB007EA04C /* MainStoryboard_iPad.storyboard */,
 				937F863E16D9DC0B007DE572 /* GGKAddPottyViewController.h */,
 				937F863F16D9DC0C007DE572 /* GGKAddPottyViewController.m */,
+				9376CCB116E1DC0500887ADE /* GGKAddRewardTextViewController.h */,
+				9376CCB216E1DC0500887ADE /* GGKAddRewardTextViewController.m */,
 				9390857F16DD534800C2290F /* GGKHistoryForDayTableViewController.h */,
 				9390858016DD534800C2290F /* GGKHistoryForDayTableViewController.m */,
 				937F864716DC50B1007DE572 /* GGKHistoryHeaderCell.h */,
@@ -291,6 +300,7 @@
 				9390858416DD583A00C2290F /* GGKPottyAttemptCell.m in Sources */,
 				9315502F16DF1D2400482944 /* UIView+GGKAdditions.m in Sources */,
 				9315503216DF225000482944 /* GGKSetReminderViewController.m in Sources */,
+				9376CCB316E1DC0600887ADE /* GGKAddRewardTextViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

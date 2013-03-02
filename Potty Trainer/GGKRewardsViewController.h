@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
+#import "GGKAddRewardTextViewController.h"
 #import <UIKit/UIKit.h>
 
 // The default number of successes needed for reward 1.
@@ -17,16 +18,22 @@ extern const NSInteger GGKDefaultNumberOfSuccessesForReward2Integer;
 // The default number of successes needed for reward 3.
 extern const NSInteger GGKDefaultNumberOfSuccessesForReward3Integer;
 
-// Key for storing the number of successes needed for reward 1.
-extern NSString *GGKNumberOfSuccessesForReward1KeyString;
+// Prefix for reward 1's image filename.
+extern NSString *GGKReward1ImageNameString;
 
-// Key for storing the number of successes needed for reward 2.
-extern NSString *GGKNumberOfSuccessesForReward2KeyString;
+// Prefix for reward 2's image filename.
+extern NSString *GGKReward2ImageNameString;
 
-// Key for storing the number of successes needed for reward 3.
-extern NSString *GGKNumberOfSuccessesForReward3KeyString;
+// Prefix for reward 3's image filename.
+extern NSString *GGKReward3ImageNameString;
 
-@interface GGKRewardsViewController : UIViewController <UIActionSheetDelegate, UITextFieldDelegate>
+// String to identify the button title for choosing a photo (vs. text).
+extern NSString *GGKUsePhotoTitleString;
+
+// String to identify the button title for choosing text (vs. a photo).
+extern NSString *GGKUseTextTitleString;
+
+@interface GGKRewardsViewController : UIViewController <GGKAddRewardTextViewControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 
 // For showing/editing the number of successful potties needed to get the first reward.
 @property (weak, nonatomic) IBOutlet UITextField *numberOfSuccessesForReward1TextField;
@@ -36,6 +43,15 @@ extern NSString *GGKNumberOfSuccessesForReward3KeyString;
 
 // For showing/editing the number of successful potties needed to get the first reward.
 @property (weak, nonatomic) IBOutlet UITextField *numberOfSuccessesForReward3TextField;
+
+// For showing/editing the first reward.
+@property (weak, nonatomic) IBOutlet UIButton *reward1Button;
+
+// For showing/editing the second reward.
+@property (weak, nonatomic) IBOutlet UIButton *reward2Button;
+
+// For showing/editing the third reward.
+@property (weak, nonatomic) IBOutlet UIButton *reward3Button;
 
 // "Successful potties: X".
 @property (weak, nonatomic) IBOutlet UILabel *successfulPottiesLabel;
@@ -49,8 +65,20 @@ extern NSString *GGKNumberOfSuccessesForReward3KeyString;
 // Let the user add a reward.
 - (IBAction)addReward:(UIButton *)theButton;
 
+- (void)addRewardTextViewControllerDidCancel:(id)sender;
+// So, dismiss it.
+
+- (void)addRewardTextViewControllerDidEnterText:(id)sender;
+// So, show the text on the corresponding reward button.
+
 // UIViewController override.
 - (void)dealloc;
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker;
+// So, dismiss the picker.
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info;
+// So, show the image on the corresponding reward button.
 
 // Play sound as aural feedback for pressing button.
 - (IBAction)playButtonSound;
@@ -68,6 +96,6 @@ extern NSString *GGKNumberOfSuccessesForReward3KeyString;
 - (void)viewDidLoad;
 
 // UIViewController override.
-- (void)viewWillAppear:(BOOL)animated;
+//- (void)viewWillAppear:(BOOL)animated;
 
 @end
