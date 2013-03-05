@@ -21,6 +21,9 @@
 // For playing sound.
 @property (strong, nonatomic) GGKSoundModel *soundModel;
 
+// Update the colors according to the current theme.
+- (void)updateColors;
+
 @end
 
 @implementation GGKPickChildViewController
@@ -45,16 +48,38 @@
     [self.soundModel playButtonTapSound];
 }
 
-- (IBAction)useBoyTheme {
-    
-    self.view.backgroundColor = self.boyColor;
-    [[NSUserDefaults standardUserDefaults] setObject:GGKBoyThemeString forKey:GGKThemeKeyString];
+- (void)updateColors
+{
+    // Check theme.
+    NSString *theThemeString = [[NSUserDefaults standardUserDefaults] objectForKey:GGKThemeKeyString];
+    if ([theThemeString isEqualToString:GGKBoyThemeString]) {
+        
+        self.view.backgroundColor = [UIColor cyanColor];
+    } else if ([theThemeString isEqualToString:GGKGirlThemeString]) {
+        
+        self.view.backgroundColor = [UIColor pinkColor];
+    } else {
+        
+        self.view.backgroundColor = [UIColor whiteColor];
+    }
 }
 
-- (IBAction)useGirlTheme {
-    
-    self.view.backgroundColor = self.girlColor;
+- (IBAction)useBoyTheme
+{    
+    [[NSUserDefaults standardUserDefaults] setObject:GGKBoyThemeString forKey:GGKThemeKeyString];
+    [self updateColors];    
+}
+
+- (IBAction)useDefaultTheme
+{
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:GGKThemeKeyString];
+    [self updateColors];
+}
+
+- (IBAction)useGirlTheme
+{    
     [[NSUserDefaults standardUserDefaults] setObject:GGKGirlThemeString forKey:GGKThemeKeyString];
+    [self updateColors];
 }
 
 - (void)viewDidLoad
@@ -62,8 +87,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.boyColor = [UIColor cyanColor];
-    self.girlColor = [UIColor pinkColor];
+//    self.boyColor = [UIColor cyanColor];
+//    self.girlColor = [UIColor pinkColor];
     self.soundModel = [[GGKSoundModel alloc] init];
 }
 
@@ -71,15 +96,7 @@
     
     [super viewWillAppear:animated];
     
-    // Check theme.
-    NSString *theThemeString = [[NSUserDefaults standardUserDefaults] objectForKey:GGKThemeKeyString];
-    if ([theThemeString isEqualToString:GGKBoyThemeString]) {
-        
-        self.view.backgroundColor = self.boyColor;
-    } else if ([theThemeString isEqualToString:GGKGirlThemeString]) {
-        
-        self.view.backgroundColor = self.girlColor;
-    }
+    [self updateColors];
 }
 
 @end

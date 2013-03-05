@@ -49,7 +49,7 @@
     NSDictionary *aPottyAttemptDictionary = self.pottyAttemptArray[0];
     NSDate *aDate = aPottyAttemptDictionary[GGKPottyAttemptDateKeyString];
     NSString *aDateString = [aDate monthDayString];
-    self.navigationItem.title = [NSString stringWithFormat:@"History, %@", aDateString];
+    self.navigationItem.title = [NSString stringWithFormat:@"%@", aDateString];
 }
 
 #pragma mark - Table view data source

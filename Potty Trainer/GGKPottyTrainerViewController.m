@@ -51,6 +51,9 @@
     } else if ([theThemeString isEqualToString:GGKGirlThemeString]) {
         
         self.view.backgroundColor = [UIColor pinkColor];
+    } else {
+        
+        self.view.backgroundColor = [UIColor whiteColor];
     }
 }
 

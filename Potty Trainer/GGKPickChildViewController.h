@@ -16,6 +16,9 @@
 // Set the color theme to one for boys.
 - (IBAction)useBoyTheme;
 
+// Set the color theme to default (boy/girl neutral).
+- (IBAction)useDefaultTheme;
+
 // Set the color theme to one for girls.
 - (IBAction)useGirlTheme;
 

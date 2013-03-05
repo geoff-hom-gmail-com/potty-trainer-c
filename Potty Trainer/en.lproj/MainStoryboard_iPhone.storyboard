@@ -13,10 +13,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RKp-WL-Aia">
-                                <rect key="frame" x="20" y="130" width="130" height="130"/>
+                                <rect key="frame" x="20" y="20" width="136" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="History">
+                                <state key="normal" title="Potty Records">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -29,7 +29,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" id="Gne-Xr-Tlq">
-                                <rect key="frame" x="170" y="130" width="130" height="130"/>
+                                <rect key="frame" x="164" y="147" width="136" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Tips">
@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rB6-Ud-ZkZ">
-                                <rect key="frame" x="20" y="267" width="130" height="130"/>
+                                <rect key="frame" x="20" y="147" width="136" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Settings">
@@ -61,7 +61,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KhD-Um-XfR">
-                                <rect key="frame" x="170" y="267" width="130" height="130"/>
+                                <rect key="frame" x="164" y="277" width="136" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Contact Us">
@@ -76,11 +76,14 @@
                                     <segue destination="qSk-Mp-xpD" kind="push" id="kvv-dz-MOi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d05-xU-1lx">
-                                <rect key="frame" x="20" y="20" width="130" height="103"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" id="d05-xU-1lx">
+                                <rect key="frame" x="20" y="277" width="136" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Pick Child">
+                                <state key="normal">
+                                    <string key="title">Pick
+Background
+Color</string>
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -93,7 +96,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HNM-S9-cA1">
-                                <rect key="frame" x="170" y="20" width="130" height="103"/>
+                                <rect key="frame" x="164" y="20" width="136" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Rewards">
@@ -173,10 +176,10 @@ from now (10:35 AM).</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lbo-Vw-oXu">
-                                <rect key="frame" x="20" y="353" width="121" height="44"/>
+                                <rect key="frame" x="20" y="353" width="171" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Reset History">
+                                <state key="normal" title="Reset Potty Records">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -301,7 +304,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="1059" y="421"/>
         </scene>
-        <!--Pick Child View Controller - Pick Child-->
+        <!--Pick Child View Controller - Background Color-->
         <scene sceneID="g9v-8G-JG3">
             <objects>
                 <viewController storyboardIdentifier="PickChildViewController" id="msh-QQ-myc" customClass="GGKPickChildViewController" sceneMemberID="viewController">
@@ -310,10 +313,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5c0-qM-KO7">
-                                <rect key="frame" x="20" y="20" width="280" height="178"/>
+                                <rect key="frame" x="20" y="20" width="280" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="120"/>
-                                <state key="normal" title="Boy">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="104"/>
+                                <state key="normal" title="Blue">
                                     <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -326,10 +329,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NSR-M2-hD4">
-                                <rect key="frame" x="20" y="219" width="280" height="178"/>
+                                <rect key="frame" x="20" y="277" width="280" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="120"/>
-                                <state key="normal" title="Girl">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="56"/>
+                                <state key="normal" title="Magenta">
                                     <color key="titleColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -341,10 +344,26 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="useGirlTheme" destination="msh-QQ-myc" eventType="touchUpInside" id="7yo-U2-gHF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9uN-1x-3ZY">
+                                <rect key="frame" x="20" y="147" width="280" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="56"/>
+                                <state key="normal" title="Default">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playButtonSound" destination="msh-QQ-myc" eventType="touchDown" id="zZc-2x-Vcs"/>
+                                    <action selector="useDefaultTheme" destination="msh-QQ-myc" eventType="touchUpInside" id="JKO-oF-Euu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Pick Child" id="cnv-Eb-opG"/>
+                    <navigationItem key="navigationItem" title="Background Color" id="cnv-Eb-opG"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37J-C9-4ge" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -367,7 +386,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="1566" y="806"/>
         </scene>
-        <!--History Table View Controller - History-->
+        <!--History Table View Controller - Potty Records-->
         <scene sceneID="6ud-bb-5cS">
             <objects>
                 <tableViewController id="EVp-K6-fQv" customClass="GGKHistoryTableViewController" sceneMemberID="viewController">
@@ -474,7 +493,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="EVp-K6-fQv" id="4Jh-qr-3S5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="History" id="RvI-Sn-E7k"/>
+                    <navigationItem key="navigationItem" title="Potty Records" id="RvI-Sn-E7k"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Z8-4w-96b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -566,7 +585,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="1566" y="-391"/>
         </scene>
-        <!--History For Day Table View Controller - History, [date]-->
+        <!--History For Day Table View Controller - [Feb 27]-->
         <scene sceneID="8LF-dF-bNJ">
             <objects>
                 <tableViewController id="Vsa-py-YIx" customClass="GGKHistoryForDayTableViewController" sceneMemberID="viewController">
@@ -610,7 +629,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="Vsa-py-YIx" id="rCm-pr-pRc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="History, [date]" id="ghN-rJ-xD5"/>
+                    <navigationItem key="navigationItem" title="[Feb 27]" id="ghN-rJ-xD5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7WL-fs-Wma" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -830,107 +849,6 @@ Reward</string>
             <point key="canvasLocation" x="471" y="-193"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="GGKAddPottyViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKAddPottyViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="playButtonSound"/>
-                <relationship kind="action" name="savePottyAttempt"/>
-                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="successfulSegmentedControl" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="GGKAddRewardTextViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKAddRewardTextViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel"/>
-                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="GGKHistoryForDayTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKHistoryForDayTableViewController.h"/>
-        </class>
-        <class className="GGKHistoryHeaderCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKHistoryHeaderCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="endMarkLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="startMarkLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GGKHistoryTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKHistoryTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="playButtonSound"/>
-            </relationships>
-        </class>
-        <class className="GGKPickChildViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKPickChildViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="playButtonSound"/>
-                <relationship kind="action" name="useBoyTheme"/>
-                <relationship kind="action" name="useGirlTheme"/>
-            </relationships>
-        </class>
-        <class className="GGKPottyAttemptCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKPottyAttemptCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="attemptLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GGKPottyAttemptDayTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKPottyAttemptDayTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="attempt1Label" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="endMarkLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="startMarkLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GGKPottyTrainerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKPottyTrainerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="playButtonSound"/>
-            </relationships>
-        </class>
-        <class className="GGKRewardsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKRewardsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addReward:" candidateClass="UIButton"/>
-                <relationship kind="action" name="playButtonSound"/>
-                <relationship kind="outlet" name="numberOfSuccessesForReward1TextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="numberOfSuccessesForReward2TextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="numberOfSuccessesForReward3TextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="reward1Button" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="reward2Button" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="reward3Button" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="successfulPottiesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="successfulPottiesTextView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="GGKSetReminderViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKSetReminderViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="datePickerTimeChanged:"/>
-                <relationship kind="action" name="playButtonSound"/>
-                <relationship kind="action" name="setQuickReminder"/>
-                <relationship kind="action" name="setReminder"/>
-                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="whenLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GGKSettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKSettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelReminder"/>
-                <relationship kind="action" name="playButtonSound"/>
-                <relationship kind="action" name="resetHistory"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="reminderLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="setOrChangeReminderButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
