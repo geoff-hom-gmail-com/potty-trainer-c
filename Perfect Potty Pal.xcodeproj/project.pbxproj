@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9315502F16DF1D2400482944 /* UIView+GGKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315502E16DF1D2400482944 /* UIView+GGKAdditions.m */; };
 		9315503216DF225000482944 /* GGKSetReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315503116DF225000482944 /* GGKSetReminderViewController.m */; };
+		9353B37F16E6011300B0A75A /* GGKAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9353B37E16E6011300B0A75A /* GGKAboutUsViewController.m */; };
 		9362E42416D49EC600A1B771 /* GGKPickChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42316D49EC600A1B771 /* GGKPickChildViewController.m */; };
 		9362E42716D4AC2A00A1B771 /* UIColor+GGKColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42616D4AC2A00A1B771 /* UIColor+GGKColors.m */; };
 		9362E42D16D5F17600A1B771 /* GGKSoundModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42C16D5F17600A1B771 /* GGKSoundModel.m */; };
@@ -46,6 +47,8 @@
 		9315502E16DF1D2400482944 /* UIView+GGKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GGKAdditions.m"; sourceTree = "<group>"; };
 		9315503016DF225000482944 /* GGKSetReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSetReminderViewController.h; sourceTree = "<group>"; };
 		9315503116DF225000482944 /* GGKSetReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSetReminderViewController.m; sourceTree = "<group>"; };
+		9353B37D16E6011300B0A75A /* GGKAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKAboutUsViewController.h; sourceTree = "<group>"; };
+		9353B37E16E6011300B0A75A /* GGKAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKAboutUsViewController.m; sourceTree = "<group>"; };
 		9362E42216D49EC600A1B771 /* GGKPickChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPickChildViewController.h; sourceTree = "<group>"; };
 		9362E42316D49EC600A1B771 /* GGKPickChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPickChildViewController.m; sourceTree = "<group>"; };
 		9362E42516D4AC2A00A1B771 /* UIColor+GGKColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GGKColors.h"; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 			children = (
 				937652C116C079CB007EA04C /* MainStoryboard_iPhone.storyboard */,
 				937652C416C079CB007EA04C /* MainStoryboard_iPad.storyboard */,
+				9353B37D16E6011300B0A75A /* GGKAboutUsViewController.h */,
+				9353B37E16E6011300B0A75A /* GGKAboutUsViewController.m */,
 				937F863E16D9DC0B007DE572 /* GGKAddPottyViewController.h */,
 				937F863F16D9DC0C007DE572 /* GGKAddPottyViewController.m */,
 				9376CCB116E1DC0500887ADE /* GGKAddRewardTextViewController.h */,
@@ -301,6 +306,7 @@
 				9315502F16DF1D2400482944 /* UIView+GGKAdditions.m in Sources */,
 				9315503216DF225000482944 /* GGKSetReminderViewController.m in Sources */,
 				9376CCB316E1DC0600887ADE /* GGKAddRewardTextViewController.m in Sources */,
+				9353B37F16E6011300B0A75A /* GGKAboutUsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
