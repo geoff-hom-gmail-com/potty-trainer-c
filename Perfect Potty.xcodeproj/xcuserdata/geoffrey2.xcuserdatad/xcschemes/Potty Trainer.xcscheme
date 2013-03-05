@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "937652A516C079CB007EA04C"
-               BuildableName = "Perfect Potty Pal.app"
+               BuildableName = "Perfect Potty.app"
                BlueprintName = "Perfect Potty Pal"
-               ReferencedContainer = "container:Perfect Potty Pal.xcodeproj">
+               ReferencedContainer = "container:Perfect Potty.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "937652A516C079CB007EA04C"
-            BuildableName = "Perfect Potty Pal.app"
+            BuildableName = "Perfect Potty.app"
             BlueprintName = "Perfect Potty Pal"
-            ReferencedContainer = "container:Perfect Potty Pal.xcodeproj">
+            ReferencedContainer = "container:Perfect Potty.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "937652A516C079CB007EA04C"
-            BuildableName = "Perfect Potty Pal.app"
+            BuildableName = "Perfect Potty.app"
             BlueprintName = "Perfect Potty Pal"
-            ReferencedContainer = "container:Perfect Potty Pal.xcodeproj">
+            ReferencedContainer = "container:Perfect Potty.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "937652A516C079CB007EA04C"
-            BuildableName = "Perfect Potty Pal.app"
+            BuildableName = "Perfect Potty.app"
             BlueprintName = "Perfect Potty Pal"
-            ReferencedContainer = "container:Perfect Potty Pal.xcodeproj">
+            ReferencedContainer = "container:Perfect Potty.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

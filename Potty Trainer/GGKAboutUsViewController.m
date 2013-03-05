@@ -34,8 +34,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    // Make sure height matches what's in the storyboard.
-    self.scrollView.contentSize = CGSizeMake(320, 700);
+    // Height should match size of scroll view in the storyboard.
+    self.scrollView.contentSize = CGSizeMake(320, 670);
 }
 
 @end

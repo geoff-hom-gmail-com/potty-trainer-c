@@ -1,5 +1,5 @@
 //
-//  GGKPickChildViewController.h
+//  GGKPickBackgroundColorViewController.h
 //  Potty Trainer
 //
 //  Created by Geoff Hom on 2/19/13.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGKPickChildViewController : UIViewController
+@interface GGKPickBackgroundColorViewController : UIViewController
 
 // Play sound as aural feedback for pressing button.
 - (IBAction)playButtonSound;

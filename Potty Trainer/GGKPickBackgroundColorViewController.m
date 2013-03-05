@@ -1,16 +1,16 @@
 //
-//  GGKPickChildViewController.m
+//  GGKPickBackgroundColorViewController.m
 //  Potty Trainer
 //
 //  Created by Geoff Hom on 2/19/13.
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
-#import "GGKPickChildViewController.h"
+#import "GGKPickBackgroundColorViewController.h"
 
 @class GGKSoundModel;
 
-@interface GGKPickChildViewController ()
+@interface GGKPickBackgroundColorViewController ()
 
 // The color to use for a boy theme.
 @property (strong, nonatomic) UIColor *boyColor;
@@ -26,7 +26,7 @@
 
 @end
 
-@implementation GGKPickChildViewController
+@implementation GGKPickBackgroundColorViewController
 
 - (void)didReceiveMemoryWarning
 {

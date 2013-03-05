@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
-#import "GGKPickChildViewController.h"
+#import "GGKPickBackgroundColorViewController.h"
 #import "GGKPottyTrainerViewController.h"
 
 @interface GGKPottyTrainerViewController ()
 
-@property (strong, nonatomic) GGKPickChildViewController *pickChildViewController;
+@property (strong, nonatomic) GGKPickBackgroundColorViewController *pickBackgroundColorViewController;
 
 // For playing sound.
 @property (strong, nonatomic) GGKSoundModel *soundModel;

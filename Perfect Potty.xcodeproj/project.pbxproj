@@ -10,7 +10,7 @@
 		9315502F16DF1D2400482944 /* UIView+GGKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315502E16DF1D2400482944 /* UIView+GGKAdditions.m */; };
 		9315503216DF225000482944 /* GGKSetReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315503116DF225000482944 /* GGKSetReminderViewController.m */; };
 		9353B37F16E6011300B0A75A /* GGKAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9353B37E16E6011300B0A75A /* GGKAboutUsViewController.m */; };
-		9362E42416D49EC600A1B771 /* GGKPickChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42316D49EC600A1B771 /* GGKPickChildViewController.m */; };
+		9362E42416D49EC600A1B771 /* GGKPickBackgroundColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42316D49EC600A1B771 /* GGKPickBackgroundColorViewController.m */; };
 		9362E42716D4AC2A00A1B771 /* UIColor+GGKColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42616D4AC2A00A1B771 /* UIColor+GGKColors.m */; };
 		9362E42D16D5F17600A1B771 /* GGKSoundModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42C16D5F17600A1B771 /* GGKSoundModel.m */; };
 		9362E43016D5FBF400A1B771 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9362E42F16D5FBF400A1B771 /* AVFoundation.framework */; };
@@ -49,15 +49,15 @@
 		9315503116DF225000482944 /* GGKSetReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSetReminderViewController.m; sourceTree = "<group>"; };
 		9353B37D16E6011300B0A75A /* GGKAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKAboutUsViewController.h; sourceTree = "<group>"; };
 		9353B37E16E6011300B0A75A /* GGKAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKAboutUsViewController.m; sourceTree = "<group>"; };
-		9362E42216D49EC600A1B771 /* GGKPickChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPickChildViewController.h; sourceTree = "<group>"; };
-		9362E42316D49EC600A1B771 /* GGKPickChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPickChildViewController.m; sourceTree = "<group>"; };
+		9362E42216D49EC600A1B771 /* GGKPickBackgroundColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPickBackgroundColorViewController.h; sourceTree = "<group>"; };
+		9362E42316D49EC600A1B771 /* GGKPickBackgroundColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPickBackgroundColorViewController.m; sourceTree = "<group>"; };
 		9362E42516D4AC2A00A1B771 /* UIColor+GGKColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GGKColors.h"; sourceTree = "<group>"; };
 		9362E42616D4AC2A00A1B771 /* UIColor+GGKColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GGKColors.m"; sourceTree = "<group>"; };
 		9362E42B16D5F17600A1B771 /* GGKSoundModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSoundModel.h; sourceTree = "<group>"; };
 		9362E42C16D5F17600A1B771 /* GGKSoundModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSoundModel.m; sourceTree = "<group>"; };
 		9362E42E16D5FA8600A1B771 /* tap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = tap.aif; sourceTree = "<group>"; };
 		9362E42F16D5FBF400A1B771 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		937652A616C079CB007EA04C /* Perfect Potty Pal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Perfect Potty Pal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		937652A616C079CB007EA04C /* Perfect Potty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Perfect Potty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		937652A916C079CB007EA04C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		937652AB16C079CB007EA04C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		937652AD16C079CB007EA04C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,7 +137,7 @@
 		937652A716C079CB007EA04C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				937652A616C079CB007EA04C /* Perfect Potty Pal.app */,
+				937652A616C079CB007EA04C /* Perfect Potty.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,8 +171,8 @@
 				937F864816DC50B1007DE572 /* GGKHistoryHeaderCell.m */,
 				937F864116D9DC36007DE572 /* GGKHistoryTableViewController.h */,
 				937F864216D9DC36007DE572 /* GGKHistoryTableViewController.m */,
-				9362E42216D49EC600A1B771 /* GGKPickChildViewController.h */,
-				9362E42316D49EC600A1B771 /* GGKPickChildViewController.m */,
+				9362E42216D49EC600A1B771 /* GGKPickBackgroundColorViewController.h */,
+				9362E42316D49EC600A1B771 /* GGKPickBackgroundColorViewController.m */,
 				9390858216DD583A00C2290F /* GGKPottyAttemptCell.h */,
 				9390858316DD583A00C2290F /* GGKPottyAttemptCell.m */,
 				937F864416DABF59007DE572 /* GGKPottyAttemptDayTableViewCell.h */,
@@ -234,7 +234,7 @@
 			);
 			name = "Perfect Potty Pal";
 			productName = "Potty Trainer";
-			productReference = 937652A616C079CB007EA04C /* Perfect Potty Pal.app */;
+			productReference = 937652A616C079CB007EA04C /* Perfect Potty.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -247,7 +247,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Geoff Hom";
 			};
-			buildConfigurationList = 937652A116C079CA007EA04C /* Build configuration list for PBXProject "Perfect Potty Pal" */;
+			buildConfigurationList = 937652A116C079CA007EA04C /* Build configuration list for PBXProject "Perfect Potty" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -290,7 +290,7 @@
 				937652B616C079CB007EA04C /* main.m in Sources */,
 				937652BA16C079CB007EA04C /* GGKPottyTrainerAppDelegate.m in Sources */,
 				937652C916C079CB007EA04C /* GGKPottyTrainerViewController.m in Sources */,
-				9362E42416D49EC600A1B771 /* GGKPickChildViewController.m in Sources */,
+				9362E42416D49EC600A1B771 /* GGKPickBackgroundColorViewController.m in Sources */,
 				9362E42716D4AC2A00A1B771 /* UIColor+GGKColors.m in Sources */,
 				9362E42D16D5F17600A1B771 /* GGKSoundModel.m in Sources */,
 				937F863416D6A54A007DE572 /* GGKRewardsViewController.m in Sources */,
@@ -408,7 +408,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Potty Trainer/Perfect Potty Pal-Prefix.pch";
 				INFOPLIST_FILE = "Potty Trainer/Perfect Potty Pal-Info.plist";
-				PRODUCT_NAME = "Perfect Potty Pal";
+				PRODUCT_NAME = "Perfect Potty";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -419,7 +419,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Potty Trainer/Perfect Potty Pal-Prefix.pch";
 				INFOPLIST_FILE = "Potty Trainer/Perfect Potty Pal-Info.plist";
-				PRODUCT_NAME = "Perfect Potty Pal";
+				PRODUCT_NAME = "Perfect Potty";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -459,7 +459,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Potty Trainer/Perfect Potty Pal-Prefix.pch";
 				INFOPLIST_FILE = "Potty Trainer/Perfect Potty Pal-Info.plist";
-				PRODUCT_NAME = "Perfect Potty Pal";
+				PRODUCT_NAME = "Perfect Potty";
 				WRAPPER_EXTENSION = app;
 			};
 			name = "User testing";
@@ -467,7 +467,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		937652A116C079CA007EA04C /* Build configuration list for PBXProject "Perfect Potty Pal" */ = {
+		937652A116C079CA007EA04C /* Build configuration list for PBXProject "Perfect Potty" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				937652CA16C079CB007EA04C /* Debug */,
