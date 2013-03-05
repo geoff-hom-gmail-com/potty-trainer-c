@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "937652A516C079CB007EA04C"
-               BuildableName = "Potty Trainer.app"
-               BlueprintName = "Potty Trainer"
-               ReferencedContainer = "container:Potty Trainer.xcodeproj">
+               BuildableName = "Perfect Potty Pal.app"
+               BlueprintName = "Perfect Potty Pal"
+               ReferencedContainer = "container:Perfect Potty Pal.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "937652A516C079CB007EA04C"
-            BuildableName = "Potty Trainer.app"
-            BlueprintName = "Potty Trainer"
-            ReferencedContainer = "container:Potty Trainer.xcodeproj">
+            BuildableName = "Perfect Potty Pal.app"
+            BlueprintName = "Perfect Potty Pal"
+            ReferencedContainer = "container:Perfect Potty Pal.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "937652A516C079CB007EA04C"
-            BuildableName = "Potty Trainer.app"
-            BlueprintName = "Potty Trainer"
-            ReferencedContainer = "container:Potty Trainer.xcodeproj">
+            BuildableName = "Perfect Potty Pal.app"
+            BlueprintName = "Perfect Potty Pal"
+            ReferencedContainer = "container:Perfect Potty Pal.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "937652A516C079CB007EA04C"
-            BuildableName = "Potty Trainer.app"
-            BlueprintName = "Potty Trainer"
-            ReferencedContainer = "container:Potty Trainer.xcodeproj">
+            BuildableName = "Perfect Potty Pal.app"
+            BlueprintName = "Perfect Potty Pal"
+            ReferencedContainer = "container:Perfect Potty Pal.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -54,14 +54,14 @@
 		9362E42C16D5F17600A1B771 /* GGKSoundModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSoundModel.m; sourceTree = "<group>"; };
 		9362E42E16D5FA8600A1B771 /* tap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = tap.aif; sourceTree = "<group>"; };
 		9362E42F16D5FBF400A1B771 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		937652A616C079CB007EA04C /* Potty Trainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Potty Trainer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		937652A616C079CB007EA04C /* Perfect Potty Pal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Perfect Potty Pal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		937652A916C079CB007EA04C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		937652AB16C079CB007EA04C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		937652AD16C079CB007EA04C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		937652B116C079CB007EA04C /* Potty Trainer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Potty Trainer-Info.plist"; sourceTree = "<group>"; };
+		937652B116C079CB007EA04C /* Perfect Potty Pal-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Perfect Potty Pal-Info.plist"; sourceTree = "<group>"; };
 		937652B316C079CB007EA04C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		937652B516C079CB007EA04C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		937652B716C079CB007EA04C /* Potty Trainer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Potty Trainer-Prefix.pch"; sourceTree = "<group>"; };
+		937652B716C079CB007EA04C /* Perfect Potty Pal-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Perfect Potty Pal-Prefix.pch"; sourceTree = "<group>"; };
 		937652B816C079CB007EA04C /* GGKPottyTrainerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGKPottyTrainerAppDelegate.h; sourceTree = "<group>"; };
 		937652B916C079CB007EA04C /* GGKPottyTrainerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGKPottyTrainerAppDelegate.m; sourceTree = "<group>"; };
 		937652BB16C079CB007EA04C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		937652A716C079CB007EA04C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				937652A616C079CB007EA04C /* Potty Trainer.app */,
+				937652A616C079CB007EA04C /* Perfect Potty Pal.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,8 +205,8 @@
 				937652BF16C079CB007EA04C /* Default-568h@2x.png */,
 				937652B216C079CB007EA04C /* InfoPlist.strings */,
 				937652B516C079CB007EA04C /* main.m */,
-				937652B116C079CB007EA04C /* Potty Trainer-Info.plist */,
-				937652B716C079CB007EA04C /* Potty Trainer-Prefix.pch */,
+				937652B116C079CB007EA04C /* Perfect Potty Pal-Info.plist */,
+				937652B716C079CB007EA04C /* Perfect Potty Pal-Prefix.pch */,
 				9362E43116D5FC9100A1B771 /* sounds */,
 			);
 			name = "Supporting Files";
@@ -215,9 +215,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		937652A516C079CB007EA04C /* Potty Trainer */ = {
+		937652A516C079CB007EA04C /* Perfect Potty Pal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 937652CC16C079CB007EA04C /* Build configuration list for PBXNativeTarget "Potty Trainer" */;
+			buildConfigurationList = 937652CC16C079CB007EA04C /* Build configuration list for PBXNativeTarget "Perfect Potty Pal" */;
 			buildPhases = (
 				937652A216C079CB007EA04C /* Sources */,
 				937652A316C079CB007EA04C /* Frameworks */,
@@ -227,9 +227,9 @@
 			);
 			dependencies = (
 			);
-			name = "Potty Trainer";
+			name = "Perfect Potty Pal";
 			productName = "Potty Trainer";
-			productReference = 937652A616C079CB007EA04C /* Potty Trainer.app */;
+			productReference = 937652A616C079CB007EA04C /* Perfect Potty Pal.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -242,7 +242,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Geoff Hom";
 			};
-			buildConfigurationList = 937652A116C079CA007EA04C /* Build configuration list for PBXProject "Potty Trainer" */;
+			buildConfigurationList = 937652A116C079CA007EA04C /* Build configuration list for PBXProject "Perfect Potty Pal" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -254,7 +254,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				937652A516C079CB007EA04C /* Potty Trainer */,
+				937652A516C079CB007EA04C /* Perfect Potty Pal */,
 			);
 		};
 /* End PBXProject section */
@@ -400,9 +400,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Potty Trainer/Potty Trainer-Prefix.pch";
-				INFOPLIST_FILE = "Potty Trainer/Potty Trainer-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Potty Trainer/Perfect Potty Pal-Prefix.pch";
+				INFOPLIST_FILE = "Potty Trainer/Perfect Potty Pal-Info.plist";
+				PRODUCT_NAME = "Perfect Potty Pal";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -411,9 +411,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Potty Trainer/Potty Trainer-Prefix.pch";
-				INFOPLIST_FILE = "Potty Trainer/Potty Trainer-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Potty Trainer/Perfect Potty Pal-Prefix.pch";
+				INFOPLIST_FILE = "Potty Trainer/Perfect Potty Pal-Info.plist";
+				PRODUCT_NAME = "Perfect Potty Pal";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -451,9 +451,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Potty Trainer/Potty Trainer-Prefix.pch";
-				INFOPLIST_FILE = "Potty Trainer/Potty Trainer-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Potty Trainer/Perfect Potty Pal-Prefix.pch";
+				INFOPLIST_FILE = "Potty Trainer/Perfect Potty Pal-Info.plist";
+				PRODUCT_NAME = "Perfect Potty Pal";
 				WRAPPER_EXTENSION = app;
 			};
 			name = "User testing";
@@ -461,7 +461,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		937652A116C079CA007EA04C /* Build configuration list for PBXProject "Potty Trainer" */ = {
+		937652A116C079CA007EA04C /* Build configuration list for PBXProject "Perfect Potty Pal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				937652CA16C079CB007EA04C /* Debug */,
@@ -471,7 +471,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		937652CC16C079CB007EA04C /* Build configuration list for PBXNativeTarget "Potty Trainer" */ = {
+		937652CC16C079CB007EA04C /* Build configuration list for PBXNativeTarget "Perfect Potty Pal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				937652CD16C079CB007EA04C /* Debug */,
