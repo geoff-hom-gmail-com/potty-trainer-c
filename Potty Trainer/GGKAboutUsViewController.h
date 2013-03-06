@@ -13,4 +13,7 @@
 // User scrolls to read the rest of this section.
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
+// Play sound as aural feedback for pressing button.
+- (IBAction)playButtonSound;
+
 @end

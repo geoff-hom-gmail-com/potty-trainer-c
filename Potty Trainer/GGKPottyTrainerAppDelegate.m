@@ -26,7 +26,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    NSLog(@"PTAD a dFLWO");
+    NSLog(@"PTAD a dFLWO1");
     self.soundModel = [[GGKSoundModel alloc] init];
     
     [self noteThatLocalNotificationsNotReceivedRecently];

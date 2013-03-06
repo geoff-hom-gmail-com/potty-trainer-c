@@ -10,6 +10,9 @@
 
 @interface GGKAboutUsViewController ()
 
+// For playing sound.
+@property (strong, nonatomic) GGKSoundModel *soundModel;
+
 @end
 
 @implementation GGKAboutUsViewController
@@ -29,6 +32,11 @@
     return self;
 }
 
+- (IBAction)playButtonSound
+{
+    [self.soundModel playButtonTapSound];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -36,6 +44,8 @@
     
     // Height should match size of scroll view in the storyboard.
     self.scrollView.contentSize = CGSizeMake(320, 673);
+    
+    self.soundModel = [[GGKSoundModel alloc] init];
 }
 
 @end

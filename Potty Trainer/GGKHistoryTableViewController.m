@@ -85,6 +85,7 @@
 
 - (IBAction)playButtonSound
 {
+//    NSLog(@"HTVC playButtonSound1");
     [self.soundModel playButtonTapSound];
 }
 
@@ -92,6 +93,7 @@
 {
     if ([segue.identifier isEqualToString:@"showAddPottyView"]) {
         
+//        NSLog(@"HTVC prepareForSegue");
         [segue.destinationViewController setDelegate:self];
     } else if ([segue.identifier isEqualToString:@"showHistoryForDay"]) {
         
@@ -220,6 +222,16 @@
         theHistoryHeaderCell.endMarkLabel.hidden = NO;
     }
     
+    // The above trick (making the header view a cell) is … tricky. The cell seems to have a long-press gesture recognizer attached, so doing a long press on the header results in a crash. We'll look for that GR and remove it.
+    if (theHeaderView.gestureRecognizers.count >= 1) {
+        
+        UIGestureRecognizer *aGestureRecognizer = (UIGestureRecognizer *)theHeaderView.gestureRecognizers[0];
+        if ([aGestureRecognizer isKindOfClass:[UILongPressGestureRecognizer class]]) {
+            
+            [theHeaderView removeGestureRecognizer:aGestureRecognizer];
+        }
+    }
+    
     return theHeaderView;
 }
 
@@ -245,6 +257,9 @@
     self.startTimeDateComponents = aDateComponents;
     
     self.endMinutesAfterStartTimeInteger = (theEndHour - theStartHour) * 60;
+    
+//    NSLog(@"HTVC vDL");
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
