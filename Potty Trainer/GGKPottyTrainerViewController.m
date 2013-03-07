@@ -9,6 +9,9 @@
 #import "GGKPickBackgroundColorViewController.h"
 #import "GGKPottyTrainerViewController.h"
 
+//BOOL GGKCreateLaunchImages = YES;
+BOOL GGKCreateLaunchImages = NO;
+
 @interface GGKPottyTrainerViewController ()
 
 @property (strong, nonatomic) GGKPickBackgroundColorViewController *pickBackgroundColorViewController;
@@ -36,7 +39,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
-    self.soundModel = [[GGKSoundModel alloc] init];
+    // Make UI blank so we can make launch images via screenshot.
+    if (GGKCreateLaunchImages) {
+        
+        self.navigationItem.title = @"";
+        for (UIView *aSubView in self.view.subviews) {
+            
+            aSubView.hidden = YES;
+        }
+    } else {
+        
+        self.soundModel = [[GGKSoundModel alloc] init];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
