@@ -36,4 +36,7 @@
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response;
 // So, populate the store UI.
 
+// Help the user rate/review this app by taking them to the App Store.
+- (IBAction)rateOrReview;
+
 @end

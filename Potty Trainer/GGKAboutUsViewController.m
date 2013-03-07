@@ -129,6 +129,19 @@
     }
 }
 
+- (IBAction)rateOrReview
+{
+    NSLog(@"AUVC rateOrReview");
+    
+    // Go to the App Store, to this app and the section for "Ratings and Reviews." Note that the app ID won't work prior to the app's first release, but one can test by using the ID of an app that has already been released.
+    // App ID for Color Fever: 585564245
+    // App ID for Perfect Potty: 615088461
+    // App ID for Text Memory: 490464898
+    NSString *theAppIDString = @"615088461";
+    NSString *theITunesURL = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", theAppIDString];
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:theITunesURL]];
+}
+
 - (void)requestProductData
 {
     NSSet *productIDsSet = [NSSet setWithObject:GGKGiveDollarProductIDString];
