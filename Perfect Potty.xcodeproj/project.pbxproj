@@ -43,6 +43,14 @@
 		93DE8C0716E7F36000AA87FF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DE8C0616E7F36000AA87FF /* StoreKit.framework */; };
 		93DE8C0D16E8074800AA87FF /* GGKInAppPurchaseObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DE8C0C16E8074800AA87FF /* GGKInAppPurchaseObserver.m */; };
 		93DE8C0F16E87A2400AA87FF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DE8C0E16E87A2400AA87FF /* MessageUI.framework */; };
+		93DE8C1216E898C700AA87FF /* icon2-29px.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1116E898C700AA87FF /* icon2-29px.png */; };
+		93DE8C1416E8995200AA87FF /* icon2-29px@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1316E8995200AA87FF /* icon2-29px@2x.png */; };
+		93DE8C1616E8999A00AA87FF /* icon2-50px.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1516E8999A00AA87FF /* icon2-50px.png */; };
+		93DE8C1816E899CE00AA87FF /* icon2-50px@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1716E899CE00AA87FF /* icon2-50px@2x.png */; };
+		93DE8C1D16E89A7E00AA87FF /* icon2-57px.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1916E89A7E00AA87FF /* icon2-57px.png */; };
+		93DE8C1E16E89A7E00AA87FF /* icon2-57px@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1A16E89A7E00AA87FF /* icon2-57px@2x.png */; };
+		93DE8C1F16E89A7E00AA87FF /* icon2-72px.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1B16E89A7E00AA87FF /* icon2-72px.png */; };
+		93DE8C2016E89A7E00AA87FF /* icon2-72px@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1C16E89A7E00AA87FF /* icon2-72px@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +66,7 @@
 		9362E42616D4AC2A00A1B771 /* UIColor+GGKColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GGKColors.m"; sourceTree = "<group>"; };
 		9362E42B16D5F17600A1B771 /* GGKSoundModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSoundModel.h; sourceTree = "<group>"; };
 		9362E42C16D5F17600A1B771 /* GGKSoundModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSoundModel.m; sourceTree = "<group>"; };
-		9362E42E16D5FA8600A1B771 /* tap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = tap.aif; sourceTree = "<group>"; };
+		9362E42E16D5FA8600A1B771 /* tap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = tap.aif; path = sounds/tap.aif; sourceTree = "<group>"; };
 		9362E42F16D5FBF400A1B771 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		937652A616C079CB007EA04C /* Perfect Potty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Perfect Potty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		937652A916C079CB007EA04C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -77,7 +85,7 @@
 		937652C516C079CB007EA04C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		937652C716C079CB007EA04C /* GGKPottyTrainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGKPottyTrainerViewController.h; sourceTree = "<group>"; };
 		937652C816C079CB007EA04C /* GGKPottyTrainerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGKPottyTrainerViewController.m; sourceTree = "<group>"; };
-		9376CCAD16E0111E00887ADE /* scoreIncrease.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = scoreIncrease.aiff; sourceTree = "<group>"; };
+		9376CCAD16E0111E00887ADE /* scoreIncrease.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = scoreIncrease.aiff; path = sounds/scoreIncrease.aiff; sourceTree = "<group>"; };
 		9376CCAF16E1A48300887ADE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		9376CCB116E1DC0500887ADE /* GGKAddRewardTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKAddRewardTextViewController.h; sourceTree = "<group>"; };
 		9376CCB216E1DC0500887ADE /* GGKAddRewardTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKAddRewardTextViewController.m; sourceTree = "<group>"; };
@@ -105,6 +113,14 @@
 		93DE8C0B16E8074800AA87FF /* GGKInAppPurchaseObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKInAppPurchaseObserver.h; sourceTree = "<group>"; };
 		93DE8C0C16E8074800AA87FF /* GGKInAppPurchaseObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKInAppPurchaseObserver.m; sourceTree = "<group>"; };
 		93DE8C0E16E87A2400AA87FF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		93DE8C1116E898C700AA87FF /* icon2-29px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-29px.png"; path = "icons/icon2-29px.png"; sourceTree = "<group>"; };
+		93DE8C1316E8995200AA87FF /* icon2-29px@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-29px@2x.png"; path = "icons/icon2-29px@2x.png"; sourceTree = "<group>"; };
+		93DE8C1516E8999A00AA87FF /* icon2-50px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-50px.png"; path = "icons/icon2-50px.png"; sourceTree = "<group>"; };
+		93DE8C1716E899CE00AA87FF /* icon2-50px@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-50px@2x.png"; path = "icons/icon2-50px@2x.png"; sourceTree = "<group>"; };
+		93DE8C1916E89A7E00AA87FF /* icon2-57px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-57px.png"; path = "icons/icon2-57px.png"; sourceTree = "<group>"; };
+		93DE8C1A16E89A7E00AA87FF /* icon2-57px@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-57px@2x.png"; path = "icons/icon2-57px@2x.png"; sourceTree = "<group>"; };
+		93DE8C1B16E89A7E00AA87FF /* icon2-72px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-72px.png"; path = "icons/icon2-72px.png"; sourceTree = "<group>"; };
+		93DE8C1C16E89A7E00AA87FF /* icon2-72px@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-72px@2x.png"; path = "icons/icon2-72px@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +234,7 @@
 		937652B016C079CB007EA04C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				93DE8C1016E8987B00AA87FF /* icons */,
 				937652BB16C079CB007EA04C /* Default.png */,
 				937652BD16C079CB007EA04C /* Default@2x.png */,
 				937652BF16C079CB007EA04C /* Default-568h@2x.png */,
@@ -228,6 +245,21 @@
 				9362E43116D5FC9100A1B771 /* sounds */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		93DE8C1016E8987B00AA87FF /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				93DE8C1316E8995200AA87FF /* icon2-29px@2x.png */,
+				93DE8C1116E898C700AA87FF /* icon2-29px.png */,
+				93DE8C1716E899CE00AA87FF /* icon2-50px@2x.png */,
+				93DE8C1516E8999A00AA87FF /* icon2-50px.png */,
+				93DE8C1916E89A7E00AA87FF /* icon2-57px.png */,
+				93DE8C1A16E89A7E00AA87FF /* icon2-57px@2x.png */,
+				93DE8C1B16E89A7E00AA87FF /* icon2-72px.png */,
+				93DE8C1C16E89A7E00AA87FF /* icon2-72px@2x.png */,
+			);
+			name = icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +322,14 @@
 				937652C616C079CB007EA04C /* MainStoryboard_iPad.storyboard in Resources */,
 				9362E43216D5FDAB00A1B771 /* tap.aif in Resources */,
 				9376CCAE16E0111E00887ADE /* scoreIncrease.aiff in Resources */,
+				93DE8C1216E898C700AA87FF /* icon2-29px.png in Resources */,
+				93DE8C1416E8995200AA87FF /* icon2-29px@2x.png in Resources */,
+				93DE8C1616E8999A00AA87FF /* icon2-50px.png in Resources */,
+				93DE8C1816E899CE00AA87FF /* icon2-50px@2x.png in Resources */,
+				93DE8C1D16E89A7E00AA87FF /* icon2-57px.png in Resources */,
+				93DE8C1E16E89A7E00AA87FF /* icon2-57px@2x.png in Resources */,
+				93DE8C1F16E89A7E00AA87FF /* icon2-72px.png in Resources */,
+				93DE8C2016E89A7E00AA87FF /* icon2-72px@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
