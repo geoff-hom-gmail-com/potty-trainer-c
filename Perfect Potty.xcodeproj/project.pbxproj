@@ -40,6 +40,8 @@
 		937F864C16DC7BF2007DE572 /* NSDate+GGKDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F864B16DC7BF2007DE572 /* NSDate+GGKDate.m */; };
 		9390858116DD534800C2290F /* GGKHistoryForDayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390858016DD534800C2290F /* GGKHistoryForDayTableViewController.m */; };
 		9390858416DD583A00C2290F /* GGKPottyAttemptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390858316DD583A00C2290F /* GGKPottyAttemptCell.m */; };
+		93DE8C0716E7F36000AA87FF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DE8C0616E7F36000AA87FF /* StoreKit.framework */; };
+		93DE8C0D16E8074800AA87FF /* GGKInAppPurchaseObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DE8C0C16E8074800AA87FF /* GGKInAppPurchaseObserver.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +100,9 @@
 		9390858016DD534800C2290F /* GGKHistoryForDayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKHistoryForDayTableViewController.m; sourceTree = "<group>"; };
 		9390858216DD583A00C2290F /* GGKPottyAttemptCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPottyAttemptCell.h; sourceTree = "<group>"; };
 		9390858316DD583A00C2290F /* GGKPottyAttemptCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPottyAttemptCell.m; sourceTree = "<group>"; };
+		93DE8C0616E7F36000AA87FF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		93DE8C0B16E8074800AA87FF /* GGKInAppPurchaseObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKInAppPurchaseObserver.h; sourceTree = "<group>"; };
+		93DE8C0C16E8074800AA87FF /* GGKInAppPurchaseObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKInAppPurchaseObserver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93DE8C0716E7F36000AA87FF /* StoreKit.framework in Frameworks */,
 				9376CCB016E1A48400887ADE /* MobileCoreServices.framework in Frameworks */,
 				9362E43016D5FBF400A1B771 /* AVFoundation.framework in Frameworks */,
 				937652AA16C079CB007EA04C /* UIKit.framework in Frameworks */,
@@ -149,6 +155,7 @@
 				937652AD16C079CB007EA04C /* CoreGraphics.framework */,
 				937652AB16C079CB007EA04C /* Foundation.framework */,
 				9376CCAF16E1A48300887ADE /* MobileCoreServices.framework */,
+				93DE8C0616E7F36000AA87FF /* StoreKit.framework */,
 				937652A916C079CB007EA04C /* UIKit.framework */,
 			);
 			name = Frameworks;
@@ -171,6 +178,8 @@
 				937F864816DC50B1007DE572 /* GGKHistoryHeaderCell.m */,
 				937F864116D9DC36007DE572 /* GGKHistoryTableViewController.h */,
 				937F864216D9DC36007DE572 /* GGKHistoryTableViewController.m */,
+				93DE8C0B16E8074800AA87FF /* GGKInAppPurchaseObserver.h */,
+				93DE8C0C16E8074800AA87FF /* GGKInAppPurchaseObserver.m */,
 				9362E42216D49EC600A1B771 /* GGKPickBackgroundColorViewController.h */,
 				9362E42316D49EC600A1B771 /* GGKPickBackgroundColorViewController.m */,
 				9390858216DD583A00C2290F /* GGKPottyAttemptCell.h */,
@@ -307,6 +316,7 @@
 				9315503216DF225000482944 /* GGKSetReminderViewController.m in Sources */,
 				9376CCB316E1DC0600887ADE /* GGKAddRewardTextViewController.m in Sources */,
 				9353B37F16E6011300B0A75A /* GGKAboutUsViewController.m in Sources */,
+				93DE8C0D16E8074800AA87FF /* GGKInAppPurchaseObserver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

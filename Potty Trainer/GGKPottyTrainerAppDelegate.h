@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class GGKInAppPurchaseObserver;
+
 @interface GGKPottyTrainerAppDelegate : UIResponder <UIApplicationDelegate>
+
+// For observing App Store transactions.
+@property (strong, nonatomic) GGKInAppPurchaseObserver *inAppPurchaseObserver;
 
 @property (strong, nonatomic) UIWindow *window;
 

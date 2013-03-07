@@ -10,6 +10,8 @@
 
 NSString *GGKBoyThemeString = @"Boy theme";
 NSString *GGKGirlThemeString = @"Girl theme";
+NSString *GGKGiveDollarProductIDString = @"com.geoffhom.PerfectPotty.GiveADollar";
+NSString *GGKNumberOfStarsPurchasedNumberKeyString = @"Number of stars purchased";
 NSString *GGKNumberOfSuccessesForReward1KeyString = @"Number of successes for reward 1";
 NSString *GGKNumberOfSuccessesForReward2KeyString = @"Number of successes for reward 2";
 NSString *GGKNumberOfSuccessesForReward3KeyString = @"Number of successes for reward 3";

@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
+#import "GGKInAppPurchaseObserver.h"
 #import "GGKPottyTrainerAppDelegate.h"
 
 @interface GGKPottyTrainerAppDelegate ()
@@ -30,6 +31,10 @@
     self.soundModel = [[GGKSoundModel alloc] init];
     
     [self noteThatLocalNotificationsNotReceivedRecently];
+    
+    GGKInAppPurchaseObserver *theInAppPurchaseHelper = [[GGKInAppPurchaseObserver alloc] init];
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:theInAppPurchaseHelper];
+    self.inAppPurchaseObserver = theInAppPurchaseHelper;
     
     return YES;
 }

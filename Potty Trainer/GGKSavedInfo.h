@@ -14,6 +14,12 @@ extern NSString *GGKBoyThemeString;
 // String to identify the girl theme.
 extern NSString *GGKGirlThemeString;
 
+// String for the product ID for giving a dollar.
+extern NSString *GGKGiveDollarProductIDString;
+
+// Key for storing the number of stars purchased.
+extern NSString *GGKNumberOfStarsPurchasedNumberKeyString;
+
 // Key for storing the number of successes needed for reward 1.
 extern NSString *GGKNumberOfSuccessesForReward1KeyString;
 
