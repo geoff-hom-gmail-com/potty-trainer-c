@@ -7,10 +7,14 @@
 //
 
 #import "GGKInAppPurchaseObserver.h"
+#import <MessageUI/MessageUI.h>
 #import <StoreKit/StoreKit.h>
 #import <UIKit/UIKit.h>
 
-@interface GGKAboutUsViewController : UIViewController <GGKInAppPurchaseObserverDelegate, SKProductsRequestDelegate>
+@interface GGKAboutUsViewController : UIViewController <GGKInAppPurchaseObserverDelegate, MFMailComposeViewControllerDelegate, SKProductsRequestDelegate>
+
+// For letting the user email the developers.
+@property (nonatomic, weak) IBOutlet UIButton *emailUsButton;
 
 // For describing giving a dollar to the developers. Should include price in local currency.
 @property (nonatomic, weak) IBOutlet UILabel *giveADollar1Label;
@@ -24,11 +28,17 @@
 // For showing the stars purchased.
 @property (nonatomic, weak) IBOutlet UILabel *starsLabel;
 
+// Help the user send an email to the developers. Start an email with the destination, subject line and some message body.
+- (IBAction)emailUs;
+
 // Buy the product "give a dollar."
 - (IBAction)giveADollar;
 
 - (void)inAppPurchaseObserverDidHandleUpdatedTransactions:(id)sender;
 // So, update the UI.
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error;
+// So, dismiss the email view.
 
 // Play sound as aural feedback for pressing button.
 - (IBAction)playButtonSound;

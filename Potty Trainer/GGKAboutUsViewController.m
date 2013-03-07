@@ -65,6 +65,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)emailUs
+{
+    MFMailComposeViewController *aMailComposeViewController = [[MFMailComposeViewController alloc] init];
+    aMailComposeViewController.mailComposeDelegate = self;
+    
+    NSArray *theToRecipientsArray = @[@"geoffhom@gmail.com"];
+    [aMailComposeViewController setToRecipients:theToRecipientsArray];
+    
+    [aMailComposeViewController setSubject:@"Perfect Potty"];
+    
+    [self presentViewController:aMailComposeViewController animated:YES completion:nil];
+}
+
 - (IBAction)giveADollar
 {
     BOOL thePaymentWasAdded = [self buyProductWithID:self.giveADollarProduct.productIdentifier];
@@ -95,6 +108,11 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)theViewController didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [theViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)playButtonSound
@@ -213,6 +231,9 @@
     // Get info on in-app purchase.
     self.giveADollarButton.enabled = NO;
     [self requestProductData];
+    
+    // Enable "Email Us" only if available.
+    self.emailUsButton.enabled = [MFMailComposeViewController canSendMail];
 }
 
 @end

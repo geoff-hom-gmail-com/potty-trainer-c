@@ -429,6 +429,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="emailUs" destination="qSk-Mp-xpD" eventType="touchUpInside" id="nrM-27-88t"/>
                                     <action selector="playButtonSound" destination="qSk-Mp-xpD" eventType="touchDown" id="xbw-de-VsI"/>
                                 </connections>
                             </button>
@@ -497,6 +498,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="emailUsButton" destination="TC7-GV-5fm" id="xa7-34-7f2"/>
                         <outlet property="giveADollar1Label" destination="zzC-ef-F9U" id="rPF-Et-6rI"/>
                         <outlet property="giveADollarButton" destination="A38-QP-NEI" id="c4t-GX-BQG"/>
                         <outlet property="scrollView" destination="LlO-au-0C6" id="CuD-DT-pkh"/>

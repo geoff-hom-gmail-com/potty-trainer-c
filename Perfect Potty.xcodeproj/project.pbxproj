@@ -42,6 +42,7 @@
 		9390858416DD583A00C2290F /* GGKPottyAttemptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390858316DD583A00C2290F /* GGKPottyAttemptCell.m */; };
 		93DE8C0716E7F36000AA87FF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DE8C0616E7F36000AA87FF /* StoreKit.framework */; };
 		93DE8C0D16E8074800AA87FF /* GGKInAppPurchaseObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DE8C0C16E8074800AA87FF /* GGKInAppPurchaseObserver.m */; };
+		93DE8C0F16E87A2400AA87FF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DE8C0E16E87A2400AA87FF /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,7 @@
 		93DE8C0616E7F36000AA87FF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		93DE8C0B16E8074800AA87FF /* GGKInAppPurchaseObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKInAppPurchaseObserver.h; sourceTree = "<group>"; };
 		93DE8C0C16E8074800AA87FF /* GGKInAppPurchaseObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKInAppPurchaseObserver.m; sourceTree = "<group>"; };
+		93DE8C0E16E87A2400AA87FF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93DE8C0F16E87A2400AA87FF /* MessageUI.framework in Frameworks */,
 				93DE8C0716E7F36000AA87FF /* StoreKit.framework in Frameworks */,
 				9376CCB016E1A48400887ADE /* MobileCoreServices.framework in Frameworks */,
 				9362E43016D5FBF400A1B771 /* AVFoundation.framework in Frameworks */,
@@ -154,6 +157,7 @@
 				9362E42F16D5FBF400A1B771 /* AVFoundation.framework */,
 				937652AD16C079CB007EA04C /* CoreGraphics.framework */,
 				937652AB16C079CB007EA04C /* Foundation.framework */,
+				93DE8C0E16E87A2400AA87FF /* MessageUI.framework */,
 				9376CCAF16E1A48300887ADE /* MobileCoreServices.framework */,
 				93DE8C0616E7F36000AA87FF /* StoreKit.framework */,
 				937652A916C079CB007EA04C /* UIKit.framework */,
