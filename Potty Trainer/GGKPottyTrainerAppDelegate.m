@@ -32,13 +32,13 @@
     
 #define TESTING 1
 #ifdef TESTING
-    NSLog(@"name:%@", [[UIDevice currentDevice] name]);
-    NSLog(@"Localized model:%@", [[UIDevice currentDevice] localizedModel]);
-    NSLog(@"system name:%@; system version:%@", [[UIDevice currentDevice] systemName], [[UIDevice currentDevice] systemVersion]);
 //    NSLog(@"identifierForVendor: %@", [[UIDevice currentDevice] identifierForVendor]);
 //    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
 #endif
     [TestFlight takeOff:@"633c83d4-65be-4664-a051-6b63aca3fb7e"];
+    NSLog(@"Name:%@", [[UIDevice currentDevice] name]);
+    NSLog(@"Localized model:%@", [[UIDevice currentDevice] localizedModel]);
+    NSLog(@"System name:%@; system version:%@", [[UIDevice currentDevice] systemName], [[UIDevice currentDevice] systemVersion]);
     
     self.soundModel = [[GGKSoundModel alloc] init];
     
