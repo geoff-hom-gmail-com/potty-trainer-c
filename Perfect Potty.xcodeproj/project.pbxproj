@@ -10,6 +10,10 @@
 		9315502F16DF1D2400482944 /* UIView+GGKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315502E16DF1D2400482944 /* UIView+GGKAdditions.m */; };
 		9315503216DF225000482944 /* GGKSetReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315503116DF225000482944 /* GGKSetReminderViewController.m */; };
 		9353B37F16E6011300B0A75A /* GGKAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9353B37E16E6011300B0A75A /* GGKAboutUsViewController.m */; };
+		935A343E16F2063B003DD6FA /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 935A343A16F2063B003DD6FA /* libTestFlight.a */; };
+		935A343F16F2063B003DD6FA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 935A343B16F2063B003DD6FA /* README.md */; };
+		935A344016F2063B003DD6FA /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 935A343C16F2063B003DD6FA /* release_notes.md */; };
+		935A344216F206BA003DD6FA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 935A344116F206BA003DD6FA /* libz.dylib */; };
 		9362E42416D49EC600A1B771 /* GGKPickBackgroundColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42316D49EC600A1B771 /* GGKPickBackgroundColorViewController.m */; };
 		9362E42716D4AC2A00A1B771 /* UIColor+GGKColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42616D4AC2A00A1B771 /* UIColor+GGKColors.m */; };
 		9362E42D16D5F17600A1B771 /* GGKSoundModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42C16D5F17600A1B771 /* GGKSoundModel.m */; };
@@ -60,6 +64,11 @@
 		9315503116DF225000482944 /* GGKSetReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSetReminderViewController.m; sourceTree = "<group>"; };
 		9353B37D16E6011300B0A75A /* GGKAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKAboutUsViewController.h; sourceTree = "<group>"; };
 		9353B37E16E6011300B0A75A /* GGKAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKAboutUsViewController.m; sourceTree = "<group>"; };
+		935A343A16F2063B003DD6FA /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		935A343B16F2063B003DD6FA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		935A343C16F2063B003DD6FA /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		935A343D16F2063B003DD6FA /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		935A344116F206BA003DD6FA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		9362E42216D49EC600A1B771 /* GGKPickBackgroundColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPickBackgroundColorViewController.h; sourceTree = "<group>"; };
 		9362E42316D49EC600A1B771 /* GGKPickBackgroundColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPickBackgroundColorViewController.m; sourceTree = "<group>"; };
 		9362E42516D4AC2A00A1B771 /* UIColor+GGKColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GGKColors.h"; sourceTree = "<group>"; };
@@ -128,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				935A344216F206BA003DD6FA /* libz.dylib in Frameworks */,
 				93DE8C0F16E87A2400AA87FF /* MessageUI.framework in Frameworks */,
 				93DE8C0716E7F36000AA87FF /* StoreKit.framework in Frameworks */,
 				9376CCB016E1A48400887ADE /* MobileCoreServices.framework in Frameworks */,
@@ -135,12 +145,24 @@
 				937652AA16C079CB007EA04C /* UIKit.framework in Frameworks */,
 				937652AC16C079CB007EA04C /* Foundation.framework in Frameworks */,
 				937652AE16C079CB007EA04C /* CoreGraphics.framework in Frameworks */,
+				935A343E16F2063B003DD6FA /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		935A343916F2063B003DD6FA /* TestFlightSDK1 */ = {
+			isa = PBXGroup;
+			children = (
+				935A343A16F2063B003DD6FA /* libTestFlight.a */,
+				935A343B16F2063B003DD6FA /* README.md */,
+				935A343C16F2063B003DD6FA /* release_notes.md */,
+				935A343D16F2063B003DD6FA /* TestFlight.h */,
+			);
+			path = TestFlightSDK1;
+			sourceTree = "<group>";
+		};
 		9362E43116D5FC9100A1B771 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				937652AF16C079CB007EA04C /* Potty Trainer */,
+				935A343916F2063B003DD6FA /* TestFlightSDK1 */,
 				937652A816C079CB007EA04C /* Frameworks */,
 				937652A716C079CB007EA04C /* Products */,
 			);
@@ -173,6 +196,7 @@
 				9362E42F16D5FBF400A1B771 /* AVFoundation.framework */,
 				937652AD16C079CB007EA04C /* CoreGraphics.framework */,
 				937652AB16C079CB007EA04C /* Foundation.framework */,
+				935A344116F206BA003DD6FA /* libz.dylib */,
 				93DE8C0E16E87A2400AA87FF /* MessageUI.framework */,
 				9376CCAF16E1A48300887ADE /* MobileCoreServices.framework */,
 				93DE8C0616E7F36000AA87FF /* StoreKit.framework */,
@@ -330,6 +354,8 @@
 				93DE8C1E16E89A7E00AA87FF /* icon2-57px@2x.png in Resources */,
 				93DE8C1F16E89A7E00AA87FF /* icon2-72px.png in Resources */,
 				93DE8C2016E89A7E00AA87FF /* icon2-72px@2x.png in Resources */,
+				935A343F16F2063B003DD6FA /* README.md in Resources */,
+				935A344016F2063B003DD6FA /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +489,10 @@
 				GCC_PREFIX_HEADER = "Potty Trainer/Perfect Potty Pal-Prefix.pch";
 				INFOPLIST_FILE = "Potty Trainer/Perfect Potty Pal-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK1\"",
+				);
 				PRODUCT_NAME = "Perfect Potty";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -472,11 +502,17 @@
 		937652CE16C079CB007EA04C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Geoffrey Hom";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Potty Trainer/Perfect Potty Pal-Prefix.pch";
 				INFOPLIST_FILE = "Potty Trainer/Perfect Potty Pal-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK1\"",
+				);
 				PRODUCT_NAME = "Perfect Potty";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F3C273FE-B351-4E8E-8E1B-5A601D44FB5D";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -515,10 +551,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Geoffrey Hom";
+				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Potty Trainer/Perfect Potty Pal-Prefix.pch";
 				INFOPLIST_FILE = "Potty Trainer/Perfect Potty Pal-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK1\"",
+				);
 				PRODUCT_NAME = "Perfect Potty";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EE586817-0CF3-44E4-892C-51FF5D41455E";
 				TARGETED_DEVICE_FAMILY = 1;

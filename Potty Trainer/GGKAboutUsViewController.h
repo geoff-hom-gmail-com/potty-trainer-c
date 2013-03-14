@@ -28,6 +28,9 @@
 // For showing the stars purchased.
 @property (nonatomic, weak) IBOutlet UILabel *starsLabel;
 
+// For showing the app's version number.
+@property (nonatomic, weak) IBOutlet UILabel *versionLabel;
+
 // Help the user send an email to the developers. Start an email with the destination, subject line and some message body.
 - (IBAction)emailUs;
 

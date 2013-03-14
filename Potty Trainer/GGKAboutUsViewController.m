@@ -217,7 +217,8 @@
 	// Do any additional setup after loading the view.
     
     // Height should match size of scroll view in the storyboard.
-    self.scrollView.contentSize = CGSizeMake(320, 673);
+    CGFloat theScrollViewHeightFloat = 701;
+    self.scrollView.contentSize = CGSizeMake(320, theScrollViewHeightFloat);
     
     self.soundModel = [[GGKSoundModel alloc] init];
     
@@ -234,6 +235,10 @@
     
     // Enable "Email Us" only if available.
     self.emailUsButton.enabled = [MFMailComposeViewController canSendMail];
+    
+    // Show version number.
+    NSString *versionString = (NSString *)[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    self.versionLabel.text = [NSString stringWithFormat:@"App version: %@", versionString];
 }
 
 @end

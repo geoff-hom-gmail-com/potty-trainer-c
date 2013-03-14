@@ -27,7 +27,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
     NSLog(@"PTAD a dFLWO1");
+    
+#define TESTING 1
+#ifdef TESTING
+    NSLog(@"name:%@", [[UIDevice currentDevice] name]);
+    NSLog(@"Localized model:%@", [[UIDevice currentDevice] localizedModel]);
+    NSLog(@"system name:%@; system version:%@", [[UIDevice currentDevice] systemName], [[UIDevice currentDevice] systemVersion]);
+//    NSLog(@"identifierForVendor: %@", [[UIDevice currentDevice] identifierForVendor]);
+//    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+#endif
+    [TestFlight takeOff:@"633c83d4-65be-4664-a051-6b63aca3fb7e"];
+    
     self.soundModel = [[GGKSoundModel alloc] init];
     
     [self noteThatLocalNotificationsNotReceivedRecently];

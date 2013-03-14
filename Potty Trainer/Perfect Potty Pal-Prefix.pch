@@ -8,6 +8,9 @@
 #warning "This project uses features only available in iOS SDK 5.0 and later."
 #endif
 
+// This is for using TestFlight SDK. It should work in all circumstances.
+#define NSLog TFLog
+
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
@@ -15,6 +18,7 @@
     #import <AVFoundation/AVFoundation.h>
     #import "GGKSavedInfo.h"
     #import "NSDate+GGKDate.h"
+    #import "TestFlight.h"
     #import "UIColor+GGKColors.h"
     #import "UIView+GGKAdditions.h"
 #endif
