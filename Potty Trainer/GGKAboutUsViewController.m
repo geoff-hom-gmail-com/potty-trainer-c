@@ -148,9 +148,9 @@
         
         if (theResponse.invalidProductIdentifiers.count >= 1) {
             
-            [theResponse.invalidProductIdentifiers enumerateObjectsUsingBlock:^(SKProduct *aProduct, NSUInteger idx, BOOL *stop) {
+            [theResponse.invalidProductIdentifiers enumerateObjectsUsingBlock:^(NSString *aProductIdentifierString, NSUInteger idx, BOOL *stop) {
                 
-                NSLog(@"Invalid product: %@", aProduct.productIdentifier);
+                NSLog(@"Invalid product: %@", aProductIdentifierString);
             }];
         }
     }
