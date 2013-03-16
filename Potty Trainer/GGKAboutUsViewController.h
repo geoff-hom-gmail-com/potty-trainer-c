@@ -52,4 +52,10 @@
 // Help the user rate/review this app by taking them to the App Store.
 - (IBAction)rateOrReview;
 
+- (void)request:(SKRequest *)request didFailWithError:(NSError *)error;
+// So, log the error.
+
+- (void)requestDidFinish:(SKRequest *)request;
+// So, log the success.
+
 @end

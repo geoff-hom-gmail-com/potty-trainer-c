@@ -128,7 +128,7 @@
     // Do something only if we have a product.
     if (theResponse.products.count >= 1) {
         
-//        NSLog(@"AUVC pR dRR: 1+ products found");
+        NSLog(@"AUVC pR dRR: 1+ products found");
         SKProduct *aProduct = theResponse.products[0];
         if ([aProduct.productIdentifier isEqualToString:GGKGiveDollarProductIDString]) {
             
@@ -144,6 +144,15 @@
             self.giveADollarButton.enabled = YES;
             self.giveADollarProduct = aProduct;
         }
+    } else {
+        
+        if (theResponse.invalidProductIdentifiers.count >= 1) {
+            
+            [theResponse.invalidProductIdentifiers enumerateObjectsUsingBlock:^(SKProduct *aProduct, NSUInteger idx, BOOL *stop) {
+                
+                NSLog(@"Invalid product: %@", aProduct.productIdentifier);
+            }];
+        }
     }
 }
 
@@ -158,6 +167,16 @@
     NSString *theAppIDString = @"615088461";
     NSString *theITunesURL = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", theAppIDString];
     [[UIApplication sharedApplication] openURL: [NSURL URLWithString:theITunesURL]];
+}
+
+- (void)request:(SKRequest *)request didFailWithError:(NSError *)theError
+{
+    NSLog(@"AUVC request didFailWithError: %@", [theError localizedDescription]);
+}
+
+- (void)requestDidFinish:(SKRequest *)request
+{
+    NSLog(@"AUVC requestDidFinish");
 }
 
 - (void)requestProductData
