@@ -92,10 +92,7 @@ extern NSString *GGKUseTextTitleString;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 // So, dismiss the keyboard.
 
-// UIViewController override.
+// Override.
 - (void)viewDidLoad;
-
-// UIViewController override.
-//- (void)viewWillAppear:(BOOL)animated;
 
 @end

@@ -8,6 +8,8 @@
 
 #import "GGKPottyAttemptDayTableViewCell.h"
 
+#import "GGKSavedInfo.h"
+
 @interface GGKPottyAttemptDayTableViewCell ()
 
 @end
@@ -34,9 +36,6 @@
 
 - (void)showAttempts
 {
-    static NSString *StarString = @"\u2605";
-    static NSString *XMarkString = @"\u2718";
-     
 //    NSLog(@"PADTVC updateAttemptLabels");
     
     // Remove extra labels (from previous uses of this cell).
@@ -55,15 +54,26 @@
         // Assign success label.
         NSNumber *theAttemptWasSuccessfulBOOLNumber = aPottyAttemptDictionary[GGKPottyAttemptWasSuccessfulNumberKeyString];
         BOOL theAttemptWasSuccessfulBOOL = [theAttemptWasSuccessfulBOOLNumber boolValue];
-        NSString *theAttemptString;
+        NSString *theSymbolString = aPottyAttemptDictionary[GGKPottyAttemptSymbolStringKeyString];
         UIColor *theTextColor;
+        
+        // Version 1.0.4 and before had no symbol stored. In that case, it was a star or an X.
+        if (theSymbolString == nil) {
+            
+            if (theAttemptWasSuccessfulBOOL) {
+                
+                theSymbolString = GGKStarSymbolString;
+            } else {
+                
+                theSymbolString = GGKXSymbolString;
+            }
+        }
+        
         if (theAttemptWasSuccessfulBOOL) {
             
-            theAttemptString = StarString;
             theTextColor = [UIColor greenColor];
         } else {
             
-            theAttemptString = XMarkString;
             theTextColor = [UIColor redColor];
         }
         
@@ -90,7 +100,7 @@
         
         if (idx == 0) {
             
-            self.attempt1Label.text = theAttemptString;
+            self.attempt1Label.text = theSymbolString;
             self.attempt1Label.center = CGPointMake(theNewCenterXInteger, self.attempt1Label.center.y);
             self.attempt1Label.textColor = theTextColor;
         } else {
@@ -99,7 +109,7 @@
             aNewLabel.opaque = NO;
             aNewLabel.backgroundColor = [UIColor clearColor];
             aNewLabel.textAlignment = UITextAlignmentCenter;
-            aNewLabel.text = theAttemptString;
+            aNewLabel.text = theSymbolString;
             aNewLabel.textColor = theTextColor;
             aNewLabel.center = CGPointMake(theNewCenterXInteger, aNewLabel.center.y);
             [self.contentView addSubview:aNewLabel];

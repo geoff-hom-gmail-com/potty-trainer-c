@@ -217,14 +217,10 @@
     if (theNumberOfStarsPurchasedNumber != nil) {
         
         NSInteger theNumberOfStarsPurchasedInteger = [theNumberOfStarsPurchasedNumber integerValue];
-        
-        // Unicode star.
-        NSString *aStarString = @"\u2605";
-        
         NSMutableString *aMutableString = [[NSMutableString alloc] initWithCapacity:10];
         for (int i = 0; i < theNumberOfStarsPurchasedInteger; i++) {
             
-            [aMutableString appendString:aStarString];
+            [aMutableString appendString:GGKStarRewardString];
         }
         self.starsLabel.text = aMutableString;
     }

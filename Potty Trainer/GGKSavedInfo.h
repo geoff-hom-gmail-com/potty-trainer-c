@@ -35,6 +35,9 @@ extern NSString *GGKNumberOfSuccessesForReward3KeyString;
 // Key for storing the date of a potty attempt. Object is an NSDate.
 extern NSString *GGKPottyAttemptDateKeyString;
 
+// Key for storing the symbol for a potty attempt.
+extern NSString *GGKPottyAttemptSymbolStringKeyString;
+
 // Key for storing whether a potty attempt was successful. Object is a BOOL stored as an NSNumber.
 extern NSString *GGKPottyAttemptWasSuccessfulNumberKeyString;
 
@@ -62,8 +65,17 @@ extern NSString *GGKReward3IsTextBOOLNumberKeyString;
 // Key for storing the text for reward 3.
 extern NSString *GGKReward3TextKeyString;
 
+// A star symbol. Used for showing number of successful attempts, and for donation thank-yous.
+extern NSString *GGKStarRewardString;
+
+// A star symbol. Used for successful attempts in v1.0.4 and earlier.
+extern NSString *GGKStarSymbolString;
+
 // Key for storing the name of the color theme to show.
 extern NSString *GGKThemeKeyString;
+
+// An X symbol. Used for unsuccessful attempts.
+extern NSString *GGKXSymbolString;
 
 @interface GGKSavedInfo : NSObject
 

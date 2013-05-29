@@ -208,8 +208,6 @@
 		937652AF16C079CB007EA04C /* Potty Trainer */ = {
 			isa = PBXGroup;
 			children = (
-				937652C116C079CB007EA04C /* MainStoryboard_iPhone.storyboard */,
-				937652C416C079CB007EA04C /* MainStoryboard_iPad.storyboard */,
 				9353B37D16E6011300B0A75A /* GGKAboutUsViewController.h */,
 				9353B37E16E6011300B0A75A /* GGKAboutUsViewController.m */,
 				937F863E16D9DC0B007DE572 /* GGKAddPottyViewController.h */,
@@ -244,6 +242,8 @@
 				937F863616D6A61A007DE572 /* GGKSettingsViewController.m */,
 				9362E42B16D5F17600A1B771 /* GGKSoundModel.h */,
 				9362E42C16D5F17600A1B771 /* GGKSoundModel.m */,
+				937652C116C079CB007EA04C /* MainStoryboard_iPhone.storyboard */,
+				937652C416C079CB007EA04C /* MainStoryboard_iPad.storyboard */,
 				937F864A16DC7BF2007DE572 /* NSDate+GGKDate.h */,
 				937F864B16DC7BF2007DE572 /* NSDate+GGKDate.m */,
 				9362E42516D4AC2A00A1B771 /* UIColor+GGKColors.h */,

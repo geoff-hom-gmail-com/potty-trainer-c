@@ -8,6 +8,8 @@
 
 #import "GGKAddPottyViewController.h"
 
+#import "GGKSavedInfo.h"
+
 @interface GGKAddPottyViewController ()
 
 // For playing sound.
@@ -16,6 +18,21 @@
 @end
 
 @implementation GGKAddPottyViewController
+
+- (IBAction)adjustSuccessfulness:(UISegmentedControl *)theSymbolSegmentedControl
+{
+    
+    NSString *theCurrentSegmentTitleString = [theSymbolSegmentedControl titleForSegmentAtIndex:theSymbolSegmentedControl.selectedSegmentIndex];
+    
+    // Assuming segment 0 = YES, 1 = NO.
+    if ([theCurrentSegmentTitleString isEqualToString:GGKXSymbolString]) {
+        
+        self.successfulSegmentedControl.selectedSegmentIndex = 1;
+    } else {
+        
+        self.successfulSegmentedControl.selectedSegmentIndex = 0;
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {

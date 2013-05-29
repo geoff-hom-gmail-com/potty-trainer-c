@@ -30,18 +30,30 @@
 {
     NSNumber *theAttemptWasSuccessfulBOOLNumber = self.pottyAttemptDictionary[GGKPottyAttemptWasSuccessfulNumberKeyString];
     BOOL theAttemptWasSuccessfulBOOL = [theAttemptWasSuccessfulBOOLNumber boolValue];
-    NSString *theAttemptString;
+    NSString *theSymbolString = self.pottyAttemptDictionary[GGKPottyAttemptSymbolStringKeyString];
+    
+    // Version 1.0.4 and before had no symbol stored. In that case, it was a star or an X.
+    if (theSymbolString == nil) {
+        
+        if (theAttemptWasSuccessfulBOOL) {
+            
+            theSymbolString = GGKStarSymbolString;
+        } else {
+            
+            theSymbolString = GGKXSymbolString;
+        }
+    }
+    
     UIColor *theTextColor;
     if (theAttemptWasSuccessfulBOOL) {
-
-        theAttemptString = @"\u2605";
+        
         theTextColor = [UIColor greenColor];
     } else {
         
-        theAttemptString = @"\u2718";
         theTextColor = [UIColor redColor];
     }
-    self.attemptLabel.text = theAttemptString;
+    
+    self.attemptLabel.text = theSymbolString;
     self.attemptLabel.textColor = theTextColor;
 }
 

@@ -330,6 +330,11 @@ NSString *GGKUseTextTitleString = @"Use text";
 - (void)updateLabels
 {
     // Show number of successful potties.
+    // Note: Wanted to show star emoji at arbitrarily large font size. However, couldn't get it to work in the text view. Perhaps under iOS 6+, especially with attributed text, it might work. Also, if we just want a bigger star, it works for non-emoji Unicode stars, such as \u2605.
+    
+    // Does not work. Emoji are not bigger and are cut off.
+//    self.successfulPottiesTextView.font = [UIFont fontWithName:@"AppleColorEmoji" size:40.0];
+//    self.successfulPottiesTextView.text = @"\u2B50";
     
     NSArray *aPottyAttemptDayArray = [[NSUserDefaults standardUserDefaults] objectForKey:GGKPottyAttemptsKeyString];
     __block NSInteger theNumberOfSuccessesInteger = 0;
@@ -353,13 +358,10 @@ NSString *GGKUseTextTitleString = @"Use text";
     }
     self.successfulPottiesLabel.text = [NSString stringWithFormat:@"Successful potties: %@", theNumberOfSuccessfulPottiesString];
     
-    // Unicode star.
-    NSString *aStarString = @"\u2605";
-    
     NSMutableString *aCheckMarkForEachSuccessfulPottyMutableString = [NSMutableString stringWithCapacity:10];
     for (int i = 0; i < theNumberOfSuccessesInteger; i++) {
         
-        [aCheckMarkForEachSuccessfulPottyMutableString appendString:aStarString];
+        [aCheckMarkForEachSuccessfulPottyMutableString appendString:GGKStarRewardString];
     }
     self.successfulPottiesTextView.text = aCheckMarkForEachSuccessfulPottyMutableString;
     

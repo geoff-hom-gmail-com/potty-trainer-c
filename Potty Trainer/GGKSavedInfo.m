@@ -17,6 +17,7 @@ NSString *GGKNumberOfSuccessesForReward2KeyString = @"Number of successes for re
 NSString *GGKNumberOfSuccessesForReward3KeyString = @"Number of successes for reward 3";
 //NSString *GGKNumberOfSuccessfulPottiesKeyString = @"Number of successful potties";
 NSString *GGKPottyAttemptDateKeyString = @"Potty-attempt date";
+NSString *GGKPottyAttemptSymbolStringKeyString = @"Potty-attempt symbol string";
 NSString *GGKPottyAttemptWasSuccessfulNumberKeyString = @"Potty-attempt-was-successful number";
 NSString *GGKPottyAttemptsKeyString = @"Potty attempts";
 NSString *GGKReminderMinutesNumberKeyString = @"Reminder-minutes number";
@@ -26,7 +27,10 @@ NSString *GGKReward2IsTextBOOLNumberKeyString = @"Reward-2-is-text BOOL number";
 NSString *GGKReward2TextKeyString = @"Reward 2 text";
 NSString *GGKReward3IsTextBOOLNumberKeyString = @"Reward-3-is-text BOOL number";
 NSString *GGKReward3TextKeyString = @"Reward 3 text";
+NSString *GGKStarRewardString = @"\u2b50";
+NSString *GGKStarSymbolString = @"\u2605";
 NSString *GGKThemeKeyString = @"Theme";
+NSString *GGKXSymbolString = @"\u2718";
 
 @implementation GGKSavedInfo
 
