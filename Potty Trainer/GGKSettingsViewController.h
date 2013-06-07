@@ -6,10 +6,12 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
+#import "GGKViewController.h"
+
 #import "GGKSetReminderViewController.h"
 #import <UIKit/UIKit.h>
 
-@interface GGKSettingsViewController : UIViewController <UIAlertViewDelegate, GGKSetReminderViewControllerDelegate>
+@interface GGKSettingsViewController : GGKViewController <UIAlertViewDelegate, GGKSetReminderViewControllerDelegate>
 
 // For cancelling the current reminder. If no reminder, disable this.
 @property (nonatomic, weak) IBOutlet UIButton *cancelButton;
@@ -27,12 +29,6 @@
 - (IBAction)cancelReminder;
 
 // UIViewController override.
-//- (void)dealloc;
-
-// Play sound as aural feedback for pressing button.
-- (IBAction)playButtonSound;
-
-// UIViewController override.
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 
 - (IBAction)resetHistory;
@@ -41,13 +37,10 @@
 - (void)setReminderViewControllerDidSetReminder:(id)sender;
 // So, dismiss the view controller.
 
-// UIViewController override.
-- (void)viewDidLoad;
-
-// UIViewController override. Start visible updates. Check for app coming from background/lock.
+// Override.
 - (void)viewWillAppear:(BOOL)animated;
 
-// UIViewController override. Stop anything from -viewWillAppear.
+// Override.
 - (void)viewWillDisappear:(BOOL)animated;
 
 @end

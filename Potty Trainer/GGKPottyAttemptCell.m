@@ -8,6 +8,9 @@
 
 #import "GGKPottyAttemptCell.h"
 
+#import "GGKSavedInfo.h"
+#import "NSDate+GGKDate.h"
+
 @implementation GGKPottyAttemptCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

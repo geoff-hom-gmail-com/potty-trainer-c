@@ -8,6 +8,9 @@
 
 #import "GGKSoundModel.h"
 
+#import "GGKPottyTrainerAppDelegate.h"
+#import <AVFoundation/AVFoundation.h>
+
 @interface GGKSoundModel ()
 
 // For playing a UI sound when the player presses a button.
@@ -19,6 +22,12 @@
 @end
 
 @implementation GGKSoundModel
+
++ (void)playButtonTapSound
+{
+    GGKPottyTrainerAppDelegate *aPottyTrainerAppDelegate = (GGKPottyTrainerAppDelegate *)[UIApplication sharedApplication].delegate;
+    [aPottyTrainerAppDelegate.soundModel playButtonTapSound];
+}
 
 - (id)init
 {    

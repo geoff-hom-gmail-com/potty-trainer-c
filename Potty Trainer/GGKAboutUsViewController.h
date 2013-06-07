@@ -6,12 +6,14 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
+#import "GGKViewController.h"
+
 #import "GGKInAppPurchaseObserver.h"
 #import <MessageUI/MessageUI.h>
 #import <StoreKit/StoreKit.h>
 #import <UIKit/UIKit.h>
 
-@interface GGKAboutUsViewController : UIViewController <GGKInAppPurchaseObserverDelegate, MFMailComposeViewControllerDelegate, SKProductsRequestDelegate>
+@interface GGKAboutUsViewController : GGKViewController <GGKInAppPurchaseObserverDelegate, MFMailComposeViewControllerDelegate, SKProductsRequestDelegate>
 
 // For letting the user email the developers.
 @property (nonatomic, weak) IBOutlet UIButton *emailUsButton;
@@ -42,9 +44,6 @@
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error;
 // So, dismiss the email view.
-
-// Play sound as aural feedback for pressing button.
-- (IBAction)playButtonSound;
 
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response;
 // So, populate the store UI.

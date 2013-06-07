@@ -6,8 +6,11 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
-#import "GGKAddRewardTextViewController.h"
+
 #import "GGKRewardsViewController.h"
+
+#import "GGKAddRewardTextViewController.h"
+#import "GGKSavedInfo.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
 const NSInteger GGKDefaultNumberOfSuccessesForReward1Integer = 5;
@@ -33,9 +36,6 @@ NSString *GGKUseTextTitleString = @"Use text";
 
 // The text field currently being edited.
 @property (strong, nonatomic) UITextField *activeTextField;
-
-// For playing sound.
-@property (strong, nonatomic) GGKSoundModel *soundModel;
 
 - (void)keyboardWillHide:(NSNotification *)theNotification;
 // So, shift the view back to normal.
@@ -212,11 +212,6 @@ NSString *GGKUseTextTitleString = @"Use text";
             self.view.frame = newFrame;
         }];
     }
-}
-
-- (IBAction)playButtonSound
-{
-    [self.soundModel playButtonTapSound];
 }
 
 - (void)saveImage:(UIImage *)theImage forRewardButton:(UIButton *)theRewardButton {
@@ -437,9 +432,6 @@ NSString *GGKUseTextTitleString = @"Use text";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    self.soundModel = [[GGKSoundModel alloc] init];
     
     // Observe keyboard notifications to shift the screen up/down appropriately.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];

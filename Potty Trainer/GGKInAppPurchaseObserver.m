@@ -8,6 +8,8 @@
 
 #import "GGKInAppPurchaseObserver.h"
 
+#import "GGKSavedInfo.h"
+
 @interface GGKInAppPurchaseObserver ()
 
 // Store the products bought.

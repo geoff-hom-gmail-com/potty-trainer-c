@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class GGKInAppPurchaseObserver;
+@class GGKInAppPurchaseObserver, GGKSoundModel;
 
 @interface GGKPottyTrainerAppDelegate : UIResponder <UIApplicationDelegate>
 

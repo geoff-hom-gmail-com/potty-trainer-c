@@ -13,6 +13,9 @@
 // Whether this app's sound should play or not.
 @property (assign, nonatomic) BOOL soundIsOn;
 
+// Play the sound from the app delegate's instance of this sound model.
++ (void)playButtonTapSound;
+
 // Create the audio player for each sound.
 - (id)init;
 

@@ -6,8 +6,11 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
-#import "GGKInAppPurchaseObserver.h"
 #import "GGKPottyTrainerAppDelegate.h"
+
+#import "GGKInAppPurchaseObserver.h"
+#import "GGKSoundModel.h"
+#import "TestFlight.h"
 
 @interface GGKPottyTrainerAppDelegate ()
 

@@ -8,16 +8,13 @@
 
 #import "GGKSettingsViewController.h"
 
-@interface GGKSettingsViewController ()
+#import "GGKSavedInfo.h"
+#import "NSDate+GGKDate.h"
 
-// For playing sound.
-@property (strong, nonatomic) GGKSoundModel *soundModel;
+@interface GGKSettingsViewController ()
 
 // For updating the view at regular intervals.
 @property (strong, nonatomic) NSTimer *timer;
-
-// Do what we do in -viewWillAppear (except adding the observer that calls this method).
-- (void)appWillEnterForeground;
 
 // Check if there's a reminder. If so, report on it. Else, stop the timer that checks.
 - (void)checkReminderAndUpdate;
@@ -52,11 +49,6 @@
     }
 }
 
-- (void)appWillEnterForeground
-{
-    [self startVisibleUpdates];
-}
-
 - (IBAction)cancelReminder
 {
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
@@ -79,14 +71,6 @@
     }
 }
 
-//- (void)dealloc
-//{
-//    // Don't need super.
-//    
-//    // This is called when going back a view, but not going forward or app going to background.
-//    NSLog(@"SVC dealloc called");
-//}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -100,11 +84,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (IBAction)playButtonSound
-{
-    [self.soundModel playButtonTapSound];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -193,33 +172,16 @@
     [self.setOrChangeReminderButton setTitle:@"Set Reminder" forState:UIControlStateNormal];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    self.soundModel = [[GGKSoundModel alloc] init];
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-//    NSLog(@"SVC vWA");
-    
+        
     [self startVisibleUpdates];
-    
-    // If the app returns from background/lock to this view, then -viewWillAppear isn't called. But we may still want to do similar things, so we'll check for that.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    
-//    NSLog(@"SVC vWD");
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
     
     [self stopVisibleUpdates];
 }

@@ -14,11 +14,4 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-    #import "GGKSoundModel.h"
-    #import <AVFoundation/AVFoundation.h>
-    #import "GGKSavedInfo.h"
-    #import "NSDate+GGKDate.h"
-    #import "TestFlight.h"
-    #import "UIColor+GGKColors.h"
-    #import "UIView+GGKAdditions.h"
 #endif

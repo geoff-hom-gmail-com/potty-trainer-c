@@ -6,12 +6,11 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
+#import "GGKViewController.h"
+
 #import <UIKit/UIKit.h>
 
-@interface GGKPickBackgroundColorViewController : UIViewController
-
-// Play sound as aural feedback for pressing button.
-- (IBAction)playButtonSound;
+@interface GGKPickBackgroundColorViewController : GGKViewController
 
 // Set the color theme to one for boys.
 - (IBAction)useBoyTheme;

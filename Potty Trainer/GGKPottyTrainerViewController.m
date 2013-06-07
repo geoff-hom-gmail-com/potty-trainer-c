@@ -6,8 +6,11 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
-#import "GGKPickBackgroundColorViewController.h"
 #import "GGKPottyTrainerViewController.h"
+
+#import "GGKPickBackgroundColorViewController.h"
+#import "GGKSavedInfo.h"
+#import "UIColor+GGKColors.h"
 
 //BOOL GGKCreateLaunchImages = YES;
 BOOL GGKCreateLaunchImages = NO;
@@ -15,9 +18,6 @@ BOOL GGKCreateLaunchImages = NO;
 @interface GGKPottyTrainerViewController ()
 
 @property (strong, nonatomic) GGKPickBackgroundColorViewController *pickBackgroundColorViewController;
-
-// For playing sound.
-@property (strong, nonatomic) GGKSoundModel *soundModel;
 
 @end
 
@@ -27,11 +27,6 @@ BOOL GGKCreateLaunchImages = NO;
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)playButtonSound
-{
-    [self.soundModel playButtonTapSound];
 }
 
 - (void)viewDidLoad
@@ -47,9 +42,6 @@ BOOL GGKCreateLaunchImages = NO;
             
             aSubView.hidden = YES;
         }
-    } else {
-        
-        self.soundModel = [[GGKSoundModel alloc] init];
     }
 }
 

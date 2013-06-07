@@ -6,10 +6,14 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
+#import "GGKHistoryTableViewController.h"
+
 #import "GGKHistoryForDayTableViewController.h"
 #import "GGKHistoryHeaderCell.h"
-#import "GGKHistoryTableViewController.h"
 #import "GGKPottyAttemptDayTableViewCell.h"
+#import "GGKSavedInfo.h"
+#import "GGKSoundModel.h"
+#import "NSDate+GGKDate.h"
 
 @interface GGKHistoryTableViewController ()
 
@@ -20,7 +24,7 @@
 @property (strong, nonatomic) NSArray *pottyAttemptDayArray;
 
 // For playing sound.
-@property (strong, nonatomic) GGKSoundModel *soundModel;
+//@property (strong, nonatomic) GGKSoundModel *soundModel;
 
 // For calculating the time from the start time.
 @property (strong, nonatomic) NSDateComponents *startTimeDateComponents;
@@ -85,8 +89,7 @@
 
 - (IBAction)playButtonSound
 {
-//    NSLog(@"HTVC playButtonSound1");
-    [self.soundModel playButtonTapSound];
+    [GGKSoundModel playButtonTapSound];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -245,7 +248,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.soundModel = [[GGKSoundModel alloc] init];
+//    self.soundModel = [[GGKSoundModel alloc] init];
     
     // On 24-hour clock.
     NSInteger theStartHour = 6;

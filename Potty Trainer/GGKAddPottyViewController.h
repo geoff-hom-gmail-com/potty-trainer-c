@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
+#import "GGKViewController.h"
+
 #import <UIKit/UIKit.h>
 
 @protocol GGKAddPottyViewControllerDelegate
@@ -15,7 +17,7 @@
 
 @end
 
-@interface GGKAddPottyViewController : UIViewController
+@interface GGKAddPottyViewController : GGKViewController
 
 // For choosing the date of a potty attempt.
 @property (nonatomic, weak) IBOutlet UIDatePicker *datePicker;
@@ -34,16 +36,13 @@
 // User chooses the custom symbol ("…" or the custom symbol). User can enter a custom symbol.
 - (IBAction)showUseCustomSymbolView:(UISegmentedControl *)theSymbolSegmentedControl;
 
-// Play sound as aural feedback for pressing button.
-- (IBAction)playButtonSound;
-
 // Add the potty attempt.
 - (IBAction)savePottyAttempt;
 
-// UIViewController override.
+// Override.
 - (void)viewDidLoad;
 
-// UIViewController override.
+// Override.
 - (void)viewWillAppear:(BOOL)animated;
 
 @end

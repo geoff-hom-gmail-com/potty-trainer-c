@@ -8,7 +8,8 @@
 
 #import "GGKPickBackgroundColorViewController.h"
 
-@class GGKSoundModel;
+#import "GGKSavedInfo.h"
+#import "UIColor+GGKColors.h"
 
 @interface GGKPickBackgroundColorViewController ()
 
@@ -17,9 +18,6 @@
 
 // The color to use for a girl theme.
 @property (strong, nonatomic) UIColor *girlColor;
-
-// For playing sound.
-@property (strong, nonatomic) GGKSoundModel *soundModel;
 
 // Update the colors according to the current theme.
 - (void)updateColors;
@@ -41,11 +39,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (IBAction)playButtonSound
-{
-    [self.soundModel playButtonTapSound];
 }
 
 - (void)updateColors
@@ -89,7 +82,6 @@
     
 //    self.boyColor = [UIColor cyanColor];
 //    self.girlColor = [UIColor pinkColor];
-    self.soundModel = [[GGKSoundModel alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

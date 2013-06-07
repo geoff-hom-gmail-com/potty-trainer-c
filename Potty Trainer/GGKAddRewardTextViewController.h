@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
+#import "GGKViewController.h"
+
 #import <UIKit/UIKit.h>
 
 @protocol GGKAddRewardTextViewControllerDelegate
@@ -18,7 +20,7 @@
 
 @end
 
-@interface GGKAddRewardTextViewController : UIViewController <UITextFieldDelegate>
+@interface GGKAddRewardTextViewController : GGKViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) id <GGKAddRewardTextViewControllerDelegate> delegate;
 

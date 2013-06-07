@@ -8,7 +8,6 @@
 
 #import "GGKViewController.h"
 
-#import "GGKPottyTrainerAppDelegate.h"
 #import "GGKSoundModel.h"
 
 @interface GGKViewController ()
@@ -33,8 +32,7 @@
 
 - (IBAction)playButtonSound
 {
-    GGKPottyTrainerAppDelegate *aPottyTrainerAppDelegate = (GGKPottyTrainerAppDelegate *)[UIApplication sharedApplication].delegate;
-    [aPottyTrainerAppDelegate.soundModel playButtonTapSound];
+    [GGKSoundModel playButtonTapSound];
 }
 
 - (void)updateLayoutForLandscape
@@ -54,7 +52,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated
-{
+{    
     [super viewWillAppear:animated];
     
     if (self.appWillEnterForegroundObserver == nil) {
@@ -75,6 +73,7 @@
     if (self.appWillEnterForegroundObserver != nil) {
         
         [[NSNotificationCenter defaultCenter] removeObserver:self.appWillEnterForegroundObserver name:UIApplicationWillEnterForegroundNotification object:nil];
+        self.appWillEnterForegroundObserver = nil;
     }
 }
 

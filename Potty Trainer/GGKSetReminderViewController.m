@@ -8,18 +8,18 @@
 
 #import "GGKSetReminderViewController.h"
 
+#import "GGKSavedInfo.h"
+#import "NSDate+GGKDate.h"
+
 NSString *GGKReminderWhenPrefixString = @"which is";
 
 @interface GGKSetReminderViewController ()
-
-// For playing sound.
-@property (strong, nonatomic) GGKSoundModel *soundModel;
 
 // For updating the reminder time every minute.
 @property (strong, nonatomic) NSTimer *timer;
 
 // Do what we do in -viewWillAppear (except adding observer that calls this method).
-- (void)appWillEnterForeground;
+//- (void)appWillEnterForeground;
 
 // Calculate and return the date for the reminder, based on the date picker.
 - (NSDate *)reminderDate;
@@ -43,25 +43,17 @@ NSString *GGKReminderWhenPrefixString = @"which is";
 
 @implementation GGKSetReminderViewController
 
-- (void)appWillEnterForeground
-{
-//    NSLog(@"SRVC appWillEnterForeground");
-    [self updateReminderTime];
-    [self startVisibleUpdates];
-}
+//- (void)appWillEnterForeground
+//{
+////    NSLog(@"SRVC appWillEnterForeground");
+//    [self updateReminderTime];
+//    [self startVisibleUpdates];
+//}
 
 - (IBAction)datePickerTimeChanged:(id)sender
 {
     [self updateReminderTime];
 }
-
-//- (void)dealloc
-//{
-//    // Don't need super.
-//    
-//    // -dealloc isn't called sometimes here. Not sure why.
-//    NSLog(@"SRVC dealloc called");
-//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -76,11 +68,6 @@ NSString *GGKReminderWhenPrefixString = @"which is";
         // Custom initialization
     }
     return self;
-}
-
-- (IBAction)playButtonSound
-{
-    [self.soundModel playButtonTapSound];
 }
 
 - (NSDate *)reminderDate
@@ -195,9 +182,7 @@ NSString *GGKReminderWhenPrefixString = @"which is";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.soundModel = [[GGKSoundModel alloc] init];
-    
+        
     NSCalendar *aGregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *theReminderIncrementDateComponents = [[NSDateComponents alloc] init];
     
@@ -229,7 +214,7 @@ NSString *GGKReminderWhenPrefixString = @"which is";
     [self startVisibleUpdates];
     
     // If the app returns from background/lock to this view, then we need to do what we do in viewWillAppear.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
 //    NSLog(@"notification added: appWillEnterFG");
 }
 
@@ -239,7 +224,7 @@ NSString *GGKReminderWhenPrefixString = @"which is";
     
 //    NSLog(@"SRVC vWD");
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
 //    NSLog(@"notification removed: appWillEnterFG");
     
     [self stopVisibleUpdates];

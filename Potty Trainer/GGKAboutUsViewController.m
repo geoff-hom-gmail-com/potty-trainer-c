@@ -7,7 +7,9 @@
 //
 
 #import "GGKAboutUsViewController.h"
+
 #import "GGKPottyTrainerAppDelegate.h"
+#import "GGKSavedInfo.h"
 
 @interface GGKAboutUsViewController ()
 
@@ -18,7 +20,7 @@
 @property (strong, nonatomic) SKProduct *giveADollarProduct;
 
 // For playing sound.
-@property (strong, nonatomic) GGKSoundModel *soundModel;
+//@property (strong, nonatomic) GGKSoundModel *soundModel;
 
 // Create payment object and add to queue. Return whether the payment was added.
 - (BOOL)buyProductWithID:(NSString *)theProductID;
@@ -113,11 +115,6 @@
 - (void)mailComposeController:(MFMailComposeViewController *)theViewController didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
     [theViewController dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)playButtonSound
-{
-    [self.soundModel playButtonTapSound];
 }
 
 - (void)productsRequest:(SKProductsRequest *)theRequest didReceiveResponse:(SKProductsResponse *)theResponse
@@ -229,14 +226,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
     // Height should match size of scroll view in the storyboard.
     CGFloat theScrollViewHeightFloat = 701;
     self.scrollView.contentSize = CGSizeMake(320, theScrollViewHeightFloat);
-    
-    self.soundModel = [[GGKSoundModel alloc] init];
-    
+        
     // Listen for when a purchase is done.
     GGKPottyTrainerAppDelegate *thePottyTrainerAppDelegate = (GGKPottyTrainerAppDelegate *)[UIApplication sharedApplication].delegate;
     thePottyTrainerAppDelegate.inAppPurchaseObserver.delegate = self;

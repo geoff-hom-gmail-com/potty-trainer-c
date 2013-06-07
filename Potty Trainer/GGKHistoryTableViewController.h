@@ -7,6 +7,7 @@
 //
 
 #import "GGKAddPottyViewController.h"
+#import "GGKHistoryForDayTableViewController.h"
 #import <UIKit/UIKit.h>
 
 @interface GGKHistoryTableViewController : UITableViewController <GGKAddPottyViewControllerDelegate, GGKHistoryForDayTableViewControllerDelegate>

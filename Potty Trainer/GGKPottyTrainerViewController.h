@@ -6,18 +6,16 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
+#import "GGKViewController.h"
+
 #import <UIKit/UIKit.h>
 
+@interface GGKPottyTrainerViewController : GGKViewController
 
-@interface GGKPottyTrainerViewController : UIViewController
-
-// Play sound as aural feedback for pressing button.
-- (IBAction)playButtonSound;
-
-// UIViewController override.
+// Override.
 - (void)viewDidLoad;
 
-// UIViewController override.
+// Override.
 - (void)viewWillAppear:(BOOL)animated;
 
 @end

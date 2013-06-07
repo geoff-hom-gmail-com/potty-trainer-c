@@ -9,11 +9,9 @@
 #import "GGKAddPottyViewController.h"
 
 #import "GGKSavedInfo.h"
+#import "NSDate+GGKDate.h"
 
 @interface GGKAddPottyViewController ()
-
-// For playing sound.
-@property (strong, nonatomic) GGKSoundModel *soundModel;
 
 @end
 
@@ -46,11 +44,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (IBAction)playButtonSound
-{
-    [self.soundModel playButtonTapSound];
 }
 
 - (IBAction)savePottyAttempt
@@ -146,13 +139,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    self.soundModel = [[GGKSoundModel alloc] init];    
+	// Do any additional setup after loading the view.    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+
     // Set the date picker to allow only dates up to 11:59 PM today.
     NSDate *aTodayDate = [NSDate date];
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];

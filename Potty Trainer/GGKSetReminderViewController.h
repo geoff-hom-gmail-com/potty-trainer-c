@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
+#import "GGKViewController.h"
+
 #import <UIKit/UIKit.h>
 
 // String for the first part of label showing when the reminder will be.
@@ -18,7 +20,7 @@ extern NSString *GGKReminderWhenPrefixString;
 
 @end
 
-@interface GGKSetReminderViewController : UIViewController
+@interface GGKSetReminderViewController : GGKViewController
 
 // For choosing the time until the next reminder.
 @property (nonatomic, weak) IBOutlet UIDatePicker *datePicker;
@@ -31,22 +33,16 @@ extern NSString *GGKReminderWhenPrefixString;
 - (IBAction)datePickerTimeChanged:(id)sender;
 // So, update the label showing the reminder time.
 
-// UIViewController override.
-//- (void)dealloc;
-
-// Play sound as aural feedback for pressing button.
-- (IBAction)playButtonSound;
-
 // (For testing.) Cancel any previous reminders. Set a reminder that goes off in 5 seconds.
 - (IBAction)setQuickReminder;
 
 // Cancel any previous reminders. Set this reminder.
 - (IBAction)setReminder;
 
-// UIViewController override.
+// Override.
 - (void)viewDidLoad;
 
-// UIViewController override.
+// Override.
 - (void)viewWillAppear:(BOOL)animated;
 
 // UIViewController override. Stop anything from -viewWillAppear.

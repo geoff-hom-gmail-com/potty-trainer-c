@@ -9,6 +9,7 @@
 #import "GGKPottyAttemptDayTableViewCell.h"
 
 #import "GGKSavedInfo.h"
+#import "NSDate+GGKDate.h"
 
 @interface GGKPottyAttemptDayTableViewCell ()
 

@@ -8,6 +8,8 @@
 
 #import "GGKUseCustomSymbolViewController.h"
 
+#import "GGKSavedInfo.h"
+
 @interface GGKUseCustomSymbolViewController ()
 
 @end

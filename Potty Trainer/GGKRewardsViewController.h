@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
+#import "GGKViewController.h"
+
 #import "GGKAddRewardTextViewController.h"
 #import <UIKit/UIKit.h>
 
@@ -33,7 +35,7 @@ extern NSString *GGKUsePhotoTitleString;
 // String to identify the button title for choosing text (vs. a photo).
 extern NSString *GGKUseTextTitleString;
 
-@interface GGKRewardsViewController : UIViewController <GGKAddRewardTextViewControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
+@interface GGKRewardsViewController : GGKViewController <GGKAddRewardTextViewControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 
 // For showing/editing the number of successful potties needed to get the first reward.
 @property (weak, nonatomic) IBOutlet UITextField *numberOfSuccessesForReward1TextField;
@@ -79,9 +81,6 @@ extern NSString *GGKUseTextTitleString;
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info;
 // So, show the image on the corresponding reward button.
-
-// Play sound as aural feedback for pressing button.
-- (IBAction)playButtonSound;
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField;
 // So, note which text field is being edited. (To know whether to shift the screen up when the keyboard shows.)
