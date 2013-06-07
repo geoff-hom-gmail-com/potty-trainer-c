@@ -17,6 +17,9 @@ extern NSString *GGKGirlThemeString;
 // String for the product ID for giving a dollar.
 extern NSString *GGKGiveDollarProductIDString;
 
+// Key for storing the most-recent custom symbol used.
+extern NSString *GGKMostRecentCustomSymbolStringKeyString;
+
 // Key for storing the number of stars purchased.
 extern NSString *GGKNumberOfStarsPurchasedNumberKeyString;
 

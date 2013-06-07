@@ -14,9 +14,6 @@
 // Whether a local notification was already received a short time ago (currently a second).
 @property (assign, nonatomic) BOOL localNotificationWasRecentlyReceived;
 
-// For playing sound.
-@property (strong, nonatomic) GGKSoundModel *soundModel;
-
 // So, reset that flag.
 - (void)noteThatLocalNotificationsNotReceivedRecently;
 

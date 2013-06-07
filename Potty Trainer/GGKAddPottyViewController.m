@@ -21,7 +21,6 @@
 
 - (IBAction)adjustSuccessfulness:(UISegmentedControl *)theSymbolSegmentedControl
 {
-    
     NSString *theCurrentSegmentTitleString = [theSymbolSegmentedControl titleForSegmentAtIndex:theSymbolSegmentedControl.selectedSegmentIndex];
     
     // Assuming segment 0 = YES, 1 = NO.
@@ -133,6 +132,15 @@
     // Save data and notify.
     [[NSUserDefaults standardUserDefaults] setObject:thePottyAttemptDayArray forKey:GGKPottyAttemptsKeyString];
     [self.delegate addPottyViewControllerDidAddPottyAttempt:self];
+}
+
+- (IBAction)showUseCustomSymbolView:(UISegmentedControl *)theSymbolSegmentedControl
+{
+    // If the custom symbol was tapped, then show the view for entering a custom symbol.
+    if (theSymbolSegmentedControl.selectedSegmentIndex == 4) {
+        
+        [self performSegueWithIdentifier:@"ShowUseCustomSymbolView" sender:self];
+    }
 }
 
 - (void)viewDidLoad

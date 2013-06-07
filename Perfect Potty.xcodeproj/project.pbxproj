@@ -44,6 +44,9 @@
 		937F864C16DC7BF2007DE572 /* NSDate+GGKDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F864B16DC7BF2007DE572 /* NSDate+GGKDate.m */; };
 		9390858116DD534800C2290F /* GGKHistoryForDayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390858016DD534800C2290F /* GGKHistoryForDayTableViewController.m */; };
 		9390858416DD583A00C2290F /* GGKPottyAttemptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390858316DD583A00C2290F /* GGKPottyAttemptCell.m */; };
+		93BD16621761869400D32AA0 /* GGKPerfectPottyDescription.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 93BD16611761869400D32AA0 /* GGKPerfectPottyDescription.rtf */; };
+		93BD166517618E1500D32AA0 /* GGKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BD166417618E1500D32AA0 /* GGKViewController.m */; };
+		93BD1668176191B700D32AA0 /* GGKUseCustomSymbolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BD1667176191B700D32AA0 /* GGKUseCustomSymbolViewController.m */; };
 		93DE8C0716E7F36000AA87FF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DE8C0616E7F36000AA87FF /* StoreKit.framework */; };
 		93DE8C0D16E8074800AA87FF /* GGKInAppPurchaseObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DE8C0C16E8074800AA87FF /* GGKInAppPurchaseObserver.m */; };
 		93DE8C0F16E87A2400AA87FF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DE8C0E16E87A2400AA87FF /* MessageUI.framework */; };
@@ -118,6 +121,11 @@
 		9390858016DD534800C2290F /* GGKHistoryForDayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKHistoryForDayTableViewController.m; sourceTree = "<group>"; };
 		9390858216DD583A00C2290F /* GGKPottyAttemptCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPottyAttemptCell.h; sourceTree = "<group>"; };
 		9390858316DD583A00C2290F /* GGKPottyAttemptCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPottyAttemptCell.m; sourceTree = "<group>"; };
+		93BD16611761869400D32AA0 /* GGKPerfectPottyDescription.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = GGKPerfectPottyDescription.rtf; sourceTree = "<group>"; };
+		93BD166317618E1500D32AA0 /* GGKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKViewController.h; sourceTree = "<group>"; };
+		93BD166417618E1500D32AA0 /* GGKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKViewController.m; sourceTree = "<group>"; };
+		93BD1666176191B700D32AA0 /* GGKUseCustomSymbolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKUseCustomSymbolViewController.h; sourceTree = "<group>"; };
+		93BD1667176191B700D32AA0 /* GGKUseCustomSymbolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKUseCustomSymbolViewController.m; sourceTree = "<group>"; };
 		93DE8C0616E7F36000AA87FF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		93DE8C0B16E8074800AA87FF /* GGKInAppPurchaseObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKInAppPurchaseObserver.h; sourceTree = "<group>"; };
 		93DE8C0C16E8074800AA87FF /* GGKInAppPurchaseObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKInAppPurchaseObserver.m; sourceTree = "<group>"; };
@@ -242,6 +250,10 @@
 				937F863616D6A61A007DE572 /* GGKSettingsViewController.m */,
 				9362E42B16D5F17600A1B771 /* GGKSoundModel.h */,
 				9362E42C16D5F17600A1B771 /* GGKSoundModel.m */,
+				93BD1666176191B700D32AA0 /* GGKUseCustomSymbolViewController.h */,
+				93BD1667176191B700D32AA0 /* GGKUseCustomSymbolViewController.m */,
+				93BD166317618E1500D32AA0 /* GGKViewController.h */,
+				93BD166417618E1500D32AA0 /* GGKViewController.m */,
 				937652C116C079CB007EA04C /* MainStoryboard_iPhone.storyboard */,
 				937652C416C079CB007EA04C /* MainStoryboard_iPad.storyboard */,
 				937F864A16DC7BF2007DE572 /* NSDate+GGKDate.h */,
@@ -261,6 +273,7 @@
 				937652BB16C079CB007EA04C /* Default.png */,
 				937652BD16C079CB007EA04C /* Default@2x.png */,
 				937652BF16C079CB007EA04C /* Default-568h@2x.png */,
+				93BD16611761869400D32AA0 /* GGKPerfectPottyDescription.rtf */,
 				93DE8C1016E8987B00AA87FF /* icons */,
 				937652B216C079CB007EA04C /* InfoPlist.strings */,
 				937652B516C079CB007EA04C /* main.m */,
@@ -356,6 +369,7 @@
 				93DE8C2016E89A7E00AA87FF /* icon2-72px@2x.png in Resources */,
 				935A343F16F2063B003DD6FA /* README.md in Resources */,
 				935A344016F2063B003DD6FA /* release_notes.md in Resources */,
+				93BD16621761869400D32AA0 /* GGKPerfectPottyDescription.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +401,8 @@
 				9376CCB316E1DC0600887ADE /* GGKAddRewardTextViewController.m in Sources */,
 				9353B37F16E6011300B0A75A /* GGKAboutUsViewController.m in Sources */,
 				93DE8C0D16E8074800AA87FF /* GGKInAppPurchaseObserver.m in Sources */,
+				93BD166517618E1500D32AA0 /* GGKViewController.m in Sources */,
+				93BD1668176191B700D32AA0 /* GGKUseCustomSymbolViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

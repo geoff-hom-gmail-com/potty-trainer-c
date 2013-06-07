@@ -28,8 +28,11 @@
 // For choosing whether the attempt was successful or not.
 @property (nonatomic, weak) IBOutlet UISegmentedControl *successfulSegmentedControl;
 
-// Story: User chooses a symbol. Successfulness control automatically adjusts.
+// User chooses a symbol. Successfulness control automatically adjusts.
 - (IBAction)adjustSuccessfulness:(UISegmentedControl *)theSymbolSegmentedControl;
+
+// User chooses the custom symbol ("…" or the custom symbol). User can enter a custom symbol.
+- (IBAction)showUseCustomSymbolView:(UISegmentedControl *)theSymbolSegmentedControl;
 
 // Play sound as aural feedback for pressing button.
 - (IBAction)playButtonSound;
