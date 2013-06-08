@@ -8,12 +8,24 @@
 
 #import "GGKViewController.h"
 
+@protocol GGKUseCustomSymbolViewControllerDelegate
+
+// Sent after the user chose a custom symbol.
+- (void)useCustomSymbolViewControllerDidChooseSymbol:(id)sender;
+
+@end
+
 @interface GGKUseCustomSymbolViewController : GGKViewController <UITextFieldDelegate>
+
+@property (weak, nonatomic) id <GGKUseCustomSymbolViewControllerDelegate> delegate;
 
 // For entering the symbol.
 @property (nonatomic, weak) IBOutlet UITextField *symbolTextField;
 
-- (void)textFieldDidEndEditing:(UITextField *)textField;
+// Save the symbol. Notify delegate.
+- (IBAction)saveSymbol;
+
+//- (void)textFieldDidEndEditing:(UITextField *)textField;
 // So, if an invalid value was entered, then use the previous value.
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;

@@ -8,6 +8,7 @@
 
 #import "GGKViewController.h"
 
+#import "GGKUseCustomSymbolViewController.h"
 #import <UIKit/UIKit.h>
 
 @protocol GGKAddPottyViewControllerDelegate
@@ -17,7 +18,7 @@
 
 @end
 
-@interface GGKAddPottyViewController : GGKViewController
+@interface GGKAddPottyViewController : GGKViewController <GGKUseCustomSymbolViewControllerDelegate>
 
 // For choosing the date of a potty attempt.
 @property (nonatomic, weak) IBOutlet UIDatePicker *datePicker;
@@ -30,14 +31,14 @@
 // For choosing whether the attempt was successful or not.
 @property (nonatomic, weak) IBOutlet UISegmentedControl *successfulSegmentedControl;
 
-// User chooses a symbol. Successfulness control automatically adjusts.
-- (IBAction)adjustSuccessfulness:(UISegmentedControl *)theSymbolSegmentedControl;
-
-// User chooses the custom symbol ("…" or the custom symbol). User can enter a custom symbol.
-- (IBAction)showUseCustomSymbolView:(UISegmentedControl *)theSymbolSegmentedControl;
+// Override.
+- (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender;
 
 // Add the potty attempt.
 - (IBAction)savePottyAttempt;
+
+- (void)useCustomSymbolViewControllerDidChooseSymbol:(id)sender;
+// So, dismiss the view controller. Update the segmented control.
 
 // Override.
 - (void)viewDidLoad;

@@ -13,13 +13,27 @@
 
 @interface GGKAddPottyViewController ()
 
+- (void)handleSymbolSegmentedControlTapped;
+// So, play the button sound. Adjust successfulness. If it was the last segment, let the user choose a custom symbol.
+
 @end
 
 @implementation GGKAddPottyViewController
 
-- (IBAction)adjustSuccessfulness:(UISegmentedControl *)theSymbolSegmentedControl
+- (void)didReceiveMemoryWarning
 {
-    NSString *theCurrentSegmentTitleString = [theSymbolSegmentedControl titleForSegmentAtIndex:theSymbolSegmentedControl.selectedSegmentIndex];
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)handleSymbolSegmentedControlTapped
+{
+    [self playButtonSound];
+
+    // Adjust successfulness.
+    
+    NSInteger theSelectedSegmentIndex = self.symbolSegmentedControl.selectedSegmentIndex;
+    NSString *theCurrentSegmentTitleString = [self.symbolSegmentedControl titleForSegmentAtIndex:theSelectedSegmentIndex];
     
     // Assuming segment 0 = YES, 1 = NO.
     if ([theCurrentSegmentTitleString isEqualToString:GGKXSymbolString]) {
@@ -29,12 +43,12 @@
         
         self.successfulSegmentedControl.selectedSegmentIndex = 0;
     }
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    // If the custom symbol was tapped, then show the view for entering a custom symbol.
+    if (theSelectedSegmentIndex == 4) {
+        
+        [self performSegueWithIdentifier:@"ShowUseCustomSymbolView" sender:self];
+    }
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -44,6 +58,18 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender
+{
+    if ([theSegue.identifier hasPrefix:@"ShowUseCustomSymbolView"]) {
+        
+        GGKUseCustomSymbolViewController *aUseCustomSymbolViewController = [(UIStoryboardSegue *)theSegue destinationViewController];
+        aUseCustomSymbolViewController.delegate = self;
+    } else {
+        
+        [super prepareForSegue:theSegue sender:theSender];
+    }
 }
 
 - (IBAction)savePottyAttempt
@@ -127,19 +153,25 @@
     [self.delegate addPottyViewControllerDidAddPottyAttempt:self];
 }
 
-- (IBAction)showUseCustomSymbolView:(UISegmentedControl *)theSymbolSegmentedControl
+- (void)useCustomSymbolViewControllerDidChooseSymbol:(id)sender
 {
-    // If the custom symbol was tapped, then show the view for entering a custom symbol.
-    if (theSymbolSegmentedControl.selectedSegmentIndex == 4) {
-        
-        [self performSegueWithIdentifier:@"ShowUseCustomSymbolView" sender:self];
-    }
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    // check value
+    NSString *theMostRecentCustomSymbolString = [[NSUserDefaults standardUserDefaults] stringForKey:GGKMostRecentCustomSymbolStringKeyString];
+    NSLog(@"theMostRecentCustomSymbolString:%@",theMostRecentCustomSymbolString);
+    
+    // show on segmented control
+    [self.symbolSegmentedControl setTitle:theMostRecentCustomSymbolString forSegmentAtIndex:4];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.    
+
+    // Listen for taps on the symbol segmented control. We do this (instead of using the value-changed event) in case the user taps the same segment twice (e.g., the custom segment, to change the symbol).
+    UITapGestureRecognizer *aTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSymbolSegmentedControlTapped)];
+    [self.symbolSegmentedControl addGestureRecognizer:aTapGestureRecognizer];
 }
 
 - (void)viewWillAppear:(BOOL)animated
