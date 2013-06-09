@@ -11,7 +11,9 @@
 #import "GGKSavedInfo.h"
 #import "NSDate+GGKDate.h"
 
-NSString *GGKReminderWhenPrefixString = @"which is";
+NSString *GGKReminderWhenPrefixString = @"Remind me at";
+
+NSString *GGKReminderWhenSuffixString = @"which is in:";
 
 @interface GGKSetReminderViewController ()
 
@@ -176,7 +178,7 @@ NSString *GGKReminderWhenPrefixString = @"which is";
 //    NSLog(@"SRVC updateReminderTime");
     NSDate *theReminderDate = [self reminderDate];
     NSString *theReminderDateString = [theReminderDate hourMinuteAMPMString];
-    self.whenLabel.text = [NSString stringWithFormat:@"%@ %@", GGKReminderWhenPrefixString, theReminderDateString];
+    self.whenLabel.text = [NSString stringWithFormat:@"%@ %@, %@", GGKReminderWhenPrefixString, theReminderDateString, GGKReminderWhenSuffixString];
 }
 
 - (void)viewDidLoad

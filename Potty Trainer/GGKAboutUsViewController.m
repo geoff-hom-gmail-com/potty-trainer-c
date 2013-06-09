@@ -75,7 +75,15 @@
     NSArray *theToRecipientsArray = @[@"geoffhom@gmail.com"];
     [aMailComposeViewController setToRecipients:theToRecipientsArray];
     
-    [aMailComposeViewController setSubject:@"Perfect Potty"];
+    NSString *theAppName = @"Perfect Potty";
+    [aMailComposeViewController setSubject:theAppName];
+    
+    // Include app version.
+    NSString *theVersionString = (NSString *)[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    UIDevice *theDevice = [UIDevice currentDevice];
+    NSString *theMessageBody = [NSString stringWithFormat:@"(Using %@, version %@, on an %@ running %@ %@.)"
+                                "\n\nFeedback:", theAppName, theVersionString, theDevice.localizedModel, theDevice.systemName, theDevice.systemVersion];
+    [aMailComposeViewController setMessageBody:theMessageBody isHTML:NO];
     
     [self presentViewController:aMailComposeViewController animated:YES completion:nil];
 }
