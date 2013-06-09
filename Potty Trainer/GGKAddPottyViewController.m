@@ -82,8 +82,13 @@
     };
     NSDate *thePottyAttemptDate = self.datePicker.date;
     NSNumber *thePottyAttemptWasSuccessfulNumber = [NSNumber numberWithBool:thePottyAttemptWasSuccessfulBOOL];
-    NSDictionary *thePottyAttemptDictionary = @{GGKPottyAttemptDateKeyString:thePottyAttemptDate, GGKPottyAttemptWasSuccessfulNumberKeyString:thePottyAttemptWasSuccessfulNumber};
     
+    // Version without custom symbols.
+//    NSDictionary *thePottyAttemptDictionary = @{GGKPottyAttemptDateKeyString:thePottyAttemptDate, GGKPottyAttemptWasSuccessfulNumberKeyString:thePottyAttemptWasSuccessfulNumber};
+    
+    NSString *thePottyAttemptSymbolString = [self.symbolSegmentedControl titleForSegmentAtIndex:self.symbolSegmentedControl.selectedSegmentIndex];
+    NSDictionary *thePottyAttemptDictionary = @{GGKPottyAttemptDateKeyString:thePottyAttemptDate, GGKPottyAttemptWasSuccessfulNumberKeyString:thePottyAttemptWasSuccessfulNumber, GGKPottyAttemptSymbolStringKeyString:thePottyAttemptSymbolString};
+
     // Get saved data.
     NSArray *thePottyAttemptDayArray = [[NSUserDefaults standardUserDefaults] objectForKey:GGKPottyAttemptsKeyString];
     if (thePottyAttemptDayArray == nil) {
@@ -157,11 +162,8 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
     
-    // check value
+    // Show symbol on segmented control.
     NSString *theMostRecentCustomSymbolString = [[NSUserDefaults standardUserDefaults] stringForKey:GGKMostRecentCustomSymbolStringKeyString];
-    NSLog(@"theMostRecentCustomSymbolString:%@",theMostRecentCustomSymbolString);
-    
-    // show on segmented control
     [self.symbolSegmentedControl setTitle:theMostRecentCustomSymbolString forSegmentAtIndex:4];
 }
 

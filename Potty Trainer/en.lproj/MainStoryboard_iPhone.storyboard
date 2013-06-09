@@ -737,6 +737,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="playButtonSound" destination="txv-s9-qpi" eventType="touchDown" id="XEN-Br-qda"/>
                                     <outlet property="delegate" destination="txv-s9-qpi" id="Zxd-1N-zef"/>
                                 </connections>
                             </textField>
@@ -752,6 +753,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="playButtonSound" destination="txv-s9-qpi" eventType="touchDown" id="L4V-wa-Pid"/>
                                     <action selector="saveSymbol" destination="txv-s9-qpi" eventType="touchUpInside" id="tOD-Wl-H00"/>
                                 </connections>
                             </button>
@@ -1115,6 +1117,128 @@ Reward</string>
             <point key="canvasLocation" x="471" y="-193"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="GGKAboutUsViewController" superclassName="GGKViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKAboutUsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="emailUs"/>
+                <relationship kind="action" name="giveADollar"/>
+                <relationship kind="action" name="rateOrReview"/>
+                <relationship kind="outlet" name="emailUsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="giveADollar1Label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="giveADollarButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="starsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GGKAddPottyViewController" superclassName="GGKViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKAddPottyViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="savePottyAttempt"/>
+                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="successfulSegmentedControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="symbolSegmentedControl" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="GGKAddRewardTextViewController" superclassName="GGKViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKAddRewardTextViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel"/>
+                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="GGKHistoryForDayTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKHistoryForDayTableViewController.h"/>
+        </class>
+        <class className="GGKHistoryHeaderCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKHistoryHeaderCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="endMarkLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="startMarkLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GGKHistoryTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKHistoryTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="playButtonSound"/>
+            </relationships>
+        </class>
+        <class className="GGKPickBackgroundColorViewController" superclassName="GGKViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKPickBackgroundColorViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="useBoyTheme"/>
+                <relationship kind="action" name="useDefaultTheme"/>
+                <relationship kind="action" name="useGirlTheme"/>
+            </relationships>
+        </class>
+        <class className="GGKPottyAttemptCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKPottyAttemptCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="attemptLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GGKPottyAttemptDayTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKPottyAttemptDayTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="attempt1Label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="endMarkLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="startMarkLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GGKPottyTrainerViewController" superclassName="GGKViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKPottyTrainerViewController.h"/>
+        </class>
+        <class className="GGKRewardsViewController" superclassName="GGKViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKRewardsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addReward:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="numberOfSuccessesForReward1TextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="numberOfSuccessesForReward2TextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="numberOfSuccessesForReward3TextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="reward1Button" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="reward2Button" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="reward3Button" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="successfulPottiesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="successfulPottiesTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="GGKSetReminderViewController" superclassName="GGKViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKSetReminderViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="datePickerTimeChanged:"/>
+                <relationship kind="action" name="setQuickReminder"/>
+                <relationship kind="action" name="setReminder"/>
+                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="whenLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GGKSettingsViewController" superclassName="GGKViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelReminder"/>
+                <relationship kind="action" name="resetHistory"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="reminderLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="setOrChangeReminderButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="GGKUseCustomSymbolViewController" superclassName="GGKViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKUseCustomSymbolViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="saveSymbol"/>
+                <relationship kind="outlet" name="symbolTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="GGKViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="playButtonSound"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
