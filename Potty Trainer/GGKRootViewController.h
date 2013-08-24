@@ -10,7 +10,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGKPottyTrainerViewController : GGKViewController
+@interface GGKRootViewController : GGKViewController
+
+// Name of the current child.
+@property (strong, nonatomic) IBOutlet UILabel *currentChildLabel;
 
 // Override.
 - (void)viewDidLoad;

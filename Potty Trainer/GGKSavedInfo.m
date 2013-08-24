@@ -20,7 +20,6 @@ NSString *GGKNumberOfSuccessesForReward3KeyString = @"Number of successes for re
 NSString *GGKPottyAttemptDateKeyString = @"Potty-attempt date";
 NSString *GGKPottyAttemptSymbolStringKeyString = @"Potty-attempt symbol string";
 NSString *GGKPottyAttemptWasSuccessfulNumberKeyString = @"Potty-attempt-was-successful number";
-NSString *GGKPottyAttemptsKeyString = @"Potty attempts";
 NSString *GGKReminderMinutesNumberKeyString = @"Reminder-minutes number";
 NSString *GGKReward1IsTextBOOLNumberKeyString = @"Reward-1-is-text BOOL number";
 NSString *GGKReward1TextKeyString = @"Reward 1 text";

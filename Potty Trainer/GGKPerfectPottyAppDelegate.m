@@ -6,13 +6,14 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
-#import "GGKPottyTrainerAppDelegate.h"
+#import "GGKPerfectPottyAppDelegate.h"
 
 #import "GGKInAppPurchaseObserver.h"
+#import "GGKPerfectPottyModel.h"
 #import "GGKSoundModel.h"
 #import "TestFlight.h"
 
-@interface GGKPottyTrainerAppDelegate ()
+@interface GGKPerfectPottyAppDelegate ()
 
 // Whether a local notification was already received a short time ago (currently a second).
 @property (assign, nonatomic) BOOL localNotificationWasRecentlyReceived;
@@ -22,7 +23,7 @@
 
 @end
 
-@implementation GGKPottyTrainerAppDelegate
+@implementation GGKPerfectPottyAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -41,6 +42,7 @@
     NSLog(@"System name:%@; system version:%@", [[UIDevice currentDevice] systemName], [[UIDevice currentDevice] systemVersion]);
     
     self.soundModel = [[GGKSoundModel alloc] init];
+    self.perfectPottyModel = [[GGKPerfectPottyModel alloc] init];
     
     [self noteThatLocalNotificationsNotReceivedRecently];
     

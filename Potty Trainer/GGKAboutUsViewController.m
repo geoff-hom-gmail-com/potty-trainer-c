@@ -8,7 +8,7 @@
 
 #import "GGKAboutUsViewController.h"
 
-#import "GGKPottyTrainerAppDelegate.h"
+#import "GGKPerfectPottyAppDelegate.h"
 #import "GGKSavedInfo.h"
 
 @interface GGKAboutUsViewController ()
@@ -240,7 +240,7 @@
     self.scrollView.contentSize = CGSizeMake(320, theScrollViewHeightFloat);
         
     // Listen for when a purchase is done.
-    GGKPottyTrainerAppDelegate *thePottyTrainerAppDelegate = (GGKPottyTrainerAppDelegate *)[UIApplication sharedApplication].delegate;
+    GGKPerfectPottyAppDelegate *thePottyTrainerAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
     thePottyTrainerAppDelegate.inAppPurchaseObserver.delegate = self;
     
     // Update number of give-dollar stars purchased.

@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class GGKInAppPurchaseObserver, GGKSoundModel;
+@class GGKInAppPurchaseObserver, GGKPerfectPottyModel, GGKSoundModel;
 
-@interface GGKPottyTrainerAppDelegate : UIResponder <UIApplicationDelegate>
+@interface GGKPerfectPottyAppDelegate : UIResponder <UIApplicationDelegate>
 
 // For observing App Store transactions.
 @property (strong, nonatomic) GGKInAppPurchaseObserver *inAppPurchaseObserver;
+
+@property (strong, nonatomic) GGKPerfectPottyModel *perfectPottyModel;
 
 // For playing sound.
 @property (strong, nonatomic) GGKSoundModel *soundModel;

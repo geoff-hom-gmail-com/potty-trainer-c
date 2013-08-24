@@ -8,7 +8,7 @@
 
 #import "GGKSoundModel.h"
 
-#import "GGKPottyTrainerAppDelegate.h"
+#import "GGKPerfectPottyAppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface GGKSoundModel ()
@@ -25,7 +25,7 @@
 
 + (void)playButtonTapSound
 {
-    GGKPottyTrainerAppDelegate *aPottyTrainerAppDelegate = (GGKPottyTrainerAppDelegate *)[UIApplication sharedApplication].delegate;
+    GGKPerfectPottyAppDelegate *aPottyTrainerAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
     [aPottyTrainerAppDelegate.soundModel playButtonTapSound];
 }
 

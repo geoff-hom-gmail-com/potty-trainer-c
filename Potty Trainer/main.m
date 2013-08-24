@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "GGKPottyTrainerAppDelegate.h"
+#import "GGKPerfectPottyAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([GGKPottyTrainerAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([GGKPerfectPottyAppDelegate class]));
     }
 }

@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
-#import "GGKPottyTrainerViewController.h"
+#import "GGKRootViewController.h"
 
 #import "GGKPickBackgroundColorViewController.h"
 #import "GGKSavedInfo.h"
@@ -15,19 +15,13 @@
 //BOOL GGKCreateLaunchImages = YES;
 BOOL GGKCreateLaunchImages = NO;
 
-@interface GGKPottyTrainerViewController ()
+@interface GGKRootViewController ()
 
 @property (strong, nonatomic) GGKPickBackgroundColorViewController *pickBackgroundColorViewController;
 
 @end
 
-@implementation GGKPottyTrainerViewController
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+@implementation GGKRootViewController
 
 - (void)viewDidLoad
 {
@@ -48,6 +42,9 @@ BOOL GGKCreateLaunchImages = NO;
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
+    
+    NSString *theCurrentChildNameString = self.perfectPottyModel.currentChild.nameString;
+    self.currentChildLabel.text = theCurrentChildNameString;
     
     // Check theme.
     NSString *theThemeString = [[NSUserDefaults standardUserDefaults] objectForKey:GGKThemeKeyString];

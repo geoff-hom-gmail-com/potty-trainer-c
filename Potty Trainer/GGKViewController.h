@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "GGKPerfectPottyModel.h"
+
 @interface GGKViewController : UIViewController
+
+@property (strong, nonatomic) GGKPerfectPottyModel *perfectPottyModel;
 
 // Override.
 // Assume Nib is for portrait orientation.

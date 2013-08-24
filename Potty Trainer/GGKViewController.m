@@ -8,6 +8,7 @@
 
 #import "GGKViewController.h"
 
+#import "GGKPerfectPottyAppDelegate.h"
 #import "GGKSoundModel.h"
 
 @interface GGKViewController ()
@@ -49,6 +50,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    GGKPerfectPottyAppDelegate *theAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
+    self.perfectPottyModel = theAppDelegate.perfectPottyModel;
 }
 
 - (void)viewWillAppear:(BOOL)animated

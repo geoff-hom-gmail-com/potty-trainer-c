@@ -24,7 +24,7 @@ extern NSString *GGKMostRecentCustomSymbolStringKeyString;
 extern NSString *GGKNumberOfStarsPurchasedNumberKeyString;
 
 // Key for storing the number of successes needed for reward 1.
-extern NSString *GGKNumberOfSuccessesForReward1KeyString;
+//extern NSString *GGKNumberOfSuccessesForReward1KeyString;
 
 // Key for storing the number of successes needed for reward 2.
 extern NSString *GGKNumberOfSuccessesForReward2KeyString;
@@ -45,7 +45,7 @@ extern NSString *GGKPottyAttemptSymbolStringKeyString;
 extern NSString *GGKPottyAttemptWasSuccessfulNumberKeyString;
 
 // Key for storing all potty attempts. Object is an array of all potty attempts. Each element is an array of potty attempts for a given date. Each potty attempt is a dictionary containing the date (GGKPottyAttemptDateKeyString) and whether the attempt was successful (GGKPottyAttemptWasSuccessfulNumberKeyString).
-extern NSString *GGKPottyAttemptsKeyString;
+//extern NSString *GGKPottyAttemptsKeyString;
 
 // Key for storing the number of minutes used for the previous reminder.
 extern NSString *GGKReminderMinutesNumberKeyString;
