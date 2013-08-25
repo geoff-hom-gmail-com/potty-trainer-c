@@ -12,6 +12,13 @@
 
 @implementation GGKChild
 
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    
+    [encoder encodeObject:self.nameString forKey:@"nameString"];
+    [encoder encodeObject:self.pottyAttemptDayArray forKey:@"pottyAttemptDayArray"];
+    [encoder encodeObject:self.rewardArray forKey:@"rewardArray"];
+}
+
 - (id)init
 {
     self = [super init];
@@ -31,6 +38,18 @@
         aReward3.numberOfSuccessesNeededInteger = 15;
         aReward3.imageName = [NSString stringWithFormat:@"%@_reward3", self.nameString];
         self.rewardArray = @[aReward1, aReward2, aReward3];
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super init];
+    if (self) {
+
+        self.nameString = [decoder decodeObjectForKey:@"nameString"];
+        self.pottyAttemptDayArray = [decoder decodeObjectForKey:@"pottyAttemptDayArray"];
+        self.rewardArray = [decoder decodeObjectForKey:@"rewardArray"];
     }
     return self;
 }

@@ -214,21 +214,22 @@
 
 - (void)updateStars
 {
-    NSNumber *theNumberOfStarsPurchasedNumber = [[NSUserDefaults standardUserDefaults] objectForKey:GGKNumberOfStarsPurchasedNumberKeyString];
+//    NSNumber *theNumberOfStarsPurchasedNumber = self.perfectPottyModel.numberOfStarsPurchasedInteger;
+//    NSNumber *theNumberOfStarsPurchasedNumber = [[NSUserDefaults standardUserDefaults] objectForKey:GGKNumberOfStarsPurchasedNumberKeyString];
     
     //testing
 //    theNumberOfStarsPurchasedNumber = @12;
     
-    if (theNumberOfStarsPurchasedNumber != nil) {
-        
-        NSInteger theNumberOfStarsPurchasedInteger = [theNumberOfStarsPurchasedNumber integerValue];
+//    if (theNumberOfStarsPurchasedNumber != nil) {
+    
+        NSInteger numberOfStarsPurchasedInteger = self.perfectPottyModel.numberOfStarsPurchasedInteger;
         NSMutableString *aMutableString = [[NSMutableString alloc] initWithCapacity:10];
-        for (int i = 0; i < theNumberOfStarsPurchasedInteger; i++) {
+        for (int i = 0; i < numberOfStarsPurchasedInteger; i++) {
             
             [aMutableString appendString:GGKStarRewardString];
         }
         self.starsLabel.text = aMutableString;
-    }
+//    }
 }
 
 - (void)viewDidLoad

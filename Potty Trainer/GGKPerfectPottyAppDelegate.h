@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class GGKInAppPurchaseObserver, GGKPerfectPottyModel, GGKSoundModel;
+#import "GGKPerfectPottyModel.h"
+
+@class GGKInAppPurchaseObserver, GGKSoundModel;
 
 @interface GGKPerfectPottyAppDelegate : UIResponder <UIApplicationDelegate>
 

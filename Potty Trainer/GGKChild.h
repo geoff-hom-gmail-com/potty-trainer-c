@@ -20,6 +20,12 @@
 @property (strong, nonatomic) NSArray *rewardArray;
 
 // Override.
+- (void)encodeWithCoder:(NSCoder *)encoder;
+
+// Override.
 - (id)init;
+
+// Override.
+- (id)initWithCoder:(NSCoder *)decoder;
 
 @end

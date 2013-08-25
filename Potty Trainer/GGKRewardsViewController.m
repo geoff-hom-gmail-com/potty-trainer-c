@@ -224,51 +224,64 @@ NSString *GGKUseTextTitleString = @"Use text";
     NSArray *aURLArray = [aFileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
     
     NSURL *aDirectoryURL = (NSURL *)aURLArray[0];
-    NSString *theRewardImagePrefixString;
-    NSString *theRewardIsTextBOOLNumberKeyString;
+//    NSString *theRewardImagePrefixString;
+//    NSString *theRewardIsTextBOOLNumberKeyString;
+    NSArray *rewardArray = self.perfectPottyModel.currentChild.rewardArray;
+    GGKReward *reward;
+
     if (self.activeRewardButton == self.reward1Button) {
         
-        theRewardImagePrefixString = GGKReward1ImageNameString;
-        theRewardIsTextBOOLNumberKeyString = GGKReward1IsTextBOOLNumberKeyString;
+        reward = rewardArray[0];
+//        theRewardImagePrefixString = GGKReward1ImageNameString;
+//        theRewardIsTextBOOLNumberKeyString = GGKReward1IsTextBOOLNumberKeyString;
     } else if (self.activeRewardButton == self.reward2Button) {
         
-        theRewardImagePrefixString = GGKReward2ImageNameString;
-        theRewardIsTextBOOLNumberKeyString = GGKReward2IsTextBOOLNumberKeyString;
+        reward = rewardArray[1];
+//        theRewardImagePrefixString = GGKReward2ImageNameString;
+//        theRewardIsTextBOOLNumberKeyString = GGKReward2IsTextBOOLNumberKeyString;
     } else if (self.activeRewardButton == self.reward3Button) {
         
-        theRewardImagePrefixString = GGKReward3ImageNameString;
-        theRewardIsTextBOOLNumberKeyString = GGKReward3IsTextBOOLNumberKeyString;
+        reward = rewardArray[2];
+//        theRewardImagePrefixString = GGKReward3ImageNameString;
+//        theRewardIsTextBOOLNumberKeyString = GGKReward3IsTextBOOLNumberKeyString;
     }
-    NSString *theImagePathComponentString = [NSString stringWithFormat:@"/%@.png", theRewardImagePrefixString];
+    NSString *theImagePathComponentString = [NSString stringWithFormat:@"/%@.png", reward.imageName];
     NSURL *theFileURL = [aDirectoryURL URLByAppendingPathComponent:theImagePathComponentString];
     [theImageToUseData writeToURL:theFileURL atomically:YES];
     
-    NSNumber *aBOOLNumber = [NSNumber numberWithBool:NO];
-    [[NSUserDefaults standardUserDefaults] setObject:aBOOLNumber forKey:theRewardIsTextBOOLNumberKeyString];
+//    NSNumber *aBOOLNumber = [NSNumber numberWithBool:NO];
+//    [[NSUserDefaults standardUserDefaults] setObject:aBOOLNumber forKey:theRewardIsTextBOOLNumberKeyString];
 }
 
 - (void)saveText:(NSString *)theRewardText forRewardButton:(UIButton *)theRewardButton {
 
-    NSString *theRewardTextKeyString;
-    NSString *theRewardIsTextBOOLNumberKeyString;
+//    NSString *theRewardTextKeyString;
+//    NSString *theRewardIsTextBOOLNumberKeyString;
+    NSArray *rewardArray = self.perfectPottyModel.currentChild.rewardArray;
+    GGKReward *reward;
     if (self.activeRewardButton == self.reward1Button) {
         
-        theRewardTextKeyString = GGKReward1TextKeyString;
-        theRewardIsTextBOOLNumberKeyString = GGKReward1IsTextBOOLNumberKeyString;
+        reward = rewardArray[0];
+//        theRewardTextKeyString = GGKReward1TextKeyString;
+//        theRewardIsTextBOOLNumberKeyString = GGKReward1IsTextBOOLNumberKeyString;
     } else if (self.activeRewardButton == self.reward2Button) {
         
-        theRewardTextKeyString = GGKReward2TextKeyString;
-        theRewardIsTextBOOLNumberKeyString = GGKReward2IsTextBOOLNumberKeyString;
+        reward = rewardArray[1];
+//        theRewardTextKeyString = GGKReward2TextKeyString;
+//        theRewardIsTextBOOLNumberKeyString = GGKReward2IsTextBOOLNumberKeyString;
     } else if (self.activeRewardButton == self.reward3Button) {
         
-        theRewardTextKeyString = GGKReward3TextKeyString;
-        theRewardIsTextBOOLNumberKeyString = GGKReward3IsTextBOOLNumberKeyString;
+        reward = rewardArray[2];
+//        theRewardTextKeyString = GGKReward3TextKeyString;
+//        theRewardIsTextBOOLNumberKeyString = GGKReward3IsTextBOOLNumberKeyString;
     }
     
-    [[NSUserDefaults standardUserDefaults] setObject:theRewardText forKey:theRewardTextKeyString];
+    reward.text = theRewardText;
+    [self.perfectPottyModel saveChildren];
+//    [[NSUserDefaults standardUserDefaults] setObject:theRewardText forKey:theRewardTextKeyString];
     
-    NSNumber *aBOOLNumber = [NSNumber numberWithBool:YES];
-    [[NSUserDefaults standardUserDefaults] setObject:aBOOLNumber forKey:theRewardIsTextBOOLNumberKeyString];
+//    NSNumber *aBOOLNumber = [NSNumber numberWithBool:YES];
+//    [[NSUserDefaults standardUserDefaults] setObject:aBOOLNumber forKey:theRewardIsTextBOOLNumberKeyString];
 }
 
 - (void)showActionSheetForAddingReward:(UIButton *)theButton

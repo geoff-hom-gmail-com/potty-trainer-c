@@ -20,6 +20,12 @@
 @property (strong, nonatomic) NSString *text;
 
 // Override.
+- (void)encodeWithCoder:(NSCoder *)encoder;
+
+// Override.
 - (id)init;
+
+// Override.
+- (id)initWithCoder:(NSCoder *)decoder;
 
 @end

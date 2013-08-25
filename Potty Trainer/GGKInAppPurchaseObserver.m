@@ -8,9 +8,12 @@
 
 #import "GGKInAppPurchaseObserver.h"
 
+#import "GGKPerfectPottyAppDelegate.h"
 #import "GGKSavedInfo.h"
 
 @interface GGKInAppPurchaseObserver ()
+
+@property (strong, nonatomic) GGKPerfectPottyModel *perfectPottyModel;
 
 // Store the products bought.
 - (void)storeThePurchase:(SKPaymentTransaction *)theTransaction;
@@ -43,6 +46,17 @@
     [self.delegate inAppPurchaseObserverDidHandleUpdatedTransactions:self];
 }
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+
+        GGKPerfectPottyAppDelegate *theAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
+        self.perfectPottyModel = theAppDelegate.perfectPottyModel;
+    }
+    return self;
+}
+
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)theTransactions {
     
     for (SKPaymentTransaction *aTransaction in theTransactions) {
@@ -72,20 +86,23 @@
 
 - (void)storeThePurchase:(SKPaymentTransaction *)theTransaction;
 {
-    NSNumber *theNumberOfStarsPurchasedNumber = [[NSUserDefaults standardUserDefaults] objectForKey:GGKNumberOfStarsPurchasedNumberKeyString];
-    if (theNumberOfStarsPurchasedNumber == nil) {
-        
-        theNumberOfStarsPurchasedNumber = @0;
-    }
-    NSInteger theNumberOfStarsPurchasedInteger = [theNumberOfStarsPurchasedNumber integerValue];
+//    NSNumber *theNumberOfStarsPurchasedNumber = [[NSUserDefaults standardUserDefaults] objectForKey:GGKNumberOfStarsPurchasedNumberKeyString];
+//    if (theNumberOfStarsPurchasedNumber == nil) {
+//        
+//        theNumberOfStarsPurchasedNumber = @0;
+//    }
+//    NSInteger theNumberOfStarsPurchasedInteger = [theNumberOfStarsPurchasedNumber integerValue];
+//    NSInteger theNumberOfStarsPurchasedInteger = self.perfectPottyModel.numberOfStarsPurchasedInteger;
 
     if ([theTransaction.payment.productIdentifier isEqualToString:GGKGiveDollarProductIDString]) {
         
-        theNumberOfStarsPurchasedInteger++;
+        self.perfectPottyModel.numberOfStarsPurchasedInteger++;
+        [self.perfectPottyModel saveNumberOfStarsPurchased];
+//        theNumberOfStarsPurchasedInteger++;
     }
     
-    theNumberOfStarsPurchasedNumber = [NSNumber numberWithInteger:theNumberOfStarsPurchasedInteger];
-    [[NSUserDefaults standardUserDefaults] setObject:theNumberOfStarsPurchasedNumber forKey:GGKNumberOfStarsPurchasedNumberKeyString];
+//    theNumberOfStarsPurchasedNumber = [NSNumber numberWithInteger:theNumberOfStarsPurchasedInteger];
+//    [[NSUserDefaults standardUserDefaults] setObject:theNumberOfStarsPurchasedNumber forKey:GGKNumberOfStarsPurchasedNumberKeyString];
 }
 
 @end

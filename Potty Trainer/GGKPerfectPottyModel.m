@@ -17,17 +17,31 @@ NSString *GGKChildrenKeyString = @"Children data";
 
 NSString *GGKGirlThemeString = @"Girl theme";
 
+NSString *GGKGiveDollarProductIDString = @"com.geoffhom.PerfectPotty.GiveADollar";
+
 // Key for storing the most-recent custom symbol used.
 NSString *GGKMostRecentCustomSymbolStringKeyString = @"Most-recent-custom-symbol string";
 
 // Key for storing the number of stars purchased.
 NSString *GGKNumberOfStarsPurchasedNumberKeyString = @"Number of stars purchased";
 
+NSString *GGKPottyAttemptDateKeyString = @"Potty-attempt date";
+
+NSString *GGKPottyAttemptSymbolStringKeyString = @"Potty-attempt symbol string";
+
+NSString *GGKPottyAttemptWasSuccessfulNumberKeyString = @"Potty-attempt-was-successful number";
+
 // Key for storing the number of minutes used for the previous reminder.
 NSString *GGKReminderMinutesNumberKeyString = @"Reminder-minutes number";
 
+NSString *GGKStarRewardString = @"\u2b50";
+
+NSString *GGKStarSymbolString = @"\u2605";
+
 // Key for storing the name of the color theme to show.
 NSString *GGKThemeKeyString = @"Theme";
+
+NSString *GGKXSymbolString = @"\u2718";
 
 @interface GGKPerfectPottyModel ()
 
@@ -79,7 +93,11 @@ NSString *GGKThemeKeyString = @"Theme";
         
         // Children data. If none, make a new child and also check for data from earlier versions.
 
-        self.childrenMutableArray = [[NSUserDefaults standardUserDefaults] objectForKey:GGKChildrenKeyString];
+        NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:GGKChildrenKeyString];
+        if (data != nil) {
+            
+            self.childrenMutableArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        }
         if (self.childrenMutableArray == nil) {
             
             GGKChild *aChild = [[GGKChild alloc] init];
@@ -226,12 +244,24 @@ NSString *GGKThemeKeyString = @"Theme";
 
 - (void)saveChildren
 {
-    [[NSUserDefaults standardUserDefaults] setObject:self.childrenMutableArray forKey:GGKChildrenKeyString];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.childrenMutableArray];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:GGKChildrenKeyString];
 }
 
 - (void)saveColorTheme
 {
     [[NSUserDefaults standardUserDefaults] setObject:self.colorThemeString forKey:GGKThemeKeyString];
+}
+
+- (void)saveCustomSymbol
+{
+    [[NSUserDefaults standardUserDefaults] setObject:self.currentCustomSymbol forKey:GGKMostRecentCustomSymbolStringKeyString];
+}
+
+- (void)saveNumberOfStarsPurchased
+{
+    NSNumber *theNumberOfStarsPurchasedNumber = [NSNumber numberWithInteger:self.numberOfStarsPurchasedInteger];
+    [[NSUserDefaults standardUserDefaults] setObject:theNumberOfStarsPurchasedNumber forKey:GGKNumberOfStarsPurchasedNumberKeyString];
 }
 
 - (void)saveReminderInterval

@@ -26,6 +26,9 @@
 - (void)handleFailedTransaction:(SKPaymentTransaction *)theTransaction;
 // Usually happens because user decided not to purchase. Remove from payment queue.
 
+// Override.
+- (id)init;
+
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions;
 // So, handle the transactions.
 
