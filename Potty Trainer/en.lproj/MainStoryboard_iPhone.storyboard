@@ -26,7 +26,7 @@
                                 </state>
                                 <connections>
                                     <action selector="playButtonSound" destination="PeI-Ax-hLa" eventType="touchDown" id="7Jc-f8-e8o"/>
-                                    <segue destination="EVp-K6-fQv" kind="push" id="DQh-BW-dkK"/>
+                                    <segue destination="bed-JT-82Y" kind="push" id="pfW-Fa-5CQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rB6-Ud-ZkZ">
@@ -104,7 +104,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Anon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wis-Pd-63l">
-                                <rect key="frame" x="125" y="20" width="175" height="21"/>
+                                <rect key="frame" x="127" y="20" width="173" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -212,7 +212,9 @@ from now (10:35 AM).</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="b7v-md-p05"/>
+                    <navigationItem key="navigationItem" title="Settings" id="b7v-md-p05">
+                        <barButtonItem key="backBarButtonItem" title="back" id="0Ec-C7-xta"/>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="cancelButton" destination="pLb-tB-hUZ" id="B6a-eD-PfB"/>
@@ -297,7 +299,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="frR-hj-UUr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1059" y="421"/>
+            <point key="canvasLocation" x="1009" y="485"/>
         </scene>
         <!--Pick Background Color View Controller - Background Color-->
         <scene sceneID="g9v-8G-JG3">
@@ -516,14 +518,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C14-ZN-wEb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1302" y="990"/>
+            <point key="canvasLocation" x="1230" y="1128"/>
         </scene>
         <!--History Table View Controller - Potty Records-->
         <scene sceneID="6ud-bb-5cS">
             <objects>
                 <tableViewController id="EVp-K6-fQv" customClass="GGKHistoryTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="71" sectionFooterHeight="22" id="t3A-GT-J7y">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -547,7 +549,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             </state>
                                             <connections>
                                                 <action selector="playButtonSound" destination="EVp-K6-fQv" eventType="touchDown" id="d5k-CF-EJy"/>
-                                                <segue destination="O2o-ma-3Y9" kind="push" identifier="showAddPottyView" id="fWz-Dy-qOa"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="6 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bdc-zy-USY">
@@ -615,7 +616,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <outlet property="dateLabel" destination="L4L-R8-Wrp" id="fpU-pR-aPK"/>
                                     <outlet property="endMarkLabel" destination="pNr-fI-ARm" id="2oS-bL-LFt"/>
                                     <outlet property="startMarkLabel" destination="ZG6-sa-uk6" id="o12-rN-Z8Y"/>
-                                    <segue destination="Vsa-py-YIx" kind="push" identifier="showHistoryForDay" id="Qdf-NE-xMU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -629,7 +629,116 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Z8-4w-96b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1218" y="-385"/>
+            <point key="canvasLocation" x="1302" y="-385"/>
+        </scene>
+        <!--Potty Records View Controller - Potty Records-->
+        <scene sceneID="l8H-LF-ZBa">
+            <objects>
+                <viewController id="bed-JT-82Y" customClass="GGKPottyRecordsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xBj-V4-kKZ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="e9o-Pp-zmf">
+                                <rect key="frame" x="0.0" y="83" width="320" height="333"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PottyAttemptDayCell" id="EQs-8S-cpn" customClass="GGKPottyAttemptDayTableViewCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Feb 22" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AHX-mQ-rMO">
+                                                    <rect key="frame" x="6" y="11" width="57" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="|" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wfi-Rl-t5Q">
+                                                    <rect key="frame" x="72" y="11" width="41" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="|" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kCJ-WB-QgS">
+                                                    <rect key="frame" x="248" y="11" width="52" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="✔" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Wv-4I-w37">
+                                                    <rect key="frame" x="131" y="11" width="25" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="attempt1Label" destination="1Wv-4I-w37" id="gO3-Hd-mcO"/>
+                                            <outlet property="dateLabel" destination="AHX-mQ-rMO" id="3jZ-zk-WuV"/>
+                                            <outlet property="endMarkLabel" destination="kCJ-WB-QgS" id="XXf-Av-LwY"/>
+                                            <outlet property="startMarkLabel" destination="wfi-Rl-t5Q" id="8On-Pg-2k8"/>
+                                            <segue destination="Vsa-py-YIx" kind="push" identifier="showHistoryForDaySegue" trigger="accessoryAction" id="gzI-uo-iEw"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bed-JT-82Y" id="d37-Z7-Os3"/>
+                                    <outlet property="delegate" destination="bed-JT-82Y" id="86y-XN-a6g"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eOt-xB-vAY">
+                                <rect key="frame" x="145" y="20" width="95" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Add Potty">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playButtonSound" destination="bed-JT-82Y" eventType="touchDown" id="D1p-q2-Y5U"/>
+                                    <segue destination="O2o-ma-3Y9" kind="push" identifier="showAddPottyViewSegue" id="OeU-OD-TgM"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="6 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tq4-Xx-P3k">
+                                <rect key="frame" x="72" y="65" width="41" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ysP-hu-XaL">
+                                <rect key="frame" x="248" y="65" width="52" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Potty Records" id="xbe-im-X9Z">
+                        <barButtonItem key="backBarButtonItem" title="back" id="4Xk-zS-BDi"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="e9o-Pp-zmf" id="PXi-av-04P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="klP-Dg-sxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1366" y="204"/>
         </scene>
         <!--Add Potty View Controller - Add Potty-->
         <scene sceneID="Yh1-sF-eYY">
@@ -947,7 +1056,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4RH-vE-yCi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1420" y="242"/>
+            <point key="canvasLocation" x="1724" y="574"/>
         </scene>
         <!--Rewards View Controller - Rewards-->
         <scene sceneID="lDk-to-YQV">
@@ -1216,6 +1325,12 @@ Reward</string>
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="endMarkLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="startMarkLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GGKPottyRecordsViewController" superclassName="GGKViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKPottyRecordsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="GGKRewardsViewController" superclassName="GGKViewController">

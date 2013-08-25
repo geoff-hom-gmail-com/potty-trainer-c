@@ -14,18 +14,6 @@
 #import "GGKSavedInfo.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
-const NSInteger GGKDefaultNumberOfSuccessesForReward1Integer = 5;
-
-const NSInteger GGKDefaultNumberOfSuccessesForReward2Integer = 10;
-
-const NSInteger GGKDefaultNumberOfSuccessesForReward3Integer = 15;
-
-NSString *GGKReward1ImageNameString = @"reward1";
-
-NSString *GGKReward2ImageNameString = @"reward2";
-
-NSString *GGKReward3ImageNameString = @"reward3";
-
 NSString *GGKUsePhotoTitleString = @"Use photo";
 
 NSString *GGKUseTextTitleString = @"Use text";
@@ -255,33 +243,21 @@ NSString *GGKUseTextTitleString = @"Use text";
 
 - (void)saveText:(NSString *)theRewardText forRewardButton:(UIButton *)theRewardButton {
 
-//    NSString *theRewardTextKeyString;
-//    NSString *theRewardIsTextBOOLNumberKeyString;
     NSArray *rewardArray = self.perfectPottyModel.currentChild.rewardArray;
     GGKReward *reward;
     if (self.activeRewardButton == self.reward1Button) {
         
         reward = rewardArray[0];
-//        theRewardTextKeyString = GGKReward1TextKeyString;
-//        theRewardIsTextBOOLNumberKeyString = GGKReward1IsTextBOOLNumberKeyString;
     } else if (self.activeRewardButton == self.reward2Button) {
         
         reward = rewardArray[1];
-//        theRewardTextKeyString = GGKReward2TextKeyString;
-//        theRewardIsTextBOOLNumberKeyString = GGKReward2IsTextBOOLNumberKeyString;
     } else if (self.activeRewardButton == self.reward3Button) {
         
         reward = rewardArray[2];
-//        theRewardTextKeyString = GGKReward3TextKeyString;
-//        theRewardIsTextBOOLNumberKeyString = GGKReward3IsTextBOOLNumberKeyString;
     }
     
     reward.text = theRewardText;
     [self.perfectPottyModel saveChildren];
-//    [[NSUserDefaults standardUserDefaults] setObject:theRewardText forKey:theRewardTextKeyString];
-    
-//    NSNumber *aBOOLNumber = [NSNumber numberWithBool:YES];
-//    [[NSUserDefaults standardUserDefaults] setObject:aBOOLNumber forKey:theRewardIsTextBOOLNumberKeyString];
 }
 
 - (void)showActionSheetForAddingReward:(UIButton *)theButton

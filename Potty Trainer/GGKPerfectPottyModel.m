@@ -15,6 +15,8 @@ NSString *GGKBoyThemeString = @"Boy theme";
 // Key for storing data for all children.
 NSString *GGKChildrenKeyString = @"Children data";
 
+NSString *GGKCurrentChildNameKeyString = @"Current child";
+
 NSString *GGKGirlThemeString = @"Girl theme";
 
 NSString *GGKGiveDollarProductIDString = @"com.geoffhom.PerfectPotty.GiveADollar";
@@ -96,7 +98,7 @@ NSString *GGKXSymbolString = @"\u2718";
         NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:GGKChildrenKeyString];
         if (data != nil) {
             
-            self.childrenMutableArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+//            self.childrenMutableArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         }
         if (self.childrenMutableArray == nil) {
             
@@ -218,7 +220,7 @@ NSString *GGKXSymbolString = @"\u2718";
             }
 
             // Save data.
-            [self saveChildren];
+//            [self saveChildren];
             
             // Delete old data.
             /*
@@ -236,6 +238,16 @@ NSString *GGKXSymbolString = @"\u2718";
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:reward3IsTextBOOLNumberKeyString];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:reward3TextKeyString];
              */
+        }
+        
+        // Current child.
+        NSString *currentChildName = [[NSUserDefaults standardUserDefaults] objectForKey:GGKCurrentChildNameKeyString];
+        if (currentChildName == nil) {
+            
+            self.currentChild = self.childrenMutableArray[0];
+        } else {
+            
+            // need to find child with that name; assume names are unique
         }
         
     }
