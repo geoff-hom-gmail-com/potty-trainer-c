@@ -10,4 +10,14 @@
 
 @implementation GGKReward
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        
+        self.text = @"Add Reward";
+    }
+    return self;
+}
+
 @end

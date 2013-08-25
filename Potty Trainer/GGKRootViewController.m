@@ -47,7 +47,8 @@ BOOL GGKCreateLaunchImages = NO;
     self.currentChildLabel.text = theCurrentChildNameString;
     
     // Check theme.
-    NSString *theThemeString = [[NSUserDefaults standardUserDefaults] objectForKey:GGKThemeKeyString];
+//    NSString *theThemeString = [[NSUserDefaults standardUserDefaults] objectForKey:GGKThemeKeyString];
+    NSString *theThemeString = self.perfectPottyModel.colorThemeString;
     if ([theThemeString isEqualToString:GGKBoyThemeString]) {
         
         self.view.backgroundColor = [UIColor cyanColor];

@@ -124,9 +124,12 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSCalendarUnit aCalendarUnit = NSMinuteCalendarUnit | NSHourCalendarUnit;
     NSDateComponents *theReminderIncrementDateComponents = [gregorianCalendar components:aCalendarUnit fromDate:theReminderIncrementDate];
-    NSInteger theNumberOfReminderMinutesInteger = (theReminderIncrementDateComponents.hour * 60) + theReminderIncrementDateComponents.minute;
-    NSNumber *theNumberOfReminderMinutesNumber = [NSNumber numberWithInteger:theNumberOfReminderMinutesInteger];
-    [[NSUserDefaults standardUserDefaults] setObject:theNumberOfReminderMinutesNumber forKey:GGKReminderMinutesNumberKeyString];
+    self.perfectPottyModel.reminderIncrementDateComponents = theReminderIncrementDateComponents;
+    [self.perfectPottyModel saveReminderInterval];
+    
+//    NSInteger theNumberOfReminderMinutesInteger = (theReminderIncrementDateComponents.hour * 60) + theReminderIncrementDateComponents.minute;
+//    NSNumber *theNumberOfReminderMinutesNumber = [NSNumber numberWithInteger:theNumberOfReminderMinutesInteger];
+//    [[NSUserDefaults standardUserDefaults] setObject:theNumberOfReminderMinutesNumber forKey:GGKReminderMinutesNumberKeyString];
     
     [self.delegate setReminderViewControllerDidSetReminder:self];
 }
@@ -186,23 +189,25 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
     [super viewDidLoad];
         
     NSCalendar *aGregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *theReminderIncrementDateComponents = [[NSDateComponents alloc] init];
+//    NSDateComponents *theReminderIncrementDateComponents = [[NSDateComponents alloc] init];
     
-    // Set the date picker to an appropriate reminder increment.
-    // Use the last increment used. If none (i.e., first time setting a reminder), use a default.
-    NSNumber *theNumberOfReminderMinutesNumber = [[NSUserDefaults standardUserDefaults] objectForKey:GGKReminderMinutesNumberKeyString];
-    if (theNumberOfReminderMinutesNumber != nil) {
-        
-        NSInteger theNumberOfReminderMinutesInteger = [theNumberOfReminderMinutesNumber integerValue];
-        [theReminderIncrementDateComponents setHour:theNumberOfReminderMinutesInteger / 60];
-        [theReminderIncrementDateComponents setMinute:theNumberOfReminderMinutesInteger % 60];
-    } else {
-        
-        [theReminderIncrementDateComponents setHour:1];
-        [theReminderIncrementDateComponents setMinute:30];
-    }
+    // Set the date picker to the last increment used.
     
-    NSDate *theReminderIncrementDate = [aGregorianCalendar dateFromComponents:theReminderIncrementDateComponents];
+    //If none (i.e., first time setting a reminder), use a default.
+//    NSNumber *theNumberOfReminderMinutesNumber = [[NSUserDefaults standardUserDefaults] objectForKey:GGKReminderMinutesNumberKeyString];
+//    if (theNumberOfReminderMinutesNumber != nil) {
+//        
+//        NSInteger theNumberOfReminderMinutesInteger = [theNumberOfReminderMinutesNumber integerValue];
+//        [theReminderIncrementDateComponents setHour:theNumberOfReminderMinutesInteger / 60];
+//        [theReminderIncrementDateComponents setMinute:theNumberOfReminderMinutesInteger % 60];
+//    } else {
+//        
+//        [theReminderIncrementDateComponents setHour:1];
+//        [theReminderIncrementDateComponents setMinute:30];
+//    }
+    
+    NSDate *theReminderIncrementDate = [aGregorianCalendar dateFromComponents:self.perfectPottyModel.reminderIncrementDateComponents];
+//    NSDate *theReminderIncrementDate = [aGregorianCalendar dateFromComponents:theReminderIncrementDateComponents];
     self.datePicker.date = theReminderIncrementDate;
 }
 

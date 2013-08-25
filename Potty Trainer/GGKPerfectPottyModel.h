@@ -10,7 +10,16 @@
 
 #import "GGKChild.h"
 
+// String to identify the boy theme.
+extern NSString *GGKBoyThemeString;
+
+// String to identify the girl theme.
+extern NSString *GGKGirlThemeString;
+
 @interface GGKPerfectPottyModel : NSObject
+
+// Which color theme to use.
+@property (strong, nonatomic) NSString *colorThemeString;
 
 // Child the parent is currently tracking.
 @property (strong, nonatomic) GGKChild *currentChild;
@@ -26,5 +35,12 @@
 
 // Override.
 - (id)init;
+
+// Save data for all children.
+- (void)saveChildren;
+
+- (void)saveColorTheme;
+
+- (void)saveReminderInterval;
 
 @end

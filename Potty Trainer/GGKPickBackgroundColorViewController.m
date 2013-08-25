@@ -44,7 +44,8 @@
 - (void)updateColors
 {
     // Check theme.
-    NSString *theThemeString = [[NSUserDefaults standardUserDefaults] objectForKey:GGKThemeKeyString];
+//    NSString *theThemeString = [[NSUserDefaults standardUserDefaults] objectForKey:GGKThemeKeyString];
+    NSString *theThemeString = self.perfectPottyModel.colorThemeString;
     if ([theThemeString isEqualToString:GGKBoyThemeString]) {
         
         self.view.backgroundColor = [UIColor cyanColor];
@@ -58,20 +59,26 @@
 }
 
 - (IBAction)useBoyTheme
-{    
-    [[NSUserDefaults standardUserDefaults] setObject:GGKBoyThemeString forKey:GGKThemeKeyString];
-    [self updateColors];    
+{
+    self.perfectPottyModel.colorThemeString = GGKBoyThemeString;
+    [self.perfectPottyModel saveColorTheme];
+//    [[NSUserDefaults standardUserDefaults] setObject:GGKBoyThemeString forKey:GGKThemeKeyString];
+    [self updateColors];
 }
 
 - (IBAction)useDefaultTheme
 {
-    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:GGKThemeKeyString];
+    self.perfectPottyModel.colorThemeString = nil;
+    [self.perfectPottyModel saveColorTheme];
+//    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:GGKThemeKeyString];
     [self updateColors];
 }
 
 - (IBAction)useGirlTheme
-{    
-    [[NSUserDefaults standardUserDefaults] setObject:GGKGirlThemeString forKey:GGKThemeKeyString];
+{
+    self.perfectPottyModel.colorThemeString = GGKGirlThemeString;
+    [self.perfectPottyModel saveColorTheme];
+//    [[NSUserDefaults standardUserDefaults] setObject:GGKGirlThemeString forKey:GGKThemeKeyString];
     [self updateColors];
 }
 

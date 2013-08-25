@@ -90,11 +90,12 @@
     NSDictionary *thePottyAttemptDictionary = @{GGKPottyAttemptDateKeyString:thePottyAttemptDate, GGKPottyAttemptWasSuccessfulNumberKeyString:thePottyAttemptWasSuccessfulNumber, GGKPottyAttemptSymbolStringKeyString:thePottyAttemptSymbolString};
 
     // Get saved data.
-    NSArray *thePottyAttemptDayArray = [[NSUserDefaults standardUserDefaults] objectForKey:GGKPottyAttemptsKeyString];
-    if (thePottyAttemptDayArray == nil) {
-        
-        thePottyAttemptDayArray = [NSArray array];
-    }
+//    NSArray *thePottyAttemptDayArray = [[NSUserDefaults standardUserDefaults] objectForKey:GGKPottyAttemptsKeyString];
+//    if (thePottyAttemptDayArray == nil) {
+//        
+//        thePottyAttemptDayArray = [NSArray array];
+//    }
+    NSArray *thePottyAttemptDayArray = self.perfectPottyModel.currentChild.pottyAttemptDayArray;
     
     // Add data. To find where to add the data, check previous attempts until we find the same date or a previous date (searching backward through the attempts). We search backward because the user is probably adding a recent attempt.
     
@@ -154,7 +155,8 @@
     thePottyAttemptDayArray = [thePottyAttemptDayMutableArray copy];
     
     // Save data and notify.
-    [[NSUserDefaults standardUserDefaults] setObject:thePottyAttemptDayArray forKey:GGKPottyAttemptsKeyString];
+//    [self.perfectPottyModel saveChildData];
+//    [[NSUserDefaults standardUserDefaults] setObject:thePottyAttemptDayArray forKey:GGKPottyAttemptsKeyString];
     [self.delegate addPottyViewControllerDidAddPottyAttempt:self];
 }
 
@@ -163,7 +165,8 @@
     [self.navigationController popViewControllerAnimated:YES];
     
     // Show symbol on segmented control.
-    NSString *theMostRecentCustomSymbolString = [[NSUserDefaults standardUserDefaults] stringForKey:GGKMostRecentCustomSymbolStringKeyString];
+//    NSString *theMostRecentCustomSymbolString = [[NSUserDefaults standardUserDefaults] stringForKey:GGKMostRecentCustomSymbolStringKeyString];
+    NSString *theMostRecentCustomSymbolString = self.perfectPottyModel.currentCustomSymbol;
     [self.symbolSegmentedControl setTitle:theMostRecentCustomSymbolString forSegmentAtIndex:4];
 }
 

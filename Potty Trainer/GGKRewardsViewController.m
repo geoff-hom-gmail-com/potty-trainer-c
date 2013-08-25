@@ -10,6 +10,7 @@
 #import "GGKRewardsViewController.h"
 
 #import "GGKAddRewardTextViewController.h"
+#import "GGKReward.h"
 #import "GGKSavedInfo.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
@@ -300,18 +301,24 @@ NSString *GGKUseTextTitleString = @"Use text";
     }
     theTextField.text = [anOkayValue stringValue];
     
-    NSString *theKey;
+//    NSString *theKey;
+    GGKReward *theReward;
     if (theTextField == self.numberOfSuccessesForReward1TextField) {
         
-        theKey = GGKNumberOfSuccessesForReward1KeyString;
+        theReward = self.perfectPottyModel.currentChild.rewardArray[0];
+//        theKey = GGKNumberOfSuccessesForReward1KeyString;
     } else if (theTextField == self.numberOfSuccessesForReward2TextField) {
         
-        theKey = GGKNumberOfSuccessesForReward2KeyString;
+        theReward = self.perfectPottyModel.currentChild.rewardArray[1];
+//        theKey = GGKNumberOfSuccessesForReward2KeyString;
     } else if (theTextField == self.numberOfSuccessesForReward3TextField) {
         
-        theKey = GGKNumberOfSuccessesForReward3KeyString;
+        theReward = self.perfectPottyModel.currentChild.rewardArray[2];
+//        theKey = GGKNumberOfSuccessesForReward3KeyString;
     }
-    [[NSUserDefaults standardUserDefaults] setObject:anOkayValue forKey:theKey];
+    theReward.numberOfSuccessesNeededInteger = anOkayValueInteger;
+    [self.perfectPottyModel saveChildren];
+//    [[NSUserDefaults standardUserDefaults] setObject:anOkayValue forKey:theKey];
     
     self.activeTextField = nil;
 }
@@ -331,7 +338,8 @@ NSString *GGKUseTextTitleString = @"Use text";
 //    self.successfulPottiesTextView.font = [UIFont fontWithName:@"AppleColorEmoji" size:40.0];
 //    self.successfulPottiesTextView.text = @"\u2B50";
     
-    NSArray *aPottyAttemptDayArray = [[NSUserDefaults standardUserDefaults] objectForKey:GGKPottyAttemptsKeyString];
+//    NSArray *aPottyAttemptDayArray = [[NSUserDefaults standardUserDefaults] objectForKey:GGKPottyAttemptsKeyString];
+    NSArray *aPottyAttemptDayArray = self.perfectPottyModel.currentChild.pottyAttemptDayArray;
     __block NSInteger theNumberOfSuccessesInteger = 0;
     [aPottyAttemptDayArray enumerateObjectsUsingBlock:^(NSArray *anAttemptArray, NSUInteger idx1, BOOL *stop1) {
         
@@ -362,70 +370,95 @@ NSString *GGKUseTextTitleString = @"Use text";
     
     // Show each reward: The number of successes needed, and the text or image describing the reward.
     NSArray *theRewardButtonsArray = @[self.reward1Button, self.reward2Button, self.reward3Button];
+    NSArray *rewardArray = self.perfectPottyModel.currentChild.rewardArray;
     [theRewardButtonsArray enumerateObjectsUsingBlock:^(UIButton *theRewardButton, NSUInteger idx, BOOL *stop) {
         
-        NSString *theNumberOfSuccessesForRewardKeyString;
-        NSInteger theDefaultNumberOfSuccessesForRewardInteger;
+//        NSString *theNumberOfSuccessesForRewardKeyString;
+//        NSInteger theDefaultNumberOfSuccessesForRewardInteger;
+        GGKReward *theReward;
         UITextField *theTextField;
-        NSString *theRewardIsTextBOOLNumberKeyString;
-        NSString *theRewardTextKeyString;
-        NSString *theRewardImageNameString;
+//        NSString *theRewardIsTextBOOLNumberKeyString;
+//        NSString *theRewardTextKeyString;
+//        NSString *theRewardImageNameString;
         if (theRewardButton == self.reward1Button) {
             
-            theNumberOfSuccessesForRewardKeyString = GGKNumberOfSuccessesForReward1KeyString;
-            theDefaultNumberOfSuccessesForRewardInteger = GGKDefaultNumberOfSuccessesForReward1Integer;
+            theReward = rewardArray[0];
+//            theNumberOfSuccessesForRewardKeyString = GGKNumberOfSuccessesForReward1KeyString;
+//            theDefaultNumberOfSuccessesForRewardInteger = GGKDefaultNumberOfSuccessesForReward1Integer;
             theTextField = self.numberOfSuccessesForReward1TextField;
-            theRewardIsTextBOOLNumberKeyString = GGKReward1IsTextBOOLNumberKeyString;
-            theRewardTextKeyString = GGKReward1TextKeyString;
-            theRewardImageNameString = GGKReward1ImageNameString;
+//            theRewardIsTextBOOLNumberKeyString = GGKReward1IsTextBOOLNumberKeyString;
+//            theRewardTextKeyString = GGKReward1TextKeyString;
+//            theRewardImageNameString = GGKReward1ImageNameString;
         } else if (theRewardButton == self.reward2Button) {
             
-            theNumberOfSuccessesForRewardKeyString = GGKNumberOfSuccessesForReward2KeyString;
-            theDefaultNumberOfSuccessesForRewardInteger = GGKDefaultNumberOfSuccessesForReward2Integer;
+            theReward = rewardArray[1];
+//            theNumberOfSuccessesForRewardKeyString = GGKNumberOfSuccessesForReward2KeyString;
+//            theDefaultNumberOfSuccessesForRewardInteger = GGKDefaultNumberOfSuccessesForReward2Integer;
             theTextField = self.numberOfSuccessesForReward2TextField;
-            theRewardIsTextBOOLNumberKeyString = GGKReward2IsTextBOOLNumberKeyString;
-            theRewardTextKeyString = GGKReward2TextKeyString;
-            theRewardImageNameString = GGKReward2ImageNameString;
+//            theRewardIsTextBOOLNumberKeyString = GGKReward2IsTextBOOLNumberKeyString;
+//            theRewardTextKeyString = GGKReward2TextKeyString;
+//            theRewardImageNameString = GGKReward2ImageNameString;
         } else if (theRewardButton == self.reward3Button) {
             
-            theNumberOfSuccessesForRewardKeyString = GGKNumberOfSuccessesForReward3KeyString;
-            theDefaultNumberOfSuccessesForRewardInteger = GGKDefaultNumberOfSuccessesForReward3Integer;
+            theReward = rewardArray[2];
+//            theNumberOfSuccessesForRewardKeyString = GGKNumberOfSuccessesForReward3KeyString;
+//            theDefaultNumberOfSuccessesForRewardInteger = GGKDefaultNumberOfSuccessesForReward3Integer;
             theTextField = self.numberOfSuccessesForReward3TextField;
-            theRewardIsTextBOOLNumberKeyString = GGKReward3IsTextBOOLNumberKeyString;
-            theRewardTextKeyString = GGKReward3TextKeyString;
-            theRewardImageNameString = GGKReward3ImageNameString;
+//            theRewardIsTextBOOLNumberKeyString = GGKReward3IsTextBOOLNumberKeyString;
+//            theRewardTextKeyString = GGKReward3TextKeyString;
+//            theRewardImageNameString = GGKReward3ImageNameString;
         }
         
-        NSNumber *theNumberOfSuccessesForRewardNumber = [[NSUserDefaults standardUserDefaults] objectForKey:theNumberOfSuccessesForRewardKeyString];
-        if (theNumberOfSuccessesForRewardNumber == nil) {
+//        NSNumber *theNumberOfSuccessesForRewardNumber = [[NSUserDefaults standardUserDefaults] objectForKey:theNumberOfSuccessesForRewardKeyString];
+//        if (theNumberOfSuccessesForRewardNumber == nil) {
+//            
+//            theNumberOfSuccessesForRewardNumber = @(theDefaultNumberOfSuccessesForRewardInteger);
+//        }
+//        NSNumber *theNumberOfSuccessesForRewardNumber = [ theReward.numberOfSuccessesNeededInteger];
+//        theTextField.text = [theNumberOfSuccessesForRewardNumber stringValue];
+        
+        theTextField.text = [NSString stringWithFormat:@"%d", theReward.numberOfSuccessesNeededInteger];
+        
+        // Check whether the reward has an image. If not, show text. If so, show the image.
+        
+        NSFileManager *aFileManager = [[NSFileManager alloc] init];
+        NSArray *aURLArray = [aFileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+        NSURL *aDirectoryURL = (NSURL *)aURLArray[0];
+        NSString *theImagePathComponentString = [NSString stringWithFormat:@"/%@.png", theReward.imageName];
+        NSURL *theFileURL = [aDirectoryURL URLByAppendingPathComponent:theImagePathComponentString];
+        NSData *theImageData = [NSData dataWithContentsOfURL:theFileURL];
+        if (theImageData == nil) {
             
-            theNumberOfSuccessesForRewardNumber = @(theDefaultNumberOfSuccessesForRewardInteger);
+            [theRewardButton setTitle:theReward.text forState:UIControlStateNormal];
+        } else {
+            
+            UIImage *theImage = [[UIImage alloc] initWithData:theImageData];
+            [theRewardButton setImage:theImage forState:UIControlStateNormal];
         }
-        theTextField.text = [theNumberOfSuccessesForRewardNumber stringValue];
         
         // Check whether the reward is text or an image. If neither (nil), then use the default in the storyboard.
-        NSNumber *theRewardIsTextBOOLNumber = [[NSUserDefaults standardUserDefaults] objectForKey:theRewardIsTextBOOLNumberKeyString];
-        if (theRewardIsTextBOOLNumber != nil) {
-            
-            BOOL theRewardIsTextBOOL = [theRewardIsTextBOOLNumber boolValue];
-            if (theRewardIsTextBOOL) {
-                
+//        NSNumber *theRewardIsTextBOOLNumber = [[NSUserDefaults standardUserDefaults] objectForKey:theRewardIsTextBOOLNumberKeyString];
+//        if (theRewardIsTextBOOLNumber != nil) {
+//            
+//            BOOL theRewardIsTextBOOL = [theRewardIsTextBOOLNumber boolValue];
+//            if (theRewardIsTextBOOL) {
+        
                 // Load the text and show it in the button.
-                NSString *theRewardString = [[NSUserDefaults standardUserDefaults] objectForKey:theRewardTextKeyString];
-                [theRewardButton setTitle:theRewardString forState:UIControlStateNormal];
-            } else {
-                
-                // Load the image and show it in the button.
-                NSFileManager *aFileManager = [[NSFileManager alloc] init];
-                NSArray *aURLArray = [aFileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-                NSURL *aDirectoryURL = (NSURL *)aURLArray[0];
-                NSString *theImagePathComponentString = [NSString stringWithFormat:@"/%@.png", theRewardImageNameString];
-                NSURL *theFileURL = [aDirectoryURL URLByAppendingPathComponent:theImagePathComponentString];
-                NSData *theImageData = [NSData dataWithContentsOfURL:theFileURL];
-                UIImage *theImage = [[UIImage alloc] initWithData:theImageData];
-                [theRewardButton setImage:theImage forState:UIControlStateNormal];
-            }
-        }
+//                NSString *theRewardString = [[NSUserDefaults standardUserDefaults] objectForKey:theRewardTextKeyString];
+//                [theRewardButton setTitle:theRewardString forState:UIControlStateNormal];
+//            } else {
+//                
+//                // Load the image and show it in the button.
+//                NSFileManager *aFileManager = [[NSFileManager alloc] init];
+//                NSArray *aURLArray = [aFileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+//                NSURL *aDirectoryURL = (NSURL *)aURLArray[0];
+//                NSString *theImagePathComponentString = [NSString stringWithFormat:@"/%@.png", theRewardImageNameString];
+//                NSURL *theFileURL = [aDirectoryURL URLByAppendingPathComponent:theImagePathComponentString];
+//                NSData *theImageData = [NSData dataWithContentsOfURL:theFileURL];
+//                UIImage *theImage = [[UIImage alloc] initWithData:theImageData];
+//                [theRewardButton setImage:theImage forState:UIControlStateNormal];
+//            }
+//        }
     }];
 }
 

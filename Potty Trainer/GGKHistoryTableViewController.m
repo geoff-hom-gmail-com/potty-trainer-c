@@ -69,7 +69,8 @@
     self.pottyAttemptDayArray = [aMutableArray copy];
     
     // Save data.
-    [[NSUserDefaults standardUserDefaults] setObject:self.pottyAttemptDayArray forKey:GGKPottyAttemptsKeyString];
+//    [self.perfectPottyModel saveChild];
+//    [[NSUserDefaults standardUserDefaults] setObject:self.pottyAttemptDayArray forKey:GGKPottyAttemptsKeyString];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -271,7 +272,8 @@
     
     // Reload the data and refresh the table each time the view appears. This is just more robust. Data may have been added or deleted, but also the date may have changed, so relative dates (e.g. today) will change if displayed.
     // When the table is first being shown, we might think this would result in the table reloading its data twice. However, that doesn't seem to be the case, so that's good.
-    self.pottyAttemptDayArray = [[NSUserDefaults standardUserDefaults] objectForKey:GGKPottyAttemptsKeyString];
+//    self.pottyAttemptDayArray = self.perfectPottyModel.currentChild.pottyAttemptDayArray;
+//    self.pottyAttemptDayArray = [[NSUserDefaults standardUserDefaults] objectForKey:GGKPottyAttemptsKeyString];
     [self.tableView reloadData];
 }
 
