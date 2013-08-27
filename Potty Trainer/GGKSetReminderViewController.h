@@ -33,6 +33,12 @@ extern NSString *GGKReminderWhenPrefixString;
 - (IBAction)datePickerTimeChanged:(id)sender;
 // So, update the label showing the reminder time.
 
+// (For testing.) Play a sound.
+- (IBAction)playSound1;
+
+// (For testing.) Play a different sound.
+- (IBAction)playSound2;
+
 // (For testing.) Cancel any previous reminders. Set a reminder that goes off in 5 seconds.
 - (IBAction)setQuickReminder;
 
@@ -45,7 +51,7 @@ extern NSString *GGKReminderWhenPrefixString;
 // Override.
 - (void)viewWillAppear:(BOOL)animated;
 
-// UIViewController override. Stop anything from -viewWillAppear.
+// Override. Stop anything from -viewWillAppear.
 - (void)viewWillDisappear:(BOOL)animated;
 
 @end

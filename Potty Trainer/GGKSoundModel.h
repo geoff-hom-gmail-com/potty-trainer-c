@@ -13,16 +13,16 @@
 // Whether this app's sound should play or not.
 @property (assign, nonatomic) BOOL soundIsOn;
 
-// Play the sound from the app delegate's instance of this sound model.
-+ (void)playButtonTapSound;
-
 // Create the audio player for each sound.
 - (id)init;
+
+// ??
+- (void)playAlert2Sound;
 
 // Play sound appropriate for a button press.
 - (void)playButtonTapSound;
 
-// Play sound appropriate for positive attention.
+// Play sound appropriate for positive attention. (E.g., when receiving local notification while app in foreground.)
 - (void)playDingSound;
 
 // Prepare the appropriate audio player to play.

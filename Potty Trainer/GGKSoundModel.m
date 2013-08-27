@@ -13,6 +13,9 @@
 
 @interface GGKSoundModel ()
 
+// For playing a UI sound to get the user's attention, in a positive way.
+@property (nonatomic, strong) AVAudioPlayer *alert2AudioPlayer;
+
 // For playing a UI sound when the player presses a button.
 @property (nonatomic, strong) AVAudioPlayer *buttonTapAudioPlayer;
 
@@ -23,12 +26,6 @@
 
 @implementation GGKSoundModel
 
-+ (void)playButtonTapSound
-{
-    GGKPerfectPottyAppDelegate *aPottyTrainerAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
-    [aPottyTrainerAppDelegate.soundModel playButtonTapSound];
-}
-
 - (id)init
 {    
     self = [super init];
@@ -36,9 +33,18 @@
         
         self.soundIsOn = YES;
         
+        // Implicitly initialize audio session. Default settings seem fine, though.
+//        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+        
         NSString *soundFilePath;
         NSURL *soundFileURL;
         AVAudioPlayer *anAudioPlayer;
+        
+        // Alert2 sound.
+        soundFilePath = [ [NSBundle mainBundle] pathForResource:@"alert2" ofType:@"aiff" ];
+        soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+        anAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+        self.alert2AudioPlayer = anAudioPlayer;
         
         // Ding sound.
         soundFilePath = [ [NSBundle mainBundle] pathForResource:@"scoreIncrease" ofType:@"aiff" ];
@@ -58,6 +64,16 @@
     return self;
 }
 
+- (void)playAlert2Sound
+{
+    if (self.soundIsOn) {
+        
+        // Volume = max.
+        self.alert2AudioPlayer.volume = 1;
+        [self.alert2AudioPlayer play];
+    }
+}
+
 - (void)playButtonTapSound
 {    
     if (self.soundIsOn) {
@@ -70,6 +86,8 @@
 {
     if (self.soundIsOn) {
         
+        // Volume = max.
+        self.dingAudioPlayer.volume = 1;
         [self.dingAudioPlayer play];
     }
 }

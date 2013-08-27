@@ -19,6 +19,7 @@
 		9362E42D16D5F17600A1B771 /* GGKSoundModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42C16D5F17600A1B771 /* GGKSoundModel.m */; };
 		9362E43016D5FBF400A1B771 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9362E42F16D5FBF400A1B771 /* AVFoundation.framework */; };
 		9362E43216D5FDAB00A1B771 /* tap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 9362E42E16D5FA8600A1B771 /* tap.aif */; };
+		93639A1F17CC4CBB004A7541 /* alert2.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 93639A1E17CC4CBB004A7541 /* alert2.aiff */; };
 		937652AA16C079CB007EA04C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937652A916C079CB007EA04C /* UIKit.framework */; };
 		937652AC16C079CB007EA04C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937652AB16C079CB007EA04C /* Foundation.framework */; };
 		937652AE16C079CB007EA04C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937652AD16C079CB007EA04C /* CoreGraphics.framework */; };
@@ -84,6 +85,7 @@
 		9362E42C16D5F17600A1B771 /* GGKSoundModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSoundModel.m; sourceTree = "<group>"; };
 		9362E42E16D5FA8600A1B771 /* tap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = tap.aif; path = sounds/tap.aif; sourceTree = "<group>"; };
 		9362E42F16D5FBF400A1B771 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		93639A1E17CC4CBB004A7541 /* alert2.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = alert2.aiff; path = sounds/alert2.aiff; sourceTree = "<group>"; };
 		937652A616C079CB007EA04C /* Perfect Potty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Perfect Potty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		937652A916C079CB007EA04C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		937652AB16C079CB007EA04C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -186,6 +188,7 @@
 		9362E43116D5FC9100A1B771 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				93639A1E17CC4CBB004A7541 /* alert2.aiff */,
 				9376CCAD16E0111E00887ADE /* scoreIncrease.aiff */,
 				9362E42E16D5FA8600A1B771 /* tap.aif */,
 			);
@@ -391,6 +394,7 @@
 				935A343F16F2063B003DD6FA /* README.md in Resources */,
 				935A344016F2063B003DD6FA /* release_notes.md in Resources */,
 				93BD16621761869400D32AA0 /* GGKPerfectPottyDescription.rtf in Resources */,
+				93639A1F17CC4CBB004A7541 /* alert2.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +530,7 @@
 		937652CD16C079CB007EA04C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Potty Trainer/Perfect Potty Pal-Prefix.pch";
 				INFOPLIST_FILE = "Potty Trainer/Perfect Potty Pal-Info.plist";
@@ -535,6 +540,7 @@
 					"\"$(SRCROOT)/TestFlightSDK1\"",
 				);
 				PRODUCT_NAME = "Perfect Potty";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -572,7 +578,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Geoffrey Hom";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -581,7 +587,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9EECF008-0834-4B71-9B8C-6ECD58640DCA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -602,7 +608,7 @@
 					"\"$(SRCROOT)/TestFlightSDK1\"",
 				);
 				PRODUCT_NAME = "Perfect Potty";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F899E392-9B93-41D5-A2F0-F489506712C4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AC8DCFB1-E329-49FE-A9C4-3D518F9DB3B9";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

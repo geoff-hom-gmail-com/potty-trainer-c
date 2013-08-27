@@ -140,8 +140,9 @@ NSString *GGKXSymbolString = @"\u2718";
             
             // If text, and if reward text there, use that. If not text, move the image.
             NSNumber *rewardIsTextBOOLNumber = [[NSUserDefaults standardUserDefaults] objectForKey:reward1IsTextBOOLNumberKeyString];
+            BOOL rewardIsTextBOOL = [rewardIsTextBOOLNumber boolValue];
             NSString *rewardTextString = [[NSUserDefaults standardUserDefaults] objectForKey:reward1TextKeyString];
-            if (rewardIsTextBOOLNumber) {
+            if (rewardIsTextBOOL) {
                 
                 if (rewardTextString != nil) {
                                     
@@ -156,7 +157,8 @@ NSString *GGKXSymbolString = @"\u2718";
                 NSURL *theSourceFileURL = [aDirectoryURL URLByAppendingPathComponent:theSourceImagePathComponentString];
                 NSString *theDestinationImagePathComponentString = [NSString stringWithFormat:@"/%@.png", reward.imageName];
                 NSURL *theDestinationFileURL = [aDirectoryURL URLByAppendingPathComponent:theDestinationImagePathComponentString];
-                [aFileManager moveItemAtURL:theSourceFileURL toURL:theDestinationFileURL error:nil];
+                BOOL wasSuccessful = [aFileManager moveItemAtURL:theSourceFileURL toURL:theDestinationFileURL error:nil];
+                NSLog(@"wasSuccessful: %@", wasSuccessful ? @"Yes" : @"No");
             }
             
             // Reward 2.
@@ -170,8 +172,9 @@ NSString *GGKXSymbolString = @"\u2718";
             
             // If text, and if reward text there, use that. If not text, move the image.
             rewardIsTextBOOLNumber = [[NSUserDefaults standardUserDefaults] objectForKey:reward2IsTextBOOLNumberKeyString];
+            rewardIsTextBOOL = [rewardIsTextBOOLNumber boolValue];
             rewardTextString = [[NSUserDefaults standardUserDefaults] objectForKey:reward2TextKeyString];
-            if (rewardIsTextBOOLNumber) {
+            if (rewardIsTextBOOL) {
                 
                 if (rewardTextString != nil) {
                     
@@ -200,8 +203,9 @@ NSString *GGKXSymbolString = @"\u2718";
             
             // If text, and if reward text there, use that. If not text, move the image.
             rewardIsTextBOOLNumber = [[NSUserDefaults standardUserDefaults] objectForKey:reward3IsTextBOOLNumberKeyString];
+            rewardIsTextBOOL = [rewardIsTextBOOLNumber boolValue];
             rewardTextString = [[NSUserDefaults standardUserDefaults] objectForKey:reward3TextKeyString];
-            if (rewardIsTextBOOLNumber) {
+            if (rewardIsTextBOOL) {
                 
                 if (rewardTextString != nil) {
                     
@@ -223,7 +227,6 @@ NSString *GGKXSymbolString = @"\u2718";
             [self saveChildren];
             
             // Delete old data.
-            /*
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:pottyAttemptsKeyString];
              
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:reward1NumberOfSuccessesNumberKeyString];
@@ -237,7 +240,6 @@ NSString *GGKXSymbolString = @"\u2718";
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:reward3NumberOfSuccessesNumberKeyString];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:reward3IsTextBOOLNumberKeyString];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:reward3TextKeyString];
-             */
         }
         
         // Current child.
@@ -247,7 +249,15 @@ NSString *GGKXSymbolString = @"\u2718";
             self.currentChild = self.childrenMutableArray[0];
         } else {
             
-            // need to find child with that name; assume names are unique
+            // Find child with that name.
+            [self.childrenMutableArray enumerateObjectsUsingBlock:^(GGKChild *aChild, NSUInteger idx, BOOL *stop) {
+                
+                if ([aChild.nameString isEqualToString:currentChildName]) {
+                    
+                    self.currentChild = aChild;
+                    *stop = YES;
+                }
+            }];
         }
     }
     return self;

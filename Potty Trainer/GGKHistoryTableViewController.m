@@ -90,7 +90,7 @@
 
 - (IBAction)playButtonSound
 {
-    [GGKSoundModel playButtonTapSound];
+//    [GGKSoundModel playButtonTapSound];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

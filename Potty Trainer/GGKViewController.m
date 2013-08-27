@@ -33,7 +33,8 @@
 
 - (IBAction)playButtonSound
 {
-    [GGKSoundModel playButtonTapSound];
+    GGKPerfectPottyAppDelegate *aPottyTrainerAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
+    [aPottyTrainerAppDelegate.soundModel playButtonTapSound];
 }
 
 - (void)updateLayoutForLandscape

@@ -9,7 +9,6 @@
 #import "GGKPerfectPottyAppDelegate.h"
 
 #import "GGKInAppPurchaseObserver.h"
-#import "GGKSoundModel.h"
 #import "TestFlight.h"
 
 @interface GGKPerfectPottyAppDelegate ()

@@ -8,6 +8,7 @@
 
 #import "GGKSetReminderViewController.h"
 
+#import "GGKPerfectPottyAppDelegate.h"
 #import "GGKSavedInfo.h"
 #import "NSDate+GGKDate.h"
 
@@ -19,9 +20,6 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
 
 // For updating the reminder time every minute.
 @property (strong, nonatomic) NSTimer *timer;
-
-// Do what we do in -viewWillAppear (except adding observer that calls this method).
-//- (void)appWillEnterForeground;
 
 // Calculate and return the date for the reminder, based on the date picker.
 - (NSDate *)reminderDate;
@@ -45,13 +43,6 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
 
 @implementation GGKSetReminderViewController
 
-//- (void)appWillEnterForeground
-//{
-////    NSLog(@"SRVC appWillEnterForeground");
-//    [self updateReminderTime];
-//    [self startVisibleUpdates];
-//}
-
 - (IBAction)datePickerTimeChanged:(id)sender
 {
     [self updateReminderTime];
@@ -70,6 +61,18 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
         // Custom initialization
     }
     return self;
+}
+
+- (IBAction)playSound1
+{
+    GGKPerfectPottyAppDelegate *aPottyTrainerAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
+    [aPottyTrainerAppDelegate.soundModel playDingSound];
+}
+
+- (IBAction)playSound2
+{
+    GGKPerfectPottyAppDelegate *aPottyTrainerAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
+    [aPottyTrainerAppDelegate.soundModel playAlert2Sound];
 }
 
 - (NSDate *)reminderDate
@@ -127,10 +130,6 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
     self.perfectPottyModel.reminderIncrementDateComponents = theReminderIncrementDateComponents;
     [self.perfectPottyModel saveReminderInterval];
     
-//    NSInteger theNumberOfReminderMinutesInteger = (theReminderIncrementDateComponents.hour * 60) + theReminderIncrementDateComponents.minute;
-//    NSNumber *theNumberOfReminderMinutesNumber = [NSNumber numberWithInteger:theNumberOfReminderMinutesInteger];
-//    [[NSUserDefaults standardUserDefaults] setObject:theNumberOfReminderMinutesNumber forKey:GGKReminderMinutesNumberKeyString];
-    
     [self.delegate setReminderViewControllerDidSetReminder:self];
 }
 
@@ -158,14 +157,12 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
     [self startUpdateTimer];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopVisibleUpdates) name:UIApplicationDidEnterBackgroundNotification object:nil];
-//    NSLog(@"notification added: appDidEnterBG");
 }
 
 - (void)stopTimer
 {
     [self.timer invalidate];
     self.timer = nil;
-//    NSLog(@"timer stopped");
 }
 
 - (void)stopVisibleUpdates
@@ -173,7 +170,6 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
     [self stopTimer];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
-//    NSLog(@"notification removed: appDidEnterBG");
 }
 
 - (void)updateReminderTime
@@ -189,25 +185,9 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
     [super viewDidLoad];
         
     NSCalendar *aGregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-//    NSDateComponents *theReminderIncrementDateComponents = [[NSDateComponents alloc] init];
     
     // Set the date picker to the last increment used.
-    
-    //If none (i.e., first time setting a reminder), use a default.
-//    NSNumber *theNumberOfReminderMinutesNumber = [[NSUserDefaults standardUserDefaults] objectForKey:GGKReminderMinutesNumberKeyString];
-//    if (theNumberOfReminderMinutesNumber != nil) {
-//        
-//        NSInteger theNumberOfReminderMinutesInteger = [theNumberOfReminderMinutesNumber integerValue];
-//        [theReminderIncrementDateComponents setHour:theNumberOfReminderMinutesInteger / 60];
-//        [theReminderIncrementDateComponents setMinute:theNumberOfReminderMinutesInteger % 60];
-//    } else {
-//        
-//        [theReminderIncrementDateComponents setHour:1];
-//        [theReminderIncrementDateComponents setMinute:30];
-//    }
-    
     NSDate *theReminderIncrementDate = [aGregorianCalendar dateFromComponents:self.perfectPottyModel.reminderIncrementDateComponents];
-//    NSDate *theReminderIncrementDate = [aGregorianCalendar dateFromComponents:theReminderIncrementDateComponents];
     self.datePicker.date = theReminderIncrementDate;
 }
 
@@ -215,24 +195,13 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
 {
     [super viewWillAppear:animated];
     
-//    NSLog(@"SRVC vWA");
-    
     [self updateReminderTime];
     [self startVisibleUpdates];
-    
-    // If the app returns from background/lock to this view, then we need to do what we do in viewWillAppear.
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
-//    NSLog(@"notification added: appWillEnterFG");
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    
-//    NSLog(@"SRVC vWD");
-    
-//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
-//    NSLog(@"notification removed: appWillEnterFG");
     
     [self stopVisibleUpdates];
 }

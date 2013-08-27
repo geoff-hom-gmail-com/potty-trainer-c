@@ -99,7 +99,27 @@ NSString *GGKUseTextTitleString = @"Use text";
     
     // If there was an image before, it will still be present over the title. (Setting an image when there is a title shows the image over the title, so setting an image is okay.)
     [self.activeRewardButton setImage:nil forState:UIControlStateNormal];
-
+    
+    // Since we are using text, remove any image for this reward. (VC checks whether an image when deciding whether to show text or image.)
+    GGKReward *reward;
+    NSArray *rewardArray = self.perfectPottyModel.currentChild.rewardArray;
+    if (self.activeRewardButton == self.reward1Button) {
+        
+        reward = rewardArray[0];
+    } else if (self.activeRewardButton == self.reward2Button) {
+        
+        reward = rewardArray[1];
+    } else if (self.activeRewardButton == self.reward3Button) {
+        
+        reward = rewardArray[2];
+    }
+    NSFileManager *aFileManager = [[NSFileManager alloc] init];
+    NSArray *aURLArray = [aFileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *aDirectoryURL = (NSURL *)aURLArray[0];
+    NSString *theImagePathComponentString = [NSString stringWithFormat:@"/%@.png", reward.imageName];
+    NSURL *theFileURL = [aDirectoryURL URLByAppendingPathComponent:theImagePathComponentString];
+    [aFileManager removeItemAtURL:theFileURL error:nil];
+    
     [self saveText:theRewardText forRewardButton:self.activeRewardButton];
 
     self.activeRewardButton = nil;
@@ -212,26 +232,17 @@ NSString *GGKUseTextTitleString = @"Use text";
     NSArray *aURLArray = [aFileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
     
     NSURL *aDirectoryURL = (NSURL *)aURLArray[0];
-//    NSString *theRewardImagePrefixString;
-//    NSString *theRewardIsTextBOOLNumberKeyString;
     NSArray *rewardArray = self.perfectPottyModel.currentChild.rewardArray;
     GGKReward *reward;
-
     if (self.activeRewardButton == self.reward1Button) {
         
         reward = rewardArray[0];
-//        theRewardImagePrefixString = GGKReward1ImageNameString;
-//        theRewardIsTextBOOLNumberKeyString = GGKReward1IsTextBOOLNumberKeyString;
     } else if (self.activeRewardButton == self.reward2Button) {
         
         reward = rewardArray[1];
-//        theRewardImagePrefixString = GGKReward2ImageNameString;
-//        theRewardIsTextBOOLNumberKeyString = GGKReward2IsTextBOOLNumberKeyString;
     } else if (self.activeRewardButton == self.reward3Button) {
         
         reward = rewardArray[2];
-//        theRewardImagePrefixString = GGKReward3ImageNameString;
-//        theRewardIsTextBOOLNumberKeyString = GGKReward3IsTextBOOLNumberKeyString;
     }
     NSString *theImagePathComponentString = [NSString stringWithFormat:@"/%@.png", reward.imageName];
     NSURL *theFileURL = [aDirectoryURL URLByAppendingPathComponent:theImagePathComponentString];
@@ -255,7 +266,6 @@ NSString *GGKUseTextTitleString = @"Use text";
         
         reward = rewardArray[2];
     }
-    
     reward.text = theRewardText;
     [self.perfectPottyModel saveChildren];
 }
@@ -290,24 +300,20 @@ NSString *GGKUseTextTitleString = @"Use text";
     }
     theTextField.text = [anOkayValue stringValue];
     
-//    NSString *theKey;
     GGKReward *theReward;
+    NSArray *rewardArray = self.perfectPottyModel.currentChild.rewardArray;
     if (theTextField == self.numberOfSuccessesForReward1TextField) {
         
-        theReward = self.perfectPottyModel.currentChild.rewardArray[0];
-//        theKey = GGKNumberOfSuccessesForReward1KeyString;
+        theReward = rewardArray[0];
     } else if (theTextField == self.numberOfSuccessesForReward2TextField) {
         
-        theReward = self.perfectPottyModel.currentChild.rewardArray[1];
-//        theKey = GGKNumberOfSuccessesForReward2KeyString;
+        theReward = rewardArray[1];
     } else if (theTextField == self.numberOfSuccessesForReward3TextField) {
         
-        theReward = self.perfectPottyModel.currentChild.rewardArray[2];
-//        theKey = GGKNumberOfSuccessesForReward3KeyString;
+        theReward = rewardArray[2];
     }
     theReward.numberOfSuccessesNeededInteger = anOkayValueInteger;
     [self.perfectPottyModel saveChildren];
-//    [[NSUserDefaults standardUserDefaults] setObject:anOkayValue forKey:theKey];
     
     self.activeTextField = nil;
 }
@@ -327,7 +333,6 @@ NSString *GGKUseTextTitleString = @"Use text";
 //    self.successfulPottiesTextView.font = [UIFont fontWithName:@"AppleColorEmoji" size:40.0];
 //    self.successfulPottiesTextView.text = @"\u2B50";
     
-//    NSArray *aPottyAttemptDayArray = [[NSUserDefaults standardUserDefaults] objectForKey:GGKPottyAttemptsKeyString];
     NSArray *aPottyAttemptDayArray = self.perfectPottyModel.currentChild.pottyAttemptDayArray;
     __block NSInteger theNumberOfSuccessesInteger = 0;
     [aPottyAttemptDayArray enumerateObjectsUsingBlock:^(NSArray *anAttemptArray, NSUInteger idx1, BOOL *stop1) {
@@ -362,50 +367,21 @@ NSString *GGKUseTextTitleString = @"Use text";
     NSArray *rewardArray = self.perfectPottyModel.currentChild.rewardArray;
     [theRewardButtonsArray enumerateObjectsUsingBlock:^(UIButton *theRewardButton, NSUInteger idx, BOOL *stop) {
         
-//        NSString *theNumberOfSuccessesForRewardKeyString;
-//        NSInteger theDefaultNumberOfSuccessesForRewardInteger;
         GGKReward *theReward;
         UITextField *theTextField;
-//        NSString *theRewardIsTextBOOLNumberKeyString;
-//        NSString *theRewardTextKeyString;
-//        NSString *theRewardImageNameString;
         if (theRewardButton == self.reward1Button) {
             
             theReward = rewardArray[0];
-//            theNumberOfSuccessesForRewardKeyString = GGKNumberOfSuccessesForReward1KeyString;
-//            theDefaultNumberOfSuccessesForRewardInteger = GGKDefaultNumberOfSuccessesForReward1Integer;
             theTextField = self.numberOfSuccessesForReward1TextField;
-//            theRewardIsTextBOOLNumberKeyString = GGKReward1IsTextBOOLNumberKeyString;
-//            theRewardTextKeyString = GGKReward1TextKeyString;
-//            theRewardImageNameString = GGKReward1ImageNameString;
         } else if (theRewardButton == self.reward2Button) {
             
             theReward = rewardArray[1];
-//            theNumberOfSuccessesForRewardKeyString = GGKNumberOfSuccessesForReward2KeyString;
-//            theDefaultNumberOfSuccessesForRewardInteger = GGKDefaultNumberOfSuccessesForReward2Integer;
             theTextField = self.numberOfSuccessesForReward2TextField;
-//            theRewardIsTextBOOLNumberKeyString = GGKReward2IsTextBOOLNumberKeyString;
-//            theRewardTextKeyString = GGKReward2TextKeyString;
-//            theRewardImageNameString = GGKReward2ImageNameString;
         } else if (theRewardButton == self.reward3Button) {
             
             theReward = rewardArray[2];
-//            theNumberOfSuccessesForRewardKeyString = GGKNumberOfSuccessesForReward3KeyString;
-//            theDefaultNumberOfSuccessesForRewardInteger = GGKDefaultNumberOfSuccessesForReward3Integer;
             theTextField = self.numberOfSuccessesForReward3TextField;
-//            theRewardIsTextBOOLNumberKeyString = GGKReward3IsTextBOOLNumberKeyString;
-//            theRewardTextKeyString = GGKReward3TextKeyString;
-//            theRewardImageNameString = GGKReward3ImageNameString;
         }
-        
-//        NSNumber *theNumberOfSuccessesForRewardNumber = [[NSUserDefaults standardUserDefaults] objectForKey:theNumberOfSuccessesForRewardKeyString];
-//        if (theNumberOfSuccessesForRewardNumber == nil) {
-//            
-//            theNumberOfSuccessesForRewardNumber = @(theDefaultNumberOfSuccessesForRewardInteger);
-//        }
-//        NSNumber *theNumberOfSuccessesForRewardNumber = [ theReward.numberOfSuccessesNeededInteger];
-//        theTextField.text = [theNumberOfSuccessesForRewardNumber stringValue];
-        
         theTextField.text = [NSString stringWithFormat:@"%d", theReward.numberOfSuccessesNeededInteger];
         
         // Check whether the reward has an image. If not, show text. If so, show the image.
@@ -424,30 +400,6 @@ NSString *GGKUseTextTitleString = @"Use text";
             UIImage *theImage = [[UIImage alloc] initWithData:theImageData];
             [theRewardButton setImage:theImage forState:UIControlStateNormal];
         }
-        
-        // Check whether the reward is text or an image. If neither (nil), then use the default in the storyboard.
-//        NSNumber *theRewardIsTextBOOLNumber = [[NSUserDefaults standardUserDefaults] objectForKey:theRewardIsTextBOOLNumberKeyString];
-//        if (theRewardIsTextBOOLNumber != nil) {
-//            
-//            BOOL theRewardIsTextBOOL = [theRewardIsTextBOOLNumber boolValue];
-//            if (theRewardIsTextBOOL) {
-        
-                // Load the text and show it in the button.
-//                NSString *theRewardString = [[NSUserDefaults standardUserDefaults] objectForKey:theRewardTextKeyString];
-//                [theRewardButton setTitle:theRewardString forState:UIControlStateNormal];
-//            } else {
-//                
-//                // Load the image and show it in the button.
-//                NSFileManager *aFileManager = [[NSFileManager alloc] init];
-//                NSArray *aURLArray = [aFileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-//                NSURL *aDirectoryURL = (NSURL *)aURLArray[0];
-//                NSString *theImagePathComponentString = [NSString stringWithFormat:@"/%@.png", theRewardImageNameString];
-//                NSURL *theFileURL = [aDirectoryURL URLByAppendingPathComponent:theImagePathComponentString];
-//                NSData *theImageData = [NSData dataWithContentsOfURL:theFileURL];
-//                UIImage *theImage = [[UIImage alloc] initWithData:theImageData];
-//                [theRewardButton setImage:theImage forState:UIControlStateNormal];
-//            }
-//        }
     }];
 }
 
@@ -464,12 +416,5 @@ NSString *GGKUseTextTitleString = @"Use text";
     
     [self updateLabels];
 }
-
-//- (void)viewWillAppear:(BOOL)animated
-//{    
-//    [super viewWillAppear:animated];
-//    
-//    
-//}
 
 @end
