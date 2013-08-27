@@ -20,12 +20,6 @@
 
 @implementation GGKAddPottyViewController
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)handleSymbolSegmentedControlTapped
 {
     [self playButtonSound];
@@ -49,15 +43,6 @@
         
         [self performSegueWithIdentifier:@"ShowUseCustomSymbolView" sender:self];
     }
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender
@@ -90,11 +75,6 @@
     NSDictionary *thePottyAttemptDictionary = @{GGKPottyAttemptDateKeyString:thePottyAttemptDate, GGKPottyAttemptWasSuccessfulNumberKeyString:thePottyAttemptWasSuccessfulNumber, GGKPottyAttemptSymbolStringKeyString:thePottyAttemptSymbolString};
 
     // Get saved data.
-//    NSArray *thePottyAttemptDayArray = [[NSUserDefaults standardUserDefaults] objectForKey:GGKPottyAttemptsKeyString];
-//    if (thePottyAttemptDayArray == nil) {
-//        
-//        thePottyAttemptDayArray = [NSArray array];
-//    }
     NSArray *thePottyAttemptDayArray = self.perfectPottyModel.currentChild.pottyAttemptDayArray;
     
     // Add data. To find where to add the data, check previous attempts until we find the same date or a previous date (searching backward through the attempts). We search backward because the user is probably adding a recent attempt.
@@ -155,8 +135,8 @@
     thePottyAttemptDayArray = [thePottyAttemptDayMutableArray copy];
     
     // Save data and notify.
-//    [self.perfectPottyModel saveChildData];
-//    [[NSUserDefaults standardUserDefaults] setObject:thePottyAttemptDayArray forKey:GGKPottyAttemptsKeyString];
+    self.perfectPottyModel.currentChild.pottyAttemptDayArray = thePottyAttemptDayArray;
+    [self.perfectPottyModel saveChildren];
     [self.delegate addPottyViewControllerDidAddPottyAttempt:self];
 }
 
@@ -165,7 +145,6 @@
     [self.navigationController popViewControllerAnimated:YES];
     
     // Show symbol on segmented control.
-//    NSString *theMostRecentCustomSymbolString = [[NSUserDefaults standardUserDefaults] stringForKey:GGKMostRecentCustomSymbolStringKeyString];
     NSString *theMostRecentCustomSymbolString = self.perfectPottyModel.currentCustomSymbol;
     [self.symbolSegmentedControl setTitle:theMostRecentCustomSymbolString forSegmentAtIndex:4];
 }

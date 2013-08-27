@@ -20,7 +20,6 @@
 {
     self.perfectPottyModel.currentCustomSymbol = self.symbolTextField.text;
     [self.perfectPottyModel saveCustomSymbol];
-//    [[NSUserDefaults standardUserDefaults] setObject:self.symbolTextField.text forKey:GGKMostRecentCustomSymbolStringKeyString];
     [self.delegate useCustomSymbolViewControllerDidChooseSymbol:self];
 }
 
@@ -53,7 +52,6 @@
     self.symbolTextField.frame = aFrameRect;
     
     NSString *aSymbolString = self.perfectPottyModel.currentCustomSymbol;
-//    NSString *aSymbolString = [[NSUserDefaults standardUserDefaults] stringForKey:GGKMostRecentCustomSymbolStringKeyString];
     if (aSymbolString != nil) {
         
         self.symbolTextField.text = aSymbolString;

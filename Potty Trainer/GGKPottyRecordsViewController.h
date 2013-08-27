@@ -15,6 +15,12 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
+- (void)addPottyViewControllerDidAddPottyAttempt:(id)sender;
+// So, dismiss the view controller.
+
+- (void)historyForDayTableViewControllerDidDeleteAttempt:(id)sender;
+// So, get the updated data for that day. If nil, delete that day from the array. Else, put that updated data in the array.
+
 // Override.
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 

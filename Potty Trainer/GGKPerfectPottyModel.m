@@ -98,7 +98,7 @@ NSString *GGKXSymbolString = @"\u2718";
         NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:GGKChildrenKeyString];
         if (data != nil) {
             
-//            self.childrenMutableArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+            self.childrenMutableArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         }
         if (self.childrenMutableArray == nil) {
             
@@ -220,7 +220,7 @@ NSString *GGKXSymbolString = @"\u2718";
             }
 
             // Save data.
-//            [self saveChildren];
+            [self saveChildren];
             
             // Delete old data.
             /*
@@ -249,7 +249,6 @@ NSString *GGKXSymbolString = @"\u2718";
             
             // need to find child with that name; assume names are unique
         }
-        
     }
     return self;
 }

@@ -14,6 +14,9 @@
 
 @interface GGKPottyRecordsViewController ()
 
+// Index path for the row/day being examined. For viewing attempts for a single day.
+@property (strong, nonatomic) NSIndexPath *currentRowIndexPath;
+
 // Minutes between the start and end times. For calculating the range of the timeline.
 @property (assign, nonatomic) NSInteger endMinutesAfterStartTimeInteger;
 
@@ -26,6 +29,37 @@
 
 @implementation GGKPottyRecordsViewController
 
+- (void)addPottyViewControllerDidAddPottyAttempt:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)historyForDayTableViewControllerDidDeleteAttempt:(id)sender
+{
+    GGKHistoryForDayTableViewController *aHistoryForDayTableViewController = (GGKHistoryForDayTableViewController *)sender;
+    NSArray *theNewPottyAttemptArray = aHistoryForDayTableViewController.pottyAttemptArray;
+    
+    NSIndexPath *theIndexPath = self.currentRowIndexPath;
+    NSInteger theRow = theIndexPath.row;
+    
+    // The first row is the last element in the data array.
+    NSInteger theIndex = [self.pottyAttemptDayArray count] - 1 - theRow;
+    
+    NSMutableArray *aMutableArray = [self.pottyAttemptDayArray mutableCopy];
+    if ([theNewPottyAttemptArray count] == 0) {
+        
+        [aMutableArray removeObjectAtIndex:theIndex];
+    } else {
+        
+        [aMutableArray replaceObjectAtIndex:theIndex withObject:theNewPottyAttemptArray];
+    }
+    self.pottyAttemptDayArray = [aMutableArray copy];
+    
+    // Save data.
+    self.perfectPottyModel.currentChild.pottyAttemptDayArray = self.pottyAttemptDayArray;
+    [self.perfectPottyModel saveChildren];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"showAddPottyViewSegue"]) {
@@ -34,11 +68,13 @@
     } else if ([segue.identifier isEqualToString:@"showHistoryForDaySegue"]) {
         
         GGKHistoryForDayTableViewController *aHistoryForDayTableViewController = segue.destinationViewController;
-        NSIndexPath *theIndexPath = [self.tableView indexPathForSelectedRow];
-        NSInteger theRow = theIndexPath.row;
+        
+        // In this case, sender is the cell tapped.
+        self.currentRowIndexPath = [self.tableView indexPathForCell:sender];
+        NSInteger theRow = self.currentRowIndexPath.row;
         
         // The first row is the last element in the data array.
-        NSInteger theIndex = self.pottyAttemptDayArray.count - 1 - theRow;
+        NSInteger theIndex = [self.pottyAttemptDayArray count] - 1 - theRow;
         aHistoryForDayTableViewController.pottyAttemptArray = self.pottyAttemptDayArray[theIndex];
         
         aHistoryForDayTableViewController.delegate = self;
