@@ -43,6 +43,8 @@
 		937F864616DABF5A007DE572 /* GGKPottyAttemptDayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F864516DABF59007DE572 /* GGKPottyAttemptDayTableViewCell.m */; };
 		937F864916DC50B1007DE572 /* GGKHistoryHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F864816DC50B1007DE572 /* GGKHistoryHeaderCell.m */; };
 		937F864C16DC7BF2007DE572 /* NSDate+GGKDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F864B16DC7BF2007DE572 /* NSDate+GGKDate.m */; };
+		9382117017CE243F00EDE843 /* GGKPickChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9382116F17CE243F00EDE843 /* GGKPickChildViewController.m */; };
+		9382117317CE360700EDE843 /* GGKEditChildNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9382117217CE360700EDE843 /* GGKEditChildNameViewController.m */; };
 		9383F21D17C80EFD005B41E5 /* GGKPerfectPottyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9383F21C17C80EFD005B41E5 /* GGKPerfectPottyModel.m */; };
 		9383F22017C8456E005B41E5 /* GGKChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 9383F21F17C8456E005B41E5 /* GGKChild.m */; };
 		9383F22317C91521005B41E5 /* GGKReward.m in Sources */ = {isa = PBXBuildFile; fileRef = 9383F22217C91520005B41E5 /* GGKReward.m */; };
@@ -123,6 +125,10 @@
 		937F864816DC50B1007DE572 /* GGKHistoryHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKHistoryHeaderCell.m; sourceTree = "<group>"; };
 		937F864A16DC7BF2007DE572 /* NSDate+GGKDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+GGKDate.h"; sourceTree = "<group>"; };
 		937F864B16DC7BF2007DE572 /* NSDate+GGKDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+GGKDate.m"; sourceTree = "<group>"; };
+		9382116E17CE243F00EDE843 /* GGKPickChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPickChildViewController.h; sourceTree = "<group>"; };
+		9382116F17CE243F00EDE843 /* GGKPickChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPickChildViewController.m; sourceTree = "<group>"; };
+		9382117117CE360600EDE843 /* GGKEditChildNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKEditChildNameViewController.h; sourceTree = "<group>"; };
+		9382117217CE360700EDE843 /* GGKEditChildNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKEditChildNameViewController.m; sourceTree = "<group>"; };
 		9383F21B17C80EFD005B41E5 /* GGKPerfectPottyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPerfectPottyModel.h; sourceTree = "<group>"; };
 		9383F21C17C80EFD005B41E5 /* GGKPerfectPottyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPerfectPottyModel.m; sourceTree = "<group>"; };
 		9383F21E17C8456D005B41E5 /* GGKChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKChild.h; sourceTree = "<group>"; };
@@ -239,6 +245,8 @@
 				9376CCB216E1DC0500887ADE /* GGKAddRewardTextViewController.m */,
 				9383F21E17C8456D005B41E5 /* GGKChild.h */,
 				9383F21F17C8456E005B41E5 /* GGKChild.m */,
+				9382117117CE360600EDE843 /* GGKEditChildNameViewController.h */,
+				9382117217CE360700EDE843 /* GGKEditChildNameViewController.m */,
 				9390857F16DD534800C2290F /* GGKHistoryForDayTableViewController.h */,
 				9390858016DD534800C2290F /* GGKHistoryForDayTableViewController.m */,
 				937F864716DC50B1007DE572 /* GGKHistoryHeaderCell.h */,
@@ -251,6 +259,8 @@
 				937652B916C079CB007EA04C /* GGKPerfectPottyAppDelegate.m */,
 				9383F21B17C80EFD005B41E5 /* GGKPerfectPottyModel.h */,
 				9383F21C17C80EFD005B41E5 /* GGKPerfectPottyModel.m */,
+				9382116E17CE243F00EDE843 /* GGKPickChildViewController.h */,
+				9382116F17CE243F00EDE843 /* GGKPickChildViewController.m */,
 				9362E42216D49EC600A1B771 /* GGKPickBackgroundColorViewController.h */,
 				9362E42316D49EC600A1B771 /* GGKPickBackgroundColorViewController.m */,
 				9390858216DD583A00C2290F /* GGKPottyAttemptCell.h */,
@@ -432,6 +442,8 @@
 				9383F22017C8456E005B41E5 /* GGKChild.m in Sources */,
 				9383F22317C91521005B41E5 /* GGKReward.m in Sources */,
 				9383F22617CA09A6005B41E5 /* GGKPottyRecordsViewController.m in Sources */,
+				9382117017CE243F00EDE843 /* GGKPickChildViewController.m in Sources */,
+				9382117317CE360700EDE843 /* GGKEditChildNameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

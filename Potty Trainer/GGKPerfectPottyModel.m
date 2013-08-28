@@ -47,9 +47,6 @@ NSString *GGKXSymbolString = @"\u2718";
 
 @interface GGKPerfectPottyModel ()
 
-// All children being tracked.
-@property (strong, nonatomic) NSMutableArray *childrenMutableArray;
-
 @end
 
 @implementation GGKPerfectPottyModel

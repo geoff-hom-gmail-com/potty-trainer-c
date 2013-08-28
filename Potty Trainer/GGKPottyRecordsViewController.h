@@ -13,6 +13,8 @@
 
 @interface GGKPottyRecordsViewController : GGKViewController <GGKAddPottyViewControllerDelegate, GGKHistoryForDayTableViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
+@property (strong, nonatomic) IBOutlet UIButton *addPottyButton;
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 - (void)addPottyViewControllerDidAddPottyAttempt:(id)sender;

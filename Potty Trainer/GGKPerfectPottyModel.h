@@ -39,6 +39,9 @@ extern NSString *GGKXSymbolString;
 
 @interface GGKPerfectPottyModel : NSObject
 
+// All children being tracked.
+@property (strong, nonatomic) NSMutableArray *childrenMutableArray;
+
 // Which color theme to use.
 @property (strong, nonatomic) NSString *colorThemeString;
 

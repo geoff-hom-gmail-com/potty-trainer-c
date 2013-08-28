@@ -30,12 +30,6 @@
 // Cancel entering the text.
 - (IBAction)cancel;
 
-//- (void)textFieldDidBeginEditing:(UITextField *)textField;
-//// So, note which text field is being edited. (To know whether to shift the screen up when the keyboard shows.)
-//
-//- (void)textFieldDidEndEditing:(UITextField *)textField;
-// So, if an invalid value was entered, then use the previous value. Also, note that no text field is being edited now.
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 // So, notify the delegate that the user's done entering text.
 
