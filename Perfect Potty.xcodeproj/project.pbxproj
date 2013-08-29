@@ -45,6 +45,7 @@
 		937F864C16DC7BF2007DE572 /* NSDate+GGKDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F864B16DC7BF2007DE572 /* NSDate+GGKDate.m */; };
 		9382117017CE243F00EDE843 /* GGKPickChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9382116F17CE243F00EDE843 /* GGKPickChildViewController.m */; };
 		9382117317CE360700EDE843 /* GGKEditChildNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9382117217CE360700EDE843 /* GGKEditChildNameViewController.m */; };
+		9382117617CEB6E700EDE843 /* GGKAddChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9382117517CEB6E700EDE843 /* GGKAddChildViewController.m */; };
 		9383F21D17C80EFD005B41E5 /* GGKPerfectPottyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9383F21C17C80EFD005B41E5 /* GGKPerfectPottyModel.m */; };
 		9383F22017C8456E005B41E5 /* GGKChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 9383F21F17C8456E005B41E5 /* GGKChild.m */; };
 		9383F22317C91521005B41E5 /* GGKReward.m in Sources */ = {isa = PBXBuildFile; fileRef = 9383F22217C91520005B41E5 /* GGKReward.m */; };
@@ -129,6 +130,8 @@
 		9382116F17CE243F00EDE843 /* GGKPickChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPickChildViewController.m; sourceTree = "<group>"; };
 		9382117117CE360600EDE843 /* GGKEditChildNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKEditChildNameViewController.h; sourceTree = "<group>"; };
 		9382117217CE360700EDE843 /* GGKEditChildNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKEditChildNameViewController.m; sourceTree = "<group>"; };
+		9382117417CEB6E700EDE843 /* GGKAddChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKAddChildViewController.h; sourceTree = "<group>"; };
+		9382117517CEB6E700EDE843 /* GGKAddChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKAddChildViewController.m; sourceTree = "<group>"; };
 		9383F21B17C80EFD005B41E5 /* GGKPerfectPottyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPerfectPottyModel.h; sourceTree = "<group>"; };
 		9383F21C17C80EFD005B41E5 /* GGKPerfectPottyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPerfectPottyModel.m; sourceTree = "<group>"; };
 		9383F21E17C8456D005B41E5 /* GGKChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKChild.h; sourceTree = "<group>"; };
@@ -239,6 +242,8 @@
 			children = (
 				9353B37D16E6011300B0A75A /* GGKAboutUsViewController.h */,
 				9353B37E16E6011300B0A75A /* GGKAboutUsViewController.m */,
+				9382117417CEB6E700EDE843 /* GGKAddChildViewController.h */,
+				9382117517CEB6E700EDE843 /* GGKAddChildViewController.m */,
 				937F863E16D9DC0B007DE572 /* GGKAddPottyViewController.h */,
 				937F863F16D9DC0C007DE572 /* GGKAddPottyViewController.m */,
 				9376CCB116E1DC0500887ADE /* GGKAddRewardTextViewController.h */,
@@ -444,6 +449,7 @@
 				9383F22617CA09A6005B41E5 /* GGKPottyRecordsViewController.m in Sources */,
 				9382117017CE243F00EDE843 /* GGKPickChildViewController.m in Sources */,
 				9382117317CE360700EDE843 /* GGKEditChildNameViewController.m in Sources */,
+				9382117617CEB6E700EDE843 /* GGKAddChildViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

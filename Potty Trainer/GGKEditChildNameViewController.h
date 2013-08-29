@@ -13,7 +13,7 @@
 // Sent after the user cancelled.
 - (void)editChildNameViewControllerDidCancel:(id)sender;
 
-// Sent after the user entered the new name.
+// Sent after the user finished entering text.
 - (void)editChildNameViewControllerDidEnterText:(id)sender;
 
 @end
@@ -22,7 +22,7 @@
 
 @property (weak, nonatomic) id <GGKEditChildNameViewControllerDelegate> delegate;
 
-// For entering the name of the reward.
+// For entering the text.
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 
 // Cancel entering the text.

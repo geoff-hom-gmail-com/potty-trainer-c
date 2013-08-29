@@ -57,6 +57,9 @@ extern NSString *GGKXSymbolString;
 // The reminder is set using date components. I.e., time from the given date. 
 @property (strong, nonatomic) NSDateComponents *reminderIncrementDateComponents;
 
+// Create child with name. Add to database. Return child.
+- (GGKChild *)addChildWithName:(NSString *)name;
+
 // Override.
 - (id)init;
 
@@ -64,6 +67,8 @@ extern NSString *GGKXSymbolString;
 - (void)saveChildren;
 
 - (void)saveColorTheme;
+
+- (void)saveCurrentChildName;
 
 - (void)saveCustomSymbol;
 

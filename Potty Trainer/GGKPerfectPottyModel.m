@@ -51,6 +51,20 @@ NSString *GGKXSymbolString = @"\u2718";
 
 @implementation GGKPerfectPottyModel
 
+- (GGKChild *)addChildWithName:(NSString *)name
+{
+    GGKChild *newChild = [[GGKChild alloc] init];
+    newChild.nameString = name;
+    [self.childrenMutableArray addObject:newChild];
+    
+    // Alphabetize.
+    NSSortDescriptor *aNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"nameString" ascending:YES];
+    NSArray *aSortedArray = [self.childrenMutableArray sortedArrayUsingDescriptors:@[aNameSortDescriptor]];
+    self.childrenMutableArray = [aSortedArray mutableCopy];
+    
+    return newChild;
+}
+
 - (id)init
 {
     self = [super init];
@@ -269,6 +283,11 @@ NSString *GGKXSymbolString = @"\u2718";
 - (void)saveColorTheme
 {
     [[NSUserDefaults standardUserDefaults] setObject:self.colorThemeString forKey:GGKThemeKeyString];
+}
+
+- (void)saveCurrentChildName
+{
+    [[NSUserDefaults standardUserDefaults] setObject:self.currentChild.nameString forKey:GGKCurrentChildNameKeyString];
 }
 
 - (void)saveCustomSymbol

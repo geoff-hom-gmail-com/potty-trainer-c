@@ -24,8 +24,7 @@
 // So, dismiss it.
 
 - (void)editChildNameViewControllerDidEnterText:(id)sender;
-// WILO
-// So, ...
+// So: If duplicate name, alert user. Else, change name. Re-sort child array.
 
 // Show view for editing child's name.
 - (IBAction)editName;

@@ -19,9 +19,32 @@
     [sender dismissViewControllerAnimated:YES completion:nil];
 }
 
+// So: If duplicate name, alert user. Else, change name. Re-sort child array.
 - (void)editChildNameViewControllerDidEnterText:(id)sender
 {
-    ;
+    GGKEditChildNameViewController *editChildNameViewController = (GGKEditChildNameViewController *)sender;
+    NSString *newName = editChildNameViewController.textField.text;
+    
+    // If duplicate name, alert user.
+    __block BOOL isDuplicate = NO;
+    [self.perfectPottyModel.childrenMutableArray enumerateObjectsUsingBlock:^(GGKChild *aChild, NSUInteger idx, BOOL *stop) {
+        
+        if ([aChild.nameString isEqualToString:newName]) {
+            
+            isDuplicate = YES;
+            *stop = YES;
+        }
+    }];
+    if (isDuplicate) {
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Name Already Exists" message:@"Another child has that name. Names must be unique." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alertView show];
+    } else {
+        
+        // ?
+        
+        [sender dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (IBAction)editName
@@ -56,11 +79,7 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
-    self.editNameButton.enabled = NO;
-    self.removeChildButton.enabled = NO;
-    self.selectChildButton.enabled = NO;
+    [super viewDidLoad];    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -71,6 +90,14 @@
     CGRect frameRect = self.childNamesTableView.frame;
     frameRect.size.height = 220;
     self.childNamesTableView.frame = frameRect;
+    
+    [self.childNamesTableView reloadData];
+    
+    // Select current child.
+    GGKChild *currentChild = self.perfectPottyModel.currentChild;
+    NSInteger currentChildIndexInteger = [self.perfectPottyModel.childrenMutableArray indexOfObject:currentChild];
+    NSIndexPath *currentChildIndexPath = [NSIndexPath indexPathForRow:currentChildIndexInteger inSection:0];
+    [self.childNamesTableView selectRowAtIndexPath:currentChildIndexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
 }
 
 @end
