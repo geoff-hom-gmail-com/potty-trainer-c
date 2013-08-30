@@ -47,6 +47,9 @@ NSString *GGKXSymbolString = @"\u2718";
 
 @interface GGKPerfectPottyModel ()
 
+// Create and return a child. If saved data from v1.1.0 or before, use that. Else, return a new child.
+- (GGKChild *)childFromOldData;
+
 // For the given child, fill in info for the given reward number using saved data from v1.1.0 or before. The reward number should be 1, 2 or 3.
 - (void)populateRewardFromOldData:(GGKChild *)child rewardNumber:(NSInteger)rewardNumberInteger;
 
@@ -59,7 +62,8 @@ NSString *GGKXSymbolString = @"\u2718";
 
 - (GGKChild *)addChildWithName:(NSString *)name
 {
-    GGKChild *newChild = [[GGKChild alloc] initWithUniqueID:<#(NSInteger)#>];
+    NSInteger uniqueIDInteger = [self uniqueIDForNewChild];
+    GGKChild *newChild = [[GGKChild alloc] initWithUniqueID:uniqueIDInteger];
     newChild.nameString = name;
     [self.childrenMutableArray addObject:newChild];
     
@@ -138,11 +142,6 @@ NSString *GGKXSymbolString = @"\u2718";
         if (data == nil) {
             
             GGKChild *child = [self childFromOldData];
-            if (child == nil) {
-                
-                // make new child
-                child = [[GGKChild alloc] initWithUniqueID:<#(NSInteger)#>];
-            }
             self.childrenMutableArray = [NSMutableArray arrayWithObject:child];
             [self saveChildren];
         } else {
@@ -180,6 +179,7 @@ NSString *GGKXSymbolString = @"\u2718";
     NSString *rewardIsTextBOOLNumberKeyString = [NSString stringWithFormat:@"Reward-%d-is-text BOOL number", rewardNumberInteger];
     NSString *rewardTextKeyString = [NSString stringWithFormat:@"Reward %d text", rewardNumberInteger];
     NSString *theSourceImagePathComponentString = [NSString stringWithFormat:@"/reward%d.png", rewardNumberInteger];
+    NSString *theDestinationImagePathComponentString = [NSString stringWithFormat:@"/%@.png", reward.imageName];
     
     NSNumber *numberOfSuccessesForRewardNumber = [[NSUserDefaults standardUserDefaults] objectForKey:rewardNumberOfSuccessesNumberKeyString];
     if (numberOfSuccessesForRewardNumber != nil) {
@@ -202,7 +202,6 @@ NSString *GGKXSymbolString = @"\u2718";
         NSLog(@"PPM populateRewardFromOldData remove-image wasSuccessful: %@", wasSuccessful ? @"Yes" : @"No");
     } else {
         
-        NSString *theDestinationImagePathComponentString = [NSString stringWithFormat:@"/%@.png", reward.imageName];
         NSURL *theDestinationFileURL = [aDirectoryURL URLByAppendingPathComponent:theDestinationImagePathComponentString];
         BOOL wasSuccessful = [aFileManager moveItemAtURL:theSourceFileURL toURL:theDestinationFileURL error:nil];
         NSLog(@"PPM populateRewardFromOldData move-image wasSuccessful: %@", wasSuccessful ? @"Yes" : @"No");

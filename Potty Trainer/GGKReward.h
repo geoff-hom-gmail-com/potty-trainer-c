@@ -11,6 +11,7 @@
 @interface GGKReward : NSObject
 
 // When the reward uses an image (vs text), this is the filename (prefix) to use. The image is in the user's documents directory, and the suffix is ".png." If the image doesn't exist, use text.
+// Note that the filename is not set upon init. The class that creates the reward should set an appropriate filename.
 @property (strong, nonatomic) NSString *imageName;
 
 // Successes needed to earn reward. Managed by user.
