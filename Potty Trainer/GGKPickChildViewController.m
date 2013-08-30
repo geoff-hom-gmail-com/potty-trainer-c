@@ -8,11 +8,33 @@
 
 #import "GGKPickChildViewController.h"
 
+#import "GGKReward.h"
+
+// Title for action sheet for removing a child.
+NSString *RemoveChildActionSheetTitleString = @"Removing a child will delete all information for that child, including potty records and rewards.";
+
 @interface GGKPickChildViewController ()
+
+// Remove data for current child.
+- (void)removeCurrentChild;
+
+// Update current-child name. Reload table. Select current child. Scroll so current child is visible.
+- (void)updateView;
 
 @end
 
 @implementation GGKPickChildViewController
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if ([actionSheet.title isEqualToString:RemoveChildActionSheetTitleString]) {
+        
+        if (buttonIndex == actionSheet.destructiveButtonIndex) {
+            
+            [self removeCurrentChild];
+        }
+    }
+}
 
 - (void)editChildNameViewControllerDidCancel:(id)sender
 {
@@ -82,6 +104,30 @@
     [self presentViewController:editChildNameViewController animated:YES completion:nil];
 }
 
+- (void)removeCurrentChild
+{
+    // Remove child's images. Remove child. Select new current child. Refresh table.
+
+    NSFileManager *aFileManager = [[NSFileManager alloc] init];
+    NSArray *aURLArray = [aFileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *aDirectoryURL = (NSURL *)aURLArray[0];
+    for (GGKReward *aReward in self.perfectPottyModel.currentChild.rewardArray) {
+        
+        NSString *imagePathComponentString = [NSString stringWithFormat:@"/%@.png", aReward.imageName];
+        NSURL *theSourceFileURL = [aDirectoryURL URLByAppendingPathComponent:imagePathComponentString];
+        BOOL wasSuccessful = [aFileManager removeItemAtURL:theSourceFileURL error:nil];
+        NSLog(@"PCVC rCC %@ wasSuccessful: %@", aReward.imageName, wasSuccessful ? @"Yes" : @"No");
+    }
+        
+    [self.perfectPottyModel.childrenMutableArray removeObject:self.perfectPottyModel.currentChild];
+    [self.perfectPottyModel saveChildren];
+    
+    self.perfectPottyModel.currentChild = self.perfectPottyModel.childrenMutableArray[0];
+    [self.perfectPottyModel saveCurrentChildID];
+    
+    [self updateView];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ChildNameCell";
@@ -106,6 +152,28 @@
     return [self.perfectPottyModel.childrenMutableArray count];
 }
 
+- (void)updateView
+{
+    GGKChild *currentChild = self.perfectPottyModel.currentChild;
+    self.currentChildLabel.text = currentChild.nameString;
+    
+    [self.childNamesTableView reloadData];
+    
+    NSInteger currentChildIndexInteger = [self.perfectPottyModel.childrenMutableArray indexOfObject:currentChild];
+    NSIndexPath *currentChildIndexPath = [NSIndexPath indexPathForRow:currentChildIndexInteger inSection:0];
+    [self.childNamesTableView selectRowAtIndexPath:currentChildIndexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+    
+    [self.childNamesTableView scrollToRowAtIndexPath:currentChildIndexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
+}
+
+- (IBAction)verifyRemoveChild:(id)sender
+{
+    NSString *destructiveTitleString = [NSString stringWithFormat:@"Remove Child: %@", self.perfectPottyModel.currentChild.nameString];
+    UIActionSheet *anActionSheet = [[UIActionSheet alloc] initWithTitle:RemoveChildActionSheetTitleString delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:destructiveTitleString otherButtonTitles:nil];
+    UIButton *removeChildButton = (UIButton *)sender;
+    [anActionSheet showFromRect:removeChildButton.frame inView:sender animated:YES];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];    
@@ -120,15 +188,7 @@
     frameRect.size.height = 220;
     self.childNamesTableView.frame = frameRect;
     
-    [self.childNamesTableView reloadData];
-    
-    // Select current child.
-    GGKChild *currentChild = self.perfectPottyModel.currentChild;
-    self.currentChildLabel.text = currentChild.nameString;
-    NSInteger currentChildIndexInteger = [self.perfectPottyModel.childrenMutableArray indexOfObject:currentChild];
-    NSIndexPath *currentChildIndexPath = [NSIndexPath indexPathForRow:currentChildIndexInteger inSection:0];
-    [self.childNamesTableView selectRowAtIndexPath:currentChildIndexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
-    [self.childNamesTableView scrollToRowAtIndexPath:currentChildIndexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
+    [self updateView];
 }
 
 @end

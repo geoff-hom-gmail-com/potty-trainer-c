@@ -10,12 +10,15 @@
 
 #import "GGKEditChildNameViewController.h"
 
-@interface GGKPickChildViewController : GGKViewController <GGKEditChildNameViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface GGKPickChildViewController : GGKViewController <GGKEditChildNameViewControllerDelegate, UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
 
 // Name of the current child.
 @property (strong, nonatomic) IBOutlet UILabel *currentChildLabel;
 
 @property (strong, nonatomic) IBOutlet UITableView *childNamesTableView;
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
+// So: If it was for removing a child, and user said OK, then remove that child.
 
 - (void)editChildNameViewControllerDidCancel:(id)sender;
 // So, dismiss it.
@@ -32,6 +35,9 @@
 // So: Make that the current child.
 
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection;
+
+// Verify that user wants to remove selected child.
+- (IBAction)verifyRemoveChild:(id)sender;
 
 // Override.
 - (void)viewDidLoad;

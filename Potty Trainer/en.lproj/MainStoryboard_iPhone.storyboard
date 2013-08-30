@@ -638,6 +638,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </state>
                                 <connections>
                                     <action selector="playButtonSound" destination="0gy-Zg-ekw" eventType="touchDown" id="fZZ-lo-EeS"/>
+                                    <action selector="verifyRemoveChild:" destination="0gy-Zg-ekw" eventType="touchUpInside" id="BWo-FY-Lpd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1H3-SH-ftg">
@@ -1492,6 +1493,8 @@ Reward</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKPickChildViewController.h"/>
             <relationships>
                 <relationship kind="action" name="editName"/>
+                <relationship kind="action" name="verifyRemoveChild"/>
+                <relationship kind="action" name="verifyRemoveChild:"/>
                 <relationship kind="outlet" name="childNamesTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="currentChildLabel" candidateClass="UILabel"/>
             </relationships>
