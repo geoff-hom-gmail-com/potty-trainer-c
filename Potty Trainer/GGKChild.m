@@ -17,12 +17,15 @@
     [encoder encodeObject:self.nameString forKey:@"nameString"];
     [encoder encodeObject:self.pottyAttemptDayArray forKey:@"pottyAttemptDayArray"];
     [encoder encodeObject:self.rewardArray forKey:@"rewardArray"];
+    [encoder encodeInteger:self.uniqueIDInteger forKey:@"uniqueIDInteger"];
 }
 
-- (id)init
+- (id)initWithUniqueID:(NSInteger)uniqueIDInteger
 {
     self = [super init];
     if (self) {
+        
+        self.uniqueIDInteger = uniqueIDInteger;
         
         self.nameString = @"Anon";
         
@@ -30,13 +33,13 @@
         
         GGKReward *aReward1 = [[GGKReward alloc] init];
         aReward1.numberOfSuccessesNeededInteger = 5;
-        aReward1.imageName = [NSString stringWithFormat:@"%@_reward1", self.nameString];
+        aReward1.imageName = [NSString stringWithFormat:@"%d_reward1", self.uniqueIDInteger];
         GGKReward *aReward2 = [[GGKReward alloc] init];
         aReward2.numberOfSuccessesNeededInteger = 10;
-        aReward2.imageName = [NSString stringWithFormat:@"%@_reward2", self.nameString];
+        aReward2.imageName = [NSString stringWithFormat:@"%d_reward2", self.uniqueIDInteger];
         GGKReward *aReward3 = [[GGKReward alloc] init];
         aReward3.numberOfSuccessesNeededInteger = 15;
-        aReward3.imageName = [NSString stringWithFormat:@"%@_reward3", self.nameString];
+        aReward3.imageName = [NSString stringWithFormat:@"%d_reward3", self.uniqueIDInteger];
         self.rewardArray = @[aReward1, aReward2, aReward3];
     }
     return self;
@@ -50,6 +53,7 @@
         self.nameString = [decoder decodeObjectForKey:@"nameString"];
         self.pottyAttemptDayArray = [decoder decodeObjectForKey:@"pottyAttemptDayArray"];
         self.rewardArray = [decoder decodeObjectForKey:@"rewardArray"];
+        self.uniqueIDInteger = [decoder decodeIntegerForKey:@"uniqueIDInteger"];
     }
     return self;
 }

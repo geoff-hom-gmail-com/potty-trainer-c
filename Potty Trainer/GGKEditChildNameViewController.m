@@ -28,7 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
+    self.textField.text = self.childToEdit.nameString;
 }
 
 @end

@@ -19,11 +19,18 @@
 // Child's rewards.
 @property (strong, nonatomic) NSArray *rewardArray;
 
+// A number guaranteed not to be used by another child. For assigning filenames, etc.
+// The Child class itself doesn't assign the ID. The class managing children should assign and guarantee the IDs.
+@property (assign, nonatomic) NSInteger uniqueIDInteger;
+
 // Override.
 - (void)encodeWithCoder:(NSCoder *)encoder;
 
+// Designated initializer.
+- (id)initWithUniqueID:(NSInteger)uniqueIDInteger;
+
 // Override.
-- (id)init;
+//- (id)init;
 
 // Override.
 - (id)initWithCoder:(NSCoder *)decoder;

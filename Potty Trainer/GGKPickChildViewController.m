@@ -51,6 +51,12 @@
 {
     GGKEditChildNameViewController *editChildNameViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"GGKEditChildNameViewController"];
     editChildNameViewController.delegate = self;
+    
+    // Prepopulate text field with name of selected child.
+    NSIndexPath *selectedIndexPath = [self.childNamesTableView indexPathForSelectedRow];
+    GGKChild *childToEdit = self.perfectPottyModel.childrenMutableArray[selectedIndexPath.row];
+    editChildNameViewController.childToEdit = childToEdit;
+    
     [self presentViewController:editChildNameViewController animated:YES completion:nil];
 }
 
@@ -66,9 +72,10 @@
 
 - (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)theIndexPath
 {
-    self.editNameButton.enabled = YES;
-    self.removeChildButton.enabled = YES;
-    self.selectChildButton.enabled = YES;
+    GGKChild *selectedChild = self.perfectPottyModel.childrenMutableArray[theIndexPath.row];
+    self.perfectPottyModel.currentChild = selectedChild;
+    self.currentChildLabel.text = selectedChild.nameString;
+    [self.perfectPottyModel saveCurrentChildName];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -95,6 +102,7 @@
     
     // Select current child.
     GGKChild *currentChild = self.perfectPottyModel.currentChild;
+    self.currentChildLabel.text = currentChild.nameString;
     NSInteger currentChildIndexInteger = [self.perfectPottyModel.childrenMutableArray indexOfObject:currentChild];
     NSIndexPath *currentChildIndexPath = [NSIndexPath indexPathForRow:currentChildIndexInteger inSection:0];
     [self.childNamesTableView selectRowAtIndexPath:currentChildIndexPath animated:YES scrollPosition:UITableViewScrollPositionNone];

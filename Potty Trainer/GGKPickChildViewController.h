@@ -12,11 +12,8 @@
 
 @interface GGKPickChildViewController : GGKViewController <GGKEditChildNameViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UIButton *editNameButton;
-
-@property (strong, nonatomic) IBOutlet UIButton *removeChildButton;
-
-@property (strong, nonatomic) IBOutlet UIButton *selectChildButton;
+// Name of the current child.
+@property (strong, nonatomic) IBOutlet UILabel *currentChildLabel;
 
 @property (strong, nonatomic) IBOutlet UITableView *childNamesTableView;
 
@@ -32,7 +29,7 @@
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath;
 
 - (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)theIndexPath;
-// So, enable/disable buttons accordingly.
+// So: Make that the current child.
 
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection;
 

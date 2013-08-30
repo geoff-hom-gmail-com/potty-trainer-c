@@ -47,13 +47,19 @@ NSString *GGKXSymbolString = @"\u2718";
 
 @interface GGKPerfectPottyModel ()
 
+// For the given child, fill in info for the given reward number using saved data from v1.1.0 or before. The reward number should be 1, 2 or 3.
+- (void)populateRewardFromOldData:(GGKChild *)child rewardNumber:(NSInteger)rewardNumberInteger;
+
+// Return a child ID that doesn't conflict with existing IDs.
+- (NSInteger)uniqueIDForNewChild;
+
 @end
 
 @implementation GGKPerfectPottyModel
 
 - (GGKChild *)addChildWithName:(NSString *)name
 {
-    GGKChild *newChild = [[GGKChild alloc] init];
+    GGKChild *newChild = [[GGKChild alloc] initWithUniqueID:<#(NSInteger)#>];
     newChild.nameString = name;
     [self.childrenMutableArray addObject:newChild];
     
@@ -65,6 +71,32 @@ NSString *GGKXSymbolString = @"\u2718";
     return newChild;
 }
 
+- (GGKChild *)childFromOldData
+{
+    // If the user upgrades from v1.1.0 or before, there won't be any children. The data will instead be under separate keys in the user defaults. We will assemble that data into a new child.
+    
+    NSInteger uniqueIDInteger = [self uniqueIDForNewChild];
+    GGKChild *child = [[GGKChild alloc] initWithUniqueID:uniqueIDInteger];
+    
+    // Potty attempts (when tracking only one child).
+    NSString *pottyAttemptsKeyString = @"Potty attempts";
+    NSArray *pottyAttemptDayArray = [[NSUserDefaults standardUserDefaults] objectForKey:pottyAttemptsKeyString];
+    if (pottyAttemptDayArray != nil) {
+        
+        child.pottyAttemptDayArray = pottyAttemptDayArray;
+    }
+    
+    // Rewards.
+    [self populateRewardFromOldData:child rewardNumber:1];
+    [self populateRewardFromOldData:child rewardNumber:2];
+    [self populateRewardFromOldData:child rewardNumber:3];
+    
+    // Delete old data.
+    // The images were already moved, so the rest of this doesn't take much space. Will skip for now.
+    
+    return child;
+}
+
 - (id)init
 {
     self = [super init];
@@ -74,10 +106,7 @@ NSString *GGKXSymbolString = @"\u2718";
         
         // Current custom symbol.
         NSString *aSymbolString = [[NSUserDefaults standardUserDefaults] stringForKey:GGKMostRecentCustomSymbolStringKeyString];
-        if (aSymbolString != nil) {
-            
-            self.currentCustomSymbol = aSymbolString;
-        }
+        self.currentCustomSymbol = aSymbolString;
         
         // Stars purchased.
         NSNumber *theNumberOfStarsPurchasedNumber = [[NSUserDefaults standardUserDefaults] objectForKey:GGKNumberOfStarsPurchasedNumberKeyString];
@@ -104,153 +133,21 @@ NSString *GGKXSymbolString = @"\u2718";
         // Color theme.
         self.colorThemeString = [[NSUserDefaults standardUserDefaults] objectForKey:GGKThemeKeyString];
         
-        // Children data. If none, make a new child and also check for data from earlier versions.
-
+        // Children data. If none, import child data from earlier versions. If none, make a new child.
         NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:GGKChildrenKeyString];
-        if (data != nil) {
+        if (data == nil) {
+            
+            GGKChild *child = [self childFromOldData];
+            if (child == nil) {
+                
+                // make new child
+                child = [[GGKChild alloc] initWithUniqueID:<#(NSInteger)#>];
+            }
+            self.childrenMutableArray = [NSMutableArray arrayWithObject:child];
+            [self saveChildren];
+        } else {
             
             self.childrenMutableArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        }
-        if (self.childrenMutableArray == nil) {
-            
-            GGKChild *aChild = [[GGKChild alloc] init];
-            self.childrenMutableArray = [NSMutableArray arrayWithObject:aChild];
-            
-            // If the user upgrades from v1.1.0 or before, there won't be any children. The data will instead be under separate keys in the user defaults. We must retrieve that data, assemble that into a new child, save the child and remove the old data from the user defaults.
-            
-            NSString *pottyAttemptsKeyString = @"Potty attempts";
-            NSString *reward1NumberOfSuccessesNumberKeyString = @"Number of successes for reward 1";
-            NSString *reward2NumberOfSuccessesNumberKeyString = @"Number of successes for reward 2";
-            NSString *reward3NumberOfSuccessesNumberKeyString = @"Number of successes for reward 3";
-            
-            // Whether reward is text or an image.
-            NSString *reward1IsTextBOOLNumberKeyString = @"Reward-1-is-text BOOL number";
-            NSString *reward2IsTextBOOLNumberKeyString = @"Reward-2-is-text BOOL number";
-            NSString *reward3IsTextBOOLNumberKeyString = @"Reward-3-is-text BOOL number";
-            
-            // Text for the reward.
-            NSString *reward1TextKeyString = @"Reward 1 text";
-            NSString *reward2TextKeyString = @"Reward 2 text";
-            NSString *reward3TextKeyString = @"Reward 3 text";
-            
-            // Potty attempts (when tracking only one child).
-            NSArray *pottyAttemptDayArray = [[NSUserDefaults standardUserDefaults] objectForKey:pottyAttemptsKeyString];
-            if (pottyAttemptDayArray != nil) {
-                
-                aChild.pottyAttemptDayArray = pottyAttemptDayArray;
-            }
-            
-            // Reward 1.
-            
-            GGKReward *reward = aChild.rewardArray[0];
-            NSNumber *numberOfSuccessesForRewardNumber = [[NSUserDefaults standardUserDefaults] objectForKey:reward1NumberOfSuccessesNumberKeyString];
-            if (numberOfSuccessesForRewardNumber != nil) {
-                
-                reward.numberOfSuccessesNeededInteger = [numberOfSuccessesForRewardNumber integerValue];
-            }
-            
-            // If text, and if reward text there, use that. If not text, move the image.
-            NSNumber *rewardIsTextBOOLNumber = [[NSUserDefaults standardUserDefaults] objectForKey:reward1IsTextBOOLNumberKeyString];
-            BOOL rewardIsTextBOOL = [rewardIsTextBOOLNumber boolValue];
-            NSString *rewardTextString = [[NSUserDefaults standardUserDefaults] objectForKey:reward1TextKeyString];
-            if (rewardIsTextBOOL) {
-                
-                if (rewardTextString != nil) {
-                                    
-                    reward.text = rewardTextString;
-                }
-            } else {
-                
-                NSFileManager *aFileManager = [[NSFileManager alloc] init];
-                NSArray *aURLArray = [aFileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-                NSURL *aDirectoryURL = (NSURL *)aURLArray[0];
-                NSString *theSourceImagePathComponentString = @"/reward1.png";
-                NSURL *theSourceFileURL = [aDirectoryURL URLByAppendingPathComponent:theSourceImagePathComponentString];
-                NSString *theDestinationImagePathComponentString = [NSString stringWithFormat:@"/%@.png", reward.imageName];
-                NSURL *theDestinationFileURL = [aDirectoryURL URLByAppendingPathComponent:theDestinationImagePathComponentString];
-                BOOL wasSuccessful = [aFileManager moveItemAtURL:theSourceFileURL toURL:theDestinationFileURL error:nil];
-                NSLog(@"wasSuccessful: %@", wasSuccessful ? @"Yes" : @"No");
-            }
-            
-            // Reward 2.
-            
-            reward = aChild.rewardArray[1];
-            numberOfSuccessesForRewardNumber = [[NSUserDefaults standardUserDefaults] objectForKey:reward2NumberOfSuccessesNumberKeyString];
-            if (numberOfSuccessesForRewardNumber != nil) {
-                
-                reward.numberOfSuccessesNeededInteger = [numberOfSuccessesForRewardNumber integerValue];
-            }
-            
-            // If text, and if reward text there, use that. If not text, move the image.
-            rewardIsTextBOOLNumber = [[NSUserDefaults standardUserDefaults] objectForKey:reward2IsTextBOOLNumberKeyString];
-            rewardIsTextBOOL = [rewardIsTextBOOLNumber boolValue];
-            rewardTextString = [[NSUserDefaults standardUserDefaults] objectForKey:reward2TextKeyString];
-            if (rewardIsTextBOOL) {
-                
-                if (rewardTextString != nil) {
-                    
-                    reward.text = rewardTextString;
-                }
-            } else {
-                
-                NSFileManager *aFileManager = [[NSFileManager alloc] init];
-                NSArray *aURLArray = [aFileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-                NSURL *aDirectoryURL = (NSURL *)aURLArray[0];
-                NSString *theSourceImagePathComponentString = @"/reward2.png";
-                NSURL *theSourceFileURL = [aDirectoryURL URLByAppendingPathComponent:theSourceImagePathComponentString];
-                NSString *theDestinationImagePathComponentString = [NSString stringWithFormat:@"/%@.png", reward.imageName];
-                NSURL *theDestinationFileURL = [aDirectoryURL URLByAppendingPathComponent:theDestinationImagePathComponentString];
-                [aFileManager moveItemAtURL:theSourceFileURL toURL:theDestinationFileURL error:nil];
-            }
-            
-            // Reward 3.
-            
-            reward = aChild.rewardArray[2];
-            numberOfSuccessesForRewardNumber = [[NSUserDefaults standardUserDefaults] objectForKey:reward3NumberOfSuccessesNumberKeyString];
-            if (numberOfSuccessesForRewardNumber != nil) {
-                
-                reward.numberOfSuccessesNeededInteger = [numberOfSuccessesForRewardNumber integerValue];
-            }
-            
-            // If text, and if reward text there, use that. If not text, move the image.
-            rewardIsTextBOOLNumber = [[NSUserDefaults standardUserDefaults] objectForKey:reward3IsTextBOOLNumberKeyString];
-            rewardIsTextBOOL = [rewardIsTextBOOLNumber boolValue];
-            rewardTextString = [[NSUserDefaults standardUserDefaults] objectForKey:reward3TextKeyString];
-            if (rewardIsTextBOOL) {
-                
-                if (rewardTextString != nil) {
-                    
-                    reward.text = rewardTextString;
-                }
-            } else {
-                
-                NSFileManager *aFileManager = [[NSFileManager alloc] init];
-                NSArray *aURLArray = [aFileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-                NSURL *aDirectoryURL = (NSURL *)aURLArray[0];
-                NSString *theSourceImagePathComponentString = @"/reward3.png";
-                NSURL *theSourceFileURL = [aDirectoryURL URLByAppendingPathComponent:theSourceImagePathComponentString];
-                NSString *theDestinationImagePathComponentString = [NSString stringWithFormat:@"/%@.png", reward.imageName];
-                NSURL *theDestinationFileURL = [aDirectoryURL URLByAppendingPathComponent:theDestinationImagePathComponentString];
-                [aFileManager moveItemAtURL:theSourceFileURL toURL:theDestinationFileURL error:nil];
-            }
-
-            // Save data.
-            [self saveChildren];
-            
-            // Delete old data.
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:pottyAttemptsKeyString];
-             
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:reward1NumberOfSuccessesNumberKeyString];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:reward1IsTextBOOLNumberKeyString];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:reward1TextKeyString];
-            
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:reward2NumberOfSuccessesNumberKeyString];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:reward2IsTextBOOLNumberKeyString];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:reward2TextKeyString];
-
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:reward3NumberOfSuccessesNumberKeyString];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:reward3IsTextBOOLNumberKeyString];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:reward3TextKeyString];
         }
         
         // Current child.
@@ -272,6 +169,44 @@ NSString *GGKXSymbolString = @"\u2718";
         }
     }
     return self;
+}
+
+- (void)populateRewardFromOldData:(GGKChild *)child rewardNumber:(NSInteger)rewardNumberInteger
+{
+    // Get reward from child. Get number of successes needed. If reward is text, get reward text and remove any image. Else, move the image.
+    
+    GGKReward *reward = child.rewardArray[rewardNumberInteger - 1];
+    NSString *rewardNumberOfSuccessesNumberKeyString = [NSString stringWithFormat:@"Number of successes for reward %d", rewardNumberInteger];
+    NSString *rewardIsTextBOOLNumberKeyString = [NSString stringWithFormat:@"Reward-%d-is-text BOOL number", rewardNumberInteger];
+    NSString *rewardTextKeyString = [NSString stringWithFormat:@"Reward %d text", rewardNumberInteger];
+    NSString *theSourceImagePathComponentString = [NSString stringWithFormat:@"/reward%d.png", rewardNumberInteger];
+    
+    NSNumber *numberOfSuccessesForRewardNumber = [[NSUserDefaults standardUserDefaults] objectForKey:rewardNumberOfSuccessesNumberKeyString];
+    if (numberOfSuccessesForRewardNumber != nil) {
+        
+        reward.numberOfSuccessesNeededInteger = [numberOfSuccessesForRewardNumber integerValue];
+    }
+    
+    NSNumber *rewardIsTextBOOLNumber = [[NSUserDefaults standardUserDefaults] objectForKey:rewardIsTextBOOLNumberKeyString];
+    BOOL rewardIsTextBOOL = [rewardIsTextBOOLNumber boolValue];
+    NSString *rewardTextString = [[NSUserDefaults standardUserDefaults] objectForKey:rewardTextKeyString];
+    NSFileManager *aFileManager = [[NSFileManager alloc] init];
+    NSArray *aURLArray = [aFileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *aDirectoryURL = (NSURL *)aURLArray[0];
+    NSURL *theSourceFileURL = [aDirectoryURL URLByAppendingPathComponent:theSourceImagePathComponentString];
+    if (rewardIsTextBOOL) {
+        
+        reward.text = rewardTextString;
+        // if there is no image here, what happens? hopefully it still runs. test by using dummy path
+        BOOL wasSuccessful = [aFileManager removeItemAtURL:theSourceFileURL error:nil];
+        NSLog(@"PPM populateRewardFromOldData remove-image wasSuccessful: %@", wasSuccessful ? @"Yes" : @"No");
+    } else {
+        
+        NSString *theDestinationImagePathComponentString = [NSString stringWithFormat:@"/%@.png", reward.imageName];
+        NSURL *theDestinationFileURL = [aDirectoryURL URLByAppendingPathComponent:theDestinationImagePathComponentString];
+        BOOL wasSuccessful = [aFileManager moveItemAtURL:theSourceFileURL toURL:theDestinationFileURL error:nil];
+        NSLog(@"PPM populateRewardFromOldData move-image wasSuccessful: %@", wasSuccessful ? @"Yes" : @"No");
+    }
 }
 
 - (void)saveChildren
@@ -306,6 +241,31 @@ NSString *GGKXSymbolString = @"\u2718";
     NSInteger theNumberOfReminderMinutesInteger = (self.reminderIncrementDateComponents.hour * 60) + self.reminderIncrementDateComponents.minute;
     NSNumber *theNumberOfReminderMinutesNumber = [NSNumber numberWithInteger:theNumberOfReminderMinutesInteger];
     [[NSUserDefaults standardUserDefaults] setObject:theNumberOfReminderMinutesNumber forKey:GGKReminderMinutesNumberKeyString];
+}
+
+- (NSInteger)uniqueIDForNewChild
+{
+    // Return the first non-negative integer that isn't being used.
+    // If there are currently X children, then some number from 0 to X must be unused.
+    NSInteger uniqueIDInteger = -1;
+    for (int i1 = 0; i1 < [self.childrenMutableArray count] + 1; i1++) {
+        
+        __block BOOL i1IsUsed = NO;
+        [self.childrenMutableArray enumerateObjectsUsingBlock:^(GGKChild *aChild, NSUInteger idx, BOOL *stop) {
+            
+            if (aChild.uniqueIDInteger == i1) {
+                
+                i1IsUsed = YES;
+                *stop = YES;
+            }
+        }];
+        if (!i1IsUsed) {
+            
+            uniqueIDInteger = i1;
+            break;
+        }
+    }
+    return uniqueIDInteger;
 }
 
 @end

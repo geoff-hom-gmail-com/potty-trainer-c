@@ -22,8 +22,10 @@
 
 @property (weak, nonatomic) id <GGKEditChildNameViewControllerDelegate> delegate;
 
+@property (strong, nonatomic) GGKChild *childToEdit;
+
 // For entering the text.
-@property (nonatomic, weak) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 // Cancel entering the text.
 - (IBAction)cancel;

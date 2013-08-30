@@ -60,6 +60,9 @@ extern NSString *GGKXSymbolString;
 // Create child with name. Add to database. Return child.
 - (GGKChild *)addChildWithName:(NSString *)name;
 
+// Create and return a child from older saved data: v1.1.0 or before.
+- (GGKChild *)childFromOldData;
+
 // Override.
 - (id)init;
 
