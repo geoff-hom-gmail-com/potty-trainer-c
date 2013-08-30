@@ -120,7 +120,15 @@ NSString *RemoveChildActionSheetTitleString = @"Removing a child will delete all
     }
         
     [self.perfectPottyModel.childrenMutableArray removeObject:self.perfectPottyModel.currentChild];
-    [self.perfectPottyModel saveChildren];
+    
+    // If the last child was removed, then create a new child.
+    if ([self.perfectPottyModel.childrenMutableArray count] == 0) {
+        
+        [self.perfectPottyModel addChildWithName:@"Anon"];
+    } else {
+        
+        [self.perfectPottyModel saveChildren];
+    }
     
     self.perfectPottyModel.currentChild = self.perfectPottyModel.childrenMutableArray[0];
     [self.perfectPottyModel saveCurrentChildID];
