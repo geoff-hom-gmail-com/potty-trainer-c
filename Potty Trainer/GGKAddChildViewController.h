@@ -10,11 +10,16 @@
 
 @interface GGKAddChildViewController : GGKViewController <UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UIButton *doneButton;
+
 // For entering the text.
-@property (nonatomic, weak) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 // Add child to database.
 - (IBAction)addChild:(id)sender;
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField;
+// So: disable Done button.
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 // So: If name is already taken, alert user.

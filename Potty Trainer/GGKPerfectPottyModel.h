@@ -68,12 +68,15 @@ extern NSString *GGKXSymbolString;
 
 - (void)saveColorTheme;
 
-- (void)saveCurrentChildName;
+- (void)saveCurrentChildID;
 
 - (void)saveCustomSymbol;
 
 - (void)saveNumberOfStarsPurchased;
 
 - (void)saveReminderInterval;
+
+// Return a child ID that doesn't conflict with existing IDs.
+- (NSInteger)uniqueIDForNewChild;
 
 @end

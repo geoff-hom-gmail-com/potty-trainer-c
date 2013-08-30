@@ -15,7 +15,7 @@ NSString *GGKBoyThemeString = @"Boy theme";
 // Key for storing data for all children.
 NSString *GGKChildrenKeyString = @"Children data";
 
-NSString *GGKCurrentChildNameKeyString = @"Current child";
+NSString *GGKCurrentChildIDNumberKeyString = @"Current child ID number";
 
 NSString *GGKGirlThemeString = @"Girl theme";
 
@@ -53,9 +53,6 @@ NSString *GGKXSymbolString = @"\u2718";
 // For the given child, fill in info for the given reward number using saved data from v1.1.0 or before. The reward number should be 1, 2 or 3.
 - (void)populateRewardFromOldData:(GGKChild *)child rewardNumber:(NSInteger)rewardNumberInteger;
 
-// Return a child ID that doesn't conflict with existing IDs.
-- (NSInteger)uniqueIDForNewChild;
-
 @end
 
 @implementation GGKPerfectPottyModel
@@ -71,6 +68,8 @@ NSString *GGKXSymbolString = @"\u2718";
     NSSortDescriptor *aNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"nameString" ascending:YES];
     NSArray *aSortedArray = [self.childrenMutableArray sortedArrayUsingDescriptors:@[aNameSortDescriptor]];
     self.childrenMutableArray = [aSortedArray mutableCopy];
+    
+    [self saveChildren];
     
     return newChild;
 }
@@ -150,16 +149,18 @@ NSString *GGKXSymbolString = @"\u2718";
         }
         
         // Current child.
-        NSString *currentChildName = [[NSUserDefaults standardUserDefaults] objectForKey:GGKCurrentChildNameKeyString];
-        if (currentChildName == nil) {
+        NSNumber *currentChildIDNumber = [[NSUserDefaults standardUserDefaults] objectForKey:GGKCurrentChildIDNumberKeyString];
+        if (currentChildIDNumber == nil) {
             
             self.currentChild = self.childrenMutableArray[0];
+            [self saveCurrentChildID];
         } else {
-            
-            // Find child with that name.
+        
+            // Find child with that ID.
+            NSInteger currentChildIDInteger = [currentChildIDNumber integerValue];
             [self.childrenMutableArray enumerateObjectsUsingBlock:^(GGKChild *aChild, NSUInteger idx, BOOL *stop) {
                 
-                if ([aChild.nameString isEqualToString:currentChildName]) {
+                if (aChild.uniqueIDInteger == currentChildIDInteger) {
                     
                     self.currentChild = aChild;
                     *stop = YES;
@@ -197,7 +198,6 @@ NSString *GGKXSymbolString = @"\u2718";
     if (rewardIsTextBOOL) {
         
         reward.text = rewardTextString;
-        // if there is no image here, what happens? hopefully it still runs. test by using dummy path
         BOOL wasSuccessful = [aFileManager removeItemAtURL:theSourceFileURL error:nil];
         NSLog(@"PPM populateRewardFromOldData remove-image wasSuccessful: %@", wasSuccessful ? @"Yes" : @"No");
     } else {
@@ -219,9 +219,10 @@ NSString *GGKXSymbolString = @"\u2718";
     [[NSUserDefaults standardUserDefaults] setObject:self.colorThemeString forKey:GGKThemeKeyString];
 }
 
-- (void)saveCurrentChildName
+- (void)saveCurrentChildID
 {
-    [[NSUserDefaults standardUserDefaults] setObject:self.currentChild.nameString forKey:GGKCurrentChildNameKeyString];
+    NSNumber *currentChildIDNumber = [NSNumber numberWithInteger:self.currentChild.uniqueIDInteger];
+    [[NSUserDefaults standardUserDefaults] setObject:currentChildIDNumber forKey:GGKCurrentChildIDNumberKeyString];
 }
 
 - (void)saveCustomSymbol

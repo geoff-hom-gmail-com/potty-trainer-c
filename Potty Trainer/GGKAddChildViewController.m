@@ -17,12 +17,16 @@
 - (IBAction)addChild:(id)sender
 {
     GGKChild *newChild = [self.perfectPottyModel addChildWithName:self.textField.text];
-    [self.perfectPottyModel saveChildren];
     
     self.perfectPottyModel.currentChild = newChild;
-    [self.perfectPottyModel saveCurrentChildName];
+    [self.perfectPottyModel saveCurrentChildID];
     
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)theTextField
+{
+    self.doneButton.enabled = NO;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -64,6 +68,7 @@
         
         [textField resignFirstResponder];
         shouldReturn = YES;
+        self.doneButton.enabled = YES;
     }
     return shouldReturn;
 }
@@ -72,10 +77,28 @@
 {
     [super viewDidLoad];
 
-    // Prepopulate text field with a name that could work.
-    NSInteger numberOfChildrenAfterAddition = [self.perfectPottyModel.childrenMutableArray count] + 1;
-    NSString *genericName = [NSString stringWithFormat:@"Anon%d", numberOfChildrenAfterAddition];
-    self.textField.text = genericName;
+    // Prepopulate text field with a name that could work. (I.e., not already used.)
+    // Try "AnonX" for increasing X. If there are X children, we need to try at most X + 1 names.
+    for (int i1 = 0; i1 < [self.perfectPottyModel.childrenMutableArray count] + 1; i1++) {
+        
+        // Start with "Anon2."
+        NSInteger suffixInteger = i1 + 2;
+        NSString *genericName = [NSString stringWithFormat:@"Anon%d", suffixInteger];
+        __block BOOL isAlreadyUsed = NO;
+        [self.perfectPottyModel.childrenMutableArray enumerateObjectsUsingBlock:^(GGKChild *aChild, NSUInteger idx, BOOL *stop) {
+            
+            if ([aChild.nameString isEqualToString:genericName]) {
+                
+                isAlreadyUsed = YES;
+                *stop = YES;
+            }
+        }];
+        if (!isAlreadyUsed) {
+            
+            self.textField.text = genericName;
+            break;
+        }
+    }    
 }
 
 @end

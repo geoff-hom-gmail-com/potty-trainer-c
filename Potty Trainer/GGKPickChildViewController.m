@@ -19,29 +19,51 @@
     [sender dismissViewControllerAnimated:YES completion:nil];
 }
 
-// So: If duplicate name, alert user. Else, change name. Re-sort child array.
 - (void)editChildNameViewControllerDidEnterText:(id)sender
 {
     GGKEditChildNameViewController *editChildNameViewController = (GGKEditChildNameViewController *)sender;
     NSString *newName = editChildNameViewController.textField.text;
     
-    // If duplicate name, alert user.
+    // If duplicate name, or if blank name, alert user. Else, save new name.
+    
     __block BOOL isDuplicate = NO;
     [self.perfectPottyModel.childrenMutableArray enumerateObjectsUsingBlock:^(GGKChild *aChild, NSUInteger idx, BOOL *stop) {
         
-        if ([aChild.nameString isEqualToString:newName]) {
+        if (aChild != self.perfectPottyModel.currentChild) {
             
-            isDuplicate = YES;
-            *stop = YES;
+            if ([aChild.nameString isEqualToString:newName]) {
+                
+                isDuplicate = YES;
+                *stop = YES;
+            }
         }
     }];
+    
+    BOOL isBlank = NO;
+    if ([newName isEqualToString:@""]) {
+        
+        isBlank = YES;
+    }
+    
     if (isDuplicate) {
         
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Name Already Exists" message:@"Another child has that name. Names must be unique." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [alertView show];
+    } else if (isBlank) {
+        
+        NSString *alertMessageString = @"Please enter a unique name.";
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Name Is Blank" message:alertMessageString delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alertView show];
     } else {
         
-        // ?
+        self.perfectPottyModel.currentChild.nameString = newName;
+        
+        // Alphabetize.
+        NSSortDescriptor *aNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"nameString" ascending:YES];
+        NSArray *aSortedArray = [self.perfectPottyModel.childrenMutableArray sortedArrayUsingDescriptors:@[aNameSortDescriptor]];
+        self.perfectPottyModel.childrenMutableArray = [aSortedArray mutableCopy];
+        
+        [self.perfectPottyModel saveChildren];
         
         [sender dismissViewControllerAnimated:YES completion:nil];
     }
@@ -74,8 +96,8 @@
 {
     GGKChild *selectedChild = self.perfectPottyModel.childrenMutableArray[theIndexPath.row];
     self.perfectPottyModel.currentChild = selectedChild;
+    [self.perfectPottyModel saveCurrentChildID];
     self.currentChildLabel.text = selectedChild.nameString;
-    [self.perfectPottyModel saveCurrentChildName];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -106,6 +128,7 @@
     NSInteger currentChildIndexInteger = [self.perfectPottyModel.childrenMutableArray indexOfObject:currentChild];
     NSIndexPath *currentChildIndexPath = [NSIndexPath indexPathForRow:currentChildIndexInteger inSection:0];
     [self.childNamesTableView selectRowAtIndexPath:currentChildIndexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+    [self.childNamesTableView scrollToRowAtIndexPath:currentChildIndexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
 }
 
 @end
