@@ -41,15 +41,6 @@
 
 @implementation GGKSettingsViewController
 
-- (void)alertView:(UIAlertView *)theAlertView clickedButtonAtIndex:(NSInteger)theButtonIndex
-{
-    if ([[theAlertView buttonTitleAtIndex:theButtonIndex] isEqualToString:@"OK"]) {
-        
-        // deprecated? will be done in "pick child" vc now
-//        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:GGKPottyAttemptsKeyString];
-    }
-}
-
 - (IBAction)cancelReminder
 {
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
@@ -72,35 +63,12 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"showSetReminderView"]) {
         
         [segue.destinationViewController setDelegate:self];
     }
-}
-
-- (IBAction)resetHistory
-{
-    // Put the cancel button on the right, since this is a potentially risky action.
-    UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:@"Delete potty history?" message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", @"Cancel", nil];
-    anAlertView.cancelButtonIndex = 1;
-    [anAlertView show];
 }
 
 - (void)setReminderViewControllerDidSetReminder:(id)sender

@@ -8,6 +8,7 @@
 
 #import "GGKPerfectPottyAppDelegate.h"
 
+#import <AudioToolbox/AudioServices.h> 
 #import "GGKInAppPurchaseObserver.h"
 #import "TestFlight.h"
 
@@ -65,7 +66,10 @@
             [anAlertView show];
             
             // Play an alert sound, too.
-            [self.soundModel playDingSound];
+            // Using Audio Services to use the "Ringer and Alerts" volume (Settings app -> Sounds).
+            SystemSoundID mySound;
+            AudioServicesCreateSystemSoundID(CFBundleCopyResourceURL(CFBundleGetMainBundle(), CFSTR("scoreIncrease"), CFSTR("aiff"), NULL), &mySound);
+            AudioServicesPlaySystemSound(mySound);
         }
         self.localNotificationWasRecentlyReceived = YES;
         [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(noteThatLocalNotificationsNotReceivedRecently) userInfo:nil repeats:NO];

@@ -19,7 +19,6 @@
 		9362E42D16D5F17600A1B771 /* GGKSoundModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42C16D5F17600A1B771 /* GGKSoundModel.m */; };
 		9362E43016D5FBF400A1B771 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9362E42F16D5FBF400A1B771 /* AVFoundation.framework */; };
 		9362E43216D5FDAB00A1B771 /* tap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 9362E42E16D5FA8600A1B771 /* tap.aif */; };
-		93639A1F17CC4CBB004A7541 /* alert2.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 93639A1E17CC4CBB004A7541 /* alert2.aiff */; };
 		937652AA16C079CB007EA04C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937652A916C079CB007EA04C /* UIKit.framework */; };
 		937652AC16C079CB007EA04C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937652AB16C079CB007EA04C /* Foundation.framework */; };
 		937652AE16C079CB007EA04C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937652AD16C079CB007EA04C /* CoreGraphics.framework */; };
@@ -46,10 +45,13 @@
 		9382117017CE243F00EDE843 /* GGKPickChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9382116F17CE243F00EDE843 /* GGKPickChildViewController.m */; };
 		9382117317CE360700EDE843 /* GGKEditChildNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9382117217CE360700EDE843 /* GGKEditChildNameViewController.m */; };
 		9382117617CEB6E700EDE843 /* GGKAddChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9382117517CEB6E700EDE843 /* GGKAddChildViewController.m */; };
+		9382117917D1976400EDE843 /* GGKTestRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9382117817D1976300EDE843 /* GGKTestRemindersViewController.m */; };
 		9383F21D17C80EFD005B41E5 /* GGKPerfectPottyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9383F21C17C80EFD005B41E5 /* GGKPerfectPottyModel.m */; };
 		9383F22017C8456E005B41E5 /* GGKChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 9383F21F17C8456E005B41E5 /* GGKChild.m */; };
 		9383F22317C91521005B41E5 /* GGKReward.m in Sources */ = {isa = PBXBuildFile; fileRef = 9383F22217C91520005B41E5 /* GGKReward.m */; };
 		9383F22617CA09A6005B41E5 /* GGKPottyRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9383F22517CA09A5005B41E5 /* GGKPottyRecordsViewController.m */; };
+		9387C1EC17D1A5CA003D10B7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9387C1EB17D1A5CA003D10B7 /* AudioToolbox.framework */; };
+		9387C1EE17D1A7D0003D10B7 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9387C1ED17D1A7D0003D10B7 /* MediaPlayer.framework */; };
 		9390858116DD534800C2290F /* GGKHistoryForDayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390858016DD534800C2290F /* GGKHistoryForDayTableViewController.m */; };
 		9390858416DD583A00C2290F /* GGKPottyAttemptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390858316DD583A00C2290F /* GGKPottyAttemptCell.m */; };
 		93BD16621761869400D32AA0 /* GGKPerfectPottyDescription.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 93BD16611761869400D32AA0 /* GGKPerfectPottyDescription.rtf */; };
@@ -88,7 +90,6 @@
 		9362E42C16D5F17600A1B771 /* GGKSoundModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSoundModel.m; sourceTree = "<group>"; };
 		9362E42E16D5FA8600A1B771 /* tap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = tap.aif; path = sounds/tap.aif; sourceTree = "<group>"; };
 		9362E42F16D5FBF400A1B771 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		93639A1E17CC4CBB004A7541 /* alert2.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = alert2.aiff; path = sounds/alert2.aiff; sourceTree = "<group>"; };
 		937652A616C079CB007EA04C /* Perfect Potty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Perfect Potty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		937652A916C079CB007EA04C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		937652AB16C079CB007EA04C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -132,6 +133,8 @@
 		9382117217CE360700EDE843 /* GGKEditChildNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKEditChildNameViewController.m; sourceTree = "<group>"; };
 		9382117417CEB6E700EDE843 /* GGKAddChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKAddChildViewController.h; sourceTree = "<group>"; };
 		9382117517CEB6E700EDE843 /* GGKAddChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKAddChildViewController.m; sourceTree = "<group>"; };
+		9382117717D1976200EDE843 /* GGKTestRemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKTestRemindersViewController.h; sourceTree = "<group>"; };
+		9382117817D1976300EDE843 /* GGKTestRemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKTestRemindersViewController.m; sourceTree = "<group>"; };
 		9383F21B17C80EFD005B41E5 /* GGKPerfectPottyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPerfectPottyModel.h; sourceTree = "<group>"; };
 		9383F21C17C80EFD005B41E5 /* GGKPerfectPottyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPerfectPottyModel.m; sourceTree = "<group>"; };
 		9383F21E17C8456D005B41E5 /* GGKChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKChild.h; sourceTree = "<group>"; };
@@ -140,6 +143,8 @@
 		9383F22217C91520005B41E5 /* GGKReward.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKReward.m; sourceTree = "<group>"; };
 		9383F22417CA09A4005B41E5 /* GGKPottyRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPottyRecordsViewController.h; sourceTree = "<group>"; };
 		9383F22517CA09A5005B41E5 /* GGKPottyRecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPottyRecordsViewController.m; sourceTree = "<group>"; };
+		9387C1EB17D1A5CA003D10B7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9387C1ED17D1A7D0003D10B7 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		9390857F16DD534800C2290F /* GGKHistoryForDayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKHistoryForDayTableViewController.h; sourceTree = "<group>"; };
 		9390858016DD534800C2290F /* GGKHistoryForDayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKHistoryForDayTableViewController.m; sourceTree = "<group>"; };
 		9390858216DD583A00C2290F /* GGKPottyAttemptCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPottyAttemptCell.h; sourceTree = "<group>"; };
@@ -168,15 +173,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				935A344216F206BA003DD6FA /* libz.dylib in Frameworks */,
-				93DE8C0F16E87A2400AA87FF /* MessageUI.framework in Frameworks */,
-				93DE8C0716E7F36000AA87FF /* StoreKit.framework in Frameworks */,
-				9376CCB016E1A48400887ADE /* MobileCoreServices.framework in Frameworks */,
+				9387C1EC17D1A5CA003D10B7 /* AudioToolbox.framework in Frameworks */,
 				9362E43016D5FBF400A1B771 /* AVFoundation.framework in Frameworks */,
-				937652AA16C079CB007EA04C /* UIKit.framework in Frameworks */,
-				937652AC16C079CB007EA04C /* Foundation.framework in Frameworks */,
 				937652AE16C079CB007EA04C /* CoreGraphics.framework in Frameworks */,
+				937652AC16C079CB007EA04C /* Foundation.framework in Frameworks */,
 				935A343E16F2063B003DD6FA /* libTestFlight.a in Frameworks */,
+				935A344216F206BA003DD6FA /* libz.dylib in Frameworks */,
+				9387C1EE17D1A7D0003D10B7 /* MediaPlayer.framework in Frameworks */,
+				93DE8C0F16E87A2400AA87FF /* MessageUI.framework in Frameworks */,
+				9376CCB016E1A48400887ADE /* MobileCoreServices.framework in Frameworks */,
+				93DE8C0716E7F36000AA87FF /* StoreKit.framework in Frameworks */,
+				937652AA16C079CB007EA04C /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +204,6 @@
 		9362E43116D5FC9100A1B771 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
-				93639A1E17CC4CBB004A7541 /* alert2.aiff */,
 				9376CCAD16E0111E00887ADE /* scoreIncrease.aiff */,
 				9362E42E16D5FA8600A1B771 /* tap.aif */,
 			);
@@ -225,10 +231,12 @@
 		937652A816C079CB007EA04C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9387C1EB17D1A5CA003D10B7 /* AudioToolbox.framework */,
 				9362E42F16D5FBF400A1B771 /* AVFoundation.framework */,
 				937652AD16C079CB007EA04C /* CoreGraphics.framework */,
 				937652AB16C079CB007EA04C /* Foundation.framework */,
 				935A344116F206BA003DD6FA /* libz.dylib */,
+				9387C1ED17D1A7D0003D10B7 /* MediaPlayer.framework */,
 				93DE8C0E16E87A2400AA87FF /* MessageUI.framework */,
 				9376CCAF16E1A48300887ADE /* MobileCoreServices.framework */,
 				93DE8C0616E7F36000AA87FF /* StoreKit.framework */,
@@ -288,6 +296,8 @@
 				937F863616D6A61A007DE572 /* GGKSettingsViewController.m */,
 				9362E42B16D5F17600A1B771 /* GGKSoundModel.h */,
 				9362E42C16D5F17600A1B771 /* GGKSoundModel.m */,
+				9382117717D1976200EDE843 /* GGKTestRemindersViewController.h */,
+				9382117817D1976300EDE843 /* GGKTestRemindersViewController.m */,
 				93BD1666176191B700D32AA0 /* GGKUseCustomSymbolViewController.h */,
 				93BD1667176191B700D32AA0 /* GGKUseCustomSymbolViewController.m */,
 				93BD166317618E1500D32AA0 /* GGKViewController.h */,
@@ -409,7 +419,6 @@
 				935A343F16F2063B003DD6FA /* README.md in Resources */,
 				935A344016F2063B003DD6FA /* release_notes.md in Resources */,
 				93BD16621761869400D32AA0 /* GGKPerfectPottyDescription.rtf in Resources */,
-				93639A1F17CC4CBB004A7541 /* alert2.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +459,7 @@
 				9382117017CE243F00EDE843 /* GGKPickChildViewController.m in Sources */,
 				9382117317CE360700EDE843 /* GGKEditChildNameViewController.m in Sources */,
 				9382117617CEB6E700EDE843 /* GGKAddChildViewController.m in Sources */,
+				9382117917D1976400EDE843 /* GGKTestRemindersViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

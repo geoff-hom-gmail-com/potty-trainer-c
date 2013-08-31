@@ -48,33 +48,6 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
     [self updateReminderTime];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (IBAction)playSound1
-{
-    GGKPerfectPottyAppDelegate *aPottyTrainerAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
-    [aPottyTrainerAppDelegate.soundModel playDingSound];
-}
-
-- (IBAction)playSound2
-{
-    GGKPerfectPottyAppDelegate *aPottyTrainerAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
-    [aPottyTrainerAppDelegate.soundModel playAlert2Sound];
-}
-
 - (NSDate *)reminderDate
 {
     // Get the hour and minute in the date picker. Add to the current time.
@@ -89,25 +62,6 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
     return theReminderDate;
 }
 
-- (IBAction)setQuickReminder
-{
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    UILocalNotification *aLocalNotification = [[UILocalNotification alloc] init];
-    
-    NSDate *theReminderDate = [self reminderDate];
-    
-    // Use this to test an immediate local notification.
-    theReminderDate = [NSDate dateWithTimeIntervalSinceNow:5];
-
-    aLocalNotification.fireDate = theReminderDate;
-    aLocalNotification.timeZone = [NSTimeZone defaultTimeZone];
-    aLocalNotification.alertBody = @"Potty time? (Wash hands.)";
-    aLocalNotification.soundName = @"scoreIncrease.aiff";
-    
-    [[UIApplication sharedApplication] scheduleLocalNotification:aLocalNotification];
-    [self.delegate setReminderViewControllerDidSetReminder:self];
-}
-
 - (IBAction)setReminder
 {
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
@@ -118,7 +72,7 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
     aLocalNotification.fireDate = theReminderDate;
     aLocalNotification.timeZone = [NSTimeZone defaultTimeZone];
     aLocalNotification.alertBody = @"Potty time? (Wash hands.)";
-    aLocalNotification.soundName = @"scoreIncrease.aiff";
+    aLocalNotification.soundName = GGKReminderSoundFilenameString;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:aLocalNotification];
     

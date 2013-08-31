@@ -23,24 +23,15 @@ extern NSString *GGKReminderWhenPrefixString;
 @interface GGKSetReminderViewController : GGKViewController
 
 // For choosing the time until the next reminder.
-@property (nonatomic, weak) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @property (weak, nonatomic) id <GGKSetReminderViewControllerDelegate> delegate;
 
 // For showing the user the time of the next reminder (e.g., "3:35 PM," not "in 1 hour, 30 min").
-@property (nonatomic, weak) IBOutlet UILabel *whenLabel;
+@property (weak, nonatomic) IBOutlet UILabel *whenLabel;
 
 - (IBAction)datePickerTimeChanged:(id)sender;
 // So, update the label showing the reminder time.
-
-// (For testing.) Play a sound.
-- (IBAction)playSound1;
-
-// (For testing.) Play a different sound.
-- (IBAction)playSound2;
-
-// (For testing.) Cancel any previous reminders. Set a reminder that goes off in 5 seconds.
-- (IBAction)setQuickReminder;
 
 // Cancel any previous reminders. Set this reminder.
 - (IBAction)setReminder;

@@ -13,9 +13,9 @@
 @interface GGKPickChildViewController : GGKViewController <GGKEditChildNameViewControllerDelegate, UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
 
 // Name of the current child.
-@property (strong, nonatomic) IBOutlet UILabel *currentChildLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentChildLabel;
 
-@property (strong, nonatomic) IBOutlet UITableView *childNamesTableView;
+@property (weak, nonatomic) IBOutlet UITableView *childNamesTableView;
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
 // So: If it was for removing a child, and user said OK, then remove that child.

@@ -28,6 +28,9 @@ extern NSString *GGKPottyAttemptSymbolStringKeyString;
 // Key for storing whether a potty attempt was successful. Object is a BOOL stored as an NSNumber.
 extern NSString *GGKPottyAttemptWasSuccessfulNumberKeyString;
 
+// Filename for the sound file to use for reminders.
+extern NSString *GGKReminderSoundFilenameString;
+
 // A star symbol. Used for showing number of successful attempts, and for donation thank-yous.
 extern NSString *GGKStarRewardString;
 

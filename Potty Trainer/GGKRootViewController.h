@@ -13,7 +13,7 @@
 @interface GGKRootViewController : GGKViewController
 
 // Name of the current child.
-@property (strong, nonatomic) IBOutlet UILabel *currentChildLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentChildLabel;
 
 // Override.
 - (void)viewDidLoad;

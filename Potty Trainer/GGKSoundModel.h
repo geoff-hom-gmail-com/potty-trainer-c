@@ -8,22 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GGKSoundModel : NSObject
+#import <AVFoundation/AVFoundation.h>
+
+@interface GGKSoundModel : NSObject <AVAudioPlayerDelegate>
 
 // Whether this app's sound should play or not.
 @property (assign, nonatomic) BOOL soundIsOn;
 
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag;
+// So, deactivate the audio session.
+
 // Create the audio player for each sound.
 - (id)init;
 
-// ??
-- (void)playAlert2Sound;
-
 // Play sound appropriate for a button press.
 - (void)playButtonTapSound;
-
-// Play sound appropriate for positive attention. (E.g., when receiving local notification while app in foreground.)
-- (void)playDingSound;
 
 // Prepare the appropriate audio player to play.
 - (void)prepareButtonTapSound;

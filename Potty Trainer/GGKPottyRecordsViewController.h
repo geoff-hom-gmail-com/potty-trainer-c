@@ -13,9 +13,9 @@
 
 @interface GGKPottyRecordsViewController : GGKViewController <GGKAddPottyViewControllerDelegate, GGKHistoryForDayTableViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UIButton *addPottyButton;
+@property (weak, nonatomic) IBOutlet UIButton *addPottyButton;
 
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 - (void)addPottyViewControllerDidAddPottyAttempt:(id)sender;
 // So, dismiss the view controller.

@@ -8,23 +8,25 @@
 
 #import "GGKSoundModel.h"
 
-#import "GGKPerfectPottyAppDelegate.h"
-#import <AVFoundation/AVFoundation.h>
-
 @interface GGKSoundModel ()
-
-// For playing a UI sound to get the user's attention, in a positive way.
-@property (nonatomic, strong) AVAudioPlayer *alert2AudioPlayer;
 
 // For playing a UI sound when the player presses a button.
 @property (nonatomic, strong) AVAudioPlayer *buttonTapAudioPlayer;
 
-// For playing a UI sound to get the user's attention, in a positive way.
-@property (nonatomic, strong) AVAudioPlayer *dingAudioPlayer;
-
 @end
 
 @implementation GGKSoundModel
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    NSError *error;
+    BOOL wasSuccessful = [audioSession setActive:NO error:&error];
+    if (!wasSuccessful) {
+        
+        NSLog(@"SM audioPlayerDidFinishPlaying: audio session deactivation error: %@", error.localizedDescription);
+    }
+}
 
 - (id)init
 {    
@@ -33,45 +35,30 @@
         
         self.soundIsOn = YES;
         
-        // Implicitly initialize audio session. Default settings seem fine, though.
-//        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-        
         NSString *soundFilePath;
         NSURL *soundFileURL;
         AVAudioPlayer *anAudioPlayer;
-        
-        // Alert2 sound.
-        soundFilePath = [ [NSBundle mainBundle] pathForResource:@"alert2" ofType:@"aiff" ];
-        soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-        anAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
-        self.alert2AudioPlayer = anAudioPlayer;
-        
-        // Ding sound.
-        soundFilePath = [ [NSBundle mainBundle] pathForResource:@"scoreIncrease" ofType:@"aiff" ];
-        soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-        anAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
-        self.dingAudioPlayer = anAudioPlayer;
         
         // Button-tap sound.
         soundFilePath = [ [NSBundle mainBundle] pathForResource:@"tap" ofType:@"aif" ];
         soundFileURL = [NSURL fileURLWithPath:soundFilePath];
         anAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+        anAudioPlayer.delegate = self;
         self.buttonTapAudioPlayer = anAudioPlayer;
         
         // The button-tap sound will be needed first.
         [self prepareButtonTapSound];
+        
+        // Deactivate audio session. The user may have her device set so that the hardware volume buttons control  the "Ringer and Alerts" volume. When our audio session is active, that won't work.
+        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+        NSError *error;
+        BOOL wasSuccessful = [audioSession setActive:NO error:&error];
+        if (!wasSuccessful) {
+            
+            NSLog(@"SM init: audio session deactivation error: %@", error.localizedDescription);
+        }
     }
     return self;
-}
-
-- (void)playAlert2Sound
-{
-    if (self.soundIsOn) {
-        
-        // Volume = max.
-        self.alert2AudioPlayer.volume = 1;
-        [self.alert2AudioPlayer play];
-    }
 }
 
 - (void)playButtonTapSound
@@ -79,16 +66,6 @@
     if (self.soundIsOn) {
         
         [self.buttonTapAudioPlayer play];
-    }
-}
-
-- (void)playDingSound
-{
-    if (self.soundIsOn) {
-        
-        // Volume = max.
-        self.dingAudioPlayer.volume = 1;
-        [self.dingAudioPlayer play];
     }
 }
 

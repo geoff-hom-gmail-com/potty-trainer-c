@@ -10,7 +10,7 @@
 
 @interface GGKAddChildViewController : GGKViewController <UITextFieldDelegate>
 
-@property (strong, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
 // For entering the text.
 @property (weak, nonatomic) IBOutlet UITextField *textField;
