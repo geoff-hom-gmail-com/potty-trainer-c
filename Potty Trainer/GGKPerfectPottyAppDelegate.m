@@ -12,10 +12,15 @@
 #import "GGKInAppPurchaseObserver.h"
 #import "TestFlight.h"
 
+NSString *GGKAppName = @"Perfect Potty";
+
 @interface GGKPerfectPottyAppDelegate ()
 
 // Whether a local notification was already received a short time ago (currently a second).
 @property (assign, nonatomic) BOOL localNotificationWasRecentlyReceived;
+
+// Sound to play for a reminder alert.
+@property (assign, nonatomic) SystemSoundID reminderSound;
 
 // So, reset that flag.
 - (void)noteThatLocalNotificationsNotReceivedRecently;
@@ -23,6 +28,14 @@
 @end
 
 @implementation GGKPerfectPottyAppDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if ([alertView.title isEqualToString:GGKAppName]) {
+        
+        AudioServicesDisposeSystemSoundID(_reminderSound);
+    }
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -61,15 +74,15 @@
         if (theApplication.applicationState == UIApplicationStateActive) {
             
             NSLog(@"PTAD a dRLN. app was running");
-            NSString *theAppName = @"Potty Trainer";
-            UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:theAppName message:theNotification.alertBody delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:GGKAppName message:theNotification.alertBody delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
             [anAlertView show];
             
             // Play an alert sound, too.
             // Using Audio Services to use the "Ringer and Alerts" volume (Settings app -> Sounds).
-            SystemSoundID mySound;
-            AudioServicesCreateSystemSoundID(CFBundleCopyResourceURL(CFBundleGetMainBundle(), CFSTR("scoreIncrease"), CFSTR("aiff"), NULL), &mySound);
-            AudioServicesPlaySystemSound(mySound);
+            NSString *soundFilePath = [ [NSBundle mainBundle] pathForResource:@"reminder1" ofType:@"aiff" ];            
+            NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+            AudioServicesCreateSystemSoundID( (__bridge CFURLRef)soundFileURL, &_reminderSound);
+            AudioServicesPlaySystemSound(_reminderSound);
         }
         self.localNotificationWasRecentlyReceived = YES;
         [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(noteThatLocalNotificationsNotReceivedRecently) userInfo:nil repeats:NO];

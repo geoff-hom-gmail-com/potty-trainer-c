@@ -36,7 +36,7 @@ NSString *GGKPottyAttemptWasSuccessfulNumberKeyString = @"Potty-attempt-was-succ
 // Key for storing the number of minutes used for the previous reminder.
 NSString *GGKReminderMinutesNumberKeyString = @"Reminder-minutes number";
 
-NSString *GGKReminderSoundFilenameString = @"scoreIncrease.aiff";
+NSString *GGKReminderSoundFilenameString = @"reminder1.aiff";
 
 NSString *GGKStarRewardString = @"\u2b50";
 

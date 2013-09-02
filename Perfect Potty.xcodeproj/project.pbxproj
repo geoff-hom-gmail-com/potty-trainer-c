@@ -57,6 +57,7 @@
 		93BD16621761869400D32AA0 /* GGKPerfectPottyDescription.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 93BD16611761869400D32AA0 /* GGKPerfectPottyDescription.rtf */; };
 		93BD166517618E1500D32AA0 /* GGKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BD166417618E1500D32AA0 /* GGKViewController.m */; };
 		93BD1668176191B700D32AA0 /* GGKUseCustomSymbolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BD1667176191B700D32AA0 /* GGKUseCustomSymbolViewController.m */; };
+		93CA2BA617D4820B00CF4440 /* reminder1.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 93CA2BA517D4820B00CF4440 /* reminder1.aiff */; };
 		93DE8C0716E7F36000AA87FF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DE8C0616E7F36000AA87FF /* StoreKit.framework */; };
 		93DE8C0D16E8074800AA87FF /* GGKInAppPurchaseObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DE8C0C16E8074800AA87FF /* GGKInAppPurchaseObserver.m */; };
 		93DE8C0F16E87A2400AA87FF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DE8C0E16E87A2400AA87FF /* MessageUI.framework */; };
@@ -154,6 +155,7 @@
 		93BD166417618E1500D32AA0 /* GGKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKViewController.m; sourceTree = "<group>"; };
 		93BD1666176191B700D32AA0 /* GGKUseCustomSymbolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKUseCustomSymbolViewController.h; sourceTree = "<group>"; };
 		93BD1667176191B700D32AA0 /* GGKUseCustomSymbolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKUseCustomSymbolViewController.m; sourceTree = "<group>"; };
+		93CA2BA517D4820B00CF4440 /* reminder1.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = reminder1.aiff; path = sounds/reminder1.aiff; sourceTree = "<group>"; };
 		93DE8C0616E7F36000AA87FF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		93DE8C0B16E8074800AA87FF /* GGKInAppPurchaseObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKInAppPurchaseObserver.h; sourceTree = "<group>"; };
 		93DE8C0C16E8074800AA87FF /* GGKInAppPurchaseObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKInAppPurchaseObserver.m; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			children = (
 				9376CCAD16E0111E00887ADE /* scoreIncrease.aiff */,
 				9362E42E16D5FA8600A1B771 /* tap.aif */,
+				93CA2BA517D4820B00CF4440 /* reminder1.aiff */,
 			);
 			name = sounds;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				935A343F16F2063B003DD6FA /* README.md in Resources */,
 				935A344016F2063B003DD6FA /* release_notes.md in Resources */,
 				93BD16621761869400D32AA0 /* GGKPerfectPottyDescription.rtf in Resources */,
+				93CA2BA617D4820B00CF4440 /* reminder1.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
