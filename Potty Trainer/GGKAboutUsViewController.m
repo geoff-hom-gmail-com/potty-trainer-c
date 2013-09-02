@@ -214,22 +214,17 @@
 
 - (void)updateStars
 {
-//    NSNumber *theNumberOfStarsPurchasedNumber = self.perfectPottyModel.numberOfStarsPurchasedInteger;
-//    NSNumber *theNumberOfStarsPurchasedNumber = [[NSUserDefaults standardUserDefaults] objectForKey:GGKNumberOfStarsPurchasedNumberKeyString];
+    NSInteger numberOfStarsPurchasedInteger = self.perfectPottyModel.numberOfStarsPurchasedInteger;
     
     //testing
-//    theNumberOfStarsPurchasedNumber = @12;
+//    numberOfStarsPurchasedInteger = 12;
     
-//    if (theNumberOfStarsPurchasedNumber != nil) {
-    
-        NSInteger numberOfStarsPurchasedInteger = self.perfectPottyModel.numberOfStarsPurchasedInteger;
-        NSMutableString *aMutableString = [[NSMutableString alloc] initWithCapacity:10];
-        for (int i = 0; i < numberOfStarsPurchasedInteger; i++) {
-            
-            [aMutableString appendString:GGKStarRewardString];
-        }
-        self.starsLabel.text = aMutableString;
-//    }
+    NSMutableString *aMutableString = [[NSMutableString alloc] initWithCapacity:10];
+    for (int i = 0; i < numberOfStarsPurchasedInteger; i++) {
+        
+        [aMutableString appendString:GGKStarRewardString];
+    }
+    self.starsLabel.text = aMutableString;
 }
 
 - (void)viewDidLoad
@@ -237,7 +232,7 @@
     [super viewDidLoad];
     
     // Height should match size of scroll view in the storyboard.
-    CGFloat theScrollViewHeightFloat = 701;
+    CGFloat theScrollViewHeightFloat = 596;
     self.scrollView.contentSize = CGSizeMake(320, theScrollViewHeightFloat);
         
     // Listen for when a purchase is done.
