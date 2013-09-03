@@ -13,9 +13,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RKp-WL-Aia">
-                                <rect key="frame" x="50" y="120" width="250" height="64"/>
+                                <rect key="frame" x="50" y="120" width="250" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Potty Records">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -29,7 +29,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rB6-Ud-ZkZ">
-                                <rect key="frame" x="50" y="262" width="250" height="64"/>
+                                <rect key="frame" x="20" y="262" width="280" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Settings">
@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KhD-Um-XfR">
-                                <rect key="frame" x="50" y="333" width="250" height="64"/>
+                                <rect key="frame" x="20" y="333" width="280" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Your Support">
@@ -61,9 +61,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HNM-S9-cA1">
-                                <rect key="frame" x="50" y="191" width="250" height="64"/>
+                                <rect key="frame" x="50" y="185" width="250" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Rewards">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -77,7 +77,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="31i-XP-cJo">
-                                <rect key="frame" x="50" y="49" width="250" height="64"/>
+                                <rect key="frame" x="20" y="49" width="280" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Child Selection">
@@ -1468,6 +1468,15 @@ Reward</string>
             <relationships>
                 <relationship kind="action" name="cancel"/>
                 <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="GGKChildSelectionViewController" superclassName="GGKViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKChildSelectionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="editName"/>
+                <relationship kind="action" name="verifyRemoveChild:"/>
+                <relationship kind="outlet" name="childNamesTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="currentChildLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="GGKEditChildNameViewController" superclassName="GGKViewController">
