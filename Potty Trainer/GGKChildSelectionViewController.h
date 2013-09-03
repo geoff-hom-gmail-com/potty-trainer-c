@@ -10,7 +10,7 @@
 
 #import "GGKEditChildNameViewController.h"
 
-@interface GGKPickChildViewController : GGKViewController <GGKEditChildNameViewControllerDelegate, UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface GGKChildSelectionViewController : GGKViewController <GGKEditChildNameViewControllerDelegate, UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
 
 // Name of the current child.
 @property (weak, nonatomic) IBOutlet UILabel *currentChildLabel;

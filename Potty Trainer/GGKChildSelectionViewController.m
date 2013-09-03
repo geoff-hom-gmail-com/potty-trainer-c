@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
-#import "GGKPickChildViewController.h"
+#import "GGKChildSelectionViewController.h"
 
 #import "GGKReward.h"
 
 // Title for action sheet for removing a child.
 NSString *RemoveChildActionSheetTitleString = @"Removing a child will delete all information for that child, including potty records and rewards.";
 
-@interface GGKPickChildViewController ()
+@interface GGKChildSelectionViewController ()
 
 // Remove data for current child.
 - (void)removeCurrentChild;
@@ -23,7 +23,7 @@ NSString *RemoveChildActionSheetTitleString = @"Removing a child will delete all
 
 @end
 
-@implementation GGKPickChildViewController
+@implementation GGKChildSelectionViewController
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {

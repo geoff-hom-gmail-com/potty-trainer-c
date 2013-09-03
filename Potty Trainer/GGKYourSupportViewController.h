@@ -13,7 +13,7 @@
 #import <StoreKit/StoreKit.h>
 #import <UIKit/UIKit.h>
 
-@interface GGKAboutUsViewController : GGKViewController <GGKInAppPurchaseObserverDelegate, MFMailComposeViewControllerDelegate, SKProductsRequestDelegate>
+@interface GGKYourSupportViewController : GGKViewController <GGKInAppPurchaseObserverDelegate, MFMailComposeViewControllerDelegate, SKProductsRequestDelegate>
 
 // For letting the user email the developers.
 @property (nonatomic, weak) IBOutlet UIButton *emailUsButton;

@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
-#import "GGKAboutUsViewController.h"
+#import "GGKYourSupportViewController.h"
 
 #import "GGKPerfectPottyAppDelegate.h"
 #import "GGKSavedInfo.h"
 
-@interface GGKAboutUsViewController ()
+@interface GGKYourSupportViewController ()
 
 // For letting the player know when the app is busy/waiting (purchasing something).
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicatorView;
@@ -39,7 +39,7 @@
 
 @end
 
-@implementation GGKAboutUsViewController
+@implementation GGKYourSupportViewController
 
 - (BOOL)buyProductWithID:(NSString *)theProductID
 {    
