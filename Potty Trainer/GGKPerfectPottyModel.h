@@ -44,10 +44,8 @@ extern NSString *GGKXSymbolString;
 
 // All children being tracked.
 @property (strong, nonatomic) NSMutableArray *childrenMutableArray;
-
 // Which color theme to use.
 @property (strong, nonatomic) NSString *colorThemeString;
-
 // Child the parent is currently tracking.
 @property (strong, nonatomic) GGKChild *currentChild;
 
@@ -59,7 +57,6 @@ extern NSString *GGKXSymbolString;
 
 // The reminder is set using date components. I.e., time from the given date. 
 @property (strong, nonatomic) NSDateComponents *reminderIncrementDateComponents;
-
 // Create child with name. Add to database. Return child.
 - (GGKChild *)addChildWithName:(NSString *)name;
 

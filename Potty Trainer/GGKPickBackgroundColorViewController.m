@@ -8,7 +8,6 @@
 
 #import "GGKPickBackgroundColorViewController.h"
 
-#import "GGKSavedInfo.h"
 #import "UIColor+GGKColors.h"
 
 @interface GGKPickBackgroundColorViewController ()

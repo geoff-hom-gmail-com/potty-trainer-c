@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GGKMusicModel.h"
 #import "GGKPerfectPottyModel.h"
 #import "GGKSoundModel.h"
 
@@ -17,12 +17,11 @@
 
 // For observing App Store transactions.
 @property (strong, nonatomic) GGKInAppPurchaseObserver *inAppPurchaseObserver;
-
+// For playing music.
+@property (strong, nonatomic) GGKMusicModel *musicModel;
 @property (strong, nonatomic) GGKPerfectPottyModel *perfectPottyModel;
-
 // For playing sound.
 @property (strong, nonatomic) GGKSoundModel *soundModel;
-
 @property (strong, nonatomic) UIWindow *window;
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;

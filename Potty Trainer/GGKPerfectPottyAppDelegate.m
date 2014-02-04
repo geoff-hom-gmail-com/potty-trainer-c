@@ -13,18 +13,18 @@
 #import "TestFlight.h"
 
 NSString *GGKAppName = @"Perfect Potty";
+// Key for storing whether this app has launched before.
+NSString *GGKHasLaunchedBeforeKeyString = @"Has launched before?";
 
 @interface GGKPerfectPottyAppDelegate ()
-
 // Whether a local notification was already received a short time ago (currently a second).
 @property (assign, nonatomic) BOOL localNotificationWasRecentlyReceived;
-
 // Sound to play for a reminder alert.
 @property (assign, nonatomic) SystemSoundID reminderSound;
-
+// If it's the first time this app has been launched, do stuff. (E.g., initialize with default data.)
+- (void)handleIfFirstLaunch;
 // So, reset that flag.
 - (void)noteThatLocalNotificationsNotReceivedRecently;
-
 @end
 
 @implementation GGKPerfectPottyAppDelegate
@@ -40,6 +40,8 @@ NSString *GGKAppName = @"Perfect Potty";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     NSLog(@"PTAD a dFLWO1");
+    
+    [self handleIfFirstLaunch];
     
     // Show splash image, then fade it out.
     // Get proper image: Check if non-retina. Else, check if 3.5" retina. Else, assume 4" retina.
@@ -72,6 +74,7 @@ NSString *GGKAppName = @"Perfect Potty";
     NSLog(@"Localized model:%@", [[UIDevice currentDevice] localizedModel]);
     NSLog(@"System name:%@; system version:%@", [[UIDevice currentDevice] systemName], [[UIDevice currentDevice] systemVersion]);
     
+    self.musicModel = [[GGKMusicModel alloc] init];
     self.soundModel = [[GGKSoundModel alloc] init];
     self.perfectPottyModel = [[GGKPerfectPottyModel alloc] init];
     
@@ -108,9 +111,11 @@ NSString *GGKAppName = @"Perfect Potty";
     }
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
+- (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    NSLog(@"applicationDidBecomeActive");
+    // Play background music.
+    [self.musicModel playIntroMusic];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -136,9 +141,18 @@ NSString *GGKAppName = @"Perfect Potty";
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
-- (void)noteThatLocalNotificationsNotReceivedRecently
-{
+- (void)handleIfFirstLaunch {
+    // Check for a stored BOOL. If the first launch, it will be NO. So we'll do stuff and then set that to YES.
+    BOOL hasLaunchedBefore = [[NSUserDefaults standardUserDefaults] boolForKey:GGKHasLaunchedBeforeKeyString];
+    // Uncomment this to reset defaults.
+//        hasLaunchedBefore = NO;
+    if (!hasLaunchedBefore) {
+        // Set defaults.
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:GGKEnableMusicBOOLKeyString];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:GGKHasLaunchedBeforeKeyString];
+    }
+}
+- (void)noteThatLocalNotificationsNotReceivedRecently {
     self.localNotificationWasRecentlyReceived = NO;
 }
 

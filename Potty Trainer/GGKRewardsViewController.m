@@ -11,7 +11,6 @@
 
 #import "GGKAddRewardTextViewController.h"
 #import "GGKReward.h"
-#import "GGKSavedInfo.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
 NSString *GGKUsePhotoTitleString = @"Use photo";

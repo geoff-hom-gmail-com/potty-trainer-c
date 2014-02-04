@@ -5,10 +5,9 @@
 //  Created by Geoff Hom on 2/21/13.
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
-
 #import "GGKSettingsViewController.h"
 
-#import "GGKSavedInfo.h"
+#import "GGKPerfectPottyAppDelegate.h"
 #import "NSDate+GGKDate.h"
 
 @interface GGKSettingsViewController ()
@@ -88,10 +87,8 @@
     self.timer = aTimer;
 }
 
-- (void)startVisibleUpdates
-{
+- (void)startVisibleUpdates {
     [self startUpdateTimer];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopVisibleUpdates) name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
 
@@ -102,13 +99,14 @@
     NSLog(@"timer stopped");
 }
 
-- (void)stopVisibleUpdates
-{
+- (void)stopVisibleUpdates {
     [self stopTimer];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
-
+- (IBAction)toggleMusic {
+    GGKPerfectPottyAppDelegate *aPottyTrainerAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
+    [aPottyTrainerAppDelegate.musicModel toggleMusic];
+}
 - (void)updateForAReminder:(UILocalNotification *)theLocalNotification
 {
     // Report hours/mins/secs until reminder, and the actual time of the reminder.
@@ -140,14 +138,12 @@
     self.cancelButton.enabled = NO;
     [self.setOrChangeReminderButton setTitle:@"Set Reminder" forState:UIControlStateNormal];
 }
-
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-        
+    GGKPerfectPottyAppDelegate *aPottyTrainerAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
+    self.musicSwitch.on = aPottyTrainerAppDelegate.musicModel.musicIsEnabled;
     [self startVisibleUpdates];
 }
-
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];

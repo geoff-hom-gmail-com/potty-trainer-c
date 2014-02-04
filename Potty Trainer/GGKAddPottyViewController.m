@@ -8,7 +8,6 @@
 
 #import "GGKAddPottyViewController.h"
 
-#import "GGKSavedInfo.h"
 #import "NSDate+GGKDate.h"
 
 @interface GGKAddPottyViewController ()

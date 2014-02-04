@@ -9,7 +9,6 @@
 #import "GGKYourSupportViewController.h"
 
 #import "GGKPerfectPottyAppDelegate.h"
-#import "GGKSavedInfo.h"
 
 @interface GGKYourSupportViewController ()
 

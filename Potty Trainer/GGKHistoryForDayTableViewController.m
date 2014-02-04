@@ -10,7 +10,6 @@
 
 #import "GGKPerfectPottyModel.h"
 #import "GGKPottyAttemptCell.h"
-#import "GGKSavedInfo.h"
 #import "NSDate+GGKDate.h"
 
 @interface GGKHistoryForDayTableViewController ()

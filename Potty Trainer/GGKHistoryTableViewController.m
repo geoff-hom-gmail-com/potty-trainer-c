@@ -11,7 +11,6 @@
 #import "GGKHistoryForDayTableViewController.h"
 #import "GGKHistoryHeaderCell.h"
 #import "GGKPottyAttemptDayTableViewCell.h"
-#import "GGKSavedInfo.h"
 #import "GGKSoundModel.h"
 #import "NSDate+GGKDate.h"
 

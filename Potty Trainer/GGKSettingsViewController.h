@@ -15,7 +15,8 @@
 
 // For cancelling the current reminder. If no reminder, disable this.
 @property (nonatomic, weak) IBOutlet UIButton *cancelButton;
-
+// For toggling background music.
+@property (nonatomic, weak) IBOutlet UISwitch *musicSwitch;
 // For telling the user if there is a reminder, and when.
 @property (nonatomic, weak) IBOutlet UILabel *reminderLabel;
 
@@ -28,9 +29,10 @@
 // UIViewController override.
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 
+// sRVC set reminder, so dismiss that view controller.
 - (void)setReminderViewControllerDidSetReminder:(id)sender;
-// So, dismiss the view controller.
-
+// Toggle background music.
+- (IBAction)toggleMusic;
 // Override.
 - (void)viewWillAppear:(BOOL)animated;
 

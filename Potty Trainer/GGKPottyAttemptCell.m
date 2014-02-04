@@ -9,7 +9,6 @@
 #import "GGKPottyAttemptCell.h"
 
 #import "GGKPerfectPottyModel.h"
-#import "GGKSavedInfo.h"
 #import "NSDate+GGKDate.h"
 
 @implementation GGKPottyAttemptCell

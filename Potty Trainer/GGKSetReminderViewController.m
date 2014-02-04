@@ -9,7 +9,6 @@
 #import "GGKSetReminderViewController.h"
 
 #import "GGKPerfectPottyAppDelegate.h"
-#import "GGKSavedInfo.h"
 #import "NSDate+GGKDate.h"
 
 NSString *GGKReminderWhenPrefixString = @"Remind me at";

@@ -9,7 +9,6 @@
 #import "GGKRootViewController.h"
 
 #import "GGKPickBackgroundColorViewController.h"
-#import "GGKSavedInfo.h"
 #import "UIColor+GGKColors.h"
 
 //BOOL GGKCreateLaunchImages = YES;
