@@ -37,11 +37,30 @@ NSString *GGKAppName = @"Perfect Potty";
     }
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
     NSLog(@"PTAD a dFLWO1");
+    
+    // Show splash image, then fade it out.
+    // Get proper image: Check if non-retina. Else, check if 3.5" retina. Else, assume 4" retina.
+    NSString *theImageFilename;
+    if ([UIScreen mainScreen].scale == 1.0) {
+        theImageFilename = @"Default.png";
+    } else if ([UIScreen mainScreen].bounds.size.height == 480) {
+        theImageFilename = @"Default@2x.png";
+    } else {
+        theImageFilename = @"Default-568h@2x.png";
+    }
+    UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:theImageFilename]];
+    UIView *theRootView = self.window.rootViewController.view;
+    anImageView.frame = theRootView.frame;
+    [theRootView addSubview:anImageView];
+    [theRootView bringSubviewToFront:anImageView];
+    [UIView animateWithDuration:1 delay:1 options:UIViewAnimationOptionCurveLinear animations:^{
+        anImageView.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        [anImageView removeFromSuperview];
+    }];
     
 #define TESTING 1
 #ifdef TESTING
