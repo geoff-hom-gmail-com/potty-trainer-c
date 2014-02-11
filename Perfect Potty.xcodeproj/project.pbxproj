@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		9315502F16DF1D2400482944 /* UIView+GGKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315502E16DF1D2400482944 /* UIView+GGKAdditions.m */; };
 		9315503216DF225000482944 /* GGKSetReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315503116DF225000482944 /* GGKSetReminderViewController.m */; };
+		932904E418AA55930066D2DA /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 932904DE18AA55930066D2DA /* libTestFlight.a */; };
+		932904E518AA55930066D2DA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 932904DF18AA55930066D2DA /* README.md */; };
+		932904E618AA55930066D2DA /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 932904E018AA55930066D2DA /* release_notes.md */; };
 		9336135C18A0A5450026F270 /* GGKMusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9336135B18A0A5450026F270 /* GGKMusicModel.m */; };
 		9336135E18A0C04C0026F270 /* Perfect Potty - Intro Main Menu Music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9336135D18A0C04C0026F270 /* Perfect Potty - Intro Main Menu Music.m4a */; };
 		9353B37F16E6011300B0A75A /* GGKYourSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9353B37E16E6011300B0A75A /* GGKYourSupportViewController.m */; };
-		935A343E16F2063B003DD6FA /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 935A343A16F2063B003DD6FA /* libTestFlight.a */; };
-		935A343F16F2063B003DD6FA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 935A343B16F2063B003DD6FA /* README.md */; };
-		935A344016F2063B003DD6FA /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 935A343C16F2063B003DD6FA /* release_notes.md */; };
 		935A344216F206BA003DD6FA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 935A344116F206BA003DD6FA /* libz.dylib */; };
 		9362E42416D49EC600A1B771 /* GGKPickBackgroundColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42316D49EC600A1B771 /* GGKPickBackgroundColorViewController.m */; };
 		9362E42716D4AC2A00A1B771 /* UIColor+GGKColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42616D4AC2A00A1B771 /* UIColor+GGKColors.m */; };
@@ -77,15 +77,17 @@
 		9315502E16DF1D2400482944 /* UIView+GGKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GGKAdditions.m"; sourceTree = "<group>"; };
 		9315503016DF225000482944 /* GGKSetReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSetReminderViewController.h; sourceTree = "<group>"; };
 		9315503116DF225000482944 /* GGKSetReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSetReminderViewController.m; sourceTree = "<group>"; };
+		932904DE18AA55930066D2DA /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		932904DF18AA55930066D2DA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		932904E018AA55930066D2DA /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		932904E118AA55930066D2DA /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		932904E218AA55930066D2DA /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		932904E318AA55930066D2DA /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		9336135A18A0A5450026F270 /* GGKMusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKMusicModel.h; sourceTree = "<group>"; };
 		9336135B18A0A5450026F270 /* GGKMusicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKMusicModel.m; sourceTree = "<group>"; };
 		9336135D18A0C04C0026F270 /* Perfect Potty - Intro Main Menu Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Perfect Potty - Intro Main Menu Music.m4a"; sourceTree = "<group>"; };
 		9353B37D16E6011300B0A75A /* GGKYourSupportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKYourSupportViewController.h; sourceTree = "<group>"; };
 		9353B37E16E6011300B0A75A /* GGKYourSupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKYourSupportViewController.m; sourceTree = "<group>"; };
-		935A343A16F2063B003DD6FA /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		935A343B16F2063B003DD6FA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		935A343C16F2063B003DD6FA /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
-		935A343D16F2063B003DD6FA /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		935A344116F206BA003DD6FA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		9362E42216D49EC600A1B771 /* GGKPickBackgroundColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPickBackgroundColorViewController.h; sourceTree = "<group>"; };
 		9362E42316D49EC600A1B771 /* GGKPickBackgroundColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPickBackgroundColorViewController.m; sourceTree = "<group>"; };
@@ -179,9 +181,9 @@
 			files = (
 				9387C1EC17D1A5CA003D10B7 /* AudioToolbox.framework in Frameworks */,
 				9362E43016D5FBF400A1B771 /* AVFoundation.framework in Frameworks */,
+				932904E418AA55930066D2DA /* libTestFlight.a in Frameworks */,
 				937652AE16C079CB007EA04C /* CoreGraphics.framework in Frameworks */,
 				937652AC16C079CB007EA04C /* Foundation.framework in Frameworks */,
-				935A343E16F2063B003DD6FA /* libTestFlight.a in Frameworks */,
 				935A344216F206BA003DD6FA /* libz.dylib in Frameworks */,
 				9387C1EE17D1A7D0003D10B7 /* MediaPlayer.framework in Frameworks */,
 				93DE8C0F16E87A2400AA87FF /* MessageUI.framework in Frameworks */,
@@ -194,15 +196,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		935A343916F2063B003DD6FA /* TestFlightSDK1 */ = {
+		932904DD18AA55930066D2DA /* TestFlightSDK2 */ = {
 			isa = PBXGroup;
 			children = (
-				935A343A16F2063B003DD6FA /* libTestFlight.a */,
-				935A343B16F2063B003DD6FA /* README.md */,
-				935A343C16F2063B003DD6FA /* release_notes.md */,
-				935A343D16F2063B003DD6FA /* TestFlight.h */,
+				932904DE18AA55930066D2DA /* libTestFlight.a */,
+				932904DF18AA55930066D2DA /* README.md */,
+				932904E018AA55930066D2DA /* release_notes.md */,
+				932904E118AA55930066D2DA /* TestFlight+AsyncLogging.h */,
+				932904E218AA55930066D2DA /* TestFlight+ManualSessions.h */,
+				932904E318AA55930066D2DA /* TestFlight.h */,
 			);
-			path = TestFlightSDK1;
+			path = TestFlightSDK2;
 			sourceTree = "<group>";
 		};
 		9362E43116D5FC9100A1B771 /* sounds */ = {
@@ -219,10 +223,10 @@
 		9376529D16C079CA007EA04C = {
 			isa = PBXGroup;
 			children = (
-				937652AF16C079CB007EA04C /* Perfect Potty */,
-				935A343916F2063B003DD6FA /* TestFlightSDK1 */,
 				937652A816C079CB007EA04C /* Frameworks */,
+				937652AF16C079CB007EA04C /* Perfect Potty */,
 				937652A716C079CB007EA04C /* Products */,
+				932904DD18AA55930066D2DA /* TestFlightSDK2 */,
 			);
 			sourceTree = "<group>";
 		};
@@ -408,6 +412,7 @@
 			files = (
 				937652B416C079CB007EA04C /* InfoPlist.strings in Resources */,
 				937652C316C079CB007EA04C /* MainStoryboard_iPhone.storyboard in Resources */,
+				932904E518AA55930066D2DA /* README.md in Resources */,
 				937652C616C079CB007EA04C /* MainStoryboard_iPad.storyboard in Resources */,
 				9362E43216D5FDAB00A1B771 /* tap.aif in Resources */,
 				9376CCAE16E0111E00887ADE /* scoreIncrease.aiff in Resources */,
@@ -423,8 +428,7 @@
 				93DD9EA918A09A0300F09E21 /* Default-568h@2x.png in Resources */,
 				93DE8C1F16E89A7E00AA87FF /* icon2-72px.png in Resources */,
 				93DE8C2016E89A7E00AA87FF /* icon2-72px@2x.png in Resources */,
-				935A343F16F2063B003DD6FA /* README.md in Resources */,
-				935A344016F2063B003DD6FA /* release_notes.md in Resources */,
+				932904E618AA55930066D2DA /* release_notes.md in Resources */,
 				93BD16621761869400D32AA0 /* GGKPerfectPottyDescription.rtf in Resources */,
 				93CA2BA617D4820B00CF4440 /* reminder1.aiff in Resources */,
 			);
@@ -574,7 +578,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TestFlightSDK1\"",
+					"/Users/geoffrey2/personal/projects/Potty\\ Trainer\\ good/TestFlightSDK2",
 				);
 				PRODUCT_NAME = "Perfect Potty";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -594,7 +598,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TestFlightSDK1\"",
+					"/Users/geoffrey2/personal/projects/Potty\\ Trainer\\ good/TestFlightSDK2",
 				);
 				PRODUCT_NAME = "Perfect Potty";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C267AF09-7587-4ADB-9BA2-BF8524321EB4";
@@ -643,7 +647,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TestFlightSDK1\"",
+					"/Users/geoffrey2/personal/projects/Potty\\ Trainer\\ good/TestFlightSDK2",
 				);
 				PRODUCT_NAME = "Perfect Potty";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E737960F-D027-42FE-B4C9-7AF9856E5CBB";
