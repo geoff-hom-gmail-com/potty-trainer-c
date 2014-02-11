@@ -81,7 +81,20 @@
     // Version without custom symbols.
 //    NSDictionary *thePottyAttemptDictionary = @{GGKPottyAttemptDateKeyString:thePottyAttemptDate, GGKPottyAttemptWasSuccessfulNumberKeyString:thePottyAttemptWasSuccessfulNumber};
     
-    NSString *thePottyAttemptSymbolString = [self.symbolSegmentedControl titleForSegmentAtIndex:self.symbolSegmentedControl.selectedSegmentIndex];
+    // Get the selected symbol.
+    NSString *thePottyAttemptSymbolString;
+    NSInteger theSelectedSegmentIndex = self.symbolSegmentedControl.selectedSegmentIndex;
+    switch (theSelectedSegmentIndex) {
+        case 0:
+            thePottyAttemptSymbolString = @"p";
+            break;
+        case 2:
+            thePottyAttemptSymbolString = @"B";
+            break;
+        default:
+            thePottyAttemptSymbolString = [self.symbolSegmentedControl titleForSegmentAtIndex:theSelectedSegmentIndex];
+            break;
+    }
     NSDictionary *thePottyAttemptDictionary = @{GGKPottyAttemptDateKeyString:thePottyAttemptDate, GGKPottyAttemptWasSuccessfulNumberKeyString:thePottyAttemptWasSuccessfulNumber, GGKPottyAttemptSymbolStringKeyString:thePottyAttemptSymbolString};
 
     // Get saved data.
@@ -159,10 +172,9 @@
     [self.symbolSegmentedControl setTitle:theMostRecentCustomSymbolString forSegmentAtIndex:4];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.symbolSegmentedControl.apportionsSegmentWidthsByContent = YES;
     // Listen for taps on the symbol segmented control. We do this (instead of using the value-changed event) in case the user taps the same segment twice (e.g., the custom segment, to change the symbol).
     UITapGestureRecognizer *aTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSymbolSegmentedControlTapped)];
     [self.symbolSegmentedControl addGestureRecognizer:aTapGestureRecognizer];

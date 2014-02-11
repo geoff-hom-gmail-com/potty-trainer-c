@@ -737,7 +737,6 @@ from now.</string>
                         <userGuides>
                             <userLayoutGuide location="408" affinity="minY"/>
                             <userLayoutGuide location="8" affinity="minX"/>
-                            <userLayoutGuide location="312" affinity="minX"/>
                             <userLayoutGuide location="8" affinity="minY"/>
                         </userGuides>
                         <subviews>
@@ -780,12 +779,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="dyG-aX-p12">
-                                <rect key="frame" x="82" y="8" width="230" height="44"/>
+                                <rect key="frame" x="77" y="8" width="236" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="p"/>
+                                    <segment title="(p)ee"/>
                                     <segment title="💩"/>
-                                    <segment title="B"/>
+                                    <segment title="(B)oth"/>
                                     <segment title="✘"/>
                                     <segment title="…"/>
                                 </segments>
