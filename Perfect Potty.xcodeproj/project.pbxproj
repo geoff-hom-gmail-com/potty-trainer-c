@@ -566,6 +566,7 @@
 		937652CD16C079CB007EA04C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Potty Trainer/Perfect Potty Pal-Prefix.pch";
@@ -585,7 +586,8 @@
 		937652CE16C079CB007EA04C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Geoffrey Hom";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Potty Trainer/Perfect Potty Pal-Prefix.pch";
 				INFOPLIST_FILE = "Potty Trainer/Perfect Potty Pal-Info.plist";
@@ -595,7 +597,7 @@
 					"\"$(SRCROOT)/TestFlightSDK1\"",
 				);
 				PRODUCT_NAME = "Perfect Potty";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F3C273FE-B351-4E8E-8E1B-5A601D44FB5D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C267AF09-7587-4ADB-9BA2-BF8524321EB4";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -633,7 +635,7 @@
 		937652D016C07CC9007EA04C /* User testing */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Geoffrey Hom";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Potty Trainer/Perfect Potty Pal-Prefix.pch";
@@ -644,7 +646,7 @@
 					"\"$(SRCROOT)/TestFlightSDK1\"",
 				);
 				PRODUCT_NAME = "Perfect Potty";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AC8DCFB1-E329-49FE-A9C4-3D518F9DB3B9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E737960F-D027-42FE-B4C9-7AF9856E5CBB";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

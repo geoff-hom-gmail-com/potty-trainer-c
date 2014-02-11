@@ -90,12 +90,12 @@ NSString *GGKHasLaunchedBeforeKeyString = @"Has launched before?";
 - (void)application:(UIApplication *)theApplication didReceiveLocalNotification:(UILocalNotification *)theNotification
 {
     // There's a bug that can cause one notification to call this method twice. So we'll add a timer so this can get called only so often.
-    NSLog(@"PTAD a dRLN");
+    NSLog(@"aD a dRLN");
     if (!self.localNotificationWasRecentlyReceived) {
         
         if (theApplication.applicationState == UIApplicationStateActive) {
             
-            NSLog(@"PTAD a dRLN. app was running");
+            NSLog(@"aD a dRLN: app was running");
             UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:GGKAppName message:theNotification.alertBody delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
             [anAlertView show];
             
@@ -113,7 +113,7 @@ NSString *GGKHasLaunchedBeforeKeyString = @"Has launched before?";
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    NSLog(@"applicationDidBecomeActive");
+//    NSLog(@"aD aDBA");
     // Play background music.
     [self.musicModel playIntroMusic];
 }
