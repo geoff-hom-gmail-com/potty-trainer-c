@@ -43,7 +43,18 @@
         [self performSegueWithIdentifier:@"ShowUseCustomSymbolView" sender:self];
     }
 }
-
+- (void)handleViewAppearedToUser {
+    [super handleViewAppearedToUser];
+    // Set the date picker not to allow future days.
+    NSDate *aTodayDate = [NSDate date];
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+    NSDateComponents *aDateComponents = [gregorianCalendar components:unitFlags fromDate:aTodayDate];
+    [aDateComponents setHour:23];
+    [aDateComponents setMinute:59];
+    NSDate *anEndOfTodayDate = [gregorianCalendar dateFromComponents:aDateComponents];
+    self.datePicker.maximumDate = anEndOfTodayDate;
+}
 - (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender
 {
     if ([theSegue.identifier hasPrefix:@"ShowUseCustomSymbolView"]) {
@@ -156,20 +167,4 @@
     UITapGestureRecognizer *aTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSymbolSegmentedControlTapped)];
     [self.symbolSegmentedControl addGestureRecognizer:aTapGestureRecognizer];
 }
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-
-    // Set the date picker to allow only dates up to 11:59 PM today.
-    NSDate *aTodayDate = [NSDate date];
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
-    NSDateComponents *aDateComponents = [gregorianCalendar components:unitFlags fromDate:aTodayDate];
-    [aDateComponents setHour:23];
-    [aDateComponents setMinute:59];
-    NSDate *anEndOfTodayDate = [gregorianCalendar dateFromComponents:aDateComponents];
-    self.datePicker.maximumDate = anEndOfTodayDate;
-}
-
 @end

@@ -24,22 +24,10 @@
 @end
 
 @implementation GGKPickBackgroundColorViewController
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)handleViewAppearedToUser {
+    [super handleViewAppearedToUser];
+    [self updateColors];
 }
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)updateColors
 {
     // Check theme.
@@ -80,21 +68,4 @@
 //    [[NSUserDefaults standardUserDefaults] setObject:GGKGirlThemeString forKey:GGKThemeKeyString];
     [self updateColors];
 }
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-//    self.boyColor = [UIColor cyanColor];
-//    self.girlColor = [UIColor pinkColor];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
-    
-    [self updateColors];
-}
-
 @end

@@ -33,7 +33,7 @@
     // No need to call super.
 }
 - (void)handleViewAppearedToUser {
-//    NSLog(@"VC hVATU1");
+    NSLog(@"VC hVATU1");
 }
 - (IBAction)playButtonSound
 {
@@ -52,18 +52,20 @@
 	// Do any additional setup after loading the view.
     GGKPerfectPottyAppDelegate *theAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
     self.perfectPottyModel = theAppDelegate.perfectPottyModel;
-    // If this app comes to the foreground and this VC is visible to the user, update.
-    // Using a weak variable to avoid a strong-reference cycle.
-    GGKViewController * __weak aWeakSelf = self;
-    self.appWillEnterForegroundObserver = [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-        if (aWeakSelf.navigationController.topViewController == aWeakSelf) {
-            [aWeakSelf handleViewAppearedToUser];
-        }
-    }];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self handleViewAppearedToUser];
+    // Using a weak variable to avoid a strong-reference cycle.
+    GGKViewController * __weak aWeakSelf = self;
+    self.appWillEnterForegroundObserver = [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [aWeakSelf handleViewAppearedToUser];
+    }];
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self.appWillEnterForegroundObserver name:UIApplicationWillEnterForegroundNotification object:nil];
+    self.appWillEnterForegroundObserver = nil;
 }
 - (void)viewWillLayoutSubviews
 {

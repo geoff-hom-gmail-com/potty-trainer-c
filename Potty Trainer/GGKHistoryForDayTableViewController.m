@@ -18,12 +18,6 @@
 
 @implementation GGKHistoryForDayTableViewController
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -31,28 +25,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
-    
-    // Set the navigation-bar title.
-    NSDictionary *aPottyAttemptDictionary = self.pottyAttemptArray[0];
-    NSDate *aDate = aPottyAttemptDictionary[GGKPottyAttemptDateKeyString];
-    NSString *aDateString = [aDate monthDayString];
-    self.navigationItem.title = [NSString stringWithFormat:@"%@", aDateString];
 }
 
 #pragma mark - Table view data source
@@ -141,5 +113,20 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
-
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    //    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // Set the navigation-bar title.
+    NSDictionary *aPottyAttemptDictionary = self.pottyAttemptArray[0];
+    NSDate *aDate = aPottyAttemptDictionary[GGKPottyAttemptDateKeyString];
+    NSString *aDateString = [aDate monthDayString];
+    self.navigationItem.title = [NSString stringWithFormat:@"%@", aDateString];
+}
 @end

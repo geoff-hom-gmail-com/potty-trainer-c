@@ -19,7 +19,8 @@
 
 - (void)addPottyViewControllerDidAddPottyAttempt:(id)sender;
 // So, dismiss the view controller.
-
+// Override.
+- (void)handleViewAppearedToUser;
 - (void)historyForDayTableViewControllerDidDeleteAttempt:(id)sender;
 // So, get the updated data for that day. If nil, delete that day from the array. Else, put that updated data in the array.
 
@@ -35,8 +36,4 @@
 
 // Override.
 - (void)viewDidLoad;
-
-// Override.
-- (void)viewWillAppear:(BOOL)animated;
-
 @end

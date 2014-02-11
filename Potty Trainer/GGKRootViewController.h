@@ -11,14 +11,10 @@
 #import <UIKit/UIKit.h>
 
 @interface GGKRootViewController : GGKViewController
-
 // Name of the current child.
 @property (weak, nonatomic) IBOutlet UILabel *currentChildLabel;
-
+// Override.
+- (void)handleViewAppearedToUser;
 // Override.
 - (void)viewDidLoad;
-
-// Override.
-- (void)viewWillAppear:(BOOL)animated;
-
 @end

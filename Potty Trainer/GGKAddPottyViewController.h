@@ -30,7 +30,8 @@
 
 // For choosing whether the attempt was successful or not.
 @property (nonatomic, weak) IBOutlet UISegmentedControl *successfulSegmentedControl;
-
+// Override.
+- (void)handleViewAppearedToUser;
 // Override.
 - (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender;
 
@@ -42,8 +43,4 @@
 
 // Override.
 - (void)viewDidLoad;
-
-// Override.
-- (void)viewWillAppear:(BOOL)animated;
-
 @end

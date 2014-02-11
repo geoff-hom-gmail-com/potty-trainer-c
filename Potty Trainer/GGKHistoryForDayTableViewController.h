@@ -21,5 +21,8 @@
 
 // An array of potty attempts for a single day.
 @property (strong, nonatomic) NSArray *pottyAttemptArray;
-
+// Override.
+- (void)viewDidLoad;
+// Override.
+- (void)viewWillAppear:(BOOL)animated;
 @end

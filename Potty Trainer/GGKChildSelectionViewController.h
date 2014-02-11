@@ -28,7 +28,8 @@
 
 // Show view for editing child's name.
 - (IBAction)editName;
-
+// Override.
+- (void)handleViewAppearedToUser;
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath;
 
 - (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)theIndexPath;
@@ -41,8 +42,4 @@
 
 // Override.
 - (void)viewDidLoad;
-
-// Override.
-- (void)viewWillAppear:(BOOL)animated;
-
 @end

@@ -11,7 +11,8 @@
 #import <UIKit/UIKit.h>
 
 @interface GGKPickBackgroundColorViewController : GGKViewController
-
+// Override.
+- (void)handleViewAppearedToUser;
 // Set the color theme to one for boys.
 - (IBAction)useBoyTheme;
 
@@ -20,11 +21,4 @@
 
 // Set the color theme to one for girls.
 - (IBAction)useGirlTheme;
-
-// UIViewController override.
-- (void)viewDidLoad;
-
-// UIViewController override.
-- (void)viewWillAppear:(BOOL)animated;
-
 @end

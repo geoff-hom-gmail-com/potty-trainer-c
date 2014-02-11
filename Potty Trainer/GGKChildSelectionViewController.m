@@ -103,7 +103,14 @@ NSString *RemoveChildActionSheetTitleString = @"Removing a child will delete all
     
     [self presentViewController:editChildNameViewController animated:YES completion:nil];
 }
-
+- (void)handleViewAppearedToUser {
+    [super handleViewAppearedToUser];
+    // Set height of table. This is also done in the storyboard and has been sufficient in other cases, but not here. (Don't know why. May be an Autolayout or 4-inch iPhone issue.)
+    CGRect frameRect = self.childNamesTableView.frame;
+    frameRect.size.height = 220;
+    self.childNamesTableView.frame = frameRect;
+    [self updateView];
+}
 - (void)removeCurrentChild
 {
     // Remove child's images. Remove child. Select new current child. Refresh table.
@@ -186,17 +193,4 @@ NSString *RemoveChildActionSheetTitleString = @"Removing a child will delete all
 {
     [super viewDidLoad];    
 }
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    // Set height of table. This is also done in the storyboard and has been sufficient in other cases, but not here. (Don't know why. May be an Autolayout or 4-inch iPhone issue.)
-    CGRect frameRect = self.childNamesTableView.frame;
-    frameRect.size.height = 220;
-    self.childNamesTableView.frame = frameRect;
-    
-    [self updateView];
-}
-
 @end

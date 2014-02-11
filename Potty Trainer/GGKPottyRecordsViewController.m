@@ -33,7 +33,16 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
+- (void)handleViewAppearedToUser {
+    [super handleViewAppearedToUser];
+    // Reload the data and refresh the table each time the view appears. This is simply more robust. Data may have been added or deleted, but also the date may have changed, so relative dates (e.g. today) will change if displayed.
+    // When the table is first being shown, we might think this would result in the table reloading its data twice. However, that doesn't seem to be the case, so that's good.
+    GGKChild *currentChild = self.perfectPottyModel.currentChild;
+    NSString *buttonTitleString = [NSString stringWithFormat:@"Add Potty for %@", currentChild.nameString];
+    [self.addPottyButton setTitle:buttonTitleString forState:UIControlStateNormal];
+    self.pottyAttemptDayArray = currentChild.pottyAttemptDayArray;
+    [self.tableView reloadData];
+}
 - (void)historyForDayTableViewControllerDidDeleteAttempt:(id)sender
 {
     GGKHistoryForDayTableViewController *aHistoryForDayTableViewController = (GGKHistoryForDayTableViewController *)sender;
@@ -139,19 +148,4 @@
     
     self.endMinutesAfterStartTimeInteger = (theEndHour - theStartHour) * 60;
 }
-
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
-    
-    // Reload the data and refresh the table each time the view appears. This is simply more robust. Data may have been added or deleted, but also the date may have changed, so relative dates (e.g. today) will change if displayed.
-    // When the table is first being shown, we might think this would result in the table reloading its data twice. However, that doesn't seem to be the case, so that's good.
-    
-    GGKChild *currentChild = self.perfectPottyModel.currentChild;
-    NSString *buttonTitleString = [NSString stringWithFormat:@"Add Potty for %@", currentChild.nameString];
-    [self.addPottyButton setTitle:buttonTitleString forState:UIControlStateNormal];
-    self.pottyAttemptDayArray = currentChild.pottyAttemptDayArray;
-    [self.tableView reloadData];
-}
-
 @end
