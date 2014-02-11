@@ -60,12 +60,6 @@
     return thePaymentWasAdded;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)emailUs
 {
     MFMailComposeViewController *aMailComposeViewController = [[MFMailComposeViewController alloc] init];
@@ -108,15 +102,6 @@
     [self updateStars];
     
     self.view.window.userInteractionEnabled = YES;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)theViewController didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error

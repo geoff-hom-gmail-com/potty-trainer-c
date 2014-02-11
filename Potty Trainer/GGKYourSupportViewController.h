@@ -56,5 +56,6 @@
 
 - (void)requestDidFinish:(SKRequest *)request;
 // So, log the success.
-
+// Override.
+- (void)viewDidLoad;
 @end

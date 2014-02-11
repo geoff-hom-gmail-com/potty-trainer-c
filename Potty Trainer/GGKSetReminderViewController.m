@@ -46,7 +46,11 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
 {
     [self updateReminderTime];
 }
-
+- (void)handleViewAppearedToUser {
+    [super handleViewAppearedToUser];
+    [self updateReminderTime];
+    [self startVisibleUpdates];
+}
 - (NSDate *)reminderDate
 {
     // Get the hour and minute in the date picker. Add to the current time.
@@ -102,7 +106,7 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
     [[NSRunLoop currentRunLoop] addTimer:aTimer forMode:NSDefaultRunLoopMode];
     
     self.timer = aTimer;
-//    NSLog(@"timer started");
+    NSLog(@"SRVC timer started");
 }
 
 - (void)startVisibleUpdates
@@ -111,13 +115,11 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopVisibleUpdates) name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
-
-- (void)stopTimer
-{
+- (void)stopTimer {
     [self.timer invalidate];
     self.timer = nil;
+    NSLog(@"SRVC timer stopped");
 }
-
 - (void)stopVisibleUpdates
 {
     [self stopTimer];
@@ -144,13 +146,13 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
     self.datePicker.date = theReminderIncrementDate;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    [self updateReminderTime];
-    [self startVisibleUpdates];
-}
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    
+//    [self updateReminderTime];
+//    [self startVisibleUpdates];
+//}
 
 - (void)viewWillDisappear:(BOOL)animated
 {

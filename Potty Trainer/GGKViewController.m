@@ -33,7 +33,7 @@
     // No need to call super.
 }
 - (void)handleViewAppearedToUser {
-    NSLog(@"VC hVATU1");
+//    NSLog(@"VC hVATU1");
 }
 - (IBAction)playButtonSound
 {

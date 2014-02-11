@@ -30,9 +30,10 @@ extern NSString *GGKReminderWhenPrefixString;
 // For showing the user the time of the next reminder (e.g., "3:35 PM," not "in 1 hour, 30 min").
 @property (weak, nonatomic) IBOutlet UILabel *whenLabel;
 
-- (IBAction)datePickerTimeChanged:(id)sender;
 // So, update the label showing the reminder time.
-
+- (IBAction)datePickerTimeChanged:(id)sender;
+// Override.
+- (void)handleViewAppearedToUser;
 // Cancel any previous reminders. Set this reminder.
 - (IBAction)setReminder;
 
@@ -40,7 +41,7 @@ extern NSString *GGKReminderWhenPrefixString;
 - (void)viewDidLoad;
 
 // Override.
-- (void)viewWillAppear:(BOOL)animated;
+//- (void)viewWillAppear:(BOOL)animated;
 
 // Override. Stop anything from -viewWillAppear.
 - (void)viewWillDisappear:(BOOL)animated;

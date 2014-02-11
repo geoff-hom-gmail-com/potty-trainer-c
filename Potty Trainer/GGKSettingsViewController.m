@@ -61,7 +61,12 @@
         [self stopTimer];
     }
 }
-
+- (void)handleViewAppearedToUser {
+    [super handleViewAppearedToUser];
+    GGKPerfectPottyAppDelegate *aPottyTrainerAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
+    self.musicSwitch.on = aPottyTrainerAppDelegate.musicModel.musicIsEnabled;
+    [self startVisibleUpdates];
+}
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"showSetReminderView"]) {
@@ -85,6 +90,7 @@
     NSTimer *aTimer = [[NSTimer alloc] initWithFireDate:aNowDate interval:1.0 target:self selector:@selector(checkReminderAndUpdate) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:aTimer forMode:NSDefaultRunLoopMode];
     self.timer = aTimer;
+    NSLog(@"SVC timer started");
 }
 
 - (void)startVisibleUpdates {
@@ -96,7 +102,7 @@
 {
     [self.timer invalidate];
     self.timer = nil;
-    NSLog(@"timer stopped");
+    NSLog(@"SVC timer stopped");
 }
 
 - (void)stopVisibleUpdates {
@@ -138,12 +144,12 @@
     self.cancelButton.enabled = NO;
     [self.setOrChangeReminderButton setTitle:@"Set Reminder" forState:UIControlStateNormal];
 }
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    GGKPerfectPottyAppDelegate *aPottyTrainerAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
-    self.musicSwitch.on = aPottyTrainerAppDelegate.musicModel.musicIsEnabled;
-    [self startVisibleUpdates];
-}
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    GGKPerfectPottyAppDelegate *aPottyTrainerAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
+//    self.musicSwitch.on = aPottyTrainerAppDelegate.musicModel.musicIsEnabled;
+//    [self startVisibleUpdates];
+//}
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];

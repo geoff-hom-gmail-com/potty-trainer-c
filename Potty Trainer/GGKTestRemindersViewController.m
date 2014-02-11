@@ -75,7 +75,10 @@
         [self updateForAReminder];
     }
 }
-
+- (void)handleViewAppearedToUser {
+    [super handleViewAppearedToUser];
+    [self startVisibleUpdates];
+}
 - (IBAction)setTestReminder
 {
     UILocalNotification *aLocalNotification = [[UILocalNotification alloc] init];
@@ -150,12 +153,12 @@
     [self updateForNoReminder];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    [self startVisibleUpdates];
-}
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    
+//    [self startVisibleUpdates];
+//}
 
 - (void)viewWillDisappear:(BOOL)animated
 {

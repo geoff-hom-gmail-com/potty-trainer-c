@@ -21,7 +21,8 @@
 
 // Make sure the existing reminder doesn't go off.
 - (IBAction)cancelReminder;
-
+// Override.
+- (void)handleViewAppearedToUser;
 // Set a reminder to go off in a few seconds.
 - (IBAction)setTestReminder;
 
@@ -29,7 +30,7 @@
 - (void)viewDidLoad;
 
 // Override.
-- (void)viewWillAppear:(BOOL)animated;
+//- (void)viewWillAppear:(BOOL)animated;
 
 // Override.
 - (void)viewWillDisappear:(BOOL)animated;

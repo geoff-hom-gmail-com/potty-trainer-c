@@ -25,7 +25,8 @@
 
 // Make sure the existing reminder doesn't go off.
 - (IBAction)cancelReminder;
-
+// Override.
+- (void)handleViewAppearedToUser;
 // UIViewController override.
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 
@@ -34,7 +35,7 @@
 // Toggle background music.
 - (IBAction)toggleMusic;
 // Override.
-- (void)viewWillAppear:(BOOL)animated;
+//- (void)viewWillAppear:(BOOL)animated;
 
 // Override.
 - (void)viewWillDisappear:(BOOL)animated;
