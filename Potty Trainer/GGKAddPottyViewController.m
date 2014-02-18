@@ -43,35 +43,24 @@
         [self performSegueWithIdentifier:@"ShowUseCustomSymbolView" sender:self];
     }
 }
-- (void)handleViewWillAppearToUser {
-    [super handleViewWillAppearToUser];
-}
-- (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender {
     if ([theSegue.identifier hasPrefix:@"ShowUseCustomSymbolView"]) {
-        
         GGKUseCustomSymbolViewController *aUseCustomSymbolViewController = [(UIStoryboardSegue *)theSegue destinationViewController];
         aUseCustomSymbolViewController.delegate = self;
     } else {
-        
         [super prepareForSegue:theSegue sender:theSender];
     }
 }
-
-- (IBAction)savePottyAttempt
-{
+- (IBAction)savePottyAttempt {
     // Get new data.
     BOOL thePottyAttemptWasSuccessfulBOOL = NO;
     if (self.successfulSegmentedControl.selectedSegmentIndex == 0) {
-        
         thePottyAttemptWasSuccessfulBOOL = YES;
     };
     NSDate *thePottyAttemptDate = self.datePicker.date;
     NSNumber *thePottyAttemptWasSuccessfulNumber = [NSNumber numberWithBool:thePottyAttemptWasSuccessfulBOOL];
-    
     // Version without custom symbols.
 //    NSDictionary *thePottyAttemptDictionary = @{GGKPottyAttemptDateKeyString:thePottyAttemptDate, GGKPottyAttemptWasSuccessfulNumberKeyString:thePottyAttemptWasSuccessfulNumber};
-    
     // Get the selected symbol.
     NSString *thePottyAttemptSymbolString;
     NSInteger theSelectedSegmentIndex = self.symbolSegmentedControl.selectedSegmentIndex;
@@ -88,7 +77,6 @@
             break;
     }
     NSDictionary *thePottyAttemptDictionary = @{GGKPottyAttemptDateKeyString:thePottyAttemptDate, GGKPottyAttemptWasSuccessfulNumberKeyString:thePottyAttemptWasSuccessfulNumber, GGKPottyAttemptSymbolStringKeyString:thePottyAttemptSymbolString};
-    
     // The model should handle the stuff below.
     if (self.pottyAttemptToEditDictionary == nil) {
         [self.perfectPottyModel addPottyAttempt:thePottyAttemptDictionary];
@@ -97,93 +85,7 @@
         self.pottyAttemptToEditDictionary = nil;
     }
     [self.navigationController popViewControllerAnimated:YES];
-
-//    // Get saved data.
-//    NSArray *thePottyAttemptDayArray = self.perfectPottyModel.currentChild.pottyAttemptDayArray;
-//    
-//    // Add data. To find where to add the data, check previous attempts until we find the same date or a previous date (searching backward through the attempts). We search backward because the user is probably adding a recent attempt.
-//    
-//    // By default, add the attempt as a new date at the start of the array. (Works if there was no data before.)
-//    __block BOOL theAttemptDateIsNew = YES;
-//    __block NSInteger theIndexToInsertAttempt = 0;
-//    
-//    [thePottyAttemptDayArray enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSArray *aPottyAttemptArray, NSUInteger idx, BOOL *stop) {
-//        
-//        NSDictionary *aPottyAttemptDictionary = aPottyAttemptArray[0];
-//        NSDate *aPottyAttemptDate = aPottyAttemptDictionary[GGKPottyAttemptDateKeyString];
-//        
-//        NSComparisonResult aComparisonResult = [aPottyAttemptDate compareByDay:thePottyAttemptDate];
-//        if (aComparisonResult == NSOrderedSame) {
-//            
-//            theAttemptDateIsNew = NO;
-//            theIndexToInsertAttempt = idx;
-//            *stop = YES;
-//        } else if (aComparisonResult == NSOrderedAscending) {
-//            
-//            // Add after the current date.
-//            theIndexToInsertAttempt = idx + 1;
-//            *stop = YES;
-//        }
-//    }];
-//    
-//    // If the attempt is for a new date, then make a new array for that date and add the array. Else, add the attempt to the proper array.
-//    
-//    NSMutableArray *thePottyAttemptDayMutableArray = [thePottyAttemptDayArray mutableCopy];
-//    if (theAttemptDateIsNew) {
-//        
-//        [thePottyAttemptDayMutableArray insertObject:@[thePottyAttemptDictionary] atIndex:theIndexToInsertAttempt];
-//    } else {
-//        
-//        NSArray *thePottyAttemptArray = thePottyAttemptDayArray[theIndexToInsertAttempt];
-//        
-//        // Search forward until finding a later date (or the end). Insert the attempt there.
-//        
-//        NSMutableArray *thePottyAttemptMutableArray = [thePottyAttemptArray mutableCopy];
-//        [thePottyAttemptArray enumerateObjectsUsingBlock:^(NSDictionary *aPottyAttemptDictionary, NSUInteger idx, BOOL *stop) {
-//            
-//            NSDate *aPottyAttemptDate = aPottyAttemptDictionary[GGKPottyAttemptDateKeyString];
-//            NSComparisonResult aComparisonResult = [thePottyAttemptDate compare:aPottyAttemptDate];
-//            if (aComparisonResult == NSOrderedAscending) {
-//                
-//                [thePottyAttemptMutableArray insertObject:thePottyAttemptDictionary atIndex:idx];
-//                *stop = YES;
-//            } else if (idx == thePottyAttemptArray.count - 1) {
-//                
-//                [thePottyAttemptMutableArray addObject:thePottyAttemptDictionary];
-//            }
-//        }];
-//        
-//        [thePottyAttemptDayMutableArray replaceObjectAtIndex:theIndexToInsertAttempt withObject:[thePottyAttemptMutableArray copy]];
-//        
-//    }
-//    thePottyAttemptDayArray = [thePottyAttemptDayMutableArray copy];
-    
-//    // If editing a potty attempt, we've added the new version, so remove the old version.
-//    if (self.pottyAttemptToEditDictionary != nil) {
-//        __block NSInteger theDayIndex = 0;
-//        [thePottyAttemptDayArray enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSArray *aPottyAttemptArray, NSUInteger idx, BOOL *stop) {
-//            NSUInteger theIndex = [aPottyAttemptArray indexOfObject:self.pottyAttemptToEditDictionary];
-//            if (theIndex != NSNotFound) {
-//                NSLog(@"found the attempt to remove!");
-//                theDayIndex = idx;
-//                *stop = YES;
-//            }
-//        }];
-//        NSArray *thePottyAttemptArray = thePottyAttemptDayArray[theDayIndex];
-//        NSMutableArray *thePottyAttemptMutableArray = [thePottyAttemptArray mutableCopy];
-//        [thePottyAttemptMutableArray removeObject:self.pottyAttemptToEditDictionary];
-//        [thePottyAttemptDayMutableArray replaceObjectAtIndex:theDayIndex withObject:[thePottyAttemptMutableArray copy]];
-//        thePottyAttemptDayArray = [thePottyAttemptDayMutableArray copy];
-//    }
-//    
-//    // Save data and return.
-//    self.perfectPottyModel.currentChild.pottyAttemptDayArray = thePottyAttemptDayArray;
-//    [self.perfectPottyModel saveChildren];
-//    self.pottyAttemptToEditDictionary = nil;
-//    self.perfectPottyModel.currentPottyAttemptDictionary = thePottyAttemptDictionary;
-//    [self.navigationController popViewControllerAnimated:YES];
 }
-
 - (void)useCustomSymbolViewControllerDidChooseSymbol:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -210,6 +112,8 @@
     self.datePicker.maximumDate = anEndOfTodayDate;
     // If editing a potty attempt, prepopulate the fields.
     if (self.pottyAttemptToEditDictionary != nil) {
+        // Navigation-bar title.
+        self.navigationItem.title = [NSString stringWithFormat:@"Edit Potty"];
         // Symbol.
         NSInteger theSelectedSegmentIndex;
         NSString *theSymbolString = self.pottyAttemptToEditDictionary[GGKPottyAttemptSymbolStringKeyString];

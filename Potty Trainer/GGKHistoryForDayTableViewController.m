@@ -33,7 +33,6 @@
     }
 }
 - (void)handleViewWillAppearToUser {
-    //    NSLog(@"VC hVATU1");
     // Reload the data and refresh the table each time the view appears. This is simply more robust. Data may have been added or deleted, but also the date may have changed, so relative dates (e.g. today) will change if displayed.
     // When the table is first being shown, we might think this would result in the table reloading its data twice. However, that doesn't seem to be the case, so that's good.
     NSUInteger theIndex = self.perfectPottyModel.currentChild.dayIndex;
@@ -108,18 +107,6 @@
         self.pottyAttemptArray = [aMutableArray copy];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.perfectPottyModel removePottyAttempt:thePottyAttemptDictionary];
-        
-//        The top row should be the last element in the array, then go backward.
-
-//        NSUInteger theRow = indexPath.row;
-//        NSInteger arrayIndex = self.pottyAttemptArray.count - 1 - theRow;
-//        NSMutableArray *aMutableArray = [self.pottyAttemptArray mutableCopy];
-//        NSDictionary *aPottyAttemptDictionary = self.pottyAttemptArray[arrayIndex];
-//        [self.perfectPottyModel removePottyAttempt:aPottyAttemptDictionary];
-//        [aMutableArray removeObject:aPottyAttemptDictionary];
-//        self.pottyAttemptArray = [aMutableArray copy];
-//        [self.delegate historyForDayTableViewControllerDidDeleteAttempt:self];
-        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
     
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -172,17 +159,4 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self.appWillEnterForegroundObserver name:UIApplicationWillEnterForegroundNotification object:nil];
     self.appWillEnterForegroundObserver = nil;
 }
-
-
-
-//
-//- (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//    
-//    // Set the navigation-bar title.
-//    NSDictionary *aPottyAttemptDictionary = self.pottyAttemptArray[0];
-//    NSDate *aDate = aPottyAttemptDictionary[GGKPottyAttemptDateKeyString];
-//    NSString *aDateString = [aDate monthDayString];
-//    self.navigationItem.title = [NSString stringWithFormat:@"%@", aDateString];
-//}
 @end

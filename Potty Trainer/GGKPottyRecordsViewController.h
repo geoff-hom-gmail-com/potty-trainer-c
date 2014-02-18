@@ -9,9 +9,8 @@
 #import "GGKViewController.h"
 
 #import "GGKAddPottyViewController.h"
-#import "GGKHistoryForDayTableViewController.h"
 
-@interface GGKPottyRecordsViewController : GGKViewController <GGKHistoryForDayTableViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface GGKPottyRecordsViewController : GGKViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *addPottyButton;
 
@@ -19,9 +18,6 @@
 
 // Override.
 - (void)handleViewWillAppearToUser;
-//- (void)historyForDayTableViewControllerDidDeleteAttempt:(id)sender;
-// So, get the updated data for that day. If nil, delete that day from the array. Else, put that updated data in the array.
-
 // Override.
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 

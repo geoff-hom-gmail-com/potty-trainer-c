@@ -10,16 +10,7 @@
 
 #import "GGKPerfectPottyModel.h"
 
-@protocol GGKHistoryForDayTableViewControllerDelegate
-
-// Sent after a potty attempt was deleted.
-- (void)historyForDayTableViewControllerDidDeleteAttempt:(id)sender;
-
-@end
-
 @interface GGKHistoryForDayTableViewController : UITableViewController
-
-@property (weak, nonatomic) id <GGKHistoryForDayTableViewControllerDelegate> delegate;
 @property (strong, nonatomic) GGKPerfectPottyModel *perfectPottyModel;
 // An array of potty attempts for a single day.
 @property (strong, nonatomic) NSArray *pottyAttemptArray;

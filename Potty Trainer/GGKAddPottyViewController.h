@@ -22,8 +22,6 @@
 // For choosing whether the attempt was successful or not.
 @property (nonatomic, weak) IBOutlet UISegmentedControl *successfulSegmentedControl;
 // Override.
-- (void)handleViewWillAppearToUser;
-// Override.
 - (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender;
 
 // Add the potty attempt.
