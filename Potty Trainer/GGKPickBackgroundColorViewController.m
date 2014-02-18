@@ -24,8 +24,8 @@
 @end
 
 @implementation GGKPickBackgroundColorViewController
-- (void)handleViewAppearedToUser {
-    [super handleViewAppearedToUser];
+- (void)handleViewWillAppearToUser {
+    [super handleViewWillAppearToUser];
     [self updateColors];
 }
 - (void)updateColors

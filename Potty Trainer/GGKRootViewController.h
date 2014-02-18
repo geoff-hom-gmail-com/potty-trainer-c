@@ -14,7 +14,7 @@
 // Name of the current child.
 @property (weak, nonatomic) IBOutlet UILabel *currentChildLabel;
 // Override.
-- (void)handleViewAppearedToUser;
+- (void)handleViewWillAppearToUser;
 // Override.
 - (void)viewDidLoad;
 @end

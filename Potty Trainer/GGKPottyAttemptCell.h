@@ -18,7 +18,6 @@
 
 // For showing the time of the attempt. E.g., "4:20 PM."
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
-
 // Show the attempt properly. (I.e., set as a check mark or as an X.)
 - (void)showAttempt;
 

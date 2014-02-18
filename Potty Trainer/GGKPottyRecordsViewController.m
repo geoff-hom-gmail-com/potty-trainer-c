@@ -28,13 +28,8 @@
 @end
 
 @implementation GGKPottyRecordsViewController
-
-- (void)addPottyViewControllerDidAddPottyAttempt:(id)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-- (void)handleViewAppearedToUser {
-    [super handleViewAppearedToUser];
+- (void)handleViewWillAppearToUser {
+    [super handleViewWillAppearToUser];
     // Reload the data and refresh the table each time the view appears. This is simply more robust. Data may have been added or deleted, but also the date may have changed, so relative dates (e.g. today) will change if displayed.
     // When the table is first being shown, we might think this would result in the table reloading its data twice. However, that doesn't seem to be the case, so that's good.
     GGKChild *currentChild = self.perfectPottyModel.currentChild;
@@ -43,50 +38,53 @@
     self.pottyAttemptDayArray = currentChild.pottyAttemptDayArray;
     [self.tableView reloadData];
 }
-- (void)historyForDayTableViewControllerDidDeleteAttempt:(id)sender
-{
-    GGKHistoryForDayTableViewController *aHistoryForDayTableViewController = (GGKHistoryForDayTableViewController *)sender;
-    NSArray *theNewPottyAttemptArray = aHistoryForDayTableViewController.pottyAttemptArray;
-    
-    NSIndexPath *theIndexPath = self.currentRowIndexPath;
-    NSInteger theRow = theIndexPath.row;
-    
-    // The first row is the last element in the data array.
-    NSInteger theIndex = [self.pottyAttemptDayArray count] - 1 - theRow;
-    
-    NSMutableArray *aMutableArray = [self.pottyAttemptDayArray mutableCopy];
-    if ([theNewPottyAttemptArray count] == 0) {
-        
-        [aMutableArray removeObjectAtIndex:theIndex];
-    } else {
-        
-        [aMutableArray replaceObjectAtIndex:theIndex withObject:theNewPottyAttemptArray];
-    }
-    self.pottyAttemptDayArray = [aMutableArray copy];
-    
-    // Save data.
-    self.perfectPottyModel.currentChild.pottyAttemptDayArray = self.pottyAttemptDayArray;
-    [self.perfectPottyModel saveChildren];
-}
+//- (void)historyForDayTableViewControllerDidDeleteAttempt:(id)sender
+//{
+//    GGKHistoryForDayTableViewController *aHistoryForDayTableViewController = (GGKHistoryForDayTableViewController *)sender;
+//    NSArray *theNewPottyAttemptArray = aHistoryForDayTableViewController.pottyAttemptArray;
+//    
+//    NSIndexPath *theIndexPath = self.currentRowIndexPath;
+//    NSInteger theRow = theIndexPath.row;
+//    
+//    // The first row is the last element in the data array.
+//    NSInteger theIndex = [self.pottyAttemptDayArray count] - 1 - theRow;
+//    
+//    NSMutableArray *aMutableArray = [self.pottyAttemptDayArray mutableCopy];
+//    if ([theNewPottyAttemptArray count] == 0) {
+//        
+//        [aMutableArray removeObjectAtIndex:theIndex];
+//    } else {
+//        
+//        [aMutableArray replaceObjectAtIndex:theIndex withObject:theNewPottyAttemptArray];
+//    }
+//    self.pottyAttemptDayArray = [aMutableArray copy];
+//    
+//    // Save data.
+//    self.perfectPottyModel.currentChild.pottyAttemptDayArray = self.pottyAttemptDayArray;
+//    [self.perfectPottyModel saveChildren];
+//}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"showAddPottyViewSegue"]) {
+    if ([segue.identifier isEqualToString:@"showHistoryForDaySegue"]) {
         
-        [segue.destinationViewController setDelegate:self];
-    } else if ([segue.identifier isEqualToString:@"showHistoryForDaySegue"]) {
+//        GGKHistoryForDayTableViewController *aHistoryForDayTableViewController = segue.destinationViewController;
+//        
+//        // In this case, sender is the cell tapped.
+//        self.currentRowIndexPath = [self.tableView indexPathForCell:sender];
+//        NSInteger theRow = self.currentRowIndexPath.row;
+//        
+//        // The first row is the last element in the data array.
+//        NSInteger theIndex = [self.pottyAttemptDayArray count] - 1 - theRow;
         
-        GGKHistoryForDayTableViewController *aHistoryForDayTableViewController = segue.destinationViewController;
+        // Sender is the cell tapped.
+        GGKPottyAttemptDayTableViewCell *aPottyAttemptDayTableViewCell = (GGKPottyAttemptDayTableViewCell *)sender;
+        NSUInteger theIndex = [self.pottyAttemptDayArray indexOfObject:aPottyAttemptDayTableViewCell.pottyAttemptArray];
+        self.perfectPottyModel.currentChild.dayIndex = theIndex;
         
-        // In this case, sender is the cell tapped.
-        self.currentRowIndexPath = [self.tableView indexPathForCell:sender];
-        NSInteger theRow = self.currentRowIndexPath.row;
+//        aHistoryForDayTableViewController.pottyAttemptArray = self.pottyAttemptDayArray[theIndex];
         
-        // The first row is the last element in the data array.
-        NSInteger theIndex = [self.pottyAttemptDayArray count] - 1 - theRow;
-        aHistoryForDayTableViewController.pottyAttemptArray = self.pottyAttemptDayArray[theIndex];
-        
-        aHistoryForDayTableViewController.delegate = self;
+//        aHistoryForDayTableViewController.delegate = self;
     }
 }
 

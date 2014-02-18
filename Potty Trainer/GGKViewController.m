@@ -28,11 +28,11 @@
     self.isShowingLandscapeView = NO;
 }
 - (void)dealloc {
-    NSLog(@"VC dealloc");
+//    NSLog(@"VC dealloc");
     [[NSNotificationCenter defaultCenter] removeObserver:self.appWillEnterForegroundObserver name:UIApplicationWillEnterForegroundNotification object:nil];
     // No need to call super.
 }
-- (void)handleViewAppearedToUser {
+- (void)handleViewWillAppearToUser {
 //    NSLog(@"VC hVATU1");
 }
 - (IBAction)playButtonSound
@@ -56,11 +56,11 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self handleViewAppearedToUser];
+    [self handleViewWillAppearToUser];
     // Using a weak variable to avoid a strong-reference cycle.
     GGKViewController * __weak aWeakSelf = self;
     self.appWillEnterForegroundObserver = [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-        [aWeakSelf handleViewAppearedToUser];
+        [aWeakSelf handleViewWillAppearToUser];
     }];
 }
 - (void)viewWillDisappear:(BOOL)animated {

@@ -33,7 +33,7 @@ extern NSString *GGKReminderWhenPrefixString;
 // So, update the label showing the reminder time.
 - (IBAction)datePickerTimeChanged:(id)sender;
 // Override.
-- (void)handleViewAppearedToUser;
+- (void)handleViewWillAppearToUser;
 // Cancel any previous reminders. Set this reminder.
 - (IBAction)setReminder;
 

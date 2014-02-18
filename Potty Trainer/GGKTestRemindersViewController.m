@@ -75,8 +75,8 @@
         [self updateForAReminder];
     }
 }
-- (void)handleViewAppearedToUser {
-    [super handleViewAppearedToUser];
+- (void)handleViewWillAppearToUser {
+    [super handleViewWillAppearToUser];
     [self startVisibleUpdates];
 }
 - (IBAction)setTestReminder

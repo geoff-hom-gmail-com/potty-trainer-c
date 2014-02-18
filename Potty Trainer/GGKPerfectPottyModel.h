@@ -18,7 +18,8 @@ extern NSString *GGKGirlThemeString;
 
 // String for the product ID for giving a dollar.
 extern NSString *GGKGiveDollarProductIDString;
-
+// A poo emoji.
+extern NSString *GGKPooSymbolString;
 // Key for storing the date of a potty attempt. Object is an NSDate.
 extern NSString *GGKPottyAttemptDateKeyString;
 
@@ -51,7 +52,6 @@ extern NSString *GGKXSymbolString;
 
 // Custom symbol to use, if any, for a new potty attempt.
 @property (strong, nonatomic) NSString *currentCustomSymbol;
-
 // For in-app donation. Not related to child rewards.
 @property (assign, nonatomic) NSInteger numberOfStarsPurchasedInteger;
 
@@ -59,10 +59,14 @@ extern NSString *GGKXSymbolString;
 @property (strong, nonatomic) NSDateComponents *reminderIncrementDateComponents;
 // Create child with name. Add to database. Return child.
 - (GGKChild *)addChildWithName:(NSString *)name;
-
+// Add the given potty attempt to the current child.
+- (void)addPottyAttempt:(NSDictionary *)thePottyAttemptDictionary;
 // Override.
 - (id)init;
-
+// Remove the given potty attempt from the current child.
+- (void)removePottyAttempt:(NSDictionary *)thePottyAttemptDictionary;
+// Remove the first potty attempt and add the second for the current child.
+- (void)replacePottyAttempt:(NSDictionary *)theFirstPottyAttemptDictionary withAttempt:(NSDictionary *)theSecondPottyAttemptDictionary;
 // Save data for all children.
 - (void)saveChildren;
 

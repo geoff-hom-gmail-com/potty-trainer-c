@@ -22,10 +22,10 @@
 // Override.
 - (void)dealloc;
 // The view appeared to the user, so ensure it's up to date.
-// A view can appear to the user in two ways: appearing from within the app, or the app was in the background and now enters the foreground. -viewWillAppear: is called for the former but not the latter. UIApplicationWillEnterForegroundNotification is sent for the latter but not the former. To have a consistent UI, we'll have both options call -handleViewAppearedToUser. So, subclasses should call super and override.
+// A view can appear to the user in two ways: appearing from within the app, or the app was in the background and now enters the foreground. -viewWillAppear: is called for the former but not the latter. UIApplicationWillEnterForegroundNotification is sent for the latter but not the former. To have a consistent UI, we'll have both options call -handleViewWillAppearToUser. So, subclasses should call super and override.
 // The foreground notification is received when opening a backgrounded app, and when returning from screen lock.
 // The foreground notification may be received by a VC whose view isn't visible (e.g., not top of nav stack). To prevent unexpected updates, we'll add the observer in -viewWillAppear: and remove it in -viewWillDisappear:.
-- (void)handleViewAppearedToUser;
+- (void)handleViewWillAppearToUser;
 // Play sound as aural feedback for pressing button.
 - (IBAction)playButtonSound;
 

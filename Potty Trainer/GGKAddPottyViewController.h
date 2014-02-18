@@ -11,27 +11,18 @@
 #import "GGKUseCustomSymbolViewController.h"
 #import <UIKit/UIKit.h>
 
-@protocol GGKAddPottyViewControllerDelegate
-
-// Sent after a potty attempt has been added.
-- (void)addPottyViewControllerDidAddPottyAttempt:(id)sender;
-
-@end
-
 @interface GGKAddPottyViewController : GGKViewController <GGKUseCustomSymbolViewControllerDelegate>
-
 // For choosing the date of a potty attempt.
 @property (nonatomic, weak) IBOutlet UIDatePicker *datePicker;
-
-@property (weak, nonatomic) id <GGKAddPottyViewControllerDelegate> delegate;
-
+// The user may be adding a new potty attempt, or she may have selected a potty attempt to edit.
+@property (strong, nonatomic) NSDictionary *pottyAttemptToEditDictionary;
 // For choosing the symbol for the attempt.
 @property (nonatomic, weak) IBOutlet UISegmentedControl *symbolSegmentedControl;
 
 // For choosing whether the attempt was successful or not.
 @property (nonatomic, weak) IBOutlet UISegmentedControl *successfulSegmentedControl;
 // Override.
-- (void)handleViewAppearedToUser;
+- (void)handleViewWillAppearToUser;
 // Override.
 - (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender;
 

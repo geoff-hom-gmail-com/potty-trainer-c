@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface GGKChild : NSObject
-
+// The index of the potty-attempt day to show when viewing a single day.
+@property (assign, nonatomic) NSUInteger dayIndex;
 // Child's name.
 @property (strong, nonatomic) NSString *nameString;
 

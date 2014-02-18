@@ -21,8 +21,8 @@ BOOL GGKCreateLaunchImages = NO;
 @end
 
 @implementation GGKRootViewController
-- (void)handleViewAppearedToUser {
-    [super handleViewAppearedToUser];
+- (void)handleViewWillAppearToUser {
+    [super handleViewWillAppearToUser];
     NSString *theCurrentChildNameString = self.perfectPottyModel.currentChild.nameString;
     self.currentChildLabel.text = theCurrentChildNameString;
     NSString *theThemeString = self.perfectPottyModel.colorThemeString;

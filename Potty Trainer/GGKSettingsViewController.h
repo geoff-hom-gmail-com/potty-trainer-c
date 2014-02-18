@@ -26,7 +26,7 @@
 // Make sure the existing reminder doesn't go off.
 - (IBAction)cancelReminder;
 // Override.
-- (void)handleViewAppearedToUser;
+- (void)handleViewWillAppearToUser;
 // UIViewController override.
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 

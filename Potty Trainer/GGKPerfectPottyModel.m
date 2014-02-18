@@ -9,6 +9,7 @@
 #import "GGKPerfectPottyModel.h"
 
 #import "GGKReward.h"
+#import "NSDate+GGKDate.h"
 
 NSString *GGKBoyThemeString = @"Boy theme";
 
@@ -26,7 +27,7 @@ NSString *GGKMostRecentCustomSymbolStringKeyString = @"Most-recent-custom-symbol
 
 // Key for storing the number of stars purchased.
 NSString *GGKNumberOfStarsPurchasedNumberKeyString = @"Number of stars purchased";
-
+NSString *GGKPooSymbolString = @"💩";
 NSString *GGKPottyAttemptDateKeyString = @"Potty-attempt date";
 
 NSString *GGKPottyAttemptSymbolStringKeyString = @"Potty-attempt symbol string";
@@ -46,7 +47,6 @@ NSString *GGKStarSymbolString = @"\u2605";
 NSString *GGKThemeKeyString = @"Theme";
 
 NSString *GGKXSymbolString = @"\u2718";
-
 @interface GGKPerfectPottyModel ()
 
 // Create and return a child. If saved data from v1.1.0 or before, use that. Else, return a new child.
@@ -75,7 +75,51 @@ NSString *GGKXSymbolString = @"\u2718";
     
     return newChild;
 }
-
+- (void)addPottyAttempt:(NSDictionary *)thePottyAttemptDictionary {
+    // Add data. To find where to add the data, check previous attempts until we find the same date or a previous date (searching backward through the attempts). We search backward because the user is probably adding a recent attempt.
+    // By default, add the attempt as a new date at the start of the array. (Works if there was no data before.)
+    NSMutableArray *thePottyAttemptDayMutableArray = [self.currentChild.pottyAttemptDayArray mutableCopy];
+    NSDate *thePottyAttemptDate = thePottyAttemptDictionary[GGKPottyAttemptDateKeyString];
+    __block BOOL theAttemptDateIsNew = YES;
+    __block NSInteger theIndexToInsertAttempt = 0;
+    [thePottyAttemptDayMutableArray enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSArray *aPottyAttemptArray, NSUInteger idx, BOOL *stop) {
+        NSDictionary *aPottyAttemptDictionary = aPottyAttemptArray[0];
+        NSDate *aPottyAttemptDate = aPottyAttemptDictionary[GGKPottyAttemptDateKeyString];
+        NSComparisonResult aComparisonResult = [aPottyAttemptDate compareByDay:thePottyAttemptDate];
+        if (aComparisonResult == NSOrderedSame) {
+            theAttemptDateIsNew = NO;
+            theIndexToInsertAttempt = idx;
+            *stop = YES;
+        } else if (aComparisonResult == NSOrderedAscending) {
+            // Add after the current date.
+            theIndexToInsertAttempt = idx + 1;
+            *stop = YES;
+        }
+    }];
+    // If the attempt is for a new date, then make a new array for that date and add the array. Else, add the attempt to the proper array.
+    if (theAttemptDateIsNew) {
+        [thePottyAttemptDayMutableArray insertObject:@[thePottyAttemptDictionary] atIndex:theIndexToInsertAttempt];
+    } else {
+        // Search forward until finding a later date (or the end). Insert the attempt there.
+        NSArray *thePottyAttemptArray = thePottyAttemptDayMutableArray[theIndexToInsertAttempt];
+        NSMutableArray *thePottyAttemptMutableArray = [thePottyAttemptArray mutableCopy];
+        [thePottyAttemptArray enumerateObjectsUsingBlock:^(NSDictionary *aPottyAttemptDictionary, NSUInteger idx, BOOL *stop) {
+            NSDate *aPottyAttemptDate = aPottyAttemptDictionary[GGKPottyAttemptDateKeyString];
+            NSComparisonResult aComparisonResult = [thePottyAttemptDate compare:aPottyAttemptDate];
+            if (aComparisonResult == NSOrderedAscending) {
+                [thePottyAttemptMutableArray insertObject:thePottyAttemptDictionary atIndex:idx];
+                *stop = YES;
+            } else if (idx == thePottyAttemptArray.count - 1) {
+                [thePottyAttemptMutableArray addObject:thePottyAttemptDictionary];
+            }
+        }];
+        [thePottyAttemptDayMutableArray replaceObjectAtIndex:theIndexToInsertAttempt withObject:[thePottyAttemptMutableArray copy]];
+        
+    }    
+    self.currentChild.pottyAttemptDayArray = [thePottyAttemptDayMutableArray copy];
+    self.currentChild.dayIndex = theIndexToInsertAttempt;
+    [self saveChildren];
+}
 - (GGKChild *)childFromOldData
 {
     // If the user upgrades from v1.1.0 or before, there won't be any children. The data will instead be under separate keys in the user defaults. We will assemble that data into a new child.
@@ -209,7 +253,33 @@ NSString *GGKXSymbolString = @"\u2718";
         NSLog(@"PPM populateRewardFromOldData move-image wasSuccessful: %@", wasSuccessful ? @"Yes" : @"No");
     }
 }
-
+- (void)removePottyAttempt:(NSDictionary *)thePottyAttemptDictionary {
+    __block NSInteger theDayIndex = 0;
+    NSMutableArray *thePottyAttemptDayMutableArray = [self.currentChild.pottyAttemptDayArray mutableCopy];
+    [thePottyAttemptDayMutableArray enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSArray *aPottyAttemptArray, NSUInteger idx, BOOL *stop) {
+        NSUInteger theIndex = [aPottyAttemptArray indexOfObject:thePottyAttemptDictionary];
+        if (theIndex != NSNotFound) {
+//            NSLog(@"found the attempt to remove!");
+            theDayIndex = idx;
+            *stop = YES;
+        }
+    }];
+    NSArray *thePottyAttemptArray = thePottyAttemptDayMutableArray[theDayIndex];
+    NSMutableArray *thePottyAttemptMutableArray = [thePottyAttemptArray mutableCopy];
+    [thePottyAttemptMutableArray removeObject:thePottyAttemptDictionary];
+    // If no more attempts for that day, remove it. Else, replace with the updated day.
+    if ([thePottyAttemptMutableArray count] == 0) {
+        [thePottyAttemptDayMutableArray removeObjectAtIndex:theDayIndex];
+    } else {
+        [thePottyAttemptDayMutableArray replaceObjectAtIndex:theDayIndex withObject:[thePottyAttemptMutableArray copy]];
+    }
+    self.currentChild.pottyAttemptDayArray = [thePottyAttemptDayMutableArray copy];
+    [self saveChildren];
+}
+- (void)replacePottyAttempt:(NSDictionary *)theFirstPottyAttemptDictionary withAttempt:(NSDictionary *)theSecondPottyAttemptDictionary {
+    [self removePottyAttempt:theFirstPottyAttemptDictionary];
+    [self addPottyAttempt:theSecondPottyAttemptDictionary];
+}
 - (void)saveChildren
 {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.childrenMutableArray];

@@ -29,7 +29,7 @@
 // Show view for editing child's name.
 - (IBAction)editName;
 // Override.
-- (void)handleViewAppearedToUser;
+- (void)handleViewWillAppearToUser;
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath;
 
 - (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)theIndexPath;

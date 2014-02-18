@@ -22,7 +22,7 @@
 // Make sure the existing reminder doesn't go off.
 - (IBAction)cancelReminder;
 // Override.
-- (void)handleViewAppearedToUser;
+- (void)handleViewWillAppearToUser;
 // Set a reminder to go off in a few seconds.
 - (IBAction)setTestReminder;
 

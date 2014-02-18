@@ -61,8 +61,8 @@
         [self stopTimer];
     }
 }
-- (void)handleViewAppearedToUser {
-    [super handleViewAppearedToUser];
+- (void)handleViewWillAppearToUser {
+    [super handleViewWillAppearToUser];
     GGKPerfectPottyAppDelegate *aPottyTrainerAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
     self.musicSwitch.on = aPottyTrainerAppDelegate.musicModel.musicIsEnabled;
     [self startVisibleUpdates];

@@ -12,7 +12,7 @@
 
 @interface GGKPickBackgroundColorViewController : GGKViewController
 // Override.
-- (void)handleViewAppearedToUser;
+- (void)handleViewWillAppearToUser;
 // Set the color theme to one for boys.
 - (IBAction)useBoyTheme;
 

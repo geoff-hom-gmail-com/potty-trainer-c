@@ -890,7 +890,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07X-Iw-0bE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1848" y="-1407"/>
+            <point key="canvasLocation" x="1848" y="-1479"/>
         </scene>
         <!--Use Custom Symbol View Controller - Use Custom Symbol-->
         <scene sceneID="nBa-yX-5aN">
@@ -942,7 +942,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dh5-Cj-p9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2278" y="-1407"/>
+            <point key="canvasLocation" x="2278" y="-1479"/>
         </scene>
         <!--Edit Child Name View Controller-->
         <scene sceneID="gzJ-zy-THj">
@@ -1078,6 +1078,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <connections>
                                     <outlet property="attemptLabel" destination="R1V-m7-6ef" id="IAI-jN-7oa"/>
                                     <outlet property="timeLabel" destination="GXD-HT-eYO" id="K1v-uN-BUG"/>
+                                    <segue destination="O2o-ma-3Y9" kind="push" identifier="ShowEditPottyAttemptSegue" trigger="accessoryAction" id="sta-1Z-Mk3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1086,6 +1087,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="Vsa-py-YIx" id="rCm-pr-pRc"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="[Feb 27]" id="ghN-rJ-xD5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7WL-fs-Wma" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1380,4 +1382,7 @@ Reward</string>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="sta-1Z-Mk3"/>
+    </inferredMetricsTieBreakers>
 </document>

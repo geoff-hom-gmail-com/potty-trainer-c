@@ -46,8 +46,8 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
 {
     [self updateReminderTime];
 }
-- (void)handleViewAppearedToUser {
-    [super handleViewAppearedToUser];
+- (void)handleViewWillAppearToUser {
+    [super handleViewWillAppearToUser];
     [self updateReminderTime];
     [self startVisibleUpdates];
 }
