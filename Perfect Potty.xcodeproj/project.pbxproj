@@ -70,6 +70,8 @@
 		93DE8C1E16E89A7E00AA87FF /* icon2-57px@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1A16E89A7E00AA87FF /* icon2-57px@2x.png */; };
 		93DE8C1F16E89A7E00AA87FF /* icon2-72px.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1B16E89A7E00AA87FF /* icon2-72px.png */; };
 		93DE8C2016E89A7E00AA87FF /* icon2-72px@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1C16E89A7E00AA87FF /* icon2-72px@2x.png */; };
+		93F00CB918B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93F00CB818B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a */; };
+		93F00CBC18B2EFAB00EBE8D4 /* GGKPottyMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F00CBB18B2EFAB00EBE8D4 /* GGKPottyMusicViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -172,6 +174,9 @@
 		93DE8C1A16E89A7E00AA87FF /* icon2-57px@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-57px@2x.png"; path = "icons/icon2-57px@2x.png"; sourceTree = "<group>"; };
 		93DE8C1B16E89A7E00AA87FF /* icon2-72px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-72px.png"; path = "icons/icon2-72px.png"; sourceTree = "<group>"; };
 		93DE8C1C16E89A7E00AA87FF /* icon2-72px@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-72px@2x.png"; path = "icons/icon2-72px@2x.png"; sourceTree = "<group>"; };
+		93F00CB818B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Perfect Potty - Potty Music.m4a"; sourceTree = "<group>"; };
+		93F00CBA18B2EFAB00EBE8D4 /* GGKPottyMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPottyMusicViewController.h; sourceTree = "<group>"; };
+		93F00CBB18B2EFAB00EBE8D4 /* GGKPottyMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPottyMusicViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +217,7 @@
 		9362E43116D5FC9100A1B771 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				93F00CB818B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a */,
 				9336135D18A0C04C0026F270 /* Perfect Potty - Intro Main Menu Music.m4a */,
 				9376CCAD16E0111E00887ADE /* scoreIncrease.aiff */,
 				9362E42E16D5FA8600A1B771 /* tap.aif */,
@@ -290,6 +296,8 @@
 				9390858316DD583A00C2290F /* GGKPottyAttemptCell.m */,
 				937F864416DABF59007DE572 /* GGKPottyAttemptDayTableViewCell.h */,
 				937F864516DABF59007DE572 /* GGKPottyAttemptDayTableViewCell.m */,
+				93F00CBA18B2EFAB00EBE8D4 /* GGKPottyMusicViewController.h */,
+				93F00CBB18B2EFAB00EBE8D4 /* GGKPottyMusicViewController.m */,
 				9383F22417CA09A4005B41E5 /* GGKPottyRecordsViewController.h */,
 				9383F22517CA09A5005B41E5 /* GGKPottyRecordsViewController.m */,
 				9383F22117C91520005B41E5 /* GGKReward.h */,
@@ -426,6 +434,7 @@
 				93DD9EAB18A09A0300F09E21 /* Default@2x.png in Resources */,
 				9336135E18A0C04C0026F270 /* Perfect Potty - Intro Main Menu Music.m4a in Resources */,
 				93DD9EA918A09A0300F09E21 /* Default-568h@2x.png in Resources */,
+				93F00CB918B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a in Resources */,
 				93DE8C1F16E89A7E00AA87FF /* icon2-72px.png in Resources */,
 				93DE8C2016E89A7E00AA87FF /* icon2-72px@2x.png in Resources */,
 				932904E618AA55930066D2DA /* release_notes.md in Resources */,
@@ -458,6 +467,7 @@
 				9390858416DD583A00C2290F /* GGKPottyAttemptCell.m in Sources */,
 				9315502F16DF1D2400482944 /* UIView+GGKAdditions.m in Sources */,
 				9315503216DF225000482944 /* GGKSetReminderViewController.m in Sources */,
+				93F00CBC18B2EFAB00EBE8D4 /* GGKPottyMusicViewController.m in Sources */,
 				9376CCB316E1DC0600887ADE /* GGKAddRewardTextViewController.m in Sources */,
 				9353B37F16E6011300B0A75A /* GGKYourSupportViewController.m in Sources */,
 				93DE8C0D16E8074800AA87FF /* GGKInAppPurchaseObserver.m in Sources */,

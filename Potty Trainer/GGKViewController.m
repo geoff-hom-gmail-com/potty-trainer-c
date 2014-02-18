@@ -52,6 +52,7 @@
 	// Do any additional setup after loading the view.
     GGKPerfectPottyAppDelegate *theAppDelegate = (GGKPerfectPottyAppDelegate *)[UIApplication sharedApplication].delegate;
     self.perfectPottyModel = theAppDelegate.perfectPottyModel;
+    self.musicModel = theAppDelegate.musicModel;
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

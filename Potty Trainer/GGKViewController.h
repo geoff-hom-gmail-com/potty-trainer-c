@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "GGKMusicModel.h"
 #import "GGKPerfectPottyModel.h"
 
 @interface GGKViewController : UIViewController
 
+@property (strong, nonatomic) GGKMusicModel *musicModel;
 @property (strong, nonatomic) GGKPerfectPottyModel *perfectPottyModel;
 
 // Override.

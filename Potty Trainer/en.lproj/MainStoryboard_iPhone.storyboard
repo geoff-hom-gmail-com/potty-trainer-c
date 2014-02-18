@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RKp-WL-Aia">
-                                <rect key="frame" x="50" y="120" width="250" height="58"/>
+                                <rect key="frame" x="50" y="100" width="250" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Potty Records">
@@ -26,7 +26,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rB6-Ud-ZkZ">
-                                <rect key="frame" x="20" y="262" width="280" height="64"/>
+                                <rect key="frame" x="20" y="253" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Settings">
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KhD-Um-XfR">
-                                <rect key="frame" x="20" y="333" width="280" height="64"/>
+                                <rect key="frame" x="20" y="304" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Your Support">
@@ -50,7 +50,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HNM-S9-cA1">
-                                <rect key="frame" x="50" y="185" width="250" height="58"/>
+                                <rect key="frame" x="50" y="151" width="250" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Rewards">
@@ -62,7 +62,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="31i-XP-cJo">
-                                <rect key="frame" x="20" y="49" width="280" height="64"/>
+                                <rect key="frame" x="20" y="49" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Child Selection">
@@ -87,6 +87,18 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8ue-oo-MXz">
+                                <rect key="frame" x="50" y="202" width="250" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Potty Music">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playButtonSound" destination="PeI-Ax-hLa" eventType="touchDown" id="2WA-F3-KZH"/>
+                                    <segue destination="hxc-26-Itw" kind="push" id="SrL-ei-Rm5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -171,6 +183,7 @@ from now (10:35 AM).</string>
                                 <rect key="frame" x="75" y="319" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
+                                    <action selector="playButtonSound" destination="625-LV-WLU" eventType="valueChanged" id="YKP-8R-HZB"/>
                                     <action selector="toggleMusic" destination="625-LV-WLU" eventType="valueChanged" id="Ray-Ro-Wny"/>
                                 </connections>
                             </switch>
@@ -197,7 +210,36 @@ from now (10:35 AM).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yuk-0q-aY4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1309" y="410"/>
+            <point key="canvasLocation" x="1309" y="786"/>
+        </scene>
+        <!--Potty Music View Controller - Potty Music-->
+        <scene sceneID="7dF-40-chw">
+            <objects>
+                <viewController id="hxc-26-Itw" customClass="GGKPottyMusicViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s1u-tY-CnE">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2Zp-UE-Smz">
+                                <rect key="frame" x="20" y="120" width="280" height="177"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleStartOrStopButtonTapped:" destination="hxc-26-Itw" eventType="touchUpInside" id="te7-cS-Gde"/>
+                                    <action selector="playButtonSound" destination="hxc-26-Itw" eventType="touchDown" id="tec-05-lqJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Potty Music" id="FIZ-kL-tey"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="32t-Ak-nTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1395" y="177"/>
         </scene>
         <!--Set Reminder View Controller - Set/Change Reminder-->
         <scene sceneID="O8N-8f-Ll1">
@@ -267,7 +309,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="frR-hj-UUr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804" y="466"/>
+            <point key="canvasLocation" x="1848" y="466"/>
         </scene>
         <!--Test Reminders View Controller - Test Reminder Volume-->
         <scene sceneID="Zcb-Xq-CXw">
@@ -334,7 +376,7 @@ from now.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QD9-HT-bEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804" y="1040"/>
+            <point key="canvasLocation" x="1848" y="1040"/>
         </scene>
         <!--Pick Background Color View Controller - Background Color-->
         <scene sceneID="g9v-8G-JG3">
@@ -391,7 +433,7 @@ from now.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37J-C9-4ge" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804" y="1616"/>
+            <point key="canvasLocation" x="1848" y="1612"/>
         </scene>
         <!--Your Support View Controller - Your Support-->
         <scene sceneID="nUS-l6-Fui">
@@ -515,7 +557,7 @@ from now.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C14-ZN-wEb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1309" y="1020"/>
+            <point key="canvasLocation" x="1309" y="1368"/>
         </scene>
         <!--Child Selection View Controller - Child Selection-->
         <scene sceneID="c32-Ch-NAb">
@@ -621,7 +663,7 @@ from now.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eaL-O1-xem" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1309" y="-1363"/>
+            <point key="canvasLocation" x="1309" y="-1551"/>
         </scene>
         <!--Potty Records View Controller - Potty Records-->
         <scene sceneID="l8H-LF-ZBa">
@@ -725,7 +767,7 @@ from now.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klP-Dg-sxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1309" y="-772"/>
+            <point key="canvasLocation" x="1395" y="-970"/>
         </scene>
         <!--Add Potty View Controller - Add Potty-->
         <scene sceneID="Yh1-sF-eYY">
@@ -848,7 +890,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07X-Iw-0bE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804" y="-1407"/>
+            <point key="canvasLocation" x="1848" y="-1407"/>
         </scene>
         <!--Use Custom Symbol View Controller - Use Custom Symbol-->
         <scene sceneID="nBa-yX-5aN">
@@ -900,7 +942,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dh5-Cj-p9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2226" y="-1407"/>
+            <point key="canvasLocation" x="2278" y="-1407"/>
         </scene>
         <!--Edit Child Name View Controller-->
         <scene sceneID="gzJ-zy-THj">
@@ -1048,7 +1090,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7WL-fs-Wma" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804" y="-840"/>
+            <point key="canvasLocation" x="1848" y="-840"/>
         </scene>
         <!--Table View Controller - Tips-->
         <scene sceneID="brz-R5-axK">
@@ -1266,7 +1308,7 @@ Reward</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0l1-kQ-oou" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1309" y="-193"/>
+            <point key="canvasLocation" x="1395" y="-395"/>
         </scene>
         <!--Add Reward Text View Controller-->
         <scene sceneID="PKu-sV-WIq">
@@ -1311,7 +1353,7 @@ Reward</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fq9-Ea-KzJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804" y="-193"/>
+            <point key="canvasLocation" x="1848" y="-269"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="P2D-d2-ihy">

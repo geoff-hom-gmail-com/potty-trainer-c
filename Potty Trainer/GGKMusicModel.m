@@ -8,10 +8,14 @@
 #import "GGKMusicModel.h"
 
 NSString *GGKEnableMusicBOOLKeyString = @"Enable music?";
+NSString *GGKPottyMusicStoppedStateString = @"Potty music is stopped.";
+NSString *GGKPottyMusicStartedStateString = @"Potty music did start.";
 
 @interface GGKMusicModel ()
-// For playing a UI sound when the player presses a button.
-@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
+// For playing the main music.
+@property (nonatomic, strong) AVAudioPlayer *introMusicAudioPlayer;
+// For playing the potty-encouraging music.
+@property (nonatomic, strong) AVAudioPlayer *pottyMusicAudioPlayer;
 @end
 
 @implementation GGKMusicModel
@@ -21,29 +25,47 @@ NSString *GGKEnableMusicBOOLKeyString = @"Enable music?";
         // Load whether user wanted music on or off.
         self.musicIsEnabled = [[NSUserDefaults standardUserDefaults] boolForKey:GGKEnableMusicBOOLKeyString];
         // Load intro/main music.
-        NSString *soundFilePath = [ [NSBundle mainBundle] pathForResource:@"Perfect Potty - Intro Main Menu Music" ofType:@"m4a" ];
+        NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"Perfect Potty - Intro Main Menu Music" ofType:@"m4a"];
         NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
         AVAudioPlayer *anAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
         anAudioPlayer.numberOfLoops = -1;
-//        anAudioPlayer.delegate = self;
-        self.audioPlayer = anAudioPlayer;
-        [self.audioPlayer prepareToPlay];
+        self.introMusicAudioPlayer = anAudioPlayer;
+        [self.introMusicAudioPlayer prepareToPlay];
+        soundFilePath = [[NSBundle mainBundle] pathForResource:@"Perfect Potty - Potty Music" ofType:@"m4a"];
+        soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+        anAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+        anAudioPlayer.numberOfLoops = -1;
+        self.pottyMusicAudioPlayer = anAudioPlayer;
+        self.pottyMusicStateString = GGKPottyMusicStoppedStateString;
     }
     return self;
 }
 - (void)playIntroMusic {
     if (self.musicIsEnabled) {
         // Pause before restarting music. Doesn't seem to make aural difference, but avoids AudioQueue warning.
-        [self.audioPlayer pause];
-        self.audioPlayer.currentTime = 0;
-        [self.audioPlayer play];
+        [self.introMusicAudioPlayer pause];
+        self.introMusicAudioPlayer.currentTime = 0;
+        [self.introMusicAudioPlayer play];
+    }
+}
+- (void)playPottyMusic {
+    [self.introMusicAudioPlayer pause];
+    self.pottyMusicAudioPlayer.currentTime = 0;
+    [self.pottyMusicAudioPlayer play];
+    self.pottyMusicStateString = GGKPottyMusicStartedStateString;
+}
+- (void)stopPottyMusic {
+    [self.pottyMusicAudioPlayer pause];
+    self.pottyMusicStateString = GGKPottyMusicStoppedStateString;
+    if (self.musicIsEnabled) {
+        [self playIntroMusic];
     }
 }
 - (void)toggleMusic {
     // If music is on, then stop playing. Else, play.
     if (self.musicIsEnabled) {
         self.musicIsEnabled = NO;
-        [self.audioPlayer pause];
+        [self.introMusicAudioPlayer pause];
     } else {
         self.musicIsEnabled = YES;
         [self playIntroMusic];
