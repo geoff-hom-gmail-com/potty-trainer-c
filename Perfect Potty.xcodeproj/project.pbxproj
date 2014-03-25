@@ -34,7 +34,7 @@
 		9376CCB016E1A48400887ADE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9376CCAF16E1A48300887ADE /* MobileCoreServices.framework */; };
 		9376CCB316E1DC0600887ADE /* GGKAddRewardTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9376CCB216E1DC0500887ADE /* GGKAddRewardTextViewController.m */; };
 		937F863416D6A54A007DE572 /* GGKRewardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F863316D6A54A007DE572 /* GGKRewardsViewController.m */; };
-		937F863716D6A61A007DE572 /* GGKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F863616D6A61A007DE572 /* GGKSettingsViewController.m */; };
+		937F863716D6A61A007DE572 /* GGKReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F863616D6A61A007DE572 /* GGKReminderViewController.m */; };
 		937F864016D9DC0C007DE572 /* GGKAddPottyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F863F16D9DC0C007DE572 /* GGKAddPottyViewController.m */; };
 		937F864616DABF5A007DE572 /* GGKPottyAttemptDayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F864516DABF59007DE572 /* GGKPottyAttemptDayTableViewCell.m */; };
 		937F864916DC50B1007DE572 /* GGKHistoryHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F864816DC50B1007DE572 /* GGKHistoryHeaderCell.m */; };
@@ -49,6 +49,7 @@
 		9383F22617CA09A6005B41E5 /* GGKPottyRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9383F22517CA09A5005B41E5 /* GGKPottyRecordsViewController.m */; };
 		9387C1EC17D1A5CA003D10B7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9387C1EB17D1A5CA003D10B7 /* AudioToolbox.framework */; };
 		9387C1EE17D1A7D0003D10B7 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9387C1ED17D1A7D0003D10B7 /* MediaPlayer.framework */; };
+		938A773D18E10CD100ADE967 /* GGKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 938A773C18E10CD100ADE967 /* GGKSettingsViewController.m */; };
 		9390858116DD534800C2290F /* GGKHistoryForDayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390858016DD534800C2290F /* GGKHistoryForDayTableViewController.m */; };
 		9390858416DD583A00C2290F /* GGKPottyAttemptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390858316DD583A00C2290F /* GGKPottyAttemptCell.m */; };
 		93BD16621761869400D32AA0 /* GGKPerfectPottyDescription.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 93BD16611761869400D32AA0 /* GGKPerfectPottyDescription.rtf */; };
@@ -118,8 +119,8 @@
 		9376CCB216E1DC0500887ADE /* GGKAddRewardTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKAddRewardTextViewController.m; sourceTree = "<group>"; };
 		937F863216D6A54A007DE572 /* GGKRewardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKRewardsViewController.h; sourceTree = "<group>"; };
 		937F863316D6A54A007DE572 /* GGKRewardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKRewardsViewController.m; sourceTree = "<group>"; };
-		937F863516D6A61A007DE572 /* GGKSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSettingsViewController.h; sourceTree = "<group>"; };
-		937F863616D6A61A007DE572 /* GGKSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSettingsViewController.m; sourceTree = "<group>"; };
+		937F863516D6A61A007DE572 /* GGKReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKReminderViewController.h; sourceTree = "<group>"; };
+		937F863616D6A61A007DE572 /* GGKReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKReminderViewController.m; sourceTree = "<group>"; };
 		937F863E16D9DC0B007DE572 /* GGKAddPottyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKAddPottyViewController.h; sourceTree = "<group>"; };
 		937F863F16D9DC0C007DE572 /* GGKAddPottyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKAddPottyViewController.m; sourceTree = "<group>"; };
 		937F864416DABF59007DE572 /* GGKPottyAttemptDayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPottyAttemptDayTableViewCell.h; sourceTree = "<group>"; };
@@ -146,6 +147,8 @@
 		9383F22517CA09A5005B41E5 /* GGKPottyRecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPottyRecordsViewController.m; sourceTree = "<group>"; };
 		9387C1EB17D1A5CA003D10B7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9387C1ED17D1A7D0003D10B7 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		938A773B18E10CD100ADE967 /* GGKSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSettingsViewController.h; sourceTree = "<group>"; };
+		938A773C18E10CD100ADE967 /* GGKSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSettingsViewController.m; sourceTree = "<group>"; };
 		9390857F16DD534800C2290F /* GGKHistoryForDayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKHistoryForDayTableViewController.h; sourceTree = "<group>"; };
 		9390858016DD534800C2290F /* GGKHistoryForDayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKHistoryForDayTableViewController.m; sourceTree = "<group>"; };
 		9390858216DD583A00C2290F /* GGKPottyAttemptCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPottyAttemptCell.h; sourceTree = "<group>"; };
@@ -295,6 +298,8 @@
 				93F00CBB18B2EFAB00EBE8D4 /* GGKPottyMusicViewController.m */,
 				9383F22417CA09A4005B41E5 /* GGKPottyRecordsViewController.h */,
 				9383F22517CA09A5005B41E5 /* GGKPottyRecordsViewController.m */,
+				937F863516D6A61A007DE572 /* GGKReminderViewController.h */,
+				937F863616D6A61A007DE572 /* GGKReminderViewController.m */,
 				9383F22117C91520005B41E5 /* GGKReward.h */,
 				9383F22217C91520005B41E5 /* GGKReward.m */,
 				937F863216D6A54A007DE572 /* GGKRewardsViewController.h */,
@@ -303,8 +308,8 @@
 				937652C816C079CB007EA04C /* GGKRootViewController.m */,
 				9315503016DF225000482944 /* GGKSetReminderViewController.h */,
 				9315503116DF225000482944 /* GGKSetReminderViewController.m */,
-				937F863516D6A61A007DE572 /* GGKSettingsViewController.h */,
-				937F863616D6A61A007DE572 /* GGKSettingsViewController.m */,
+				938A773B18E10CD100ADE967 /* GGKSettingsViewController.h */,
+				938A773C18E10CD100ADE967 /* GGKSettingsViewController.m */,
 				9362E42B16D5F17600A1B771 /* GGKSoundModel.h */,
 				9362E42C16D5F17600A1B771 /* GGKSoundModel.m */,
 				9382117717D1976200EDE843 /* GGKTestRemindersViewController.h */,
@@ -452,7 +457,7 @@
 				9362E42716D4AC2A00A1B771 /* UIColor+GGKColors.m in Sources */,
 				9362E42D16D5F17600A1B771 /* GGKSoundModel.m in Sources */,
 				937F863416D6A54A007DE572 /* GGKRewardsViewController.m in Sources */,
-				937F863716D6A61A007DE572 /* GGKSettingsViewController.m in Sources */,
+				937F863716D6A61A007DE572 /* GGKReminderViewController.m in Sources */,
 				937F864016D9DC0C007DE572 /* GGKAddPottyViewController.m in Sources */,
 				937F864616DABF5A007DE572 /* GGKPottyAttemptDayTableViewCell.m in Sources */,
 				937F864916DC50B1007DE572 /* GGKHistoryHeaderCell.m in Sources */,
@@ -476,6 +481,7 @@
 				9382117317CE360700EDE843 /* GGKEditChildNameViewController.m in Sources */,
 				9382117617CEB6E700EDE843 /* GGKAddChildViewController.m in Sources */,
 				9382117917D1976400EDE843 /* GGKTestRemindersViewController.m in Sources */,
+				938A773D18E10CD100ADE967 /* GGKSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
