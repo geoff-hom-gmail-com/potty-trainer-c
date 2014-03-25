@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="FaI-2l-hhn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="FaI-2l-hhn">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
@@ -9,11 +9,15 @@
         <scene sceneID="4">
             <objects>
                 <viewController id="2" customClass="GGKRootViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1iG-1o-vhn"/>
+                        <viewControllerLayoutGuide type="bottom" id="8fD-o9-7c0"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eAn-T6-8aY">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAn-T6-8aY">
                                 <rect key="frame" x="20" y="337" width="365" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
@@ -24,7 +28,7 @@
                                     <segue destination="UdP-CW-08m" kind="push" id="euQ-d4-4jH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" id="BxL-PO-Kif">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="BxL-PO-Kif">
                                 <rect key="frame" x="393" y="337" width="355" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
@@ -37,7 +41,7 @@ Board</string>
                                     <segue destination="GCW-3i-22h" kind="push" id="GP7-9y-nps"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MYJ-zh-jjb">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYJ-zh-jjb">
                                 <rect key="frame" x="20" y="611" width="326" height="330"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
@@ -48,7 +52,7 @@ Board</string>
                                     <segue destination="zsD-Zj-DD2" kind="push" id="RyC-jR-S6Z"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Pqg-0p-hZT">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqg-0p-hZT">
                                 <rect key="frame" x="354" y="611" width="394" height="330"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
@@ -59,7 +63,7 @@ Board</string>
                                     <segue destination="Eep-dI-mc6" kind="push" id="Uas-u9-4V2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dPm-1I-e8v">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPm-1I-e8v">
                                 <rect key="frame" x="20" y="20" width="333" height="310"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
@@ -70,7 +74,7 @@ Board</string>
                                     <segue destination="bEg-wE-Enf" kind="push" id="C44-YM-2pR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="llF-rc-2uY">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llF-rc-2uY">
                                 <rect key="frame" x="361" y="20" width="387" height="310"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
@@ -96,6 +100,10 @@ Board</string>
         <scene sceneID="cA9-8K-1rj">
             <objects>
                 <viewController id="zsD-Zj-DD2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DW6-So-NTC"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZDY-zL-m3M"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zv1-6j-KIS">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -111,6 +119,10 @@ Board</string>
         <scene sceneID="dTy-HT-c2r">
             <objects>
                 <viewController id="bEg-wE-Enf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IeB-N5-DjP"/>
+                        <viewControllerLayoutGuide type="bottom" id="4nD-W8-NTC"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8Pl-IT-5oR">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -126,6 +138,10 @@ Board</string>
         <scene sceneID="qjD-Ej-mfq">
             <objects>
                 <viewController id="Eep-dI-mc6" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A6T-Af-3MP"/>
+                        <viewControllerLayoutGuide type="bottom" id="gYE-vR-xMh"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Glc-lz-3Rh">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -141,6 +157,10 @@ Board</string>
         <scene sceneID="ImC-C2-OrO">
             <objects>
                 <viewController id="GCW-3i-22h" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="K7T-2B-iin"/>
+                        <viewControllerLayoutGuide type="bottom" id="0LT-jt-cS6"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oZM-uG-esi">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -156,11 +176,15 @@ Board</string>
         <scene sceneID="nn7-XU-eEV">
             <objects>
                 <viewController id="UdP-CW-08m" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6s6-aE-0p5"/>
+                        <viewControllerLayoutGuide type="bottom" id="wOR-H5-k8C"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6I6-46-y0E">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Records go here." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h73-nr-vvQ">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Records go here." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h73-nr-vvQ">
                                 <rect key="frame" x="227" y="164" width="134" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -180,6 +204,10 @@ Board</string>
         <scene sceneID="u8I-s1-mPQ">
             <objects>
                 <viewController id="svm-JG-E7P" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ux0-bc-Jet"/>
+                        <viewControllerLayoutGuide type="bottom" id="nTJ-dc-BVz"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="82e-Qj-fOD">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -581,7 +581,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Potty Trainer/Perfect Potty Pal-Prefix.pch";
 				INFOPLIST_FILE = "Potty Trainer/Perfect Potty Pal-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/geoffrey2/personal/projects/Potty\\ Trainer\\ good/TestFlightSDK2",
@@ -601,7 +601,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Potty Trainer/Perfect Potty Pal-Prefix.pch";
 				INFOPLIST_FILE = "Potty Trainer/Perfect Potty Pal-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/geoffrey2/personal/projects/Potty\\ Trainer\\ good/TestFlightSDK2",
@@ -650,7 +650,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Potty Trainer/Perfect Potty Pal-Prefix.pch";
 				INFOPLIST_FILE = "Potty Trainer/Perfect Potty Pal-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/geoffrey2/personal/projects/Potty\\ Trainer\\ good/TestFlightSDK2",
