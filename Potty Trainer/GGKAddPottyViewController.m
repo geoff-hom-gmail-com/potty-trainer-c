@@ -11,16 +11,12 @@
 #import "NSDate+GGKDate.h"
 
 @interface GGKAddPottyViewController ()
-
 - (void)handleSymbolSegmentedControlTapped;
 // So, play the button sound. Adjust successfulness. If it was the last segment, let the user choose a custom symbol.
-
 @end
 
 @implementation GGKAddPottyViewController
-
-- (void)handleSymbolSegmentedControlTapped
-{
+- (void)handleSymbolSegmentedControlTapped {
     [self playButtonSound];
 
     // Adjust successfulness.
@@ -64,13 +60,13 @@
     // Get the selected symbol.
     NSString *thePottyAttemptSymbolString;
     NSInteger theSelectedSegmentIndex = self.symbolSegmentedControl.selectedSegmentIndex;
-    // Instead of "(p)ee" it's "p" and instead of "(B)oth" it's "B."
+    // For "Pee" and "Both," replace with designated symbol.
     switch (theSelectedSegmentIndex) {
         case 0:
-            thePottyAttemptSymbolString = @"p";
+            thePottyAttemptSymbolString = GGKPeeSymbolString;
             break;
         case 2:
-            thePottyAttemptSymbolString = @"B";
+            thePottyAttemptSymbolString = GGKBothSymbolString;
             break;
         default:
             thePottyAttemptSymbolString = [self.symbolSegmentedControl titleForSegmentAtIndex:theSelectedSegmentIndex];
@@ -117,11 +113,11 @@
         // Symbol.
         NSInteger theSelectedSegmentIndex;
         NSString *theSymbolString = self.pottyAttemptToEditDictionary[GGKPottyAttemptSymbolStringKeyString];
-        if ([theSymbolString isEqualToString:@"p"]) {
+        if ([theSymbolString isEqualToString:GGKPeeSymbolString]) {
             theSelectedSegmentIndex = 0;
         } else if ([theSymbolString isEqualToString:GGKPooSymbolString]) {
             theSelectedSegmentIndex = 1;
-        } else if ([theSymbolString isEqualToString:@"B"]) {
+        } else if ([theSymbolString isEqualToString:GGKBothSymbolString]) {
             theSelectedSegmentIndex = 2;
         } else if ([theSymbolString isEqualToString:GGKXSymbolString]) {
             theSelectedSegmentIndex = 3;

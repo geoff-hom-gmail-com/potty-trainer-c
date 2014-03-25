@@ -27,7 +27,11 @@ NSString *GGKMostRecentCustomSymbolStringKeyString = @"Most-recent-custom-symbol
 
 // Key for storing the number of stars purchased.
 NSString *GGKNumberOfStarsPurchasedNumberKeyString = @"Number of stars purchased";
+
+NSString *GGKBothSymbolString = @"B";
+NSString *GGKPeeSymbolString = @"P";
 NSString *GGKPooSymbolString = @"💩";
+
 NSString *GGKPottyAttemptDateKeyString = @"Potty-attempt date";
 
 NSString *GGKPottyAttemptSymbolStringKeyString = @"Potty-attempt symbol string";

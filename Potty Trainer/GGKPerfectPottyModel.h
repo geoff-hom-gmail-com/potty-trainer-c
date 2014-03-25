@@ -18,8 +18,14 @@ extern NSString *GGKGirlThemeString;
 
 // String for the product ID for giving a dollar.
 extern NSString *GGKGiveDollarProductIDString;
+
+// Symbol for pee + poo.
+extern NSString *GGKBothSymbolString;
+// Symbol for pee.
+extern NSString *GGKPeeSymbolString;
 // A poo emoji.
 extern NSString *GGKPooSymbolString;
+
 // Key for storing the date of a potty attempt. Object is an NSDate.
 extern NSString *GGKPottyAttemptDateKeyString;
 
