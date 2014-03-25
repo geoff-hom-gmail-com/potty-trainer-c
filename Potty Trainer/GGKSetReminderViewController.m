@@ -65,20 +65,14 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
     return theReminderDate;
 }
 
-- (IBAction)setReminder
-{
+- (IBAction)setReminder {
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     UILocalNotification *aLocalNotification = [[UILocalNotification alloc] init];
-    
-    NSDate *theReminderDate = [self reminderDate];
-
-    aLocalNotification.fireDate = theReminderDate;
+    aLocalNotification.fireDate = [self reminderDate];
     aLocalNotification.timeZone = [NSTimeZone defaultTimeZone];
     aLocalNotification.alertBody = @"Potty time? (Wash hands.)";
-    aLocalNotification.soundName = GGKReminderSoundFilenameString;
-    
+    aLocalNotification.soundName = [GGKReminderSoundPrefixString stringByAppendingString:@".caf"];
     [[UIApplication sharedApplication] scheduleLocalNotification:aLocalNotification];
-    
     // Save reminder interval.
     NSDate *theReminderIncrementDate = self.datePicker.date;
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -86,7 +80,6 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
     NSDateComponents *theReminderIncrementDateComponents = [gregorianCalendar components:aCalendarUnit fromDate:theReminderIncrementDate];
     self.perfectPottyModel.reminderIncrementDateComponents = theReminderIncrementDateComponents;
     [self.perfectPottyModel saveReminderInterval];
-    
     [self.delegate setReminderViewControllerDidSetReminder:self];
 }
 

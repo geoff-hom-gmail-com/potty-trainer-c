@@ -79,14 +79,12 @@
     [super handleViewWillAppearToUser];
     [self startVisibleUpdates];
 }
-- (IBAction)setTestReminder
-{
+- (IBAction)setTestReminder {
     UILocalNotification *aLocalNotification = [[UILocalNotification alloc] init];
-    NSDate *theReminderDate = [NSDate dateWithTimeIntervalSinceNow:5];
-    aLocalNotification.fireDate = theReminderDate;
+    aLocalNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
     aLocalNotification.timeZone = [NSTimeZone defaultTimeZone];
     aLocalNotification.alertBody = @"Potty time? (Wash hands.)";
-    aLocalNotification.soundName = GGKReminderSoundFilenameString;
+    aLocalNotification.soundName = [GGKReminderSoundPrefixString stringByAppendingString:@".caf"];
     [[UIApplication sharedApplication] scheduleLocalNotification:aLocalNotification];
     self.localNotification = aLocalNotification;
     [self startUpdateTimer];

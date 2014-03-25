@@ -10,42 +10,36 @@
 
 #import "GGKChild.h"
 
-// String to identify the boy theme.
-extern NSString *GGKBoyThemeString;
-
-// String to identify the girl theme.
-extern NSString *GGKGirlThemeString;
-
-// String for the product ID for giving a dollar.
-extern NSString *GGKGiveDollarProductIDString;
-
+// Potty-record symbols.
 // Symbol for pee + poo.
 extern NSString *GGKBothSymbolString;
 // Symbol for pee.
 extern NSString *GGKPeeSymbolString;
 // A poo emoji.
 extern NSString *GGKPooSymbolString;
+// A star symbol. Used for successful attempts in v1.0.4 and earlier.
+extern NSString *GGKStarSymbolString;
+// An X symbol. Used for unsuccessful attempts.
+extern NSString *GGKXSymbolString;
 
+// Keys for saving data.
 // Key for storing the date of a potty attempt. Object is an NSDate.
 extern NSString *GGKPottyAttemptDateKeyString;
-
 // Key for storing the symbol for a potty attempt.
 extern NSString *GGKPottyAttemptSymbolStringKeyString;
-
 // Key for storing whether a potty attempt was successful. Object is a BOOL stored as an NSNumber.
 extern NSString *GGKPottyAttemptWasSuccessfulNumberKeyString;
 
-// Filename for the sound file to use for reminders.
-extern NSString *GGKReminderSoundFilenameString;
-
+// String to identify the boy theme.
+extern NSString *GGKBoyThemeString;
+// String to identify the girl theme.
+extern NSString *GGKGirlThemeString;
+// String for the product ID for giving a dollar.
+extern NSString *GGKGiveDollarProductIDString;
+// Prefix for the sound file to use for reminders.
+extern NSString *GGKReminderSoundPrefixString;
 // A star symbol. Used for showing number of successful attempts, and for donation thank-yous.
 extern NSString *GGKStarRewardString;
-
-// A star symbol. Used for successful attempts in v1.0.4 and earlier.
-extern NSString *GGKStarSymbolString;
-
-// An X symbol. Used for unsuccessful attempts.
-extern NSString *GGKXSymbolString;
 
 @interface GGKPerfectPottyModel : NSObject
 

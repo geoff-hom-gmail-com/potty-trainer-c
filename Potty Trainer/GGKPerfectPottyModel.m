@@ -11,46 +11,36 @@
 #import "GGKReward.h"
 #import "NSDate+GGKDate.h"
 
-NSString *GGKBoyThemeString = @"Boy theme";
-
-// Key for storing data for all children.
-NSString *GGKChildrenKeyString = @"Children data";
-
-NSString *GGKCurrentChildIDNumberKeyString = @"Current child ID number";
-
-NSString *GGKGirlThemeString = @"Girl theme";
-
-NSString *GGKGiveDollarProductIDString = @"com.geoffhom.PerfectPotty.GiveADollar";
-
-// Key for storing the most-recent custom symbol used.
-NSString *GGKMostRecentCustomSymbolStringKeyString = @"Most-recent-custom-symbol string";
-
-// Key for storing the number of stars purchased.
-NSString *GGKNumberOfStarsPurchasedNumberKeyString = @"Number of stars purchased";
-
+// Potty-record symbols.
 NSString *GGKBothSymbolString = @"B";
 NSString *GGKPeeSymbolString = @"P";
 NSString *GGKPooSymbolString = @"💩";
+NSString *GGKStarSymbolString = @"\u2605";
+NSString *GGKXSymbolString = @"\u2718";
 
+// Keys for saving data.
+// Key for storing data for all children.
+NSString *GGKChildrenKeyString = @"Children data";
+// Key for storing ID of current child.
+NSString *GGKCurrentChildIDNumberKeyString = @"Current child ID number";
+// Key for storing the most-recent custom symbol used.
+NSString *GGKMostRecentCustomSymbolStringKeyString = @"Most-recent-custom-symbol string";
+// Key for storing the number of stars purchased.
+NSString *GGKNumberOfStarsPurchasedNumberKeyString = @"Number of stars purchased";
 NSString *GGKPottyAttemptDateKeyString = @"Potty-attempt date";
-
 NSString *GGKPottyAttemptSymbolStringKeyString = @"Potty-attempt symbol string";
-
 NSString *GGKPottyAttemptWasSuccessfulNumberKeyString = @"Potty-attempt-was-successful number";
-
 // Key for storing the number of minutes used for the previous reminder.
 NSString *GGKReminderMinutesNumberKeyString = @"Reminder-minutes number";
-
-NSString *GGKReminderSoundFilenameString = @"reminder1.aiff";
-
-NSString *GGKStarRewardString = @"\u2b50";
-
-NSString *GGKStarSymbolString = @"\u2605";
-
 // Key for storing the name of the color theme to show.
 NSString *GGKThemeKeyString = @"Theme";
 
-NSString *GGKXSymbolString = @"\u2718";
+NSString *GGKBoyThemeString = @"Boy theme";
+NSString *GGKGirlThemeString = @"Girl theme";
+NSString *GGKGiveDollarProductIDString = @"com.geoffhom.PerfectPotty.GiveADollar";
+NSString *GGKReminderSoundPrefixString = @"reminder1-mono-s16K";
+NSString *GGKStarRewardString = @"\u2b50";
+
 @interface GGKPerfectPottyModel ()
 
 // Create and return a child. If saved data from v1.1.0 or before, use that. Else, return a new child.

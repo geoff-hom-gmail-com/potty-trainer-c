@@ -20,7 +20,6 @@
 		9362E42716D4AC2A00A1B771 /* UIColor+GGKColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42616D4AC2A00A1B771 /* UIColor+GGKColors.m */; };
 		9362E42D16D5F17600A1B771 /* GGKSoundModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42C16D5F17600A1B771 /* GGKSoundModel.m */; };
 		9362E43016D5FBF400A1B771 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9362E42F16D5FBF400A1B771 /* AVFoundation.framework */; };
-		9362E43216D5FDAB00A1B771 /* tap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 9362E42E16D5FA8600A1B771 /* tap.aif */; };
 		937652AA16C079CB007EA04C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937652A916C079CB007EA04C /* UIKit.framework */; };
 		937652AC16C079CB007EA04C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937652AB16C079CB007EA04C /* Foundation.framework */; };
 		937652AE16C079CB007EA04C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937652AD16C079CB007EA04C /* CoreGraphics.framework */; };
@@ -30,7 +29,6 @@
 		937652C316C079CB007EA04C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937652C116C079CB007EA04C /* MainStoryboard_iPhone.storyboard */; };
 		937652C616C079CB007EA04C /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937652C416C079CB007EA04C /* MainStoryboard_iPad.storyboard */; };
 		937652C916C079CB007EA04C /* GGKRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937652C816C079CB007EA04C /* GGKRootViewController.m */; };
-		9376CCAE16E0111E00887ADE /* scoreIncrease.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 9376CCAD16E0111E00887ADE /* scoreIncrease.aiff */; };
 		9376CCB016E1A48400887ADE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9376CCAF16E1A48300887ADE /* MobileCoreServices.framework */; };
 		9376CCB316E1DC0600887ADE /* GGKAddRewardTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9376CCB216E1DC0500887ADE /* GGKAddRewardTextViewController.m */; };
 		937F863416D6A54A007DE572 /* GGKRewardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F863316D6A54A007DE572 /* GGKRewardsViewController.m */; };
@@ -50,12 +48,13 @@
 		9387C1EC17D1A5CA003D10B7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9387C1EB17D1A5CA003D10B7 /* AudioToolbox.framework */; };
 		9387C1EE17D1A7D0003D10B7 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9387C1ED17D1A7D0003D10B7 /* MediaPlayer.framework */; };
 		938A773D18E10CD100ADE967 /* GGKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 938A773C18E10CD100ADE967 /* GGKSettingsViewController.m */; };
+		938A774118E1389100ADE967 /* tap-mono-s16K.caf in Resources */ = {isa = PBXBuildFile; fileRef = 938A773F18E1389100ADE967 /* tap-mono-s16K.caf */; };
+		938A774318E142F500ADE967 /* reminder1-mono-s16K.caf in Resources */ = {isa = PBXBuildFile; fileRef = 938A774218E142F500ADE967 /* reminder1-mono-s16K.caf */; };
 		9390858116DD534800C2290F /* GGKHistoryForDayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390858016DD534800C2290F /* GGKHistoryForDayTableViewController.m */; };
 		9390858416DD583A00C2290F /* GGKPottyAttemptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390858316DD583A00C2290F /* GGKPottyAttemptCell.m */; };
 		93BD16621761869400D32AA0 /* GGKPerfectPottyDescription.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 93BD16611761869400D32AA0 /* GGKPerfectPottyDescription.rtf */; };
 		93BD166517618E1500D32AA0 /* GGKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BD166417618E1500D32AA0 /* GGKViewController.m */; };
 		93BD1668176191B700D32AA0 /* GGKUseCustomSymbolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BD1667176191B700D32AA0 /* GGKUseCustomSymbolViewController.m */; };
-		93CA2BA617D4820B00CF4440 /* reminder1.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 93CA2BA517D4820B00CF4440 /* reminder1.aiff */; };
 		93DD9EA918A09A0300F09E21 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DD9EA618A09A0300F09E21 /* Default-568h@2x.png */; };
 		93DD9EAA18A09A0300F09E21 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DD9EA718A09A0300F09E21 /* Default.png */; };
 		93DD9EAB18A09A0300F09E21 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DD9EA818A09A0300F09E21 /* Default@2x.png */; };
@@ -87,7 +86,7 @@
 		932904E318AA55930066D2DA /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		9336135A18A0A5450026F270 /* GGKMusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKMusicModel.h; sourceTree = "<group>"; };
 		9336135B18A0A5450026F270 /* GGKMusicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKMusicModel.m; sourceTree = "<group>"; };
-		9336135D18A0C04C0026F270 /* Perfect Potty - Intro Main Menu Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Perfect Potty - Intro Main Menu Music.m4a"; sourceTree = "<group>"; };
+		9336135D18A0C04C0026F270 /* Perfect Potty - Intro Main Menu Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Perfect Potty - Intro Main Menu Music.m4a"; path = "sounds/Perfect Potty - Intro Main Menu Music.m4a"; sourceTree = "<group>"; };
 		9353B37D16E6011300B0A75A /* GGKYourSupportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKYourSupportViewController.h; sourceTree = "<group>"; };
 		9353B37E16E6011300B0A75A /* GGKYourSupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKYourSupportViewController.m; sourceTree = "<group>"; };
 		935A344116F206BA003DD6FA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -97,7 +96,6 @@
 		9362E42616D4AC2A00A1B771 /* UIColor+GGKColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GGKColors.m"; sourceTree = "<group>"; };
 		9362E42B16D5F17600A1B771 /* GGKSoundModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSoundModel.h; sourceTree = "<group>"; };
 		9362E42C16D5F17600A1B771 /* GGKSoundModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSoundModel.m; sourceTree = "<group>"; };
-		9362E42E16D5FA8600A1B771 /* tap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = tap.aif; path = sounds/tap.aif; sourceTree = "<group>"; };
 		9362E42F16D5FBF400A1B771 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		937652A616C079CB007EA04C /* Perfect Potty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Perfect Potty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		937652A916C079CB007EA04C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -113,7 +111,6 @@
 		937652C516C079CB007EA04C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		937652C716C079CB007EA04C /* GGKRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGKRootViewController.h; sourceTree = "<group>"; };
 		937652C816C079CB007EA04C /* GGKRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGKRootViewController.m; sourceTree = "<group>"; };
-		9376CCAD16E0111E00887ADE /* scoreIncrease.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = scoreIncrease.aiff; path = sounds/scoreIncrease.aiff; sourceTree = "<group>"; };
 		9376CCAF16E1A48300887ADE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		9376CCB116E1DC0500887ADE /* GGKAddRewardTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKAddRewardTextViewController.h; sourceTree = "<group>"; };
 		9376CCB216E1DC0500887ADE /* GGKAddRewardTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKAddRewardTextViewController.m; sourceTree = "<group>"; };
@@ -149,6 +146,8 @@
 		9387C1ED17D1A7D0003D10B7 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		938A773B18E10CD100ADE967 /* GGKSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSettingsViewController.h; sourceTree = "<group>"; };
 		938A773C18E10CD100ADE967 /* GGKSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSettingsViewController.m; sourceTree = "<group>"; };
+		938A773F18E1389100ADE967 /* tap-mono-s16K.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "tap-mono-s16K.caf"; path = "sounds/tap-mono-s16K.caf"; sourceTree = "<group>"; };
+		938A774218E142F500ADE967 /* reminder1-mono-s16K.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "reminder1-mono-s16K.caf"; path = "sounds/reminder1-mono-s16K.caf"; sourceTree = "<group>"; };
 		9390857F16DD534800C2290F /* GGKHistoryForDayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKHistoryForDayTableViewController.h; sourceTree = "<group>"; };
 		9390858016DD534800C2290F /* GGKHistoryForDayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKHistoryForDayTableViewController.m; sourceTree = "<group>"; };
 		9390858216DD583A00C2290F /* GGKPottyAttemptCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPottyAttemptCell.h; sourceTree = "<group>"; };
@@ -158,7 +157,6 @@
 		93BD166417618E1500D32AA0 /* GGKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKViewController.m; sourceTree = "<group>"; };
 		93BD1666176191B700D32AA0 /* GGKUseCustomSymbolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKUseCustomSymbolViewController.h; sourceTree = "<group>"; };
 		93BD1667176191B700D32AA0 /* GGKUseCustomSymbolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKUseCustomSymbolViewController.m; sourceTree = "<group>"; };
-		93CA2BA517D4820B00CF4440 /* reminder1.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = reminder1.aiff; path = sounds/reminder1.aiff; sourceTree = "<group>"; };
 		93DD9EA618A09A0300F09E21 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		93DD9EA718A09A0300F09E21 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		93DD9EA818A09A0300F09E21 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -174,7 +172,7 @@
 		93DE8C1A16E89A7E00AA87FF /* icon2-57px@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-57px@2x.png"; path = "icons/icon2-57px@2x.png"; sourceTree = "<group>"; };
 		93DE8C1B16E89A7E00AA87FF /* icon2-72px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-72px.png"; path = "icons/icon2-72px.png"; sourceTree = "<group>"; };
 		93DE8C1C16E89A7E00AA87FF /* icon2-72px@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-72px@2x.png"; path = "icons/icon2-72px@2x.png"; sourceTree = "<group>"; };
-		93F00CB818B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Perfect Potty - Potty Music.m4a"; sourceTree = "<group>"; };
+		93F00CB818B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Perfect Potty - Potty Music.m4a"; path = "sounds/Perfect Potty - Potty Music.m4a"; sourceTree = "<group>"; };
 		93F00CBA18B2EFAB00EBE8D4 /* GGKPottyMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPottyMusicViewController.h; sourceTree = "<group>"; };
 		93F00CBB18B2EFAB00EBE8D4 /* GGKPottyMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPottyMusicViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -217,11 +215,10 @@
 		9362E43116D5FC9100A1B771 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				938A774218E142F500ADE967 /* reminder1-mono-s16K.caf */,
+				938A773F18E1389100ADE967 /* tap-mono-s16K.caf */,
 				93F00CB818B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a */,
 				9336135D18A0C04C0026F270 /* Perfect Potty - Intro Main Menu Music.m4a */,
-				9376CCAD16E0111E00887ADE /* scoreIncrease.aiff */,
-				9362E42E16D5FA8600A1B771 /* tap.aif */,
-				93CA2BA517D4820B00CF4440 /* reminder1.aiff */,
 			);
 			name = sounds;
 			sourceTree = "<group>";
@@ -422,13 +419,12 @@
 				937652C316C079CB007EA04C /* MainStoryboard_iPhone.storyboard in Resources */,
 				932904E518AA55930066D2DA /* README.md in Resources */,
 				937652C616C079CB007EA04C /* MainStoryboard_iPad.storyboard in Resources */,
-				9362E43216D5FDAB00A1B771 /* tap.aif in Resources */,
-				9376CCAE16E0111E00887ADE /* scoreIncrease.aiff in Resources */,
 				93DE8C1216E898C700AA87FF /* icon2-29px.png in Resources */,
 				93DE8C1416E8995200AA87FF /* icon2-29px@2x.png in Resources */,
 				93DE8C1616E8999A00AA87FF /* icon2-50px.png in Resources */,
 				93DE8C1816E899CE00AA87FF /* icon2-50px@2x.png in Resources */,
 				93DE8C1D16E89A7E00AA87FF /* icon2-57px.png in Resources */,
+				938A774118E1389100ADE967 /* tap-mono-s16K.caf in Resources */,
 				93DE8C1E16E89A7E00AA87FF /* icon2-57px@2x.png in Resources */,
 				93DD9EAA18A09A0300F09E21 /* Default.png in Resources */,
 				93DD9EAB18A09A0300F09E21 /* Default@2x.png in Resources */,
@@ -436,10 +432,10 @@
 				93DD9EA918A09A0300F09E21 /* Default-568h@2x.png in Resources */,
 				93F00CB918B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a in Resources */,
 				93DE8C1F16E89A7E00AA87FF /* icon2-72px.png in Resources */,
+				938A774318E142F500ADE967 /* reminder1-mono-s16K.caf in Resources */,
 				93DE8C2016E89A7E00AA87FF /* icon2-72px@2x.png in Resources */,
 				932904E618AA55930066D2DA /* release_notes.md in Resources */,
 				93BD16621761869400D32AA0 /* GGKPerfectPottyDescription.rtf in Resources */,
-				93CA2BA617D4820B00CF4440 /* reminder1.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

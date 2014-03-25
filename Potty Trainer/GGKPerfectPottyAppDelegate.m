@@ -87,22 +87,17 @@ NSString *GGKHasLaunchedBeforeKeyString = @"Has launched before?";
     return YES;
 }
 
-- (void)application:(UIApplication *)theApplication didReceiveLocalNotification:(UILocalNotification *)theNotification
-{
+- (void)application:(UIApplication *)theApplication didReceiveLocalNotification:(UILocalNotification *)theNotification {
     // There's a bug that can cause one notification to call this method twice. So we'll add a timer so this can get called only so often.
     NSLog(@"aD a dRLN");
     if (!self.localNotificationWasRecentlyReceived) {
-        
         if (theApplication.applicationState == UIApplicationStateActive) {
-            
             NSLog(@"aD a dRLN: app was running");
             UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:GGKAppName message:theNotification.alertBody delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
             [anAlertView show];
-            
             // Play an alert sound, too.
             // Using Audio Services to use the "Ringer and Alerts" volume (Settings app -> Sounds).
-            NSString *soundFilePath = [ [NSBundle mainBundle] pathForResource:@"reminder1" ofType:@"aiff" ];            
-            NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+            NSURL *soundFileURL = [[NSBundle mainBundle] URLForResource:GGKReminderSoundPrefixString withExtension:@"caf"];
             AudioServicesCreateSystemSoundID( (__bridge CFURLRef)soundFileURL, &_reminderSound);
             AudioServicesPlaySystemSound(_reminderSound);
         }
@@ -110,7 +105,6 @@ NSString *GGKHasLaunchedBeforeKeyString = @"Has launched before?";
         [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(noteThatLocalNotificationsNotReceivedRecently) userInfo:nil repeats:NO];
     }
 }
-
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 //    NSLog(@"aD aDBA");
