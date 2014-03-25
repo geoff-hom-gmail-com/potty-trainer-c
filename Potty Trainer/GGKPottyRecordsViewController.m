@@ -30,7 +30,6 @@
 @implementation GGKPottyRecordsViewController
 - (void)handleViewWillAppearToUser {
     [super handleViewWillAppearToUser];
-    NSLog(@"PRVC handleViewWillAppearToUser");
     // Reload the data and refresh the table each time the view appears. This is simply more robust. Data may have been added or deleted, but also the date may have changed, so relative dates (e.g. today) will change if displayed.
     // When the table is first being shown, we might think this would result in the table reloading its data twice. However, that doesn't seem to be the case, so that's good.
     GGKChild *currentChild = self.perfectPottyModel.currentChild;

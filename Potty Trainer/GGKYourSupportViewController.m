@@ -188,6 +188,7 @@
 //    }
 //    
 //    self.activityIndicatorView.center = self.view.center;
+// if using .center, round origin via CGRectIntegral
 //    [self.activityIndicatorView startAnimating];
 //}
 //

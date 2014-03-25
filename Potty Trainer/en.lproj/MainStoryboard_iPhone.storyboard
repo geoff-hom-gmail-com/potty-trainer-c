@@ -727,17 +727,9 @@ from now.</string>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="✔" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wv-4I-w37">
-                                                    <rect key="frame" x="173" y="11" width="25" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="attempt1Label" destination="1Wv-4I-w37" id="gO3-Hd-mcO"/>
                                             <outlet property="dateLabel" destination="AHX-mQ-rMO" id="3jZ-zk-WuV"/>
                                             <outlet property="endMarkLabel" destination="kCJ-WB-QgS" id="XXf-Av-LwY"/>
                                             <outlet property="startMarkLabel" destination="wfi-Rl-t5Q" id="8On-Pg-2k8"/>

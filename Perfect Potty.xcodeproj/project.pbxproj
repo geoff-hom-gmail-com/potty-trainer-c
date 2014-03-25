@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9315502F16DF1D2400482944 /* UIView+GGKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315502E16DF1D2400482944 /* UIView+GGKAdditions.m */; };
 		9315503216DF225000482944 /* GGKSetReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315503116DF225000482944 /* GGKSetReminderViewController.m */; };
 		932904E418AA55930066D2DA /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 932904DE18AA55930066D2DA /* libTestFlight.a */; };
 		932904E518AA55930066D2DA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 932904DF18AA55930066D2DA /* README.md */; };
@@ -74,8 +73,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9315502D16DF1D2400482944 /* UIView+GGKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GGKAdditions.h"; sourceTree = "<group>"; };
-		9315502E16DF1D2400482944 /* UIView+GGKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GGKAdditions.m"; sourceTree = "<group>"; };
 		9315503016DF225000482944 /* GGKSetReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSetReminderViewController.h; sourceTree = "<group>"; };
 		9315503116DF225000482944 /* GGKSetReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSetReminderViewController.m; sourceTree = "<group>"; };
 		932904DE18AA55930066D2DA /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
@@ -323,8 +320,6 @@
 				937F864B16DC7BF2007DE572 /* NSDate+GGKDate.m */,
 				9362E42516D4AC2A00A1B771 /* UIColor+GGKColors.h */,
 				9362E42616D4AC2A00A1B771 /* UIColor+GGKColors.m */,
-				9315502D16DF1D2400482944 /* UIView+GGKAdditions.h */,
-				9315502E16DF1D2400482944 /* UIView+GGKAdditions.m */,
 				937652B016C079CB007EA04C /* Supporting Files */,
 			);
 			name = "Perfect Potty";
@@ -460,7 +455,6 @@
 				937F864C16DC7BF2007DE572 /* NSDate+GGKDate.m in Sources */,
 				9390858116DD534800C2290F /* GGKHistoryForDayTableViewController.m in Sources */,
 				9390858416DD583A00C2290F /* GGKPottyAttemptCell.m in Sources */,
-				9315502F16DF1D2400482944 /* UIView+GGKAdditions.m in Sources */,
 				9315503216DF225000482944 /* GGKSetReminderViewController.m in Sources */,
 				93F00CBC18B2EFAB00EBE8D4 /* GGKPottyMusicViewController.m in Sources */,
 				9376CCB316E1DC0600887ADE /* GGKAddRewardTextViewController.m in Sources */,

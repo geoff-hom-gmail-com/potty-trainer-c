@@ -10,9 +10,6 @@
 
 @interface GGKPottyAttemptDayTableViewCell : UITableViewCell
 
-// For showing an attempt.
-@property (nonatomic, weak) IBOutlet UILabel *attempt1Label;
-
 // For showing the date of the potty attempts. E.g., "2/22, Fri."
 @property (nonatomic, weak) IBOutlet UILabel *dateLabel;
 

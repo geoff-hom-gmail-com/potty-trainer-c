@@ -26,7 +26,7 @@
 }
 - (void)showAttempts {
     // Remove extra labels (from previous uses of this cell).
-    NSArray *defaultLabels = @[self.dateLabel, self.startMarkLabel, self.endMarkLabel, self.attempt1Label];
+    NSArray *defaultLabels = @[self.dateLabel, self.startMarkLabel, self.endMarkLabel];
     [self.contentView.subviews enumerateObjectsUsingBlock:^(UIView *aView, NSUInteger idx, BOOL *stop) {
         if ([aView isKindOfClass:[UILabel class]] && ![defaultLabels containsObject:aView]) {
             // This works without crashing, because -subviews returns a copy of the array.
@@ -66,29 +66,18 @@
         } else {
             NSInteger theProportionalXInteger = (endXInteger - startXInteger) * minutesAfterStartTimeInteger / self.endMinutesAfterStartTimeInteger;
             theNewCenterXInteger = startXInteger + theProportionalXInteger;
-        }
-        NSLog(@"PADTVC showAttempts theNewCenterXInteger:%d", theNewCenterXInteger);
-        if (idx == 0) {
-            self.attempt1Label.text = theSymbolString;
-            self.attempt1Label.center = CGPointMake(theNewCenterXInteger, self.attempt1Label.center.y);
-            NSLog(@"PADTVC showAttempts theNewCenterXInteger:%f", self.attempt1Label.center.x);
-            self.attempt1Label.textColor = theTextColor;
-            //testing; trying to get the new center to work; instead, it keeps using the value in the storyboard
-            // WILO
-            // works; but fixing it messes up other labels...
-            [self.attempt1Label removeFromSuperview];
-            [self.contentView addSubview:self.attempt1Label];
-        } else {
-            UILabel *aNewLabel = [[UILabel alloc] initWithFrame:self.attempt1Label.frame];
-            aNewLabel.opaque = NO;
-            aNewLabel.backgroundColor = [UIColor clearColor];
-            aNewLabel.textAlignment = NSTextAlignmentCenter;
-            aNewLabel.text = theSymbolString;
-            aNewLabel.textColor = theTextColor;
-            aNewLabel.center = CGPointMake(theNewCenterXInteger, aNewLabel.center.y);
-            NSLog(@"PADTVC showAttempts theNewCenterXInteger:%f", aNewLabel.center.x);
-            [self.contentView addSubview:aNewLabel];
-        }
+        }        
+        CGRect aFrameRect = CGRectMake(0, 11, 25, 21);
+        UILabel *aNewLabel = [[UILabel alloc] initWithFrame:aFrameRect];
+        aNewLabel.opaque = NO;
+        aNewLabel.backgroundColor = [UIColor clearColor];
+        aNewLabel.textAlignment = NSTextAlignmentCenter;
+        aNewLabel.text = theSymbolString;
+        aNewLabel.textColor = theTextColor;
+        aNewLabel.center = CGPointMake(theNewCenterXInteger, aNewLabel.center.y);
+        // Avoid half-pixels at origin.
+        aNewLabel.frame = CGRectIntegral(aNewLabel.frame);
+        [self.contentView addSubview:aNewLabel];
     }];
 }
 - (void)showDate {
