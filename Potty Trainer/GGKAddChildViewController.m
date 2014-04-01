@@ -78,12 +78,12 @@
     [super viewDidLoad];
 
     // Prepopulate text field with a name that could work. (I.e., not already used.)
-    // Try "AnonX" for increasing X. If there are X children, we need to try at most X + 1 names.
+    // Try "AnonymousX" for increasing X. If there are X children, we need to try at most X + 1 names.
     for (int i1 = 0; i1 < [self.perfectPottyModel.childrenMutableArray count] + 1; i1++) {
         
-        // Start with "Anon2."
+        // Start with "Anonymous2."
         NSInteger suffixInteger = i1 + 2;
-        NSString *genericName = [NSString stringWithFormat:@"Anon%d", suffixInteger];
+        NSString *genericName = [NSString stringWithFormat:@"Anonymous%d", suffixInteger];
         __block BOOL isAlreadyUsed = NO;
         [self.perfectPottyModel.childrenMutableArray enumerateObjectsUsingBlock:^(GGKChild *aChild, NSUInteger idx, BOOL *stop) {
             

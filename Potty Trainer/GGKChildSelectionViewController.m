@@ -17,10 +17,8 @@ NSString *RemoveChildActionSheetTitleString = @"Removing a child will delete all
 
 // Remove data for current child.
 - (void)removeCurrentChild;
-
 // Update current-child name. Reload table. Select current child. Scroll so current child is visible.
 - (void)updateView;
-
 @end
 
 @implementation GGKChildSelectionViewController
@@ -105,10 +103,6 @@ NSString *RemoveChildActionSheetTitleString = @"Removing a child will delete all
 }
 - (void)handleViewWillAppearToUser {
     [super handleViewWillAppearToUser];
-    // Set height of table. This is also done in the storyboard and has been sufficient in other cases, but not here. (Don't know why. May be an Autolayout or 4-inch iPhone issue.)
-    CGRect frameRect = self.childNamesTableView.frame;
-    frameRect.size.height = 220;
-    self.childNamesTableView.frame = frameRect;
     [self updateView];
 }
 - (void)removeCurrentChild
@@ -130,8 +124,8 @@ NSString *RemoveChildActionSheetTitleString = @"Removing a child will delete all
     
     // If the last child was removed, then create a new child.
     if ([self.perfectPottyModel.childrenMutableArray count] == 0) {
-        
-        [self.perfectPottyModel addChildWithName:@"Anon"];
+        // Do I need to specify the name? Default name is already "Anonymous," right?
+        [self.perfectPottyModel addChildWithName:@"Anonymous"];
     } else {
         
         [self.perfectPottyModel saveChildren];
@@ -143,8 +137,7 @@ NSString *RemoveChildActionSheetTitleString = @"Removing a child will delete all
     [self updateView];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"ChildNameCell";
     UITableViewCell *aTableViewCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     GGKChild *aChild = self.perfectPottyModel.childrenMutableArray[indexPath.row];
@@ -160,9 +153,7 @@ NSString *RemoveChildActionSheetTitleString = @"Removing a child will delete all
     [self.perfectPottyModel saveCurrentChildID];
     self.currentChildLabel.text = selectedChild.nameString;
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return [self.perfectPottyModel.childrenMutableArray count];
 }

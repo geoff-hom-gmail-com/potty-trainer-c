@@ -27,7 +27,7 @@
         
         self.uniqueIDInteger = uniqueIDInteger;
         
-        self.nameString = @"Anon";
+        self.nameString = @"Anonymous";
         
         self.pottyAttemptDayArray = [NSArray array];
         

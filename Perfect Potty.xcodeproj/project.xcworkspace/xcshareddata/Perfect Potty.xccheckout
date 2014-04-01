@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4B0931AF-5908-410A-ABEA-098391538A4A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Perfect Potty</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E336367C-1D4F-4395-85D7-145281B2387D</key>
+		<string>https://github.com/geoffhom/potty-trainer-c.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Perfect Potty.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E336367C-1D4F-4395-85D7-145281B2387D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/geoffhom/potty-trainer-c.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E336367C-1D4F-4395-85D7-145281B2387D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E336367C-1D4F-4395-85D7-145281B2387D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Potty Trainer good</string>
+		</dict>
+	</array>
+</dict>
+</plist>
