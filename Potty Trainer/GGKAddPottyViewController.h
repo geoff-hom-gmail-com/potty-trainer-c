@@ -22,20 +22,14 @@
 @property (nonatomic, weak) IBOutlet UISegmentedControl *successfulSegmentedControl;
 // For choosing the symbol for the attempt.
 @property (nonatomic, weak) IBOutlet GGKSameValueSegmentedControl *symbolSameValueSegmentedControl;
-
-// don't need?
-//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer;
-//// Want our GR to work even if native control has other GRs.
-
 // Adjust successfulness. If custom-symbol segment, then show the view for entering a custom symbol.
 - (IBAction)handleSymbolSameValueSegmentedControlValueChanged:(GGKSameValueSegmentedControl *)theSymbolSameValueSegmentedControl;
 // Override.
 - (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender;
 // Add the potty attempt.
 - (IBAction)savePottyAttempt;
+// Dismiss the view controller. Update the segmented control.
 - (void)useCustomSymbolViewControllerDidChooseSymbol:(id)sender;
-// So, dismiss the view controller. Update the segmented control.
-
 // Override.
 - (void)viewDidLoad;
 @end

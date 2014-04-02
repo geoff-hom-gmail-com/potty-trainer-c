@@ -18,13 +18,7 @@
 @end
 
 @implementation GGKAddPottyViewController
-//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-//    NSLog(@"shouldRecognizeSimultaneouslyWithGestureRecognizer");
-//    return YES;
-//}
-//
 - (void)handleSymbolSameValueSegmentedControlValueUnchanged:(GGKSameValueSegmentedControl *)theSymbolSameValueSegmentedControl {
-    NSLog(@"handleSymbolSegmentedControlValueChanged");
     NSInteger theSelectedSegmentIndex = theSymbolSameValueSegmentedControl.selectedSegmentIndex;
     if (theSelectedSegmentIndex == 4) {
         [self performSegueWithIdentifier:@"ShowUseCustomSymbolView" sender:self];
@@ -43,28 +37,6 @@
         [self performSegueWithIdentifier:@"ShowUseCustomSymbolView" sender:self];
     }
 }
-//- (IBAction)handleSymbolSegmentedControlTapped {
-//    // play sound independently by connecting that method
-////    [self playButtonSound];
-//    [self.symbolSegmentedControl sendActionsForControlEvents:<#(UIControlEvents)#>
-//    NSLog(@"handleSymbolSegmentedControlTapped");
-//    
-//    // Adjust successfulness.
-//    NSInteger theSelectedSegmentIndex = self.symbolSegmentedControl.selectedSegmentIndex;
-//    NSString *theCurrentSegmentTitleString = [self.symbolSegmentedControl titleForSegmentAtIndex:theSelectedSegmentIndex];
-//    NSLog(@"selected segment:%@", theCurrentSegmentTitleString);
-//    // Assuming segment 0 = YES, 1 = NO.
-//    if ([theCurrentSegmentTitleString isEqualToString:GGKXSymbolString]) {
-//        self.successfulSegmentedControl.selectedSegmentIndex = 1;
-//    } else {
-//        self.successfulSegmentedControl.selectedSegmentIndex = 0;
-//    }
-//    
-//    // If the custom symbol was tapped, then show the view for entering a custom symbol.
-//    if (theSelectedSegmentIndex == 4) {
-//        [self performSegueWithIdentifier:@"ShowUseCustomSymbolView" sender:self];
-//    }
-//}
 - (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender {
     if ([theSegue.identifier hasPrefix:@"ShowUseCustomSymbolView"]) {
         GGKUseCustomSymbolViewController *aUseCustomSymbolViewController = [(UIStoryboardSegue *)theSegue destinationViewController];
@@ -108,48 +80,18 @@
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
-- (void)useCustomSymbolViewControllerDidChooseSymbol:(id)sender
-{
+- (void)useCustomSymbolViewControllerDidChooseSymbol:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
-    
     // Show symbol on segmented control.
     NSString *theMostRecentCustomSymbolString = self.perfectPottyModel.currentCustomSymbol;
     [self.symbolSameValueSegmentedControl setTitle:theMostRecentCustomSymbolString forSegmentAtIndex:4];
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.symbolSameValueSegmentedControl.apportionsSegmentWidthsByContent = YES;
-    // Listen for taps on the symbol segmented control. We do this (instead of using the value-changed event) in case the user taps the same segment twice (e.g., the custom segment, to change the symbol).
-//    NSArray *aGestureRecognizerArray = self.successfulSegmentedControl.gestureRecognizers;
-//    NSLog(@"successfulSegmentedControl GRs: %d", [aGestureRecognizerArray count]);
-//    aGestureRecognizerArray = self.symbolSegmentedControl.gestureRecognizers;
-//    NSLog(@"symbolSegmentedControl GRs: %d", [aGestureRecognizerArray count]);
-    // does this work in iOS 6 and 7? (Yes.)
-//    NSArray *aSubviewsArray = self.symbolSegmentedControl.subviews;
-//    NSLog(@"subviews: %d", [aSubviewsArray count]);
-//    for (UIView *aView in aSubviewsArray) {
-//        NSLog(@"subview class:%@", [[aView class] description]);
-//        if ([aView isKindOfClass:[UIButton class]]) {
-//            NSLog(@"found button");
-////            [aGestureRecognizer addTarget:self action:@selector(handleSymbolSegmentedControlTapped)];
-////            [aGestureRecognizer addTarget:self action:@selector(blah)];
-////            [aGestureRecognizer addTarget:self action:@selector(argh:)];
-////            [aGestureRecognizer removeTarget:nil action:NULL];
-//        }
-//    }
-//    UIView *aView = self.symbolSegmentedControl.subviews[4];
-//    NSLog(@"subview class:%@", [[aView class] description]);
-//    UITapGestureRecognizer *aTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleCustomSymbolSegmentTapped)];
-//    aTapGestureRecognizer.cancelsTouchesInView = NO;
-//    aTapGestureRecognizer.delaysTouchesEnded = NO;
+    // Story: Custom symbol may be pre-selected. User may tap that symbol to set a different custom symbol. So we need a segmented control that sends a custom *value-unchanged* event. Adding a tap gesture-recognizer might have worked instead, but in iOS 6 the segmented control responds on touch-down, not touch-up.
     [self.symbolSameValueSegmentedControl addTarget:self action:@selector(playButtonSound) forControlEvents:GGKControlEventValueUnchanged];
     [self.symbolSameValueSegmentedControl addTarget:self action:@selector(handleSymbolSameValueSegmentedControlValueUnchanged:) forControlEvents:GGKControlEventValueUnchanged];
-//    aTapGestureRecognizer.delegate = self;
-//    [aView addGestureRecognizer:aTapGestureRecognizer];
-//    aView = self.symbolSegmentedControl.subviews[2];
-//    [aView addGestureRecognizer:aTapGestureRecognizer];
-//    [self.symbolSegmentedControl addGestureRecognizer:aTapGestureRecognizer];
     // Set the date picker not to allow future days.
     NSDate *aTodayDate = [NSDate date];
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
