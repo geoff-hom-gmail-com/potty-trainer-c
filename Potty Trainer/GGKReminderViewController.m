@@ -116,7 +116,7 @@
         thePluralHourString = @"s";
     }
     
-    self.reminderLabel.text = [NSString stringWithFormat:@"A reminder is set for\n%d hour%@, %d min, %d sec\n from now (%@).", theReminderIncrementDateComponents.hour, thePluralHourString, theReminderIncrementDateComponents.minute, theReminderIncrementDateComponents.second, [theReminderDate hourMinuteAMPMString]];
+    self.reminderLabel.text = [NSString stringWithFormat:@"A reminder is set for\n%ld hour%@, %ld min, %ld sec\n from now (%@).", (long)theReminderIncrementDateComponents.hour, thePluralHourString, (long)theReminderIncrementDateComponents.minute, (long)theReminderIncrementDateComponents.second, [theReminderDate hourMinuteAMPMString]];
     
     self.cancelButton.enabled = YES;
     [self.setOrChangeReminderButton setTitle:@"Change Reminder" forState:UIControlStateNormal];

@@ -132,7 +132,7 @@
     NSDate *theReminderDate = self.localNotification.fireDate;
     NSDateComponents *theReminderIncrementDateComponents = [aGregorianCalendar components:aSecCalendarUnit fromDate:[NSDate date] toDate:theReminderDate options:0];
     
-    self.reminderLabel.text = [NSString stringWithFormat:@"A reminder is set for\n%d sec\n from now.", theReminderIncrementDateComponents.second];
+    self.reminderLabel.text = [NSString stringWithFormat:@"A reminder is set for\n%ld sec\n from now.", (long)theReminderIncrementDateComponents.second];
     
     self.cancelButton.enabled = YES;
 }

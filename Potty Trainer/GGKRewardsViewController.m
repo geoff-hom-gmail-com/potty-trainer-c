@@ -350,7 +350,7 @@ NSString *GGKUseTextTitleString = @"Use text";
     NSString *theNumberOfSuccessfulPottiesString = @"None, yet";
     if (theNumberOfSuccessesInteger >= 1) {
         
-        theNumberOfSuccessfulPottiesString = [NSString stringWithFormat:@"%d", theNumberOfSuccessesInteger];
+        theNumberOfSuccessfulPottiesString = [NSString stringWithFormat:@"%ld", (long)theNumberOfSuccessesInteger];
     }
     self.successfulPottiesLabel.text = [NSString stringWithFormat:@"Successful potties: %@", theNumberOfSuccessfulPottiesString];
     
@@ -381,7 +381,7 @@ NSString *GGKUseTextTitleString = @"Use text";
             theReward = rewardArray[2];
             theTextField = self.numberOfSuccessesForReward3TextField;
         }
-        theTextField.text = [NSString stringWithFormat:@"%d", theReward.numberOfSuccessesNeededInteger];
+        theTextField.text = [NSString stringWithFormat:@"%ld", (long)theReward.numberOfSuccessesNeededInteger];
         
         // Check whether the reward has an image. If not, show text. If so, show the image.
         

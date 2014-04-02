@@ -83,7 +83,7 @@
         
         // Start with "Anonymous2."
         NSInteger suffixInteger = i1 + 2;
-        NSString *genericName = [NSString stringWithFormat:@"Anonymous%d", suffixInteger];
+        NSString *genericName = [NSString stringWithFormat:@"Anonymous%ld", (long)suffixInteger];
         __block BOOL isAlreadyUsed = NO;
         [self.perfectPottyModel.childrenMutableArray enumerateObjectsUsingBlock:^(GGKChild *aChild, NSUInteger idx, BOOL *stop) {
             

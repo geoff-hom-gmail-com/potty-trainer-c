@@ -33,13 +33,13 @@
         
         GGKReward *aReward1 = [[GGKReward alloc] init];
         aReward1.numberOfSuccessesNeededInteger = 5;
-        aReward1.imageName = [NSString stringWithFormat:@"%d_reward1", self.uniqueIDInteger];
+        aReward1.imageName = [NSString stringWithFormat:@"%ld_reward1", (long)self.uniqueIDInteger];
         GGKReward *aReward2 = [[GGKReward alloc] init];
         aReward2.numberOfSuccessesNeededInteger = 10;
-        aReward2.imageName = [NSString stringWithFormat:@"%d_reward2", self.uniqueIDInteger];
+        aReward2.imageName = [NSString stringWithFormat:@"%ld_reward2", (long)self.uniqueIDInteger];
         GGKReward *aReward3 = [[GGKReward alloc] init];
         aReward3.numberOfSuccessesNeededInteger = 15;
-        aReward3.imageName = [NSString stringWithFormat:@"%d_reward3", self.uniqueIDInteger];
+        aReward3.imageName = [NSString stringWithFormat:@"%ld_reward3", (long)self.uniqueIDInteger];
         self.rewardArray = @[aReward1, aReward2, aReward3];
     }
     return self;

@@ -216,10 +216,10 @@ NSString *GGKStarRewardString = @"\u2b50";
     // Get reward from child. Get number of successes needed. If reward is text, get reward text and remove any image. Else, move the image.
     
     GGKReward *reward = child.rewardArray[rewardNumberInteger - 1];
-    NSString *rewardNumberOfSuccessesNumberKeyString = [NSString stringWithFormat:@"Number of successes for reward %d", rewardNumberInteger];
-    NSString *rewardIsTextBOOLNumberKeyString = [NSString stringWithFormat:@"Reward-%d-is-text BOOL number", rewardNumberInteger];
-    NSString *rewardTextKeyString = [NSString stringWithFormat:@"Reward %d text", rewardNumberInteger];
-    NSString *theSourceImagePathComponentString = [NSString stringWithFormat:@"/reward%d.png", rewardNumberInteger];
+    NSString *rewardNumberOfSuccessesNumberKeyString = [NSString stringWithFormat:@"Number of successes for reward %ld", (long)rewardNumberInteger];
+    NSString *rewardIsTextBOOLNumberKeyString = [NSString stringWithFormat:@"Reward-%ld-is-text BOOL number", (long)rewardNumberInteger];
+    NSString *rewardTextKeyString = [NSString stringWithFormat:@"Reward %ld text", (long)rewardNumberInteger];
+    NSString *theSourceImagePathComponentString = [NSString stringWithFormat:@"/reward%ld.png", (long)rewardNumberInteger];
     NSString *theDestinationImagePathComponentString = [NSString stringWithFormat:@"/%@.png", reward.imageName];
     
     NSNumber *numberOfSuccessesForRewardNumber = [[NSUserDefaults standardUserDefaults] objectForKey:rewardNumberOfSuccessesNumberKeyString];
