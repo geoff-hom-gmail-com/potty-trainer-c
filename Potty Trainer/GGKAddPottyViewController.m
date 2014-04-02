@@ -8,40 +8,37 @@
 
 #import "GGKAddPottyViewController.h"
 
+#import "GGKSameValueSegmentedControl.h"
 #import "NSDate+GGKDate.h"
+#import "UIControl_GGK.h"
 
 @interface GGKAddPottyViewController ()
+// If custom-symbol segment, then show the view for entering a custom symbol.
+- (void)handleSymbolSameValueSegmentedControlValueUnchanged:(GGKSameValueSegmentedControl *)theSymbolSameValueSegmentedControl;
 @end
 
 @implementation GGKAddPottyViewController
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    NSLog(@"shouldRecognizeSimultaneouslyWithGestureRecognizer");
-    return YES;
-}
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+//    NSLog(@"shouldRecognizeSimultaneouslyWithGestureRecognizer");
+//    return YES;
+//}
 //
-- (void)handleSymbolSegmentedControlValueChanged {
+- (void)handleSymbolSameValueSegmentedControlValueUnchanged:(GGKSameValueSegmentedControl *)theSymbolSameValueSegmentedControl {
     NSLog(@"handleSymbolSegmentedControlValueChanged");
+    NSInteger theSelectedSegmentIndex = theSymbolSameValueSegmentedControl.selectedSegmentIndex;
+    if (theSelectedSegmentIndex == 4) {
+        [self performSegueWithIdentifier:@"ShowUseCustomSymbolView" sender:self];
+    }
 }
-//
-- (void)handleCustomSymbolSegmentTapped {
-    NSLog(@"handleCustomSymbolSegmentTapped");
-}
-- (IBAction)handleSymbolSegmentedControlTapped {
-//    [self playButtonSound];
-    NSLog(@"handleSymbolSegmentedControlTapped");
-
-    // Adjust successfulness.
-    NSInteger theSelectedSegmentIndex = self.symbolSegmentedControl.selectedSegmentIndex;
-    NSString *theCurrentSegmentTitleString = [self.symbolSegmentedControl titleForSegmentAtIndex:theSelectedSegmentIndex];
-    NSLog(@"selected segment:%@", theCurrentSegmentTitleString);
-    // Assuming segment 0 = YES, 1 = NO.
+- (IBAction)handleSymbolSameValueSegmentedControlValueChanged:(GGKSameValueSegmentedControl *)theSymbolSameValueSegmentedControl {
+    NSInteger theSelectedSegmentIndex = theSymbolSameValueSegmentedControl.selectedSegmentIndex;
+    NSString *theCurrentSegmentTitleString = [theSymbolSameValueSegmentedControl titleForSegmentAtIndex:theSelectedSegmentIndex];
     if ([theCurrentSegmentTitleString isEqualToString:GGKXSymbolString]) {
+        // Assuming segment 0 = YES, 1 = NO.
         self.successfulSegmentedControl.selectedSegmentIndex = 1;
     } else {
         self.successfulSegmentedControl.selectedSegmentIndex = 0;
     }
-    
-    // If the custom symbol was tapped, then show the view for entering a custom symbol.
     if (theSelectedSegmentIndex == 4) {
         [self performSegueWithIdentifier:@"ShowUseCustomSymbolView" sender:self];
     }
@@ -88,7 +85,7 @@
 //    NSDictionary *thePottyAttemptDictionary = @{GGKPottyAttemptDateKeyString:thePottyAttemptDate, GGKPottyAttemptWasSuccessfulNumberKeyString:thePottyAttemptWasSuccessfulNumber};
     // Get the selected symbol.
     NSString *thePottyAttemptSymbolString;
-    NSInteger theSelectedSegmentIndex = self.symbolSegmentedControl.selectedSegmentIndex;
+    NSInteger theSelectedSegmentIndex = self.symbolSameValueSegmentedControl.selectedSegmentIndex;
     // For "Pee" and "Both," replace with designated symbol.
     switch (theSelectedSegmentIndex) {
         case 0:
@@ -98,7 +95,7 @@
             thePottyAttemptSymbolString = GGKBothSymbolString;
             break;
         default:
-            thePottyAttemptSymbolString = [self.symbolSegmentedControl titleForSegmentAtIndex:theSelectedSegmentIndex];
+            thePottyAttemptSymbolString = [self.symbolSameValueSegmentedControl titleForSegmentAtIndex:theSelectedSegmentIndex];
             break;
     }
     NSDictionary *thePottyAttemptDictionary = @{GGKPottyAttemptDateKeyString:thePottyAttemptDate, GGKPottyAttemptWasSuccessfulNumberKeyString:thePottyAttemptWasSuccessfulNumber, GGKPottyAttemptSymbolStringKeyString:thePottyAttemptSymbolString};
@@ -117,20 +114,20 @@
     
     // Show symbol on segmented control.
     NSString *theMostRecentCustomSymbolString = self.perfectPottyModel.currentCustomSymbol;
-    [self.symbolSegmentedControl setTitle:theMostRecentCustomSymbolString forSegmentAtIndex:4];
+    [self.symbolSameValueSegmentedControl setTitle:theMostRecentCustomSymbolString forSegmentAtIndex:4];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.symbolSegmentedControl.apportionsSegmentWidthsByContent = YES;
+    self.symbolSameValueSegmentedControl.apportionsSegmentWidthsByContent = YES;
     // Listen for taps on the symbol segmented control. We do this (instead of using the value-changed event) in case the user taps the same segment twice (e.g., the custom segment, to change the symbol).
-    NSArray *aGestureRecognizerArray = self.successfulSegmentedControl.gestureRecognizers;
-    NSLog(@"successfulSegmentedControl GRs: %d", [aGestureRecognizerArray count]);
-    aGestureRecognizerArray = self.symbolSegmentedControl.gestureRecognizers;
-    NSLog(@"symbolSegmentedControl GRs: %d", [aGestureRecognizerArray count]);
+//    NSArray *aGestureRecognizerArray = self.successfulSegmentedControl.gestureRecognizers;
+//    NSLog(@"successfulSegmentedControl GRs: %d", [aGestureRecognizerArray count]);
+//    aGestureRecognizerArray = self.symbolSegmentedControl.gestureRecognizers;
+//    NSLog(@"symbolSegmentedControl GRs: %d", [aGestureRecognizerArray count]);
     // does this work in iOS 6 and 7? (Yes.)
-    NSArray *aSubviewsArray = self.symbolSegmentedControl.subviews;
-    NSLog(@"subviews: %d", [aSubviewsArray count]);
+//    NSArray *aSubviewsArray = self.symbolSegmentedControl.subviews;
+//    NSLog(@"subviews: %d", [aSubviewsArray count]);
 //    for (UIView *aView in aSubviewsArray) {
 //        NSLog(@"subview class:%@", [[aView class] description]);
 //        if ([aView isKindOfClass:[UIButton class]]) {
@@ -141,12 +138,13 @@
 ////            [aGestureRecognizer removeTarget:nil action:NULL];
 //        }
 //    }
-    UIView *aView = self.symbolSegmentedControl.subviews[4];
-    NSLog(@"subview class:%@", [[aView class] description]);
-    UITapGestureRecognizer *aTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleCustomSymbolSegmentTapped)];
-    aTapGestureRecognizer.cancelsTouchesInView = NO;
-    aTapGestureRecognizer.delaysTouchesEnded = NO;
-    [self.symbolSegmentedControl addTarget:self action:@selector(handleSymbolSegmentedControlValueChanged) forControlEvents:UIControlEventValueChanged];
+//    UIView *aView = self.symbolSegmentedControl.subviews[4];
+//    NSLog(@"subview class:%@", [[aView class] description]);
+//    UITapGestureRecognizer *aTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleCustomSymbolSegmentTapped)];
+//    aTapGestureRecognizer.cancelsTouchesInView = NO;
+//    aTapGestureRecognizer.delaysTouchesEnded = NO;
+    [self.symbolSameValueSegmentedControl addTarget:self action:@selector(playButtonSound) forControlEvents:GGKControlEventValueUnchanged];
+    [self.symbolSameValueSegmentedControl addTarget:self action:@selector(handleSymbolSameValueSegmentedControlValueUnchanged:) forControlEvents:GGKControlEventValueUnchanged];
 //    aTapGestureRecognizer.delegate = self;
 //    [aView addGestureRecognizer:aTapGestureRecognizer];
 //    aView = self.symbolSegmentedControl.subviews[2];
@@ -178,10 +176,10 @@
             theSelectedSegmentIndex = 3;
         } else {
             theSelectedSegmentIndex = 4;
-            [self.symbolSegmentedControl setTitle:theSymbolString forSegmentAtIndex:4];
+            [self.symbolSameValueSegmentedControl setTitle:theSymbolString forSegmentAtIndex:4];
             self.perfectPottyModel.currentCustomSymbol = theSymbolString;
         }
-        self.symbolSegmentedControl.selectedSegmentIndex = theSelectedSegmentIndex;
+        self.symbolSameValueSegmentedControl.selectedSegmentIndex = theSelectedSegmentIndex;
         // Successfulness.
         NSNumber *theAttemptWasSuccessfulBOOLNumber = self.pottyAttemptToEditDictionary[GGKPottyAttemptWasSuccessfulNumberKeyString];
         BOOL theAttemptWasSuccessfulBOOL = [theAttemptWasSuccessfulBOOLNumber boolValue];

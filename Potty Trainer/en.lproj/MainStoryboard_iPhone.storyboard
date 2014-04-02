@@ -848,7 +848,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dyG-aX-p12">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dyG-aX-p12" customClass="GGKSameValueSegmentedControl">
                                 <rect key="frame" x="77" y="8" width="236" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
@@ -859,7 +859,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <segment title="…"/>
                                 </segments>
                                 <connections>
-                                    <action selector="handleSymbolSegmentedControlTapped" destination="O2o-ma-3Y9" eventType="valueChanged" id="0Vh-2i-Lu3"/>
+                                    <action selector="handleSymbolSameValueSegmentedControlValueChanged:" destination="O2o-ma-3Y9" eventType="valueChanged" id="D6l-hd-5YO"/>
                                     <action selector="playButtonSound" destination="O2o-ma-3Y9" eventType="valueChanged" id="lwV-Fu-z0B"/>
                                 </connections>
                             </segmentedControl>
@@ -918,14 +918,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <connections>
                         <outlet property="datePicker" destination="CBl-tT-6cg" id="TsB-TU-9ME"/>
                         <outlet property="successfulSegmentedControl" destination="Qjn-5o-kkF" id="0JC-Kd-Jsb"/>
-                        <outlet property="symbolSegmentedControl" destination="dyG-aX-p12" id="W07-N9-MrV"/>
+                        <outlet property="symbolSameValueSegmentedControl" destination="dyG-aX-p12" id="A5m-MT-mp4"/>
                         <segue destination="txv-s9-qpi" kind="push" identifier="ShowUseCustomSymbolView" id="lbZ-u7-jG5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07X-Iw-0bE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer cancelsTouchesInView="NO" delaysTouchesEnded="NO" id="pfW-w9-H0O">
                     <connections>
-                        <action selector="handleSymbolSegmentedControlTapped" destination="O2o-ma-3Y9" id="1qG-KH-4fN"/>
+                        <action selector="handleSymbolSameValueSegmentedControlValueChanged" destination="O2o-ma-3Y9" id="Tys-Ls-kGC"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

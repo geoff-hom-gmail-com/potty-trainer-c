@@ -70,6 +70,8 @@
 		93DE8C2016E89A7E00AA87FF /* icon2-72px@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1C16E89A7E00AA87FF /* icon2-72px@2x.png */; };
 		93F00CB918B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93F00CB818B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a */; };
 		93F00CBC18B2EFAB00EBE8D4 /* GGKPottyMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F00CBB18B2EFAB00EBE8D4 /* GGKPottyMusicViewController.m */; };
+		93F6EBE218EC06B600BC5806 /* GGKSameValueSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F6EBE118EC06B600BC5806 /* GGKSameValueSegmentedControl.m */; };
+		93F6EBE518EC06EE00BC5806 /* GGKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F6EBE418EC06EE00BC5806 /* GGKUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -172,6 +174,11 @@
 		93F00CB818B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Perfect Potty - Potty Music.m4a"; path = "sounds/Perfect Potty - Potty Music.m4a"; sourceTree = "<group>"; };
 		93F00CBA18B2EFAB00EBE8D4 /* GGKPottyMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPottyMusicViewController.h; sourceTree = "<group>"; };
 		93F00CBB18B2EFAB00EBE8D4 /* GGKPottyMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPottyMusicViewController.m; sourceTree = "<group>"; };
+		93F6EBE018EC06B600BC5806 /* GGKSameValueSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSameValueSegmentedControl.h; sourceTree = "<group>"; };
+		93F6EBE118EC06B600BC5806 /* GGKSameValueSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSameValueSegmentedControl.m; sourceTree = "<group>"; };
+		93F6EBE318EC06EE00BC5806 /* GGKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKUtilities.h; sourceTree = "<group>"; };
+		93F6EBE418EC06EE00BC5806 /* GGKUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKUtilities.m; sourceTree = "<group>"; };
+		93F6EBE618EC070800BC5806 /* UIControl_GGK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIControl_GGK.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +294,8 @@
 				937F863316D6A54A007DE572 /* GGKRewardsViewController.m */,
 				937652C716C079CB007EA04C /* GGKRootViewController.h */,
 				937652C816C079CB007EA04C /* GGKRootViewController.m */,
+				93F6EBE018EC06B600BC5806 /* GGKSameValueSegmentedControl.h */,
+				93F6EBE118EC06B600BC5806 /* GGKSameValueSegmentedControl.m */,
 				9315503016DF225000482944 /* GGKSetReminderViewController.h */,
 				9315503116DF225000482944 /* GGKSetReminderViewController.m */,
 				938A773B18E10CD100ADE967 /* GGKSettingsViewController.h */,
@@ -297,6 +306,8 @@
 				9382117817D1976300EDE843 /* GGKTestRemindersViewController.m */,
 				93BD1666176191B700D32AA0 /* GGKUseCustomSymbolViewController.h */,
 				93BD1667176191B700D32AA0 /* GGKUseCustomSymbolViewController.m */,
+				93F6EBE318EC06EE00BC5806 /* GGKUtilities.h */,
+				93F6EBE418EC06EE00BC5806 /* GGKUtilities.m */,
 				93BD166317618E1500D32AA0 /* GGKViewController.h */,
 				93BD166417618E1500D32AA0 /* GGKViewController.m */,
 				9353B37D16E6011300B0A75A /* GGKYourSupportViewController.h */,
@@ -307,6 +318,7 @@
 				937F864B16DC7BF2007DE572 /* NSDate+GGKDate.m */,
 				9362E42516D4AC2A00A1B771 /* UIColor+GGKColors.h */,
 				9362E42616D4AC2A00A1B771 /* UIColor+GGKColors.m */,
+				93F6EBE618EC070800BC5806 /* UIControl_GGK.h */,
 				937652B016C079CB007EA04C /* Supporting Files */,
 			);
 			name = "Perfect Potty";
@@ -459,6 +471,7 @@
 				93F00CBC18B2EFAB00EBE8D4 /* GGKPottyMusicViewController.m in Sources */,
 				9376CCB316E1DC0600887ADE /* GGKAddRewardTextViewController.m in Sources */,
 				9353B37F16E6011300B0A75A /* GGKYourSupportViewController.m in Sources */,
+				93F6EBE218EC06B600BC5806 /* GGKSameValueSegmentedControl.m in Sources */,
 				93DE8C0D16E8074800AA87FF /* GGKInAppPurchaseObserver.m in Sources */,
 				9336135C18A0A5450026F270 /* GGKMusicModel.m in Sources */,
 				93BD166517618E1500D32AA0 /* GGKViewController.m in Sources */,
@@ -470,6 +483,7 @@
 				9382117017CE243F00EDE843 /* GGKChildSelectionViewController.m in Sources */,
 				9382117317CE360700EDE843 /* GGKEditChildNameViewController.m in Sources */,
 				9382117617CEB6E700EDE843 /* GGKAddChildViewController.m in Sources */,
+				93F6EBE518EC06EE00BC5806 /* GGKUtilities.m in Sources */,
 				9382117917D1976400EDE843 /* GGKTestRemindersViewController.m in Sources */,
 				938A773D18E10CD100ADE967 /* GGKSettingsViewController.m in Sources */,
 			);
