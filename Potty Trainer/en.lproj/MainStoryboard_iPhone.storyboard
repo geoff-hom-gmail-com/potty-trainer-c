@@ -91,18 +91,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ue-oo-MXz">
-                                <rect key="frame" x="49" y="180" width="124" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="Potty Music">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playButtonSound" destination="PeI-Ax-hLa" eventType="touchDown" id="2WA-F3-KZH"/>
-                                    <segue destination="hxc-26-Itw" kind="push" id="SrL-ei-Rm5"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmx-zW-q20">
                                 <rect key="frame" x="20" y="304" width="100" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -204,39 +192,6 @@ from now (10:35 AM).</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yuk-0q-aY4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1309" y="782"/>
-        </scene>
-        <!--Potty Music View Controller - Potty Music-->
-        <scene sceneID="7dF-40-chw">
-            <objects>
-                <viewController id="hxc-26-Itw" customClass="GGKPottyMusicViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uFM-YA-aP3"/>
-                        <viewControllerLayoutGuide type="bottom" id="yli-5C-eGO"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="s1u-tY-CnE">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zp-UE-Smz">
-                                <rect key="frame" x="20" y="120" width="280" height="177"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="handleStartOrStopButtonTapped:" destination="hxc-26-Itw" eventType="touchUpInside" id="te7-cS-Gde"/>
-                                    <action selector="playButtonSound" destination="hxc-26-Itw" eventType="touchDown" id="tec-05-lqJ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Potty Music" id="FIZ-kL-tey"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="32t-Ak-nTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1395" y="177"/>
         </scene>
         <!--Set Reminder View Controller - Set/Change Reminder-->
         <scene sceneID="O8N-8f-Ll1">
