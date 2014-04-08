@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9315503216DF225000482944 /* GGKSetReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315503116DF225000482944 /* GGKSetReminderViewController.m */; };
 		9336135C18A0A5450026F270 /* GGKMusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9336135B18A0A5450026F270 /* GGKMusicModel.m */; };
-		9336135E18A0C04C0026F270 /* Perfect Potty - Intro Main Menu Music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9336135D18A0C04C0026F270 /* Perfect Potty - Intro Main Menu Music.m4a */; };
 		9353B37F16E6011300B0A75A /* GGKYourSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9353B37E16E6011300B0A75A /* GGKYourSupportViewController.m */; };
 		935A344216F206BA003DD6FA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 935A344116F206BA003DD6FA /* libz.dylib */; };
 		9362E42416D49EC600A1B771 /* GGKPickBackgroundColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42316D49EC600A1B771 /* GGKPickBackgroundColorViewController.m */; };
@@ -78,7 +77,6 @@
 		9315503116DF225000482944 /* GGKSetReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSetReminderViewController.m; sourceTree = "<group>"; };
 		9336135A18A0A5450026F270 /* GGKMusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKMusicModel.h; sourceTree = "<group>"; };
 		9336135B18A0A5450026F270 /* GGKMusicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKMusicModel.m; sourceTree = "<group>"; };
-		9336135D18A0C04C0026F270 /* Perfect Potty - Intro Main Menu Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Perfect Potty - Intro Main Menu Music.m4a"; path = "sounds/Perfect Potty - Intro Main Menu Music.m4a"; sourceTree = "<group>"; };
 		9353B37D16E6011300B0A75A /* GGKYourSupportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKYourSupportViewController.h; sourceTree = "<group>"; };
 		9353B37E16E6011300B0A75A /* GGKYourSupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKYourSupportViewController.m; sourceTree = "<group>"; };
 		935A344116F206BA003DD6FA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -206,7 +204,6 @@
 				938A774218E142F500ADE967 /* reminder1-mono-s16K.caf */,
 				938A773F18E1389100ADE967 /* tap-mono-s16K.caf */,
 				93F00CB818B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a */,
-				9336135D18A0C04C0026F270 /* Perfect Potty - Intro Main Menu Music.m4a */,
 			);
 			name = sounds;
 			sourceTree = "<group>";
@@ -429,7 +426,6 @@
 				93DE8C1E16E89A7E00AA87FF /* icon2-57px@2x.png in Resources */,
 				93DD9EAA18A09A0300F09E21 /* Default.png in Resources */,
 				93DD9EAB18A09A0300F09E21 /* Default@2x.png in Resources */,
-				9336135E18A0C04C0026F270 /* Perfect Potty - Intro Main Menu Music.m4a in Resources */,
 				93DD9EA918A09A0300F09E21 /* Default-568h@2x.png in Resources */,
 				93C95EEA18E1835C006A2D33 /* release_notes.md in Resources */,
 				93F00CB918B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a in Resources */,

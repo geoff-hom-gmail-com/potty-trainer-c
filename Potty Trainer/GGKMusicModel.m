@@ -8,14 +8,9 @@
 #import "GGKMusicModel.h"
 
 NSString *GGKEnableMusicBOOLKeyString = @"Enable music?";
-//NSString *GGKPottyMusicStoppedStateString = @"Potty music is stopped.";
-//NSString *GGKPottyMusicStartedStateString = @"Potty music did start.";
-
 @interface GGKMusicModel ()
 // For playing the main music.
 @property (nonatomic, strong) AVAudioPlayer *introMusicAudioPlayer;
-// For playing the potty-encouraging music.
-//@property (nonatomic, strong) AVAudioPlayer *pottyMusicAudioPlayer;
 @end
 
 @implementation GGKMusicModel
@@ -31,12 +26,6 @@ NSString *GGKEnableMusicBOOLKeyString = @"Enable music?";
         anAudioPlayer.numberOfLoops = -1;
         self.introMusicAudioPlayer = anAudioPlayer;
         [self.introMusicAudioPlayer prepareToPlay];
-//        soundFilePath = [[NSBundle mainBundle] pathForResource:@"Perfect Potty - Potty Music" ofType:@"m4a"];
-//        soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-//        anAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
-//        anAudioPlayer.numberOfLoops = -1;
-//        self.pottyMusicAudioPlayer = anAudioPlayer;
-//        self.pottyMusicStateString = GGKPottyMusicStoppedStateString;
     }
     return self;
 }
@@ -48,19 +37,6 @@ NSString *GGKEnableMusicBOOLKeyString = @"Enable music?";
         [self.introMusicAudioPlayer play];
     }
 }
-//- (void)playPottyMusic {
-//    [self.introMusicAudioPlayer pause];
-//    self.pottyMusicAudioPlayer.currentTime = 0;
-//    [self.pottyMusicAudioPlayer play];
-//    self.pottyMusicStateString = GGKPottyMusicStartedStateString;
-//}
-//- (void)stopPottyMusic {
-//    [self.pottyMusicAudioPlayer pause];
-//    self.pottyMusicStateString = GGKPottyMusicStoppedStateString;
-//    if (self.musicIsEnabled) {
-//        [self playIntroMusic];
-//    }
-//}
 - (void)toggleMusic {
     // If music is on, then stop playing. Else, play.
     if (self.musicIsEnabled) {
