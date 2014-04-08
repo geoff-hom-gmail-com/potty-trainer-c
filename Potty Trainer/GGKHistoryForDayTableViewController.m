@@ -11,6 +11,7 @@
 #import "GGKAddPottyViewController.h"
 #import "GGKPerfectPottyAppDelegate.h"
 #import "GGKPottyAttemptCell.h"
+#import "GGKUtilities.h"
 #import "NSDate+GGKDate.h"
 
 @interface GGKHistoryForDayTableViewController ()
@@ -89,10 +90,14 @@
     // Add a custom "Edit" button as the editing accessory view.
     UIButton *anEditButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [anEditButton addTarget:self action:@selector(handleEditCellButtonTapped:event:) forControlEvents:UIControlEventTouchUpInside];
-    [anEditButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [anEditButton setTitle:@"Edit" forState:UIControlStateNormal];
     [anEditButton sizeToFit];
-    anEditButton.frame = CGRectMake(0, 0, anEditButton.frame.size.width, 40);
+    // If iOS 7+, the button will be against the right edge. We want a spacer.
+    NSInteger aSpacerInteger = 0;
+    if (![GGKUtilities iOSisBelow7]) {
+        aSpacerInteger = 20;
+    }
+    anEditButton.frame = CGRectMake(0, 0, anEditButton.frame.size.width + aSpacerInteger, 40);
 //    NSLog(@"frame:%@", NSStringFromCGRect(anEditButton.frame));
     aPottyAttemptCell.editingAccessoryView = anEditButton;
     return aPottyAttemptCell;
