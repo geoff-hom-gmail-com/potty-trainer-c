@@ -14,23 +14,23 @@
 
 @implementation GGKAddRewardTextViewController
 
-- (IBAction)cancel
-{
+- (IBAction)cancel {
     [self.delegate addRewardTextViewControllerDidCancel:self];
 }
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [self.delegate addRewardTextViewControllerDidEnterText:self];
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    if ([theTextField.text isEqualToString:@""]) {
+        NSString *alertMessageString = @"Please enter a non-blank name.";
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Name Is Blank" message:alertMessageString delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alertView show];
+    } else {
+        [self.delegate addRewardTextViewControllerDidEnterText:self];
+    }
     return NO;
 }
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    self.textField.delegate = self;
+    self.nameTextField.delegate = self;
+    self.nameTextField.text = self.previousNameString;
 }
-
 @end

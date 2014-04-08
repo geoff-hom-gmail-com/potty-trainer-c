@@ -60,19 +60,14 @@ extern NSString *GGKUseTextTitleString;
 
 // For showing a check mark for each successful potty.
 @property (weak, nonatomic) IBOutlet UITextView *successfulPottiesTextView;
-
+// Let the user enter text or pick a photo.
 - (void)actionSheet:(UIActionSheet *)theActionSheet clickedButtonAtIndex:(NSInteger)theButtonIndex;
-// So, let the user pick a photo, or enter text.
-
 // Let the user add a reward.
 - (IBAction)addReward:(UIButton *)theButton;
-
+// Dismiss it.
 - (void)addRewardTextViewControllerDidCancel:(id)sender;
-// So, dismiss it.
-
+// Save data. Update UI.
 - (void)addRewardTextViewControllerDidEnterText:(id)sender;
-// So, show the text on the corresponding reward button.
-
 // UIViewController override.
 - (void)dealloc;
 
@@ -88,10 +83,8 @@ extern NSString *GGKUseTextTitleString;
 - (void)textFieldDidEndEditing:(UITextField *)textField;
 // So, if an invalid value was entered, then use the previous value. Also, note that no text field is being edited now.
 
+// Dismiss the keyboard.
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
-// So, dismiss the keyboard.
-
 // Override.
 - (void)viewDidLoad;
-
 @end
