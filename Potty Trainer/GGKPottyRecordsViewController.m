@@ -46,9 +46,6 @@
         self.perfectPottyModel.currentChild.dayIndex = theIndex;
     }
 }
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-    [self playButtonSound];
-}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"PottyAttemptDayCell";
@@ -75,7 +72,9 @@
     [aPottyAttemptDayTableViewCell showAttempts];
     return aPottyAttemptDayTableViewCell;
 }
-
+- (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)theIndexPath {
+    [self playButtonSound];
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.

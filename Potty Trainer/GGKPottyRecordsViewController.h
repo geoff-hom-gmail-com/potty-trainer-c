@@ -13,21 +13,16 @@
 @interface GGKPottyRecordsViewController : GGKViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *addPottyButton;
-
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 // Override.
 - (void)handleViewWillAppearToUser;
 // Override.
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
-
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath;
-// So, play sound.
-
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath;
-
+// Play sound.
+- (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)theIndexPath;
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection;
-
 // Override.
 - (void)viewDidLoad;
 @end
