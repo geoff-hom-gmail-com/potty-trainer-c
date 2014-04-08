@@ -27,17 +27,7 @@
         [self.nameTextField.delegate textFieldShouldReturn:self.nameTextField];
     }
 }
-
-//- (void)textFieldDidBeginEditing:(UITextField *)theTextField {
-////    self.doneButton.enabled = NO;
-//}
-- (void)textFieldDidEndEditing:(UITextField *)theTextField {
-    NSLog(@"textFieldDidEndEditing1");
-
-//    [self addChild];
-}
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-    NSLog(@"textFieldShouldReturn1");
     BOOL shouldReturn;
     NSString *newName = theTextField.text;
     // If duplicate name, or if blank name, alert user.
@@ -63,13 +53,9 @@
         [alertView show];
         shouldReturn = NO;
     } else {
-        // User has entered a valid name. If user edits this textfield, don't clear. And now show the clear button always.
-//        theTextField.clearsOnBeginEditing = NO;
-//        theTextField.clearButtonMode = UITextFieldViewModeAlways;
         [theTextField resignFirstResponder];
         [self addChild];
         shouldReturn = YES;
-//        self.doneButton.enabled = YES;
     }
     return shouldReturn;
 }
