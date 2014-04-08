@@ -9,70 +9,70 @@
 #import "GGKAddChildViewController.h"
 
 @interface GGKAddChildViewController ()
-
+// Add child to database.
+- (void)addChild;
 @end
 
 @implementation GGKAddChildViewController
-
-- (IBAction)addChild:(id)sender
-{
-    GGKChild *newChild = [self.perfectPottyModel addChildWithName:self.textField.text];
-    
+- (void)addChild {
+    GGKChild *newChild = [self.perfectPottyModel addChildWithName:self.nameTextField.text];
     self.perfectPottyModel.currentChild = newChild;
     [self.perfectPottyModel saveCurrentChildID];
-    
     [self.navigationController popViewControllerAnimated:YES];
 }
-
-- (void)textFieldDidBeginEditing:(UITextField *)theTextField
-{
-    self.doneButton.enabled = NO;
+- (IBAction)handleDoneButtonTapped:(id)sender {
+    if (!self.nameTextField.isEditing) {
+        [self addChild];
+    } else {
+        [self.nameTextField.delegate textFieldShouldReturn:self.nameTextField];
+    }
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
+//- (void)textFieldDidBeginEditing:(UITextField *)theTextField {
+////    self.doneButton.enabled = NO;
+//}
+- (void)textFieldDidEndEditing:(UITextField *)theTextField {
+    NSLog(@"textFieldDidEndEditing1");
+
+//    [self addChild];
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    NSLog(@"textFieldShouldReturn1");
     BOOL shouldReturn;
-    NSString *newName = textField.text;
-    
+    NSString *newName = theTextField.text;
     // If duplicate name, or if blank name, alert user.
-    
     __block BOOL isDuplicate = NO;
     [self.perfectPottyModel.childrenMutableArray enumerateObjectsUsingBlock:^(GGKChild *aChild, NSUInteger idx, BOOL *stop) {
-        
         if ([aChild.nameString isEqualToString:newName]) {
-            
             isDuplicate = YES;
             *stop = YES;
         }
     }];
-    
     BOOL isBlank = NO;
     if ([newName isEqualToString:@""]) {
-        
         isBlank = YES;
     }
-    
     if (isDuplicate) {
-        
         NSString *alertMessageString = [NSString stringWithFormat:@"Another child has the name \"%@.\" Please choose a unique name.", newName];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Name Already Exists" message:alertMessageString delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [alertView show];
         shouldReturn = NO;
     } else if (isBlank) {
-        
         NSString *alertMessageString = @"Please enter a unique name.";
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Name Is Blank" message:alertMessageString delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [alertView show];
         shouldReturn = NO;
     } else {
-        
-        [textField resignFirstResponder];
+        // User has entered a valid name. If user edits this textfield, don't clear. And now show the clear button always.
+//        theTextField.clearsOnBeginEditing = NO;
+//        theTextField.clearButtonMode = UITextFieldViewModeAlways;
+        [theTextField resignFirstResponder];
+        [self addChild];
         shouldReturn = YES;
-        self.doneButton.enabled = YES;
+//        self.doneButton.enabled = YES;
     }
     return shouldReturn;
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -95,7 +95,7 @@
         }];
         if (!isAlreadyUsed) {
             
-            self.textField.text = genericName;
+            self.nameTextField.text = genericName;
             break;
         }
     }    
