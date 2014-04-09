@@ -18,7 +18,10 @@
     [self.delegate addRewardTextViewControllerDidCancel:self];
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-    if ([theTextField.text isEqualToString:@""]) {
+    // Make sure reward name is good.
+    NSCharacterSet *aCharacterSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    NSString *aTrimmedString = [theTextField.text stringByTrimmingCharactersInSet:aCharacterSet];
+    if ([aTrimmedString length] == 0) {
         NSString *alertMessageString = @"Please enter a non-blank name.";
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Name Is Blank" message:alertMessageString delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [alertView show];

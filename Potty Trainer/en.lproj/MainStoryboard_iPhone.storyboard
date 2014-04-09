@@ -1271,8 +1271,8 @@ Reward</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GPG-Lo-OOz">
-                                <rect key="frame" x="53" y="113" width="215" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GPG-Lo-OOz">
+                                <rect key="frame" x="53" y="113" width="214" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
@@ -1301,7 +1301,10 @@ Reward</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Pqj-b4-OJz" firstAttribute="centerX" secondItem="vin-kM-C1z" secondAttribute="centerX" id="4Yr-Au-A5f"/>
+                            <constraint firstItem="GPG-Lo-OOz" firstAttribute="centerX" secondItem="vin-kM-C1z" secondAttribute="centerX" id="KyD-0M-hde"/>
                             <constraint firstAttribute="trailing" secondItem="Pqj-b4-OJz" secondAttribute="trailing" id="akw-tb-oSz"/>
+                            <constraint firstItem="GPG-Lo-OOz" firstAttribute="top" secondItem="vin-kM-C1z" secondAttribute="bottom" constant="8" id="gb3-Pv-2VV"/>
+                            <constraint firstItem="GPG-Lo-OOz" firstAttribute="leading" secondItem="XIL-hd-fm0" secondAttribute="leading" constant="53" id="mBu-rU-PXL"/>
                             <constraint firstItem="vin-kM-C1z" firstAttribute="top" secondItem="Pqj-b4-OJz" secondAttribute="bottom" constant="20" id="oZ1-Kv-DcF"/>
                             <constraint firstItem="Pqj-b4-OJz" firstAttribute="leading" secondItem="XIL-hd-fm0" secondAttribute="leading" id="wBS-e7-LPS"/>
                             <constraint firstItem="Pqj-b4-OJz" firstAttribute="top" secondItem="0mn-y7-fui" secondAttribute="bottom" id="ze7-cg-MkJ"/>
