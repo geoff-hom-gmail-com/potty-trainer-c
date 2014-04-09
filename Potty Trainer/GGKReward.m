@@ -23,15 +23,12 @@
     [encoder encodeInteger:self.numberOfSuccessesNeededInteger forKey:@"numberOfSuccessesNeededInteger"];
     [encoder encodeObject:self.text forKey:@"text"];
 }
-
 - (id)init {
     self = [super init];
     if (self) {
-//        self.text = @"Add Reward";
     }
     return self;
 }
-
 - (id)initWithCoder:(NSCoder *)decoder {
     self = [super init];
     if (self) {

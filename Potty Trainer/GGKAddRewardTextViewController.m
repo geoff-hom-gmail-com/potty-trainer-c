@@ -9,11 +9,9 @@
 #import "GGKAddRewardTextViewController.h"
 
 @interface GGKAddRewardTextViewController ()
-
 @end
 
 @implementation GGKAddRewardTextViewController
-
 - (IBAction)cancel {
     [self.delegate addRewardTextViewControllerDidCancel:self];
 }

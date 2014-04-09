@@ -15,12 +15,9 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 NSString *GGKUsePhotoTitleString = @"Use photo";
-
 NSString *GGKUseTextTitleString = @"Use text";
 
 @interface GGKRewardsViewController ()
-// The reward button that is currently being edited.
-//@property (strong, nonatomic) UIButton *activeRewardButton;
 // The amount the view was shifted to account for keyboard. Used to shift back.
 @property (assign, nonatomic) CGFloat amountShiftedFloat;
 // The text field currently being edited.
@@ -31,14 +28,8 @@ NSString *GGKUseTextTitleString = @"Use text";
 - (void)keyboardWillHide:(NSNotification *)theNotification;
 // Shift the view up, if necessary.
 - (void)keyboardWillShow:(NSNotification *)theNotification;
-// Return the reward corresponding to the given reward button.
-//- (GGKReward *)rewardForButton:(UIButton *)theButton;
-// Save the given image to the filename corresponding to the given reward button.
-//- (void)saveImage:(UIImage *)theImage forRewardButton:(UIButton *)theRewardButton;
 // Save the given reward to disk.
 - (void)saveReward:(GGKReward *)theReward;
-// Save the given text for the given reward button.
-//- (void)saveText:(NSString *)theRewardText forRewardButton:(UIButton *)theRewardButton;
 // Display an action sheet so the user can choose whether to use text or a photo to show the reward.
 - (void)showActionSheetForAddingReward:(UIButton *)theButton;
 // For the given reward index, show the proper info (successes needed, image/text).
@@ -88,40 +79,6 @@ NSString *GGKUseTextTitleString = @"Use text";
     [self saveReward:theReward];
     [self updateLabelsForRewardIndex:self.rewardIndex];
     [sender dismissViewControllerAnimated:YES completion:nil];
-    
-    // Show the text on the button.
-//    GGKAddRewardTextViewController *anAddRewardTextViewController = (GGKAddRewardTextViewController *)sender;
-//    NSString *theRewardText = anAddRewardTextViewController.nameTextField.text;
-//    [self.activeRewardButton setTitle:theRewardText forState:UIControlStateNormal];
-    // If there was an image before, it will still be present over the title. (Setting an image when there is a title shows the image over the title, so setting an image is okay.)
-//    [self.activeRewardButton setImage:nil forState:UIControlStateNormal];
-    // Since we are using text, remove any image for this reward. (VC checks whether an image when deciding whether to show text or image.)
-//    GGKReward *reward;
-//    NSArray *rewardArray = self.perfectPottyModel.currentChild.rewardArray;
-//    if (self.activeRewardButton == self.reward1Button) {
-//        
-//        reward = rewardArray[0];
-//    } else if (self.activeRewardButton == self.reward2Button) {
-//        
-//        reward = rewardArray[1];
-//    } else if (self.activeRewardButton == self.reward3Button) {
-//        
-//        reward = rewardArray[2];
-//    }
-//    [reward deleteImage];
-    
-    
-//    NSFileManager *aFileManager = [[NSFileManager alloc] init];
-//    NSArray *aURLArray = [aFileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-//    NSURL *aDirectoryURL = (NSURL *)aURLArray[0];
-//    NSString *theImagePathComponentString = [NSString stringWithFormat:@"/%@.png", reward.imageName];
-//    NSURL *theFileURL = [aDirectoryURL URLByAppendingPathComponent:theImagePathComponentString];
-//    [aFileManager removeItemAtURL:theFileURL error:nil];
-    
-//    [self saveText:theRewardText forRewardButton:self.activeRewardButton];
-//
-//    self.activeRewardButton = nil;
-//    [sender dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)dealloc {
     // Don't need super.
@@ -150,20 +107,6 @@ NSString *GGKUseTextTitleString = @"Use text";
     [self saveReward:theReward];
     [self updateLabelsForRewardIndex:self.rewardIndex];
     [thePicker dismissViewControllerAnimated:YES completion:nil];
-    
-    
-    
-    
-    // Show the image on the button.
-//    [self.activeRewardButton setImage:theImageToUse forState:UIControlStateNormal];
-    
-//    UIImage *anImage = self.activeRewardButton.currentImage;
-//    NSLog(@"anImage size:%@, scale:%f", NSStringFromCGSize(anImage.size), anImage.scale);
-    
-//    [self saveImage:theImageToUse forRewardButton:self.activeRewardButton];
-    
-//    self.activeRewardButton = nil;
-//    [thePicker dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)keyboardWillHide:(NSNotification *)theNotification {
     CGRect newFrame = self.view.frame;
@@ -197,68 +140,11 @@ NSString *GGKUseTextTitleString = @"Use text";
         self.amountShiftedFloat = amountToShift;
     }
 }
-//- (GGKReward *)rewardForButton:(UIButton *)theButton {
-//    NSArray *theRewardArray = self.perfectPottyModel.currentChild.rewardArray;
-//    GGKReward *theReward;
-//    if (theButton == self.reward1Button) {
-//        theReward = theRewardArray[0];
-//    } else if (theButton == self.reward2Button) {
-//        theReward = theRewardArray[1];
-//    } else if (theButton == self.reward3Button) {
-//        theReward = theRewardArray[2];
-//    }
-//    return theReward;
-//}
-//- (void)saveImage:(UIImage *)theImage forRewardButton:(UIButton *)theRewardButton {
-//    
-//    NSData *theImageToUseData = UIImagePNGRepresentation(theImage);
-//    NSFileManager *aFileManager = [[NSFileManager alloc] init];
-//    
-//    // Not sure why not using NSApplicationSupportDirectory. But below should work.
-//    NSArray *aURLArray = [aFileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-//    
-//    NSURL *aDirectoryURL = (NSURL *)aURLArray[0];
-//    NSArray *rewardArray = self.perfectPottyModel.currentChild.rewardArray;
-//    GGKReward *reward;
-//    if (self.activeRewardButton == self.reward1Button) {
-//        
-//        reward = rewardArray[0];
-//    } else if (self.activeRewardButton == self.reward2Button) {
-//        
-//        reward = rewardArray[1];
-//    } else if (self.activeRewardButton == self.reward3Button) {
-//        
-//        reward = rewardArray[2];
-//    }
-//    NSString *theImagePathComponentString = [NSString stringWithFormat:@"/%@.png", reward.imageName];
-//    NSURL *theFileURL = [aDirectoryURL URLByAppendingPathComponent:theImagePathComponentString];
-//    [theImageToUseData writeToURL:theFileURL atomically:YES];
-//    
-////    NSNumber *aBOOLNumber = [NSNumber numberWithBool:NO];
-////    [[NSUserDefaults standardUserDefaults] setObject:aBOOLNumber forKey:theRewardIsTextBOOLNumberKeyString];
-//}
 - (void)saveReward:(GGKReward *)theReward {
     // All reward info, except image data, are saved with the children. So we'll save any image data, then the children.
     [theReward saveImage];
     [self.perfectPottyModel saveChildren];
 }
-//- (void)saveText:(NSString *)theRewardText forRewardButton:(UIButton *)theRewardButton {
-//
-//    NSArray *rewardArray = self.perfectPottyModel.currentChild.rewardArray;
-//    GGKReward *reward;
-//    if (self.activeRewardButton == self.reward1Button) {
-//        
-//        reward = rewardArray[0];
-//    } else if (self.activeRewardButton == self.reward2Button) {
-//        
-//        reward = rewardArray[1];
-//    } else if (self.activeRewardButton == self.reward3Button) {
-//        
-//        reward = rewardArray[2];
-//    }
-//    reward.text = theRewardText;
-//    [self.perfectPottyModel saveChildren];
-//}
 - (void)showActionSheetForAddingReward:(UIButton *)theButton {
     NSInteger theRewardIndex;
     if (theButton == self.reward1Button) {
@@ -269,18 +155,13 @@ NSString *GGKUseTextTitleString = @"Use text";
         theRewardIndex = 2;
     }
     self.rewardIndex = theRewardIndex;
-//    self.activeRewardButton = theButton;
     UIActionSheet *anActionSheet = [[UIActionSheet alloc] initWithTitle:@"Add Reward" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:GGKUseTextTitleString, GGKUsePhotoTitleString, nil];
     [anActionSheet showFromRect:theButton.frame inView:theButton animated:YES];
 }
-
-- (void)textFieldDidBeginEditing:(UITextField *)theTextField
-{    
+- (void)textFieldDidBeginEditing:(UITextField *)theTextField {
     self.activeTextField = theTextField;
 }
-
-- (void)textFieldDidEndEditing:(UITextField *)theTextField
-{
+- (void)textFieldDidEndEditing:(UITextField *)theTextField {
     // Behavior depends on which text field was edited. Regardless, check the entered value. If not okay, set to an appropriate value. Store the value.
     
     id anOkayValue;
@@ -347,20 +228,9 @@ NSString *GGKUseTextTitleString = @"Use text";
         } else {
             theTitleString = theReward.text;
         }
-//        [theButton setTitle:theTitleString forState:UIControlStateNormal];
-//        theImage = nil;
-        
         [theButton setTitle:theTitleString forState:UIControlStateNormal];
         [theButton setImage:nil forState:UIControlStateNormal];
         [theButton setBackgroundImage:nil forState:UIControlStateNormal];
-
-//        if ([GGKUtilities iOSisBelow7]) {
-//            [theButton setImage:nil forState:UIControlStateNormal];
-//        } else {
-//            [theButton setTitle:theTitleString forState:UIControlStateNormal];
-//            [theButton setImage:nil forState:UIControlStateNormal];
-//            [theButton setBackgroundImage:nil forState:UIControlStateNormal];
-//        }
     } else {
         UIImage *theImage = [[UIImage alloc] initWithData:theImageData];
         if ([GGKUtilities iOSisBelow7]) {
@@ -371,15 +241,6 @@ NSString *GGKUseTextTitleString = @"Use text";
             [theButton setBackgroundImage:theImage forState:UIControlStateNormal];
         }
     }
-//    if ([GGKUtilities iOSisBelow7]) {
-//        [theButton setTitle:theTitleString forState:UIControlStateNormal];
-//        [theButton setImage:theImage forState:UIControlStateNormal];
-//    } else {
-//        // and need to set text to none.
-//        [theButton setTitle:nil forState:UIControlStateNormal];
-//        [theButton setImage:nil forState:UIControlStateNormal];
-//        [theButton setBackgroundImage:theImage forState:UIControlStateNormal];
-//    }
 }
 - (void)updateLabels {
     // Show number of successful potties.
@@ -408,53 +269,11 @@ NSString *GGKUseTextTitleString = @"Use text";
         [aCheckMarkForEachSuccessfulPottyMutableString appendString:GGKStarRewardString];
     }
     self.successfulPottiesTextView.text = aCheckMarkForEachSuccessfulPottyMutableString;
-    
     // Show each reward: The number of successes needed, and the text or image describing the reward.
     for (int i = 0; i < 3; i++) {
         [self updateLabelsForRewardIndex:i];
     }
-    
-//    NSArray *theRewardButtonsArray = @[self.reward1Button, self.reward2Button, self.reward3Button];
-//    NSArray *rewardArray = self.perfectPottyModel.currentChild.rewardArray;
-//    [theRewardButtonsArray enumerateObjectsUsingBlock:^(UIButton *theRewardButton, NSUInteger idx, BOOL *stop) {
-//        
-//        GGKReward *theReward;
-//        UITextField *theTextField;
-//        if (theRewardButton == self.reward1Button) {
-//            
-//            theReward = rewardArray[0];
-//            theTextField = self.numberOfSuccessesForReward1TextField;
-//        } else if (theRewardButton == self.reward2Button) {
-//            
-//            theReward = rewardArray[1];
-//            theTextField = self.numberOfSuccessesForReward2TextField;
-//        } else if (theRewardButton == self.reward3Button) {
-//            
-//            theReward = rewardArray[2];
-//            theTextField = self.numberOfSuccessesForReward3TextField;
-//        }
-//        theTextField.text = [NSString stringWithFormat:@"%ld", (long)theReward.numberOfSuccessesNeededInteger];
-//        
-//        // Check whether the reward has an image. If not, show text. If so, show the image.
-//        
-////        NSFileManager *aFileManager = [[NSFileManager alloc] init];
-////        NSArray *aURLArray = [aFileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-////        NSURL *aDirectoryURL = (NSURL *)aURLArray[0];
-////        NSString *theImagePathComponentString = [NSString stringWithFormat:@"/%@.png", theReward.imageName];
-////        NSURL *theFileURL = [aDirectoryURL URLByAppendingPathComponent:theImagePathComponentString];
-////        [aFileManager fileExistsAtPath:[theFileURL path]];
-////        NSData *theImageData = [NSData dataWithContentsOfURL:theFileURL];
-//        
-//        NSData *theImageData = theReward.imageData;
-//        if (theImageData == nil) {
-//            [theRewardButton setTitle:theReward.text forState:UIControlStateNormal];
-//        } else {
-//            UIImage *theImage = [[UIImage alloc] initWithData:theImageData];
-//            [theRewardButton setImage:theImage forState:UIControlStateNormal];
-//        }
-//    }];
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Observe keyboard notifications to shift the screen up/down appropriately.

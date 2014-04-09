@@ -30,5 +30,3 @@
 // Save reward-image to disk.
 - (void)saveImage;
 @end
-// Return whether the reward is an image (vs text).
-//- (BOOL)isImage;
