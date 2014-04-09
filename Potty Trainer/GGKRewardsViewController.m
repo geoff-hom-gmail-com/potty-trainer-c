@@ -11,6 +11,7 @@
 
 #import "GGKAddRewardTextViewController.h"
 #import "GGKReward.h"
+#import "GGKUtilities.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
 NSString *GGKUsePhotoTitleString = @"Use photo";
@@ -338,7 +339,6 @@ NSString *GGKUseTextTitleString = @"Use text";
             break;
     }
     theTextField.text = [NSString stringWithFormat:@"%ld", (long)theReward.numberOfSuccessesNeededInteger];
-    UIImage *theImage;
     NSData *theImageData = theReward.imageData;
     if (theImageData == nil) {
         NSString *theTitleString;
@@ -347,12 +347,39 @@ NSString *GGKUseTextTitleString = @"Use text";
         } else {
             theTitleString = theReward.text;
         }
+//        [theButton setTitle:theTitleString forState:UIControlStateNormal];
+//        theImage = nil;
+        
         [theButton setTitle:theTitleString forState:UIControlStateNormal];
-        theImage = nil;
+        [theButton setImage:nil forState:UIControlStateNormal];
+        [theButton setBackgroundImage:nil forState:UIControlStateNormal];
+
+//        if ([GGKUtilities iOSisBelow7]) {
+//            [theButton setImage:nil forState:UIControlStateNormal];
+//        } else {
+//            [theButton setTitle:theTitleString forState:UIControlStateNormal];
+//            [theButton setImage:nil forState:UIControlStateNormal];
+//            [theButton setBackgroundImage:nil forState:UIControlStateNormal];
+//        }
     } else {
-        theImage = [[UIImage alloc] initWithData:theImageData];
+        UIImage *theImage = [[UIImage alloc] initWithData:theImageData];
+        if ([GGKUtilities iOSisBelow7]) {
+            [theButton setImage:theImage forState:UIControlStateNormal];
+        } else {
+            [theButton setTitle:nil forState:UIControlStateNormal];
+            [theButton setImage:nil forState:UIControlStateNormal];
+            [theButton setBackgroundImage:theImage forState:UIControlStateNormal];
+        }
     }
-    [theButton setImage:theImage forState:UIControlStateNormal];
+//    if ([GGKUtilities iOSisBelow7]) {
+//        [theButton setTitle:theTitleString forState:UIControlStateNormal];
+//        [theButton setImage:theImage forState:UIControlStateNormal];
+//    } else {
+//        // and need to set text to none.
+//        [theButton setTitle:nil forState:UIControlStateNormal];
+//        [theButton setImage:nil forState:UIControlStateNormal];
+//        [theButton setBackgroundImage:theImage forState:UIControlStateNormal];
+//    }
 }
 - (void)updateLabels {
     // Show number of successful potties.

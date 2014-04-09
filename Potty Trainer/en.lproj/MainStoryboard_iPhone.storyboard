@@ -1197,7 +1197,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <state key="normal">
                                     <string key="title">Add
 Reward</string>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="addReward:" destination="d1A-qA-n5q" eventType="touchUpInside" id="9wZ-US-ft5"/>
