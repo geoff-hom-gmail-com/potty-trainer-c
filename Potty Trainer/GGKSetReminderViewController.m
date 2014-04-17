@@ -51,8 +51,7 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
     [self updateReminderTime];
     [self startVisibleUpdates];
 }
-- (NSDate *)reminderDate
-{
+- (NSDate *)reminderDate {
     // Get the hour and minute in the date picker. Add to the current time.
     
     NSDate *theReminderIncrementDate = self.datePicker.date;
@@ -64,7 +63,6 @@ NSString *GGKReminderWhenSuffixString = @"which is in:";
     NSDate *theReminderDate = [gregorianCalendar dateByAddingComponents:theReminderIncrementDateComponents toDate:theNowDate options:0];
     return theReminderDate;
 }
-
 - (IBAction)setReminder {
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     UILocalNotification *aLocalNotification = [[UILocalNotification alloc] init];
