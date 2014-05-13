@@ -24,6 +24,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 // sRVC set reminder, so dismiss that view controller.
 - (void)setReminderViewControllerDidSetReminder:(id)sender;
+- (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath;
+- (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection;
 // Override.
 - (void)viewWillDisappear:(BOOL)animated;
 @end

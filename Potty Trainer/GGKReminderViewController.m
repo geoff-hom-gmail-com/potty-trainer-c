@@ -92,13 +92,20 @@
     self.timer = nil;
     NSLog(@"SVC timer stopped");
 }
-
 - (void)stopVisibleUpdates {
     [self stopTimer];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
-- (void)updateForAReminder:(UILocalNotification *)theLocalNotification
-{
+- (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath {
+    static NSString *TheCellIdentifier = @"ReminderCell";
+    UITableViewCell *aTableViewCell = [theTableView dequeueReusableCellWithIdentifier:TheCellIdentifier];
+    aTableViewCell.textLabel.text = @"None";
+    return aTableViewCell;
+}
+- (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection {
+    return 1;
+}
+- (void)updateForAReminder:(UILocalNotification *)theLocalNotification {
     // Report hours/mins/secs until reminder, and the actual time of the reminder.
     
     NSCalendar *aGregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
