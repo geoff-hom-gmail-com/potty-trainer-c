@@ -7,31 +7,32 @@
 //
 #import "GGKViewController.h"
 
-#import "GGKSetReminderViewController.h"
 #import <UIKit/UIKit.h>
-@interface GGKReminderViewController : GGKViewController <GGKSetReminderViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface GGKReminderViewController : GGKViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
 // For cancelling the current reminder. If no reminder, disable this.
-@property (nonatomic, weak) IBOutlet UIButton *cancelButton;
+//@property (nonatomic, weak) IBOutlet UIButton *cancelButton;
 // For telling the user if there is a reminder, and when.
 @property (nonatomic, weak) IBOutlet UILabel *reminderLabel;
 // For setting a reminder. Change label depending on whether a reminder already exists.
-@property (nonatomic, weak) IBOutlet UIButton *setOrChangeReminderButton;
+//@property (nonatomic, weak) IBOutlet UIButton *setOrChangeReminderButton;
 // Make sure the existing reminder doesn't go off.
-- (IBAction)cancelReminder;
+//- (IBAction)cancelReminder;
 // Override.
 - (void)handleViewWillAppearToUser;
 // UIViewController override.
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 // sRVC set reminder, so dismiss that view controller.
-- (void)setReminderViewControllerDidSetReminder:(id)sender;
-- (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath;
-- (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection;
+//- (void)setReminderViewControllerDidSetReminder:(id)sender;
+//- (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath;
+//- (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection;
+// For app delegate to know this VC lists reminders.
+- (void)refreshReminders;
 // Override.
 - (void)viewDidLoad;
 // Override.
-- (void)viewWillDisappear:(BOOL)animated;
+//- (void)viewWillDisappear:(BOOL)animated;
 @end

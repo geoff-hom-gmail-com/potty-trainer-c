@@ -9,13 +9,44 @@
 #import "GGKAddRemindersViewController.h"
 
 #import "GGKReminderTableViewDataSourceAndDelegate.h"
+#import "GGKUtilities.h"
 #import "NSDate+GGKDate.h"
 @interface GGKAddRemindersViewController ()
 @property (strong, nonatomic) NSDate *defaultReminderDate;
 @property (strong, nonatomic) GGKReminderTableViewDataSourceAndDelegate *reminderTableViewDataSourceAndDelegate;
+- (void)deleteAllReminders;
+- (void)updateUI;
 @end
 
 @implementation GGKAddRemindersViewController
+- (IBAction)addReminders {
+    // Schedule notification(s).
+    UILocalNotification *aLocalNotification = [[UILocalNotification alloc] init];
+    aLocalNotification.fireDate = self.defaultReminderDate;
+    aLocalNotification.timeZone = [NSTimeZone defaultTimeZone];
+    aLocalNotification.alertBody = @"Potty time? (Wash hands.)";
+    aLocalNotification.soundName = [GGKReminderSoundPrefixString stringByAppendingString:@".caf"];
+    [[UIApplication sharedApplication] scheduleLocalNotification:aLocalNotification];
+    [self updateUI];
+}
+- (void)alertView:(UIAlertView *)theAlertView clickedButtonAtIndex:(NSInteger)theButtonIndex {
+    if ([[theAlertView buttonTitleAtIndex:theButtonIndex] isEqualToString:@"OK"]) {
+        [self deleteAllReminders];
+    }
+}
+- (void)deleteAllReminders {
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    [self updateUI];
+}
+- (IBAction)handleDeleteAllRemindersTapped:(id)sender {
+    [self playButtonSound];
+    UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:@"Delete All Reminders?" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    [anAlertView show];
+}
+- (void)handleViewWillAppearToUser {
+    [super handleViewWillAppearToUser];
+    [self updateUI];
+}
 - (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender {
     if ([theSegue.identifier isEqualToString:@"ShowSetReminderTimeSegue"]) {
         GGKSetReminderTimeViewController *aSetReminderTimeViewController = theSegue.destinationViewController;
@@ -23,14 +54,28 @@
         aSetReminderTimeViewController.defaultReminderDate = self.defaultReminderDate;
     }
 }
+- (void)refreshReminders {
+    [self updateUI];
+}
 - (void)setReminderTimeViewControllerDidCancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)setReminderTimeViewControllerDidFinish:(id)sender {
     GGKSetReminderTimeViewController *aSetReminderTimeViewController = sender;
     self.defaultReminderDate = aSetReminderTimeViewController.datePicker.date;
-    [self.reminderTimeButton setTitle:[self.defaultReminderDate hourMinuteAMPMString] forState:UIControlStateNormal];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)updateUI {
+    if ([[UIApplication sharedApplication].scheduledLocalNotifications count] == 0) {
+        self.deleteAllRemindersBarButtonItem.enabled = NO;
+    } else {
+        self.deleteAllRemindersBarButtonItem.enabled = YES;
+    }
+    [self.reminderTimeButton setTitle:[self.defaultReminderDate hourMinuteAMPMString] forState:UIControlStateNormal];
+    // if switch is off, just 1 reminder
+    NSString *aTitleString = @"Add it!";
+    [self.addRemindersButton setTitle:aTitleString forState:UIControlStateNormal];
+    [self.tableView reloadData];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,9 +83,7 @@
     self.reminderTableViewDataSourceAndDelegate = [[GGKReminderTableViewDataSourceAndDelegate alloc] initWithTableView:self.tableView];
     // Default reminder time: 20' from now.
     NSTimeInterval aTwentyMinutesFromNowTimeInterval = 20 * 60;
-    NSDate *aLaterDate = [NSDate dateWithTimeIntervalSinceNow:aTwentyMinutesFromNowTimeInterval];
-    NSString *aDateString = [aLaterDate hourMinuteAMPMString];
-    self.defaultReminderDate = aLaterDate;
-    [self.reminderTimeButton setTitle:aDateString forState:UIControlStateNormal];
+    self.defaultReminderDate = [NSDate dateWithTimeIntervalSinceNow:aTwentyMinutesFromNowTimeInterval];
+    [GGKUtilities addBorderToView:self.addRemindersButton];
 }
 @end

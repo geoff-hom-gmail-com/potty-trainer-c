@@ -28,15 +28,19 @@ NSString *GGKHasLaunchedBeforeKeyString = @"Has launched before?";
 @end
 
 @implementation GGKPerfectPottyAppDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if ([alertView.title isEqualToString:GGKAppName]) {
-        
         AudioServicesDisposeSystemSoundID(_reminderSound);
+        // If top view lists reminders, then refresh.
+        UINavigationController *theNavigationController = (UINavigationController *)self.window.rootViewController;
+        UIViewController *theTopViewController = theNavigationController.topViewController;
+        // Not using SEL because it generates a warning. Would have to remove with 3 pragmas.
+//        SEL aReminderTableSpecificSelector = @selector(refreshReminders);
+        if ([theTopViewController respondsToSelector:@selector(refreshReminders)]) {
+            [theTopViewController performSelector:@selector(refreshReminders)];
+        }
     }
 }
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     NSLog(@"PTAD a dFLWO1");
@@ -86,7 +90,6 @@ NSString *GGKHasLaunchedBeforeKeyString = @"Has launched before?";
     
     return YES;
 }
-
 - (void)application:(UIApplication *)theApplication didReceiveLocalNotification:(UILocalNotification *)theNotification {
     // There's a bug that can cause one notification to call this method twice. So we'll add a timer so this can get called only so often.
     NSLog(@"aD a dRLN");

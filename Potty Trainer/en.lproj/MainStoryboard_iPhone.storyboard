@@ -211,10 +211,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olj-4Z-52d">
                                 <rect key="frame" x="226" y="109" width="74" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add 32">
+                                <state key="normal" title="Add them!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addReminders" destination="i0a-Fa-xaN" eventType="touchUpInside" id="Es7-9P-Mog"/>
                                     <action selector="playButtonSound" destination="i0a-Fa-xaN" eventType="touchDown" id="Rpe-0x-wLL"/>
                                 </connections>
                             </button>
@@ -222,10 +223,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Reminders" id="zu3-gc-bNx">
-                        <barButtonItem key="rightBarButtonItem" title="Delete All" id="3W7-L2-N2l"/>
+                        <barButtonItem key="rightBarButtonItem" title="Delete All" id="3W7-L2-N2l">
+                            <connections>
+                                <action selector="handleDeleteAllRemindersTapped:" destination="i0a-Fa-xaN" id="DkK-RX-2C2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addRemindersButton" destination="olj-4Z-52d" id="A9P-iN-Np9"/>
+                        <outlet property="deleteAllRemindersBarButtonItem" destination="3W7-L2-N2l" id="KPt-rt-cXR"/>
                         <outlet property="reminderTimeButton" destination="2Mh-BJ-eA4" id="YiD-ZY-RW5"/>
                         <outlet property="tableView" destination="BEr-lf-fTg" id="4dz-uE-QPP"/>
                     </connections>
@@ -328,7 +334,7 @@
                                     <!--2014-05-22 04:32:48 +0000-->
                                 </date>
                                 <timeZone key="timeZone" name="America/Los_Angeles">
-                                    <mutableData key="data">
+                                    <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -346,7 +352,7 @@ f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</mutableData>
+</data>
                                 </timeZone>
                                 <connections>
                                     <action selector="playButtonSound" destination="xeI-52-25F" eventType="valueChanged" id="VxV-YG-ArA"/>
@@ -372,10 +378,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <outlet property="delegate" destination="xeI-52-25F" id="icW-iZ-lwD"/>
                                 </connections>
                             </toolbar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminder Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7f-Iw-vtD">
-                                <rect key="frame" x="102" y="31" width="117" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Reminder Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7f-Iw-vtD">
+                                <rect key="frame" x="79" y="33" width="162" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface GGKUtilities : NSObject
+// Add a rounded border to the given view.
++ (void)addBorderToView:(UIView *)theView;
 // Return whether device is running iOS less than 7; e.g., 6.1. There were a lot of changes in iOS 7.
 + (BOOL)iOSisBelow7;
 @end
