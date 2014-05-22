@@ -9,7 +9,11 @@
 
 #import "GGKSetReminderViewController.h"
 #import <UIKit/UIKit.h>
-@interface GGKReminderViewController : GGKViewController <GGKSetReminderViewControllerDelegate>
+@interface GGKReminderViewController : GGKViewController <GGKSetReminderViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+
 // For cancelling the current reminder. If no reminder, disable this.
 @property (nonatomic, weak) IBOutlet UIButton *cancelButton;
 // For telling the user if there is a reminder, and when.
@@ -26,6 +30,8 @@
 - (void)setReminderViewControllerDidSetReminder:(id)sender;
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath;
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection;
+// Override.
+- (void)viewDidLoad;
 // Override.
 - (void)viewWillDisappear:(BOOL)animated;
 @end

@@ -8,8 +8,12 @@
 #import "GGKReminderViewController.h"
 
 #import "GGKPerfectPottyAppDelegate.h"
+#import "GGKReminderTableViewDataSourceAndDelegate.h"
 #import "NSDate+GGKDate.h"
 @interface GGKReminderViewController ()
+
+@property (strong, nonatomic) GGKReminderTableViewDataSourceAndDelegate *reminderTableViewDataSourceAndDelegate;
+
 // For updating the view at regular intervals.
 @property (strong, nonatomic) NSTimer *timer;
 // Check if there's a reminder. If so, report on it. Else, stop the timer that checks.
@@ -99,7 +103,7 @@
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath {
     static NSString *TheCellIdentifier = @"ReminderCell";
     UITableViewCell *aTableViewCell = [theTableView dequeueReusableCellWithIdentifier:TheCellIdentifier];
-    aTableViewCell.textLabel.text = @"None";
+    aTableViewCell.textLabel.text = @"No reminders set";
     return aTableViewCell;
 }
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection {
@@ -134,6 +138,10 @@
     self.reminderLabel.text = @"There is currently\nno reminder.";
     self.cancelButton.enabled = NO;
     [self.setOrChangeReminderButton setTitle:@"Set Reminder" forState:UIControlStateNormal];
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.reminderTableViewDataSourceAndDelegate = [[GGKReminderTableViewDataSourceAndDelegate alloc] initWithTableView:self.tableView];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {

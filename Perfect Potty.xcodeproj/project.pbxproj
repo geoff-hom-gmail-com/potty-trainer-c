@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		9315503216DF225000482944 /* GGKSetReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315503116DF225000482944 /* GGKSetReminderViewController.m */; };
 		9336135C18A0A5450026F270 /* GGKMusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9336135B18A0A5450026F270 /* GGKMusicModel.m */; };
+		933E9DB4192DB07500A443DE /* GGKReminderTableViewDataSourceAndDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 933E9DB3192DB07500A443DE /* GGKReminderTableViewDataSourceAndDelegate.m */; };
+		933E9DB7192DB8B900A443DE /* GGKSetReminderTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 933E9DB6192DB8B900A443DE /* GGKSetReminderTimeViewController.m */; };
+		935223BF1921EB4D00E33B3F /* GGKAddRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 935223BE1921EB4D00E33B3F /* GGKAddRemindersViewController.m */; };
 		9353B37F16E6011300B0A75A /* GGKYourSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9353B37E16E6011300B0A75A /* GGKYourSupportViewController.m */; };
 		935A344216F206BA003DD6FA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 935A344116F206BA003DD6FA /* libz.dylib */; };
 		9362E42416D49EC600A1B771 /* GGKPickBackgroundColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362E42316D49EC600A1B771 /* GGKPickBackgroundColorViewController.m */; };
@@ -77,6 +80,12 @@
 		9315503116DF225000482944 /* GGKSetReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSetReminderViewController.m; sourceTree = "<group>"; };
 		9336135A18A0A5450026F270 /* GGKMusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKMusicModel.h; sourceTree = "<group>"; };
 		9336135B18A0A5450026F270 /* GGKMusicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKMusicModel.m; sourceTree = "<group>"; };
+		933E9DB2192DB07500A443DE /* GGKReminderTableViewDataSourceAndDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKReminderTableViewDataSourceAndDelegate.h; sourceTree = "<group>"; };
+		933E9DB3192DB07500A443DE /* GGKReminderTableViewDataSourceAndDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKReminderTableViewDataSourceAndDelegate.m; sourceTree = "<group>"; };
+		933E9DB5192DB8B900A443DE /* GGKSetReminderTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSetReminderTimeViewController.h; sourceTree = "<group>"; };
+		933E9DB6192DB8B900A443DE /* GGKSetReminderTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSetReminderTimeViewController.m; sourceTree = "<group>"; };
+		935223BD1921EB4D00E33B3F /* GGKAddRemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKAddRemindersViewController.h; sourceTree = "<group>"; };
+		935223BE1921EB4D00E33B3F /* GGKAddRemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKAddRemindersViewController.m; sourceTree = "<group>"; };
 		9353B37D16E6011300B0A75A /* GGKYourSupportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKYourSupportViewController.h; sourceTree = "<group>"; };
 		9353B37E16E6011300B0A75A /* GGKYourSupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKYourSupportViewController.m; sourceTree = "<group>"; };
 		935A344116F206BA003DD6FA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -250,6 +259,8 @@
 				9382117517CEB6E700EDE843 /* GGKAddChildViewController.m */,
 				937F863E16D9DC0B007DE572 /* GGKAddPottyViewController.h */,
 				937F863F16D9DC0C007DE572 /* GGKAddPottyViewController.m */,
+				935223BD1921EB4D00E33B3F /* GGKAddRemindersViewController.h */,
+				935223BE1921EB4D00E33B3F /* GGKAddRemindersViewController.m */,
 				9376CCB116E1DC0500887ADE /* GGKAddRewardTextViewController.h */,
 				9376CCB216E1DC0500887ADE /* GGKAddRewardTextViewController.m */,
 				9383F21E17C8456D005B41E5 /* GGKChild.h */,
@@ -278,6 +289,8 @@
 				937F864516DABF59007DE572 /* GGKPottyAttemptDayTableViewCell.m */,
 				9383F22417CA09A4005B41E5 /* GGKPottyRecordsViewController.h */,
 				9383F22517CA09A5005B41E5 /* GGKPottyRecordsViewController.m */,
+				933E9DB2192DB07500A443DE /* GGKReminderTableViewDataSourceAndDelegate.h */,
+				933E9DB3192DB07500A443DE /* GGKReminderTableViewDataSourceAndDelegate.m */,
 				937F863516D6A61A007DE572 /* GGKReminderViewController.h */,
 				937F863616D6A61A007DE572 /* GGKReminderViewController.m */,
 				9383F22117C91520005B41E5 /* GGKReward.h */,
@@ -288,6 +301,8 @@
 				937652C816C079CB007EA04C /* GGKRootViewController.m */,
 				93F6EBE018EC06B600BC5806 /* GGKSameValueSegmentedControl.h */,
 				93F6EBE118EC06B600BC5806 /* GGKSameValueSegmentedControl.m */,
+				933E9DB5192DB8B900A443DE /* GGKSetReminderTimeViewController.h */,
+				933E9DB6192DB8B900A443DE /* GGKSetReminderTimeViewController.m */,
 				9315503016DF225000482944 /* GGKSetReminderViewController.h */,
 				9315503116DF225000482944 /* GGKSetReminderViewController.m */,
 				938A773B18E10CD100ADE967 /* GGKSettingsViewController.h */,
@@ -460,6 +475,7 @@
 				9390858416DD583A00C2290F /* GGKPottyAttemptCell.m in Sources */,
 				9315503216DF225000482944 /* GGKSetReminderViewController.m in Sources */,
 				9376CCB316E1DC0600887ADE /* GGKAddRewardTextViewController.m in Sources */,
+				933E9DB7192DB8B900A443DE /* GGKSetReminderTimeViewController.m in Sources */,
 				9353B37F16E6011300B0A75A /* GGKYourSupportViewController.m in Sources */,
 				93F6EBE218EC06B600BC5806 /* GGKSameValueSegmentedControl.m in Sources */,
 				93DE8C0D16E8074800AA87FF /* GGKInAppPurchaseObserver.m in Sources */,
@@ -475,6 +491,8 @@
 				9382117617CEB6E700EDE843 /* GGKAddChildViewController.m in Sources */,
 				93F6EBE518EC06EE00BC5806 /* GGKUtilities.m in Sources */,
 				9382117917D1976400EDE843 /* GGKTestRemindersViewController.m in Sources */,
+				933E9DB4192DB07500A443DE /* GGKReminderTableViewDataSourceAndDelegate.m in Sources */,
+				935223BF1921EB4D00E33B3F /* GGKAddRemindersViewController.m in Sources */,
 				938A773D18E10CD100ADE967 /* GGKSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
