@@ -12,7 +12,8 @@
 #import "GGKUtilities.h"
 #import "NSDate+GGKDate.h"
 @interface GGKAddRemindersViewController ()
-@property (strong, nonatomic) NSDate *defaultReminderDate;
+// Date for first reminder.
+@property (strong, nonatomic) NSDate *firstReminderDate;
 @property (strong, nonatomic) GGKReminderTableViewDataSource *reminderTableViewDataSourceAndDelegate;
 - (void)deleteAllReminders;
 - (void)updateUI;
@@ -22,7 +23,7 @@
 - (IBAction)addReminders {
     // Schedule notification(s).
     UILocalNotification *aLocalNotification = [[UILocalNotification alloc] init];
-    aLocalNotification.fireDate = self.defaultReminderDate;
+    aLocalNotification.fireDate = self.firstReminderDate;
     aLocalNotification.timeZone = [NSTimeZone defaultTimeZone];
     aLocalNotification.alertBody = @"Potty time? (Wash hands.)";
     aLocalNotification.soundName = [GGKReminderSoundPrefixString stringByAppendingString:@".caf"];
@@ -43,15 +44,18 @@
     UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:@"Delete All Reminders?" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [anAlertView show];
 }
+- (IBAction)handleRepeatReminderSwitchValueChanged {
+    [self updateUI];
+}
 - (void)handleViewWillAppearToUser {
     [super handleViewWillAppearToUser];
     [self updateUI];
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender {
-    if ([theSegue.identifier isEqualToString:@"ShowSetReminderTimeSegue"]) {
-        GGKSetReminderTimeViewController *aSetReminderTimeViewController = theSegue.destinationViewController;
-        aSetReminderTimeViewController.delegate = self;
-        aSetReminderTimeViewController.defaultReminderDate = self.defaultReminderDate;
+    if ([theSegue.identifier isEqualToString:@"SetFirstReminderTimeSegue"]) {
+        self.perfectPottyModel.isSettingFirstReminderTime = YES;
+    } else if ([theSegue.identifier isEqualToString:@"SetLastReminderTimeSegue"]) {
+        self.perfectPottyModel.isSettingFirstReminderTime = NO;
     }
 }
 - (void)refreshReminders {
@@ -65,7 +69,7 @@
 }
 - (void)setReminderTimeViewControllerDidFinish:(id)sender {
     GGKSetReminderTimeViewController *aSetReminderTimeViewController = sender;
-    self.defaultReminderDate = aSetReminderTimeViewController.datePicker.date;
+    self.firstReminderDate = aSetReminderTimeViewController.datePicker.date;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)updateUI {
@@ -74,10 +78,30 @@
     } else {
         self.deleteAllRemindersBarButtonItem.enabled = YES;
     }
-    [self.reminderTimeButton setTitle:[self.defaultReminderDate hourMinuteAMPMString] forState:UIControlStateNormal];
-    // if switch is off, just 1 reminder
-    NSString *aTitleString = @"Add it!";
-    [self.addRemindersButton setTitle:aTitleString forState:UIControlStateNormal];
+    [self.reminderTimeButton setTitle:[self.firstReminderDate hourMinuteAMPMString] forState:UIControlStateNormal];
+    self.minutesBetweenRemindersTextField.text = [NSString stringWithFormat:@"%d", self.perfectPottyModel.minutesBetweenRemindersInteger];
+    NSString *aTimeString = [self.perfectPottyModel.lastReminderDate hourMinuteAMPMString];
+    [self.lastReminderTimeButton setTitle:aTimeString forState:UIControlStateNormal];
+    [self.lastReminderTimeButton setTitle:aTimeString forState:UIControlStateDisabled];
+    NSString *theAddRemindersButtonTitleString;
+    if (self.repeatReminderSwitch.on) {
+        self.repeatEveryLabel.enabled = YES;
+        self.minutesBetweenRemindersTextField.enabled = YES;
+        self.minutesBetweenRemindersTextField.textColor = [UIColor blackColor];
+        self.minutesUntilLabel.enabled = YES;
+        self.lastReminderTimeButton.enabled = YES;
+        // # reminders = [(final time - start time) in minutes / repeat interval] + 1
+        NSUInteger theNumberOfReminders = ([self.perfectPottyModel.lastReminderDate timeIntervalSinceDate:self.firstReminderDate] / 60 / self.perfectPottyModel.minutesBetweenRemindersInteger) + 1;
+        theAddRemindersButtonTitleString = [NSString stringWithFormat:@"Add %d!", theNumberOfReminders];
+    } else {
+        self.repeatEveryLabel.enabled = NO;
+        self.minutesBetweenRemindersTextField.enabled = NO;
+        self.minutesBetweenRemindersTextField.textColor = [UIColor lightGrayColor];
+        self.minutesUntilLabel.enabled = NO;
+        self.lastReminderTimeButton.enabled = NO;
+        theAddRemindersButtonTitleString = @"Add it!";
+    }
+    [self.addRemindersButton setTitle:theAddRemindersButtonTitleString forState:UIControlStateNormal];
     // If reminders, then allow editing.
     NSArray *theLocalNotificationsArray = [UIApplication sharedApplication].scheduledLocalNotifications;
     self.tableView.editing = ([theLocalNotificationsArray count] > 0);
@@ -90,7 +114,7 @@
     self.reminderTableViewDataSourceAndDelegate.delegate = self;
     // Default reminder time: 20' from now.
     NSTimeInterval aTwentyMinutesFromNowTimeInterval = 20 * 60;
-    self.defaultReminderDate = [NSDate dateWithTimeIntervalSinceNow:aTwentyMinutesFromNowTimeInterval];
+    self.firstReminderDate = [NSDate dateWithTimeIntervalSinceNow:aTwentyMinutesFromNowTimeInterval];
     [GGKUtilities addBorderToView:self.addRemindersButton];
 }
 @end

@@ -7,20 +7,10 @@
 //
 
 #import "GGKViewController.h"
-
-@protocol GGKSetReminderTimeViewControllerDelegate
-// Sent after the user cancelled.
-- (void)setReminderTimeViewControllerDidCancel:(id)sender;
-// Sent after the user chose the reminder time.
-- (void)setReminderTimeViewControllerDidFinish:(id)sender;
-@end
 @interface GGKSetReminderTimeViewController : GGKViewController <UIToolbarDelegate>
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
-@property (strong, nonatomic) NSDate *defaultReminderDate;
-@property (weak, nonatomic) id <GGKSetReminderTimeViewControllerDelegate> delegate;
-- (IBAction)cancelChangeTime:(id)sender;
-- (IBAction)changeTime:(id)sender;
-- (UIBarPosition)positionForBar:(id<UIBarPositioning>)theBar;
+@property (strong, nonatomic) NSDate *reminderDate;
+- (IBAction)handleDatePickerValueChanged:(id)sender;
 // Override.
 - (void)viewDidLoad;
 @end

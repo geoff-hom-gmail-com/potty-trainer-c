@@ -23,6 +23,8 @@ NSString *GGKXSymbolString = @"\u2718";
 NSString *GGKChildrenKeyString = @"Children data";
 // Key for storing ID of current child.
 NSString *GGKCurrentChildIDNumberKeyString = @"Current child ID number";
+NSString *GGKLastReminderSecondsAfterMidnightIntegerKeyString = @"Last-reminder, seconds-after-midnight integer";
+NSString *GGKMinutesBetweenRemindersIntegerKeyString = @"Minutes-between-reminders integer";
 // Key for storing the most-recent custom symbol used.
 NSString *GGKMostRecentCustomSymbolStringKeyString = @"Most-recent-custom-symbol string";
 // Key for storing the number of stars purchased.
@@ -52,6 +54,33 @@ NSString *GGKStarRewardString = @"\u2b50";
 @end
 
 @implementation GGKPerfectPottyModel
+// Custom accessors.
+- (NSDate *)lastReminderDate {
+    NSInteger theSecondsAfterMidnightInteger = [[NSUserDefaults standardUserDefaults] integerForKey:GGKLastReminderSecondsAfterMidnightIntegerKeyString];
+    NSDate *aTodayDate = [NSDate date];
+    NSCalendar *aCalendar = [NSCalendar autoupdatingCurrentCalendar];
+    NSUInteger aCalendarUnit = (NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit);
+    NSDate *aMidnightTodayDate = [aCalendar dateFromComponents:[aCalendar components:aCalendarUnit fromDate:aTodayDate]];
+    NSDate *theLastReminderDate = [aMidnightTodayDate dateByAddingTimeInterval:theSecondsAfterMidnightInteger];
+    return theLastReminderDate;
+}
+- (void)setLastReminderDate:(NSDate *)theLastReminderDate {
+    NSCalendar *aCalendar = [NSCalendar autoupdatingCurrentCalendar];
+    NSUInteger aCalendarUnit = (NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit);
+    NSDateComponents *aDateComponents = [aCalendar components:aCalendarUnit fromDate:theLastReminderDate];
+    NSInteger theSecondsAfterMidnightInteger = aDateComponents.hour * 60 * 60 + aDateComponents.minute * 60 + aDateComponents.second;
+    [[NSUserDefaults standardUserDefaults] setInteger:theSecondsAfterMidnightInteger forKey:GGKLastReminderSecondsAfterMidnightIntegerKeyString];
+}
+- (NSInteger)minutesBetweenRemindersInteger {
+    NSInteger theMinutesBetweenRemindersInteger = [[NSUserDefaults standardUserDefaults] integerForKey:GGKMinutesBetweenRemindersIntegerKeyString];
+    if (theMinutesBetweenRemindersInteger == 0) {
+        theMinutesBetweenRemindersInteger = 30;
+    }
+    return theMinutesBetweenRemindersInteger;
+}
+- (void)setMinutesBetweenRemindersInteger:(NSInteger)theMinutesBetweenRemindersInteger {
+    [[NSUserDefaults standardUserDefaults] setInteger:theMinutesBetweenRemindersInteger forKey:GGKMinutesBetweenRemindersIntegerKeyString];
+}
 
 - (GGKChild *)addChildWithName:(NSString *)name
 {

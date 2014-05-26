@@ -23,6 +23,9 @@ extern NSString *GGKStarSymbolString;
 extern NSString *GGKXSymbolString;
 
 // Keys for saving data.
+// Last possible time for a repeating reminder, in seconds after midnight.
+extern NSString *GGKLastReminderSecondsAfterMidnightIntegerKeyString;
+extern NSString *GGKMinutesBetweenRemindersIntegerKeyString;
 // Key for storing the date of a potty attempt. Object is an NSDate.
 extern NSString *GGKPottyAttemptDateKeyString;
 // Key for storing the symbol for a potty attempt.
@@ -52,9 +55,16 @@ extern NSString *GGKStarRewardString;
 
 // Custom symbol to use, if any, for a new potty attempt.
 @property (strong, nonatomic) NSString *currentCustomSymbol;
+// Whether currently setting the first reminder time or the last.
+@property (assign, nonatomic) BOOL isSettingFirstReminderTime;
+// Last possible date for a repeating reminder. (May be earlier if interval doesn't fit evenly.)
+// Custom accessors.
+@property (strong, nonatomic) NSDate *lastReminderDate;
+// Minutes between repeating reminders.
+// Custom accessors.
+@property (assign, nonatomic) NSInteger minutesBetweenRemindersInteger;
 // For in-app donation. Not related to child rewards.
 @property (assign, nonatomic) NSInteger numberOfStarsPurchasedInteger;
-
 // The reminder is set using date components. I.e., time from the given date. 
 @property (strong, nonatomic) NSDateComponents *reminderIncrementDateComponents;
 // Create child with name. Add to database. Return child.

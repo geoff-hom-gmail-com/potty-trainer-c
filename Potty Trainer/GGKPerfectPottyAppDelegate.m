@@ -22,9 +22,11 @@ NSString *GGKHasLaunchedBeforeKeyString = @"Has launched before?";
 // Sound to play for a reminder alert.
 @property (assign, nonatomic) SystemSoundID reminderSound;
 // If it's the first time this app has been launched, do stuff. (E.g., initialize with default data.)
-- (void)handleIfFirstLaunch;
+//- (void)handleIfFirstLaunch;
 // So, reset that flag.
 - (void)noteThatLocalNotificationsNotReceivedRecently;
+// Register default values.
+- (void)registerDefaults;
 @end
 
 @implementation GGKPerfectPottyAppDelegate
@@ -45,7 +47,8 @@ NSString *GGKHasLaunchedBeforeKeyString = @"Has launched before?";
     // Override point for customization after application launch.
     NSLog(@"PTAD a dFLWO1");
     
-    [self handleIfFirstLaunch];
+    [self registerDefaults];
+//    [self handleIfFirstLaunch];
     
     // Show splash image, then fade it out.
     // Get proper image: Check if non-retina. Else, check if 3.5" retina. Else, assume 4" retina.
@@ -138,19 +141,26 @@ NSString *GGKHasLaunchedBeforeKeyString = @"Has launched before?";
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-- (void)handleIfFirstLaunch {
-    // Check for a stored BOOL. If the first launch, it will be NO. So we'll do stuff and then set that to YES.
-    BOOL hasLaunchedBefore = [[NSUserDefaults standardUserDefaults] boolForKey:GGKHasLaunchedBeforeKeyString];
-    // Uncomment this to reset defaults.
-//        hasLaunchedBefore = NO;
-    if (!hasLaunchedBefore) {
-        // Set defaults.
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:GGKEnableMusicBOOLKeyString];
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:GGKHasLaunchedBeforeKeyString];
-    }
-}
+//- (void)handleIfFirstLaunch {
+//    // Check for a stored BOOL. If the first launch, it will be NO. So we'll do stuff and then set that to YES.
+//    BOOL hasLaunchedBefore = [[NSUserDefaults standardUserDefaults] boolForKey:GGKHasLaunchedBeforeKeyString];
+//    // Uncomment this to reset defaults.
+////        hasLaunchedBefore = NO;
+//    if (!hasLaunchedBefore) {
+//        // Set defaults.
+//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:GGKEnableMusicBOOLKeyString];
+//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:GGKHasLaunchedBeforeKeyString];
+//        [[NSUserDefaults standardUserDefaults] setInteger:30 forKey:GGKMinutesBetweenRemindersIntegerKeyString];
+//        [[NSUserDefaults standardUserDefaults] setInteger:30 forKey:GGKLastReminderSecondsAfterMidnightIntegerKeyString];
+//    }
+//}
 - (void)noteThatLocalNotificationsNotReceivedRecently {
     self.localNotificationWasRecentlyReceived = NO;
 }
-
+- (void)registerDefaults {
+    // 8 PM = 20 h * 60 min / h * 60 s / min.
+    NSInteger an8PMInSecondsAfterMidnightInteger = 20 * 60 * 60;
+    NSDictionary *aDefaultsDictionary = @{GGKEnableMusicBOOLKeyString:@YES, GGKHasLaunchedBeforeKeyString:@YES, GGKMinutesBetweenRemindersIntegerKeyString:@30,GGKLastReminderSecondsAfterMidnightIntegerKeyString:[NSNumber numberWithInteger:an8PMInSecondsAfterMidnightInteger]};
+    [[NSUserDefaults standardUserDefaults] registerDefaults:aDefaultsDictionary];
+}
 @end
