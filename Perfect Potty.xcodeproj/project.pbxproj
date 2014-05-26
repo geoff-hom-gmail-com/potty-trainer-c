@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		9315503216DF225000482944 /* GGKSetReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315503116DF225000482944 /* GGKSetReminderViewController.m */; };
 		9336135C18A0A5450026F270 /* GGKMusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9336135B18A0A5450026F270 /* GGKMusicModel.m */; };
-		933E9DB4192DB07500A443DE /* GGKReminderTableViewDataSourceAndDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 933E9DB3192DB07500A443DE /* GGKReminderTableViewDataSourceAndDelegate.m */; };
+		933E9DB4192DB07500A443DE /* GGKReminderTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 933E9DB3192DB07500A443DE /* GGKReminderTableViewDataSource.m */; };
 		933E9DB7192DB8B900A443DE /* GGKSetReminderTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 933E9DB6192DB8B900A443DE /* GGKSetReminderTimeViewController.m */; };
 		935223BF1921EB4D00E33B3F /* GGKAddRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 935223BE1921EB4D00E33B3F /* GGKAddRemindersViewController.m */; };
 		9353B37F16E6011300B0A75A /* GGKYourSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9353B37E16E6011300B0A75A /* GGKYourSupportViewController.m */; };
@@ -70,6 +70,7 @@
 		93DE8C1E16E89A7E00AA87FF /* icon2-57px@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1A16E89A7E00AA87FF /* icon2-57px@2x.png */; };
 		93DE8C1F16E89A7E00AA87FF /* icon2-72px.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1B16E89A7E00AA87FF /* icon2-72px.png */; };
 		93DE8C2016E89A7E00AA87FF /* icon2-72px@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1C16E89A7E00AA87FF /* icon2-72px@2x.png */; };
+		93EC0077193362EA008ED500 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93EC0076193362EA008ED500 /* QuartzCore.framework */; };
 		93F00CB918B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93F00CB818B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a */; };
 		93F6EBE218EC06B600BC5806 /* GGKSameValueSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F6EBE118EC06B600BC5806 /* GGKSameValueSegmentedControl.m */; };
 		93F6EBE518EC06EE00BC5806 /* GGKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F6EBE418EC06EE00BC5806 /* GGKUtilities.m */; };
@@ -80,8 +81,8 @@
 		9315503116DF225000482944 /* GGKSetReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSetReminderViewController.m; sourceTree = "<group>"; };
 		9336135A18A0A5450026F270 /* GGKMusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKMusicModel.h; sourceTree = "<group>"; };
 		9336135B18A0A5450026F270 /* GGKMusicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKMusicModel.m; sourceTree = "<group>"; };
-		933E9DB2192DB07500A443DE /* GGKReminderTableViewDataSourceAndDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKReminderTableViewDataSourceAndDelegate.h; sourceTree = "<group>"; };
-		933E9DB3192DB07500A443DE /* GGKReminderTableViewDataSourceAndDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKReminderTableViewDataSourceAndDelegate.m; sourceTree = "<group>"; };
+		933E9DB2192DB07500A443DE /* GGKReminderTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKReminderTableViewDataSource.h; sourceTree = "<group>"; };
+		933E9DB3192DB07500A443DE /* GGKReminderTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKReminderTableViewDataSource.m; sourceTree = "<group>"; };
 		933E9DB5192DB8B900A443DE /* GGKSetReminderTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSetReminderTimeViewController.h; sourceTree = "<group>"; };
 		933E9DB6192DB8B900A443DE /* GGKSetReminderTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSetReminderTimeViewController.m; sourceTree = "<group>"; };
 		935223BD1921EB4D00E33B3F /* GGKAddRemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKAddRemindersViewController.h; sourceTree = "<group>"; };
@@ -177,6 +178,7 @@
 		93DE8C1A16E89A7E00AA87FF /* icon2-57px@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-57px@2x.png"; path = "icons/icon2-57px@2x.png"; sourceTree = "<group>"; };
 		93DE8C1B16E89A7E00AA87FF /* icon2-72px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-72px.png"; path = "icons/icon2-72px.png"; sourceTree = "<group>"; };
 		93DE8C1C16E89A7E00AA87FF /* icon2-72px@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-72px@2x.png"; path = "icons/icon2-72px@2x.png"; sourceTree = "<group>"; };
+		93EC0076193362EA008ED500 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		93F00CB818B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Perfect Potty - Potty Music.m4a"; path = "sounds/Perfect Potty - Potty Music.m4a"; sourceTree = "<group>"; };
 		93F6EBE018EC06B600BC5806 /* GGKSameValueSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSameValueSegmentedControl.h; sourceTree = "<group>"; };
 		93F6EBE118EC06B600BC5806 /* GGKSameValueSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSameValueSegmentedControl.m; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				9387C1EE17D1A7D0003D10B7 /* MediaPlayer.framework in Frameworks */,
 				93DE8C0F16E87A2400AA87FF /* MessageUI.framework in Frameworks */,
 				9376CCB016E1A48400887ADE /* MobileCoreServices.framework in Frameworks */,
+				93EC0077193362EA008ED500 /* QuartzCore.framework in Frameworks */,
 				93DE8C0716E7F36000AA87FF /* StoreKit.framework in Frameworks */,
 				937652AA16C079CB007EA04C /* UIKit.framework in Frameworks */,
 			);
@@ -238,6 +241,7 @@
 		937652A816C079CB007EA04C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93EC0076193362EA008ED500 /* QuartzCore.framework */,
 				9387C1EB17D1A5CA003D10B7 /* AudioToolbox.framework */,
 				9362E42F16D5FBF400A1B771 /* AVFoundation.framework */,
 				937652AD16C079CB007EA04C /* CoreGraphics.framework */,
@@ -289,8 +293,8 @@
 				937F864516DABF59007DE572 /* GGKPottyAttemptDayTableViewCell.m */,
 				9383F22417CA09A4005B41E5 /* GGKPottyRecordsViewController.h */,
 				9383F22517CA09A5005B41E5 /* GGKPottyRecordsViewController.m */,
-				933E9DB2192DB07500A443DE /* GGKReminderTableViewDataSourceAndDelegate.h */,
-				933E9DB3192DB07500A443DE /* GGKReminderTableViewDataSourceAndDelegate.m */,
+				933E9DB2192DB07500A443DE /* GGKReminderTableViewDataSource.h */,
+				933E9DB3192DB07500A443DE /* GGKReminderTableViewDataSource.m */,
 				937F863516D6A61A007DE572 /* GGKReminderViewController.h */,
 				937F863616D6A61A007DE572 /* GGKReminderViewController.m */,
 				9383F22117C91520005B41E5 /* GGKReward.h */,
@@ -491,7 +495,7 @@
 				9382117617CEB6E700EDE843 /* GGKAddChildViewController.m in Sources */,
 				93F6EBE518EC06EE00BC5806 /* GGKUtilities.m in Sources */,
 				9382117917D1976400EDE843 /* GGKTestRemindersViewController.m in Sources */,
-				933E9DB4192DB07500A443DE /* GGKReminderTableViewDataSourceAndDelegate.m in Sources */,
+				933E9DB4192DB07500A443DE /* GGKReminderTableViewDataSource.m in Sources */,
 				935223BF1921EB4D00E33B3F /* GGKAddRemindersViewController.m in Sources */,
 				938A773D18E10CD100ADE967 /* GGKSettingsViewController.m in Sources */,
 			);

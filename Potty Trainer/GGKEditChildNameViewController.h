@@ -9,13 +9,10 @@
 #import "GGKViewController.h"
 
 @protocol GGKEditChildNameViewControllerDelegate
-
 // Sent after the user cancelled.
 - (void)editChildNameViewControllerDidCancel:(id)sender;
-
 // Sent after the user finished entering text.
 - (void)editChildNameViewControllerDidEnterText:(id)sender;
-
 @end
 
 @interface GGKEditChildNameViewController : GGKViewController <UITextFieldDelegate>

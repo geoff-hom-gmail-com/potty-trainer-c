@@ -13,12 +13,9 @@
 @end
 
 @implementation GGKEditChildNameViewController
-
-- (IBAction)cancel
-{
+- (IBAction)cancel {
     [self.delegate editChildNameViewControllerDidCancel:self];
 }
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [self.delegate editChildNameViewControllerDidEnterText:self];

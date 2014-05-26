@@ -8,11 +8,11 @@
 #import "GGKReminderViewController.h"
 
 #import "GGKPerfectPottyAppDelegate.h"
-#import "GGKReminderTableViewDataSourceAndDelegate.h"
+#import "GGKReminderTableViewDataSource.h"
 #import "NSDate+GGKDate.h"
 @interface GGKReminderViewController ()
 
-@property (strong, nonatomic) GGKReminderTableViewDataSourceAndDelegate *reminderTableViewDataSourceAndDelegate;
+@property (strong, nonatomic) GGKReminderTableViewDataSource *reminderTableViewDataSourceAndDelegate;
 - (void)updateUI;
 
 //// For updating the view at regular intervals.
@@ -149,7 +149,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.reminderTableViewDataSourceAndDelegate = [[GGKReminderTableViewDataSourceAndDelegate alloc] initWithTableView:self.tableView];
+    self.reminderTableViewDataSourceAndDelegate = [[GGKReminderTableViewDataSource alloc] initWithTableView:self.tableView];
 //    [self updateUI];
 }
 //- (void)viewWillDisappear:(BOOL)animated

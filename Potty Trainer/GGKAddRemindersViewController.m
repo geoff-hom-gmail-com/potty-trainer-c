@@ -8,12 +8,12 @@
 
 #import "GGKAddRemindersViewController.h"
 
-#import "GGKReminderTableViewDataSourceAndDelegate.h"
+#import "GGKReminderTableViewDataSource.h"
 #import "GGKUtilities.h"
 #import "NSDate+GGKDate.h"
 @interface GGKAddRemindersViewController ()
 @property (strong, nonatomic) NSDate *defaultReminderDate;
-@property (strong, nonatomic) GGKReminderTableViewDataSourceAndDelegate *reminderTableViewDataSourceAndDelegate;
+@property (strong, nonatomic) GGKReminderTableViewDataSource *reminderTableViewDataSourceAndDelegate;
 - (void)deleteAllReminders;
 - (void)updateUI;
 @end
@@ -57,6 +57,9 @@
 - (void)refreshReminders {
     [self updateUI];
 }
+- (void)reminderTableViewDataSourceDidDeleteRow:(id)sender {
+    [self updateUI];
+}
 - (void)setReminderTimeViewControllerDidCancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -75,12 +78,16 @@
     // if switch is off, just 1 reminder
     NSString *aTitleString = @"Add it!";
     [self.addRemindersButton setTitle:aTitleString forState:UIControlStateNormal];
+    // If reminders, then allow editing.
+    NSArray *theLocalNotificationsArray = [UIApplication sharedApplication].scheduledLocalNotifications;
+    self.tableView.editing = ([theLocalNotificationsArray count] > 0);
     [self.tableView reloadData];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.reminderTableViewDataSourceAndDelegate = [[GGKReminderTableViewDataSourceAndDelegate alloc] initWithTableView:self.tableView];
+    self.reminderTableViewDataSourceAndDelegate = [[GGKReminderTableViewDataSource alloc] initWithTableView:self.tableView];
+    self.reminderTableViewDataSourceAndDelegate.delegate = self;
     // Default reminder time: 20' from now.
     NSTimeInterval aTwentyMinutesFromNowTimeInterval = 20 * 60;
     self.defaultReminderDate = [NSDate dateWithTimeIntervalSinceNow:aTwentyMinutesFromNowTimeInterval];
