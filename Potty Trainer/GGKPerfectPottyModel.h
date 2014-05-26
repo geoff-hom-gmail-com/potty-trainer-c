@@ -23,6 +23,8 @@ extern NSString *GGKStarSymbolString;
 extern NSString *GGKXSymbolString;
 
 // Keys for saving data.
+// Time for first reminder, in seconds after midnight.
+extern NSString *GGKFirstReminderSecondsAfterMidnightIntegerKeyString;
 // Last possible time for a repeating reminder, in seconds after midnight.
 extern NSString *GGKLastReminderSecondsAfterMidnightIntegerKeyString;
 extern NSString *GGKMinutesBetweenRemindersIntegerKeyString;
@@ -55,6 +57,9 @@ extern NSString *GGKStarRewardString;
 
 // Custom symbol to use, if any, for a new potty attempt.
 @property (strong, nonatomic) NSString *currentCustomSymbol;
+// Date for first reminder.
+// Custom accessors.
+@property (strong, nonatomic) NSDate *firstReminderDate;
 // Whether currently setting the first reminder time or the last.
 @property (assign, nonatomic) BOOL isSettingFirstReminderTime;
 // Last possible date for a repeating reminder. (May be earlier if interval doesn't fit evenly.)

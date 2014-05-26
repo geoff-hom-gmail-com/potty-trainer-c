@@ -10,7 +10,7 @@
 
 #import "GGKReminderTableViewDataSource.h"
 #import "GGKSetReminderTimeViewController.h"
-@interface GGKAddRemindersViewController : GGKViewController <GGKReminderTableViewDataSourceDelegate, GGKSetReminderTimeViewControllerDelegate>
+@interface GGKAddRemindersViewController : GGKViewController <GGKReminderTableViewDataSourceDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *addRemindersButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *deleteAllRemindersBarButtonItem;
 // To set last possible time for a reminder. (May be earlier if interval doesn't fit evenly.)
@@ -40,8 +40,8 @@
 - (void)refreshReminders;
 // Update UI.
 - (void)reminderTableViewDataSourceDidDeleteRow:(id)sender;
-// Dismiss with no change.
-- (void)setReminderTimeViewControllerDidCancel:(id)sender;
-// Change default reminder time.
-- (void)setReminderTimeViewControllerDidFinish:(id)sender;
+//// Dismiss with no change.
+//- (void)setReminderTimeViewControllerDidCancel:(id)sender;
+//// Change default reminder time.
+//- (void)setReminderTimeViewControllerDidFinish:(id)sender;
 @end

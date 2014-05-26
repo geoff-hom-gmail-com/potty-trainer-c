@@ -12,7 +12,7 @@
 #import "GGKUtilities.h"
 #import "NSDate+GGKDate.h"
 @interface GGKAddRemindersViewController ()
-// Date for first reminder.
+// Date for first reminder. The model's reminder can change over time, so this ensures the reminder matches what the user sees and expects.
 @property (strong, nonatomic) NSDate *firstReminderDate;
 @property (strong, nonatomic) GGKReminderTableViewDataSource *reminderTableViewDataSourceAndDelegate;
 - (void)deleteAllReminders;
@@ -64,15 +64,16 @@
 - (void)reminderTableViewDataSourceDidDeleteRow:(id)sender {
     [self updateUI];
 }
-- (void)setReminderTimeViewControllerDidCancel:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-- (void)setReminderTimeViewControllerDidFinish:(id)sender {
-    GGKSetReminderTimeViewController *aSetReminderTimeViewController = sender;
-    self.firstReminderDate = aSetReminderTimeViewController.datePicker.date;
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+//- (void)setReminderTimeViewControllerDidCancel:(id)sender {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
+//- (void)setReminderTimeViewControllerDidFinish:(id)sender {
+//    GGKSetReminderTimeViewController *aSetReminderTimeViewController = sender;
+//    self.firstReminderDate = aSetReminderTimeViewController.datePicker.date;
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 - (void)updateUI {
+    self.firstReminderDate = self.perfectPottyModel.firstReminderDate;
     if ([[UIApplication sharedApplication].scheduledLocalNotifications count] == 0) {
         self.deleteAllRemindersBarButtonItem.enabled = NO;
     } else {
@@ -112,9 +113,6 @@
     // Do any additional setup after loading the view.
     self.reminderTableViewDataSourceAndDelegate = [[GGKReminderTableViewDataSource alloc] initWithTableView:self.tableView];
     self.reminderTableViewDataSourceAndDelegate.delegate = self;
-    // Default reminder time: 20' from now.
-    NSTimeInterval aTwentyMinutesFromNowTimeInterval = 20 * 60;
-    self.firstReminderDate = [NSDate dateWithTimeIntervalSinceNow:aTwentyMinutesFromNowTimeInterval];
     [GGKUtilities addBorderToView:self.addRemindersButton];
 }
 @end

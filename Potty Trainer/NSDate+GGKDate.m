@@ -41,8 +41,7 @@
     return theComparisonResult;
 }
 
-- (BOOL)dateIsToday
-{
+- (BOOL)dateIsToday {
     BOOL dateIsToday = NO;
     
     NSDate *todayDate = [NSDate date];
@@ -57,7 +56,15 @@
     
     return dateIsToday;
 }
-
+- (NSDate *)dateWithTime:(NSInteger)theSecondsAfterMidnightInteger {
+    NSDate *aTodayDate = [NSDate date];
+    NSCalendar *aCalendar = [NSCalendar currentCalendar];
+    NSUInteger aSpecificDayCalendarUnit = (NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit);
+    NSDateComponents *aSpecificDayDateComponents = [aCalendar components:aSpecificDayCalendarUnit fromDate:aTodayDate];
+    NSDate *aMidnightTodayDate = [aCalendar dateFromComponents:aSpecificDayDateComponents];
+    NSDate *aDate = [aMidnightTodayDate dateByAddingTimeInterval:theSecondsAfterMidnightInteger];
+    return aDate;
+}
 - (NSString *)hourMinuteAMPMString
 {
     NSString *hourMinuteAMPMDateFormatString = [NSDateFormatter dateFormatFromTemplate:@"hmma" options:0 locale:[NSLocale currentLocale]];
@@ -91,5 +98,12 @@
     NSString *theDateString = [dateFormatter stringFromDate:self];
     return theDateString;
 }
-
+- (NSInteger)secondsAfterMidnightInteger {
+    NSCalendar *aCalendar = [NSCalendar currentCalendar];
+    NSUInteger aTimeCalendarUnit = (NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit);
+    NSDateComponents *aTimeDateComponents = [aCalendar components:aTimeCalendarUnit fromDate:self];
+    // 1 h = 60 min * 60 s / min. 1 min = 60 s.
+    NSInteger theSecondsAfterMidnightInteger = aTimeDateComponents.hour * 60 * 60 + aTimeDateComponents.minute * 60 + aTimeDateComponents.second;
+    return theSecondsAfterMidnightInteger;
+}
 @end

@@ -158,9 +158,11 @@ NSString *GGKHasLaunchedBeforeKeyString = @"Has launched before?";
     self.localNotificationWasRecentlyReceived = NO;
 }
 - (void)registerDefaults {
+    // 9 AM = 9 h * 60 min / h * 60 s / min.
+    NSInteger a9AMInSecondsAfterMidnightInteger = 9 * 60 * 60;
     // 8 PM = 20 h * 60 min / h * 60 s / min.
     NSInteger an8PMInSecondsAfterMidnightInteger = 20 * 60 * 60;
-    NSDictionary *aDefaultsDictionary = @{GGKEnableMusicBOOLKeyString:@YES, GGKHasLaunchedBeforeKeyString:@YES, GGKMinutesBetweenRemindersIntegerKeyString:@30,GGKLastReminderSecondsAfterMidnightIntegerKeyString:[NSNumber numberWithInteger:an8PMInSecondsAfterMidnightInteger]};
+    NSDictionary *aDefaultsDictionary = @{GGKEnableMusicBOOLKeyString:@YES, GGKHasLaunchedBeforeKeyString:@YES, GGKFirstReminderSecondsAfterMidnightIntegerKeyString:[NSNumber numberWithInteger:a9AMInSecondsAfterMidnightInteger], GGKMinutesBetweenRemindersIntegerKeyString:@30,GGKLastReminderSecondsAfterMidnightIntegerKeyString:[NSNumber numberWithInteger:an8PMInSecondsAfterMidnightInteger]};
     [[NSUserDefaults standardUserDefaults] registerDefaults:aDefaultsDictionary];
 }
 @end

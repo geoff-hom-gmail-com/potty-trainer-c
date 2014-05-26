@@ -23,6 +23,7 @@ NSString *GGKXSymbolString = @"\u2718";
 NSString *GGKChildrenKeyString = @"Children data";
 // Key for storing ID of current child.
 NSString *GGKCurrentChildIDNumberKeyString = @"Current child ID number";
+NSString *GGKFirstReminderSecondsAfterMidnightIntegerKeyString = @"First-reminder, seconds-after-midnight integer";
 NSString *GGKLastReminderSecondsAfterMidnightIntegerKeyString = @"Last-reminder, seconds-after-midnight integer";
 NSString *GGKMinutesBetweenRemindersIntegerKeyString = @"Minutes-between-reminders integer";
 // Key for storing the most-recent custom symbol used.
@@ -55,20 +56,31 @@ NSString *GGKStarRewardString = @"\u2b50";
 
 @implementation GGKPerfectPottyModel
 // Custom accessors.
+- (NSDate *)firstReminderDate {
+    NSInteger theSecondsAfterMidnightInteger = [[NSUserDefaults standardUserDefaults] integerForKey:GGKFirstReminderSecondsAfterMidnightIntegerKeyString];
+    NSDate *theFirstReminderDate = [[NSDate date] dateWithTime:theSecondsAfterMidnightInteger];
+    // If date is past by delta1 (i.e., delta1 before now), use current time + delta2.
+    // Delta1 = 90 s.
+    NSDate *aNowDate = [NSDate date];
+    NSComparisonResult aComparisonResult = [theFirstReminderDate compare:[aNowDate dateByAddingTimeInterval:-90]];
+    if (aComparisonResult == NSOrderedAscending) {
+        // Delta2 = 20 min.
+        theFirstReminderDate = [aNowDate dateByAddingTimeInterval:(60 * 20)];
+        self.firstReminderDate = theFirstReminderDate;
+    }
+    return theFirstReminderDate;
+}
+- (void)setFirstReminderDate:(NSDate *)theFirstReminderDate {
+    NSInteger theSecondsAfterMidnightInteger = [theFirstReminderDate secondsAfterMidnightInteger];
+    [[NSUserDefaults standardUserDefaults] setInteger:theSecondsAfterMidnightInteger forKey:GGKFirstReminderSecondsAfterMidnightIntegerKeyString];
+}
 - (NSDate *)lastReminderDate {
     NSInteger theSecondsAfterMidnightInteger = [[NSUserDefaults standardUserDefaults] integerForKey:GGKLastReminderSecondsAfterMidnightIntegerKeyString];
-    NSDate *aTodayDate = [NSDate date];
-    NSCalendar *aCalendar = [NSCalendar autoupdatingCurrentCalendar];
-    NSUInteger aCalendarUnit = (NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit);
-    NSDate *aMidnightTodayDate = [aCalendar dateFromComponents:[aCalendar components:aCalendarUnit fromDate:aTodayDate]];
-    NSDate *theLastReminderDate = [aMidnightTodayDate dateByAddingTimeInterval:theSecondsAfterMidnightInteger];
+    NSDate *theLastReminderDate = [[NSDate date] dateWithTime:theSecondsAfterMidnightInteger];
     return theLastReminderDate;
 }
 - (void)setLastReminderDate:(NSDate *)theLastReminderDate {
-    NSCalendar *aCalendar = [NSCalendar autoupdatingCurrentCalendar];
-    NSUInteger aCalendarUnit = (NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit);
-    NSDateComponents *aDateComponents = [aCalendar components:aCalendarUnit fromDate:theLastReminderDate];
-    NSInteger theSecondsAfterMidnightInteger = aDateComponents.hour * 60 * 60 + aDateComponents.minute * 60 + aDateComponents.second;
+    NSInteger theSecondsAfterMidnightInteger = [theLastReminderDate secondsAfterMidnightInteger];
     [[NSUserDefaults standardUserDefaults] setInteger:theSecondsAfterMidnightInteger forKey:GGKLastReminderSecondsAfterMidnightIntegerKeyString];
 }
 - (NSInteger)minutesBetweenRemindersInteger {
