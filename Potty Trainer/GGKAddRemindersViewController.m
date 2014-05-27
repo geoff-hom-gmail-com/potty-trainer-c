@@ -21,12 +21,31 @@
 @implementation GGKAddRemindersViewController
 - (IBAction)addReminders {
     // Schedule notification(s).
+    NSLog(@"ARVC aR1");
     UILocalNotification *aLocalNotification = [[UILocalNotification alloc] init];
     aLocalNotification.fireDate = self.firstReminderDate;
     aLocalNotification.timeZone = [NSTimeZone defaultTimeZone];
-    aLocalNotification.alertBody = @"Potty time? (Wash hands.)";
-    aLocalNotification.soundName = [GGKReminderSoundPrefixString stringByAppendingString:@".caf"];
+    NSString *theAlertBodyString = @"Potty time? (Wash hands.)";
+    aLocalNotification.alertBody = theAlertBodyString;
+    NSString *theSoundNameString = [GGKReminderSoundPrefixString stringByAppendingString:@".caf"];
+    aLocalNotification.soundName = theSoundNameString;
     [[UIApplication sharedApplication] scheduleLocalNotification:aLocalNotification];
+    if (self.repeatReminderSwitch.on) {
+        NSTimeInterval theSecondsBetweenRemindersTimeInterval = self.perfectPottyModel.minutesBetweenRemindersInteger * 60;
+        NSDate *aReminderDate = [self.firstReminderDate dateByAddingTimeInterval:theSecondsBetweenRemindersTimeInterval];
+        NSComparisonResult aComparisonResult = [aReminderDate compare:self.perfectPottyModel.lastReminderDate];
+        while (aComparisonResult == NSOrderedAscending || aComparisonResult == NSOrderedSame) {
+            aLocalNotification = [[UILocalNotification alloc] init];
+            aLocalNotification.fireDate = aReminderDate;
+            aLocalNotification.timeZone = [NSTimeZone defaultTimeZone];
+            aLocalNotification.alertBody = theAlertBodyString;
+            aLocalNotification.soundName = theSoundNameString;
+            [[UIApplication sharedApplication] scheduleLocalNotification:aLocalNotification];
+            aReminderDate = [aReminderDate dateByAddingTimeInterval:theSecondsBetweenRemindersTimeInterval];
+            aComparisonResult = [aReminderDate compare:self.perfectPottyModel.lastReminderDate];
+        }
+    }
+    NSLog(@"ARVC aR2");
     [self updateUI];
 }
 - (void)alertView:(UIAlertView *)theAlertView clickedButtonAtIndex:(NSInteger)theButtonIndex {
