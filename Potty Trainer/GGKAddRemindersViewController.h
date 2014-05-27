@@ -9,7 +9,6 @@
 #import "GGKViewController.h"
 
 #import "GGKReminderTableViewDataSource.h"
-#import "GGKSetReminderTimeViewController.h"
 @interface GGKAddRemindersViewController : GGKViewController <GGKReminderTableViewDataSourceDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *addRemindersButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *deleteAllRemindersBarButtonItem;
@@ -42,10 +41,4 @@
 - (void)reminderTableViewDataSourceDidDeleteRow:(id)sender;
 // Update model. Dismiss keyboard.
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField;
-
-
-//// Dismiss with no change.
-//- (void)setReminderTimeViewControllerDidCancel:(id)sender;
-//// Change default reminder time.
-//- (void)setReminderTimeViewControllerDidFinish:(id)sender;
 @end

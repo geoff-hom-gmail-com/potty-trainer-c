@@ -21,8 +21,6 @@ NSString *GGKHasLaunchedBeforeKeyString = @"Has launched before?";
 @property (assign, nonatomic) BOOL localNotificationWasRecentlyReceived;
 // Sound to play for a reminder alert.
 @property (assign, nonatomic) SystemSoundID reminderSound;
-// If it's the first time this app has been launched, do stuff. (E.g., initialize with default data.)
-//- (void)handleIfFirstLaunch;
 // So, reset that flag.
 - (void)noteThatLocalNotificationsNotReceivedRecently;
 // Register default values.
@@ -45,11 +43,7 @@ NSString *GGKHasLaunchedBeforeKeyString = @"Has launched before?";
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    NSLog(@"PTAD a dFLWO1");
-    
     [self registerDefaults];
-//    [self handleIfFirstLaunch];
-    
     // Show splash image, then fade it out.
     // Get proper image: Check if non-retina. Else, check if 3.5" retina. Else, assume 4" retina.
     NSString *theImageFilename;
@@ -70,7 +64,6 @@ NSString *GGKHasLaunchedBeforeKeyString = @"Has launched before?";
     } completion:^(BOOL finished) {
         [anImageView removeFromSuperview];
     }];
-    
 #define TESTING 1
 #ifdef TESTING
 //    NSLog(@"identifierForVendor: %@", [[UIDevice currentDevice] identifierForVendor]);
@@ -80,17 +73,13 @@ NSString *GGKHasLaunchedBeforeKeyString = @"Has launched before?";
     NSLog(@"Name:%@", [[UIDevice currentDevice] name]);
     NSLog(@"Localized model:%@", [[UIDevice currentDevice] localizedModel]);
     NSLog(@"System name:%@; system version:%@", [[UIDevice currentDevice] systemName], [[UIDevice currentDevice] systemVersion]);
-    
     self.musicModel = [[GGKMusicModel alloc] init];
     self.soundModel = [[GGKSoundModel alloc] init];
     self.perfectPottyModel = [[GGKPerfectPottyModel alloc] init];
-    
     [self noteThatLocalNotificationsNotReceivedRecently];
-    
     GGKInAppPurchaseObserver *theInAppPurchaseHelper = [[GGKInAppPurchaseObserver alloc] init];
     [[SKPaymentQueue defaultQueue] addTransactionObserver:theInAppPurchaseHelper];
     self.inAppPurchaseObserver = theInAppPurchaseHelper;
-    
     return YES;
 }
 - (void)application:(UIApplication *)theApplication didReceiveLocalNotification:(UILocalNotification *)theNotification {
@@ -141,19 +130,6 @@ NSString *GGKHasLaunchedBeforeKeyString = @"Has launched before?";
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-//- (void)handleIfFirstLaunch {
-//    // Check for a stored BOOL. If the first launch, it will be NO. So we'll do stuff and then set that to YES.
-//    BOOL hasLaunchedBefore = [[NSUserDefaults standardUserDefaults] boolForKey:GGKHasLaunchedBeforeKeyString];
-//    // Uncomment this to reset defaults.
-////        hasLaunchedBefore = NO;
-//    if (!hasLaunchedBefore) {
-//        // Set defaults.
-//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:GGKEnableMusicBOOLKeyString];
-//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:GGKHasLaunchedBeforeKeyString];
-//        [[NSUserDefaults standardUserDefaults] setInteger:30 forKey:GGKMinutesBetweenRemindersIntegerKeyString];
-//        [[NSUserDefaults standardUserDefaults] setInteger:30 forKey:GGKLastReminderSecondsAfterMidnightIntegerKeyString];
-//    }
-//}
 - (void)noteThatLocalNotificationsNotReceivedRecently {
     self.localNotificationWasRecentlyReceived = NO;
 }

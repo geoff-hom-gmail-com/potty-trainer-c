@@ -24,10 +24,9 @@
 @property (strong, nonatomic) GGKSoundModel *soundModel;
 @property (strong, nonatomic) UIWindow *window;
 
+// If the reminder alert, stop alert sound. If top view shows reminder list, refresh the list.
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
-// So, if the reminder alert, stop any alert sound.
-
+// Check if the app was active. If so, show an alert similar to the notification.
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification;
-// So, check if the app was active. If so, show an alert similar to the notification.
 
 @end

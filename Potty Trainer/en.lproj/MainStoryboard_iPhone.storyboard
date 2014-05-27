@@ -233,6 +233,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Reminders" id="zu3-gc-bNx">
+                        <barButtonItem key="backBarButtonItem" title="back" id="u8Z-4g-JdC"/>
                         <barButtonItem key="rightBarButtonItem" title="Delete All" id="3W7-L2-N2l">
                             <connections>
                                 <action selector="handleDeleteAllRemindersTapped:" destination="i0a-Fa-xaN" id="DkK-RX-2C2"/>

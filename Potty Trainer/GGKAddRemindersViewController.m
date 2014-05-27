@@ -8,7 +8,6 @@
 
 #import "GGKAddRemindersViewController.h"
 
-#import "GGKReminderTableViewDataSource.h"
 #import "GGKUtilities.h"
 #import "NSDate+GGKDate.h"
 @interface GGKAddRemindersViewController ()
@@ -76,15 +75,6 @@
     [theTextField resignFirstResponder];
     return YES;
 }
-
-//- (void)setReminderTimeViewControllerDidCancel:(id)sender {
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
-//- (void)setReminderTimeViewControllerDidFinish:(id)sender {
-//    GGKSetReminderTimeViewController *aSetReminderTimeViewController = sender;
-//    self.firstReminderDate = aSetReminderTimeViewController.datePicker.date;
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
 - (void)updateUI {
     self.firstReminderDate = self.perfectPottyModel.firstReminderDate;
     if ([[UIApplication sharedApplication].scheduledLocalNotifications count] == 0) {
