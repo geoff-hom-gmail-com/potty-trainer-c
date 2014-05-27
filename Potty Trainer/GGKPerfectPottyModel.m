@@ -35,6 +35,7 @@ NSString *GGKPottyAttemptSymbolStringKeyString = @"Potty-attempt symbol string";
 NSString *GGKPottyAttemptWasSuccessfulNumberKeyString = @"Potty-attempt-was-successful number";
 // Key for storing the number of minutes used for the previous reminder.
 NSString *GGKReminderMinutesNumberKeyString = @"Reminder-minutes number";
+NSString *GGKRepeatReminderBOOLKeyString = @"Repeat-reminder BOOL";
 // Key for storing the name of the color theme to show.
 NSString *GGKThemeKeyString = @"Theme";
 
@@ -60,18 +61,20 @@ NSString *GGKStarRewardString = @"\u2b50";
     NSInteger theSecondsAfterMidnightInteger = [[NSUserDefaults standardUserDefaults] integerForKey:GGKFirstReminderSecondsAfterMidnightIntegerKeyString];
     NSDate *theFirstReminderDate = [[NSDate date] dateWithTime:theSecondsAfterMidnightInteger];
     // If date is past by delta1 (i.e., delta1 before now), use current time + delta2.
-    // Delta1 = 90 s.
+    // Delta1 = 2 min.
     NSDate *aNowDate = [NSDate date];
-    NSComparisonResult aComparisonResult = [theFirstReminderDate compare:[aNowDate dateByAddingTimeInterval:-90]];
+    NSComparisonResult aComparisonResult = [theFirstReminderDate compare:[aNowDate dateByAddingTimeInterval:(-2 * 60)]];
     if (aComparisonResult == NSOrderedAscending) {
         // Delta2 = 20 min.
-        theFirstReminderDate = [aNowDate dateByAddingTimeInterval:(60 * 20)];
+        theFirstReminderDate = [aNowDate dateByAddingTimeInterval:(20 * 60)];
         self.firstReminderDate = theFirstReminderDate;
     }
     return theFirstReminderDate;
 }
 - (void)setFirstReminderDate:(NSDate *)theFirstReminderDate {
     NSInteger theSecondsAfterMidnightInteger = [theFirstReminderDate secondsAfterMidnightInteger];
+    // Round to nearest minute, but stay in seconds. User expects things to happen on the minute.
+    theSecondsAfterMidnightInteger = (theSecondsAfterMidnightInteger / 60) * 60;
     [[NSUserDefaults standardUserDefaults] setInteger:theSecondsAfterMidnightInteger forKey:GGKFirstReminderSecondsAfterMidnightIntegerKeyString];
 }
 - (NSDate *)lastReminderDate {
@@ -81,17 +84,23 @@ NSString *GGKStarRewardString = @"\u2b50";
 }
 - (void)setLastReminderDate:(NSDate *)theLastReminderDate {
     NSInteger theSecondsAfterMidnightInteger = [theLastReminderDate secondsAfterMidnightInteger];
+    // Round to nearest minute, but stay in seconds. User expects things to happen on the minute.
+    theSecondsAfterMidnightInteger = (theSecondsAfterMidnightInteger / 60) * 60;
     [[NSUserDefaults standardUserDefaults] setInteger:theSecondsAfterMidnightInteger forKey:GGKLastReminderSecondsAfterMidnightIntegerKeyString];
 }
 - (NSInteger)minutesBetweenRemindersInteger {
     NSInteger theMinutesBetweenRemindersInteger = [[NSUserDefaults standardUserDefaults] integerForKey:GGKMinutesBetweenRemindersIntegerKeyString];
-    if (theMinutesBetweenRemindersInteger == 0) {
-        theMinutesBetweenRemindersInteger = 30;
-    }
     return theMinutesBetweenRemindersInteger;
 }
 - (void)setMinutesBetweenRemindersInteger:(NSInteger)theMinutesBetweenRemindersInteger {
     [[NSUserDefaults standardUserDefaults] setInteger:theMinutesBetweenRemindersInteger forKey:GGKMinutesBetweenRemindersIntegerKeyString];
+}
+- (BOOL)repeatReminderBOOL {
+    BOOL theRepeatReminderBOOL = [[NSUserDefaults standardUserDefaults] boolForKey:GGKRepeatReminderBOOLKeyString];
+    return theRepeatReminderBOOL;
+}
+- (void)setRepeatReminderBOOL:(BOOL)theRepeatReminderBOOL {
+    [[NSUserDefaults standardUserDefaults] setBool:theRepeatReminderBOOL forKey:GGKRepeatReminderBOOLKeyString];
 }
 
 - (GGKChild *)addChildWithName:(NSString *)name
@@ -148,7 +157,7 @@ NSString *GGKStarRewardString = @"\u2b50";
                 [thePottyAttemptMutableArray addObject:thePottyAttemptDictionary];
             }
         }];
-        [thePottyAttemptDayMutableArray replaceObjectAtIndex:theIndexToInsertAttempt withObject:[thePottyAttemptMutableArray copy]];
+        thePottyAttemptDayMutableArray[theIndexToInsertAttempt] = [thePottyAttemptMutableArray copy];
         
     }    
     self.currentChild.pottyAttemptDayArray = [thePottyAttemptDayMutableArray copy];
@@ -306,7 +315,7 @@ NSString *GGKStarRewardString = @"\u2b50";
     if ([thePottyAttemptMutableArray count] == 0) {
         [thePottyAttemptDayMutableArray removeObjectAtIndex:theDayIndex];
     } else {
-        [thePottyAttemptDayMutableArray replaceObjectAtIndex:theDayIndex withObject:[thePottyAttemptMutableArray copy]];
+        thePottyAttemptDayMutableArray[theDayIndex] = [thePottyAttemptMutableArray copy];
     }
     self.currentChild.pottyAttemptDayArray = [thePottyAttemptDayMutableArray copy];
     [self saveChildren];
@@ -328,7 +337,7 @@ NSString *GGKStarRewardString = @"\u2b50";
 
 - (void)saveCurrentChildID
 {
-    NSNumber *currentChildIDNumber = [NSNumber numberWithInteger:self.currentChild.uniqueIDInteger];
+    NSNumber *currentChildIDNumber = @(self.currentChild.uniqueIDInteger);
     [[NSUserDefaults standardUserDefaults] setObject:currentChildIDNumber forKey:GGKCurrentChildIDNumberKeyString];
 }
 
@@ -339,14 +348,14 @@ NSString *GGKStarRewardString = @"\u2b50";
 
 - (void)saveNumberOfStarsPurchased
 {
-    NSNumber *theNumberOfStarsPurchasedNumber = [NSNumber numberWithInteger:self.numberOfStarsPurchasedInteger];
+    NSNumber *theNumberOfStarsPurchasedNumber = @(self.numberOfStarsPurchasedInteger);
     [[NSUserDefaults standardUserDefaults] setObject:theNumberOfStarsPurchasedNumber forKey:GGKNumberOfStarsPurchasedNumberKeyString];
 }
 
 - (void)saveReminderInterval
 {
     NSInteger theNumberOfReminderMinutesInteger = (self.reminderIncrementDateComponents.hour * 60) + self.reminderIncrementDateComponents.minute;
-    NSNumber *theNumberOfReminderMinutesNumber = [NSNumber numberWithInteger:theNumberOfReminderMinutesInteger];
+    NSNumber *theNumberOfReminderMinutesNumber = @(theNumberOfReminderMinutesInteger);
     [[NSUserDefaults standardUserDefaults] setObject:theNumberOfReminderMinutesNumber forKey:GGKReminderMinutesNumberKeyString];
 }
 

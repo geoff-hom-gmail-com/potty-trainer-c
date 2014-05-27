@@ -18,7 +18,7 @@
 - (NSDate *)dateWithTime:(NSInteger)theSecondsAfterMidnightInteger;
 // Return a string with the time. E.g., 3:52 PM.
 - (NSString *)hourMinuteAMPMString;
-// Return the number of minutes that this time is after the given time. Assumes the given time is on the same day and has at least hour and minute components. If this time is earlier, the result is negative.
+// Return the number of minutes that this time is after the given time. Assumes the given time is on the same day and has at least hour and minute components. If this time is earlier, the result is negative. Seconds are ignored.
 - (NSInteger)minutesAfterTime:(NSDateComponents *)theDateComponents;
 // Return a string with the month (abbreviated) and day. E.g., Feb 23.
 - (NSString *)monthDayString;

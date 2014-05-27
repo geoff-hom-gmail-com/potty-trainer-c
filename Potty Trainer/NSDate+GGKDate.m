@@ -28,13 +28,13 @@
     NSDateComponents *thisDateDateComponents = [gregorianCalendar components:aCalendarUnit fromDate:self];
     NSDateComponents *theDateDateComponents = [gregorianCalendar components:aCalendarUnit fromDate:theDate];
     
-    theComparisonResult = [[NSNumber numberWithInteger:thisDateDateComponents.year] compare:[NSNumber numberWithInteger:theDateDateComponents.year]];
+    theComparisonResult = [@(thisDateDateComponents.year) compare:@(theDateDateComponents.year)];
     if (theComparisonResult == NSOrderedSame) {
         
-        theComparisonResult = [[NSNumber numberWithInteger:thisDateDateComponents.month] compare:[NSNumber numberWithInteger:theDateDateComponents.month]];
+        theComparisonResult = [@(thisDateDateComponents.month) compare:@(theDateDateComponents.month)];
         if (theComparisonResult == NSOrderedSame) {
             
-            theComparisonResult = [[NSNumber numberWithInteger:thisDateDateComponents.day] compare:[NSNumber numberWithInteger:theDateDateComponents.day]];
+            theComparisonResult = [@(thisDateDateComponents.day) compare:@(theDateDateComponents.day)];
         }
     }
     
@@ -74,16 +74,13 @@
     return theDateString;
 }
 
-- (NSInteger)minutesAfterTime:(NSDateComponents *)theDateComponents
-{
+- (NSInteger)minutesAfterTime:(NSDateComponents *)theDateComponents {
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSCalendarUnit aCalendarUnit = NSMinuteCalendarUnit | NSHourCalendarUnit;
     NSDateComponents *thisDateDateComponents = [gregorianCalendar components:aCalendarUnit fromDate:self];
-    
     NSInteger theDateMinutes = theDateComponents.hour * 60 + theDateComponents.minute;
     NSInteger thisDateMinutes = thisDateDateComponents.hour * 60 + thisDateDateComponents.minute;
     NSInteger theMinutesAfterInteger = thisDateMinutes - theDateMinutes;
-    
     return theMinutesAfterInteger;
 }
 

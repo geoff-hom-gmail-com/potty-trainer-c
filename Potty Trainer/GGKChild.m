@@ -29,7 +29,7 @@
         
         self.nameString = @"Anonymous";
         
-        self.pottyAttemptDayArray = [NSArray array];
+        self.pottyAttemptDayArray = @[];
         
         GGKReward *aReward1 = [[GGKReward alloc] init];
         aReward1.numberOfSuccessesNeededInteger = 5;

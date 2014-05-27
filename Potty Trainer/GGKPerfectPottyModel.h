@@ -34,6 +34,8 @@ extern NSString *GGKPottyAttemptDateKeyString;
 extern NSString *GGKPottyAttemptSymbolStringKeyString;
 // Key for storing whether a potty attempt was successful. Object is a BOOL stored as an NSNumber.
 extern NSString *GGKPottyAttemptWasSuccessfulNumberKeyString;
+// Whether to add multiple reminders.
+extern NSString *GGKRepeatReminderBOOLKeyString;
 
 // String to identify the boy theme.
 extern NSString *GGKBoyThemeString;
@@ -47,21 +49,19 @@ extern NSString *GGKReminderSoundPrefixString;
 extern NSString *GGKStarRewardString;
 
 @interface GGKPerfectPottyModel : NSObject
-
 // All children being tracked.
 @property (strong, nonatomic) NSMutableArray *childrenMutableArray;
 // Which color theme to use.
 @property (strong, nonatomic) NSString *colorThemeString;
 // Child the parent is currently tracking.
 @property (strong, nonatomic) GGKChild *currentChild;
-
 // Custom symbol to use, if any, for a new potty attempt.
 @property (strong, nonatomic) NSString *currentCustomSymbol;
 // Date for first reminder.
 // Custom accessors.
 @property (strong, nonatomic) NSDate *firstReminderDate;
 // Whether currently setting the first reminder time or the last.
-@property (assign, nonatomic) BOOL isSettingFirstReminderTime;
+@property (assign, nonatomic) BOOL isSettingFirstReminderTimeBOOL;
 // Last possible date for a repeating reminder. (May be earlier if interval doesn't fit evenly.)
 // Custom accessors.
 @property (strong, nonatomic) NSDate *lastReminderDate;
@@ -72,6 +72,9 @@ extern NSString *GGKStarRewardString;
 @property (assign, nonatomic) NSInteger numberOfStarsPurchasedInteger;
 // The reminder is set using date components. I.e., time from the given date. 
 @property (strong, nonatomic) NSDateComponents *reminderIncrementDateComponents;
+// Whether to add multiple reminders.
+// Custom accessors.
+@property (assign, nonatomic) BOOL repeatReminderBOOL;
 // Create child with name. Add to database. Return child.
 - (GGKChild *)addChildWithName:(NSString *)name;
 // Add the given potty attempt to the current child.

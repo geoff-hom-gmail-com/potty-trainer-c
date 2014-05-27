@@ -52,7 +52,7 @@
         thePottyAttemptWasSuccessfulBOOL = YES;
     };
     NSDate *thePottyAttemptDate = self.datePicker.date;
-    NSNumber *thePottyAttemptWasSuccessfulNumber = [NSNumber numberWithBool:thePottyAttemptWasSuccessfulBOOL];
+    NSNumber *thePottyAttemptWasSuccessfulNumber = @(thePottyAttemptWasSuccessfulBOOL);
     // Version without custom symbols.
 //    NSDictionary *thePottyAttemptDictionary = @{GGKPottyAttemptDateKeyString:thePottyAttemptDate, GGKPottyAttemptWasSuccessfulNumberKeyString:thePottyAttemptWasSuccessfulNumber};
     // Get the selected symbol.

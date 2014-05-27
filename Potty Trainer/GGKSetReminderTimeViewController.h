@@ -9,7 +9,6 @@
 #import "GGKViewController.h"
 @interface GGKSetReminderTimeViewController : GGKViewController
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
-//@property (strong, nonatomic) NSDate *reminderDate;
 - (IBAction)handleDatePickerValueChanged:(id)sender;
 // Override.
 - (void)viewDidLoad;

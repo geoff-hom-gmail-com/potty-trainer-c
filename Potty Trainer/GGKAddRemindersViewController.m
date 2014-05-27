@@ -45,6 +45,7 @@
     [anAlertView show];
 }
 - (IBAction)handleRepeatReminderSwitchValueChanged {
+    self.perfectPottyModel.repeatReminderBOOL = self.repeatReminderSwitch.on;
     [self updateUI];
 }
 - (void)handleViewWillAppearToUser {
@@ -53,9 +54,9 @@
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender {
     if ([theSegue.identifier isEqualToString:@"SetFirstReminderTimeSegue"]) {
-        self.perfectPottyModel.isSettingFirstReminderTime = YES;
+        self.perfectPottyModel.isSettingFirstReminderTimeBOOL = YES;
     } else if ([theSegue.identifier isEqualToString:@"SetLastReminderTimeSegue"]) {
-        self.perfectPottyModel.isSettingFirstReminderTime = NO;
+        self.perfectPottyModel.isSettingFirstReminderTimeBOOL = NO;
     }
 }
 - (void)refreshReminders {
@@ -64,6 +65,18 @@
 - (void)reminderTableViewDataSourceDidDeleteRow:(id)sender {
     [self updateUI];
 }
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    // Update model.
+    // Convert string to integer. If invalid or 0, don't update.
+    NSInteger anInteger = [theTextField.text integerValue];
+    if (anInteger >= 1) {
+        self.perfectPottyModel.minutesBetweenRemindersInteger = anInteger;
+    }
+    [self updateUI];
+    [theTextField resignFirstResponder];
+    return YES;
+}
+
 //- (void)setReminderTimeViewControllerDidCancel:(id)sender {
 //    [self dismissViewControllerAnimated:YES completion:nil];
 //}
@@ -85,15 +98,21 @@
     [self.lastReminderTimeButton setTitle:aTimeString forState:UIControlStateNormal];
     [self.lastReminderTimeButton setTitle:aTimeString forState:UIControlStateDisabled];
     NSString *theAddRemindersButtonTitleString;
+    self.repeatReminderSwitch.on = self.perfectPottyModel.repeatReminderBOOL;
     if (self.repeatReminderSwitch.on) {
         self.repeatEveryLabel.enabled = YES;
         self.minutesBetweenRemindersTextField.enabled = YES;
         self.minutesBetweenRemindersTextField.textColor = [UIColor blackColor];
         self.minutesUntilLabel.enabled = YES;
         self.lastReminderTimeButton.enabled = YES;
-        // # reminders = [(final time - start time) in minutes / repeat interval] + 1
-        NSUInteger theNumberOfReminders = ([self.perfectPottyModel.lastReminderDate timeIntervalSinceDate:self.firstReminderDate] / 60 / self.perfectPottyModel.minutesBetweenRemindersInteger) + 1;
-        theAddRemindersButtonTitleString = [NSString stringWithFormat:@"Add %d!", theNumberOfReminders];
+        // # extra reminders = [(last time - first time) in minutes / repeat interval].
+        NSUInteger theNumberOfRemindersInteger = 1;
+        NSInteger theNumberOfExtraRemindersInteger = ([self.perfectPottyModel.lastReminderDate timeIntervalSinceDate:self.firstReminderDate] / 60 / self.perfectPottyModel.minutesBetweenRemindersInteger);
+        // If last time is before first time, then above will be negative but should be treated as 0. So we'll ignore it.
+        if (theNumberOfExtraRemindersInteger >= 1) {
+            theNumberOfRemindersInteger += theNumberOfExtraRemindersInteger;
+        }
+        theAddRemindersButtonTitleString = [NSString stringWithFormat:@"Add %d!", theNumberOfRemindersInteger];
     } else {
         self.repeatEveryLabel.enabled = NO;
         self.minutesBetweenRemindersTextField.enabled = NO;
