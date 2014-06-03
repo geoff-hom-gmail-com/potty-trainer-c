@@ -56,20 +56,13 @@
 		93C95EE818E1835C006A2D33 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C95EE218E1835C006A2D33 /* libTestFlight.a */; };
 		93C95EE918E1835C006A2D33 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 93C95EE318E1835C006A2D33 /* README.md */; };
 		93C95EEA18E1835C006A2D33 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 93C95EE418E1835C006A2D33 /* release_notes.md */; };
+		93D413CF193DEFE10064F04A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D413CE193DEFE10064F04A /* Images.xcassets */; };
 		93DD9EA918A09A0300F09E21 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DD9EA618A09A0300F09E21 /* Default-568h@2x.png */; };
 		93DD9EAA18A09A0300F09E21 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DD9EA718A09A0300F09E21 /* Default.png */; };
 		93DD9EAB18A09A0300F09E21 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DD9EA818A09A0300F09E21 /* Default@2x.png */; };
 		93DE8C0716E7F36000AA87FF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DE8C0616E7F36000AA87FF /* StoreKit.framework */; };
 		93DE8C0D16E8074800AA87FF /* GGKInAppPurchaseObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DE8C0C16E8074800AA87FF /* GGKInAppPurchaseObserver.m */; };
 		93DE8C0F16E87A2400AA87FF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DE8C0E16E87A2400AA87FF /* MessageUI.framework */; };
-		93DE8C1216E898C700AA87FF /* icon2-29px.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1116E898C700AA87FF /* icon2-29px.png */; };
-		93DE8C1416E8995200AA87FF /* icon2-29px@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1316E8995200AA87FF /* icon2-29px@2x.png */; };
-		93DE8C1616E8999A00AA87FF /* icon2-50px.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1516E8999A00AA87FF /* icon2-50px.png */; };
-		93DE8C1816E899CE00AA87FF /* icon2-50px@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1716E899CE00AA87FF /* icon2-50px@2x.png */; };
-		93DE8C1D16E89A7E00AA87FF /* icon2-57px.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1916E89A7E00AA87FF /* icon2-57px.png */; };
-		93DE8C1E16E89A7E00AA87FF /* icon2-57px@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1A16E89A7E00AA87FF /* icon2-57px@2x.png */; };
-		93DE8C1F16E89A7E00AA87FF /* icon2-72px.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1B16E89A7E00AA87FF /* icon2-72px.png */; };
-		93DE8C2016E89A7E00AA87FF /* icon2-72px@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DE8C1C16E89A7E00AA87FF /* icon2-72px@2x.png */; };
 		93EC0077193362EA008ED500 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93EC0076193362EA008ED500 /* QuartzCore.framework */; };
 		93F00CB918B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93F00CB818B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a */; };
 		93F6EBE218EC06B600BC5806 /* GGKSameValueSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F6EBE118EC06B600BC5806 /* GGKSameValueSegmentedControl.m */; };
@@ -163,6 +156,7 @@
 		93C95EE518E1835C006A2D33 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		93C95EE618E1835C006A2D33 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		93C95EE718E1835C006A2D33 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		93D413CE193DEFE10064F04A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "../Perfect Potty Pal/Images.xcassets"; sourceTree = "<group>"; };
 		93DD9EA618A09A0300F09E21 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		93DD9EA718A09A0300F09E21 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		93DD9EA818A09A0300F09E21 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -170,14 +164,6 @@
 		93DE8C0B16E8074800AA87FF /* GGKInAppPurchaseObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKInAppPurchaseObserver.h; sourceTree = "<group>"; };
 		93DE8C0C16E8074800AA87FF /* GGKInAppPurchaseObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKInAppPurchaseObserver.m; sourceTree = "<group>"; };
 		93DE8C0E16E87A2400AA87FF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		93DE8C1116E898C700AA87FF /* icon2-29px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-29px.png"; path = "icons/icon2-29px.png"; sourceTree = "<group>"; };
-		93DE8C1316E8995200AA87FF /* icon2-29px@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-29px@2x.png"; path = "icons/icon2-29px@2x.png"; sourceTree = "<group>"; };
-		93DE8C1516E8999A00AA87FF /* icon2-50px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-50px.png"; path = "icons/icon2-50px.png"; sourceTree = "<group>"; };
-		93DE8C1716E899CE00AA87FF /* icon2-50px@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-50px@2x.png"; path = "icons/icon2-50px@2x.png"; sourceTree = "<group>"; };
-		93DE8C1916E89A7E00AA87FF /* icon2-57px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-57px.png"; path = "icons/icon2-57px.png"; sourceTree = "<group>"; };
-		93DE8C1A16E89A7E00AA87FF /* icon2-57px@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-57px@2x.png"; path = "icons/icon2-57px@2x.png"; sourceTree = "<group>"; };
-		93DE8C1B16E89A7E00AA87FF /* icon2-72px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-72px.png"; path = "icons/icon2-72px.png"; sourceTree = "<group>"; };
-		93DE8C1C16E89A7E00AA87FF /* icon2-72px@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon2-72px@2x.png"; path = "icons/icon2-72px@2x.png"; sourceTree = "<group>"; };
 		93EC0076193362EA008ED500 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		93F00CB818B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Perfect Potty - Potty Music.m4a"; path = "sounds/Perfect Potty - Potty Music.m4a"; sourceTree = "<group>"; };
 		93F6EBE018EC06B600BC5806 /* GGKSameValueSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSameValueSegmentedControl.h; sourceTree = "<group>"; };
@@ -343,7 +329,7 @@
 				93DD9EA718A09A0300F09E21 /* Default.png */,
 				93DD9EA818A09A0300F09E21 /* Default@2x.png */,
 				93BD16611761869400D32AA0 /* GGKPerfectPottyDescription.rtf */,
-				93DE8C1016E8987B00AA87FF /* icons */,
+				93D413CE193DEFE10064F04A /* Images.xcassets */,
 				937652B216C079CB007EA04C /* InfoPlist.strings */,
 				937652B516C079CB007EA04C /* main.m */,
 				937652B116C079CB007EA04C /* Perfect Potty Pal-Info.plist */,
@@ -364,21 +350,6 @@
 				93C95EE718E1835C006A2D33 /* TestFlight.h */,
 			);
 			path = TestFlightSDK3;
-			sourceTree = "<group>";
-		};
-		93DE8C1016E8987B00AA87FF /* icons */ = {
-			isa = PBXGroup;
-			children = (
-				93DE8C1316E8995200AA87FF /* icon2-29px@2x.png */,
-				93DE8C1116E898C700AA87FF /* icon2-29px.png */,
-				93DE8C1716E899CE00AA87FF /* icon2-50px@2x.png */,
-				93DE8C1516E8999A00AA87FF /* icon2-50px.png */,
-				93DE8C1916E89A7E00AA87FF /* icon2-57px.png */,
-				93DE8C1A16E89A7E00AA87FF /* icon2-57px@2x.png */,
-				93DE8C1B16E89A7E00AA87FF /* icon2-72px.png */,
-				93DE8C1C16E89A7E00AA87FF /* icon2-72px@2x.png */,
-			);
-			name = icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,21 +407,14 @@
 				937652B416C079CB007EA04C /* InfoPlist.strings in Resources */,
 				937652C316C079CB007EA04C /* MainStoryboard_iPhone.storyboard in Resources */,
 				937652C616C079CB007EA04C /* MainStoryboard_iPad.storyboard in Resources */,
-				93DE8C1216E898C700AA87FF /* icon2-29px.png in Resources */,
-				93DE8C1416E8995200AA87FF /* icon2-29px@2x.png in Resources */,
-				93DE8C1616E8999A00AA87FF /* icon2-50px.png in Resources */,
-				93DE8C1816E899CE00AA87FF /* icon2-50px@2x.png in Resources */,
-				93DE8C1D16E89A7E00AA87FF /* icon2-57px.png in Resources */,
 				938A774118E1389100ADE967 /* tap-mono-s16K.caf in Resources */,
-				93DE8C1E16E89A7E00AA87FF /* icon2-57px@2x.png in Resources */,
+				93D413CF193DEFE10064F04A /* Images.xcassets in Resources */,
 				93DD9EAA18A09A0300F09E21 /* Default.png in Resources */,
 				93DD9EAB18A09A0300F09E21 /* Default@2x.png in Resources */,
 				93DD9EA918A09A0300F09E21 /* Default-568h@2x.png in Resources */,
 				93C95EEA18E1835C006A2D33 /* release_notes.md in Resources */,
 				93F00CB918B2EB8100EBE8D4 /* Perfect Potty - Potty Music.m4a in Resources */,
-				93DE8C1F16E89A7E00AA87FF /* icon2-72px.png in Resources */,
 				938A774318E142F500ADE967 /* reminder1-mono-s16K.caf in Resources */,
-				93DE8C2016E89A7E00AA87FF /* icon2-72px@2x.png in Resources */,
 				93C95EE918E1835C006A2D33 /* README.md in Resources */,
 				93BD16621761869400D32AA0 /* GGKPerfectPottyDescription.rtf in Resources */,
 			);
@@ -596,6 +560,7 @@
 		937652CD16C079CB007EA04C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -616,6 +581,7 @@
 		937652CE16C079CB007EA04C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -665,6 +631,7 @@
 		937652D016C07CC9007EA04C /* User testing */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

@@ -21,11 +21,13 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>3.0.0 (build 2)</string>
+	<string>3.0.0 (build 3)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard_iPhone</string>
+	<key>UIPrerenderedIcon</key>
+	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -38,14 +40,5 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>icon2-29px</string>
-		<string>icon2-50px</string>
-		<string>icon2-57px</string>
-		<string>icon2-72px</string>
-	</array>
-	<key>UIPrerenderedIcon</key>
-	<true/>
 </dict>
 </plist>
