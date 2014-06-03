@@ -102,7 +102,7 @@
         self.deleteAllRemindersBarButtonItem.enabled = YES;
     }
     [self.reminderTimeButton setTitle:[self.firstReminderDate hourMinuteAMPMString] forState:UIControlStateNormal];
-    self.minutesBetweenRemindersTextField.text = [NSString stringWithFormat:@"%d", self.perfectPottyModel.minutesBetweenRemindersInteger];
+    self.minutesBetweenRemindersTextField.text = [NSString stringWithFormat:@"%ld", (long)self.perfectPottyModel.minutesBetweenRemindersInteger];
     NSString *aTimeString = [self.perfectPottyModel.lastReminderDate hourMinuteAMPMString];
     [self.lastReminderTimeButton setTitle:aTimeString forState:UIControlStateNormal];
     [self.lastReminderTimeButton setTitle:aTimeString forState:UIControlStateDisabled];
@@ -121,7 +121,7 @@
         if (theNumberOfExtraRemindersInteger >= 1) {
             theNumberOfRemindersInteger += theNumberOfExtraRemindersInteger;
         }
-        theAddRemindersButtonTitleString = [NSString stringWithFormat:@"Add %d!", theNumberOfRemindersInteger];
+        theAddRemindersButtonTitleString = [NSString stringWithFormat:@"Add %lu!", (unsigned long)theNumberOfRemindersInteger];
     } else {
         self.repeatEveryLabel.enabled = NO;
         self.minutesBetweenRemindersTextField.enabled = NO;
